@@ -1,0 +1,50 @@
+{
+  "konu": "1 gecelik düğün mü, 858.700 TL birikim mi? (Kasım 2026)",
+  "aci": "Düğün faturası − takı geliri vs bütçenin mevduat getirisi",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "1 GECELİK DÜĞÜN MÜ, 858.700 TL BİRİKİM Mİ?",
+  "not": "Gemini senaryosu BİREBİR (rakamlar ve kaynak adları değiştirilmedi); ajan denetimi için.",
+  "denetim_sorgulari": [
+    "düğün maliyeti 2026 250 kişilik ortalama",
+    "düğün salonu kişi başı fiyat 2026",
+    "çeyrek altın fiyatı Kasım 2026",
+    "düğün takı ortalama ne kadar 2026",
+    "mevduat faizi Kasım 2026",
+    "İTO düğün maliyeti 2026"
+  ],
+  "veri": {
+    "baslik": "Düğün mü, birikim mi? 250 kişilik düğün (Kasım 2026)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {"ad": "Düğün yapmak", "toplam_tl": 280000, "kalemler": [
+        {"kalem": "Mekan + yemek + kına/nişan", "tutar_tl": 460000, "aciklama": "250 kişilik orta segment", "kaynak": "İTO, TÜİK Hizmet Endeksi (Kasım 2026)", "tahmini": false},
+        {"kalem": "Gelinlik + damatlık + fotoğraf/müzik", "tutar_tl": 160000, "aciklama": "", "kaynak": "İTO, TÜİK Hizmet Endeksi (Kasım 2026)", "tahmini": false},
+        {"kalem": "Takı geliri", "tutar_tl": -340000, "aciklama": "Ortalama takı", "kaynak": "Borsa İstanbul Altın Verileri (Kasım 2026)", "tahmini": false}
+      ]},
+      {"ad": "Yatırım yapmak", "toplam_tl": 858700, "kalemler": [
+        {"kalem": "Düğün bütçesi", "tutar_tl": 620000, "aciklama": "", "kaynak": "", "tahmini": false},
+        {"kalem": "1 yıllık mevduat getirisi", "tutar_tl": 238700, "aciklama": "620.000 TL mevduatta", "kaynak": "TCMB Mevduat İstatistikleri (Kasım 2026)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": ["250 kişilik orta segment düğün"],
+    "kaynaklar": ["İTO", "TÜİK", "TCMB", "Borsa İstanbul"],
+    "sonuc": "Düğün yapmamak yıl sonunda 858.700 TL birikim bırakıyor.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "1 GECELİK DÜĞÜN MÜ, 858.700 TL BİRİKİM Mİ?", "metin": "Kasım 2026 ortalama düğün bilançosu",
+     "seslendirme": "Ortalama bir düğün yapmanın gerçek maliyetini hesapladık.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Mekan + yemek + kına/nişan: 460.000 TL", "metin": "Gelinlik + damatlık + fotoğraf/müzik: 160.000 TL",
+     "seslendirme": "İki yüz elli kişilik bir düğünde mekan, yemek, gelinlik, fotoğraf ve kına giderleri toplam altı yüz yirmi bin lirayı buluyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Düğün sonrası net açık: -280.000 TL", "metin": "Toplam fatura (620.000 TL) - takı (340.000 TL)",
+     "seslendirme": "Ortalama üç yüz kırk bin liralık takı gelirini düştüğümüzde bile geriye iki yüz seksen bin lira net açık kalıyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Yıl sonu net birikim: 858.700 TL", "metin": "620.000 TL bütçe + 1 yıllık mevduat getirisi",
+     "seslendirme": "Düğün bütçesini yatırımda tuttuğunda ise yıl sonunda sekiz yüz elli sekiz bin liran oluyor.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "Hayalindeki düğünü mü yaparsın, parayı ev peşinatı mı?", "metin": "Tarafını yorumda seç 👇",
+     "seslendirme": "Sen hangisini seçerdin?", "sure": 3.0}
+  ],
+  "caption": "1 gecelik düğün mü, 858.700 TL birikim mi?",
+  "hashtagler": ["gercekmaliyet", "dugun", "takı", "birikim", "kisiselfinans"],
+  "yorum_sorusu": "Hayalindeki düğünü mü yaparsın, parayı ev peşinatı mı?"
+}
