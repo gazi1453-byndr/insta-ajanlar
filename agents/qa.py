@@ -253,7 +253,8 @@ def av_sync(video: Path, check_length: bool = True) -> list[str]:
     turler = plan.get("turler") or []
     for i, nf in enumerate(plan["sahne_kareleri"], 1):
         animated = i <= len(turler) and turler[i - 1] in ("grafik", "reveal")  # sayaç/bar: sahne durağan değil
-        limit = longest + (3.0 if animated else 0.3)
+        # onaylı senaryolarda (check_length=False) tempo senaryodan gelir: +0.5 sn tolerans
+        limit = longest + (3.0 if animated else 0.3) + (0 if check_length else 0.5)
         if 1 < i < n and nf / fps > limit:
             issues.append(f"Sahne {i} çok uzun ({nf / fps:.1f} sn > {limit:.1f} sn): seslendirmesini kısalt (rakamları yuvarla, dolguyu at)")
     return issues
