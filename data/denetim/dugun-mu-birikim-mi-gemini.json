@@ -1,0 +1,134 @@
+{
+  "dosya": "data/senaryolar/dugun-mu-birikim-mi-gemini.json",
+  "tarih": "2026-11-27T22:02:08.033483+03:00",
+  "format_grafik_denetimi": [
+    "Tam olarak 1 'grafik' sahnesi olmalı (şu an 0)",
+    "Tam olarak 1 'reveal' (GERÇEK MALİYET) sahnesi olmalı (şu an 0)",
+    "Sahne sayısı 7-11 arası olmalı (şu an 5)"
+  ],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Düğün yapmak",
+          "kalem": "Mekan + yemek + kına/nişan: 460,000.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde 460.000,00 TL tutarını doğrulayan herhangi bir birebir veri veya formül bulunmamaktadır."
+        },
+        {
+          "secenek": "Düğün yapmak",
+          "kalem": "Gelinlik + damatlık + fotoğraf/müzik: 160,000.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde bu kalemin tutarını gösteren bir rakam veya hesaplama yöntemi yer almamaktadır."
+        },
+        {
+          "secenek": "Düğün yapmak",
+          "kalem": "Takı geliri: -340,000.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "-340.000,00 TL'lik takı gelirini doğrulayan bir kaynak verisi veya hesaplama metni bulunmamaktadır."
+        },
+        {
+          "secenek": "Yatırım yapmak",
+          "kalem": "Düğün bütçesi: 620,000.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde 620.000,00 TL tutarını destekleyen bir ifade veya formül bulunamamıştır."
+        },
+        {
+          "secenek": "Yatırım yapmak",
+          "kalem": "1 yıllık mevduat getirisi: 238,700.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Mevduat getirisini ve oranı doğrulayacak TCMB verisi kaynak metinlerde geçmemektedir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan rakamlar kaynak metinlerdeki verilerle ve formüllerle dogrudan eslesmedigi icin ilgili kalemler desteksiz olarak isaretlenmistir."
+    },
+    "sorunlar": [
+      "Düğün yapmak / Mekan + yemek + kına/nişan: 460,000.00 TL: kaynakta yok (Kaynak metinlerde 460.000,00 TL tutarını doğrulayan herhangi bir birebir veri veya formül bulunmamaktadır.)",
+      "Düğün yapmak / Gelinlik + damatlık + fotoğraf/müzik: 160,000.00 TL: kaynakta yok (Kaynak metinlerde bu kalemin tutarını gösteren bir rakam veya hesaplama yöntemi yer almamaktadır.)",
+      "Düğün yapmak / Takı geliri: -340,000.00 TL: kaynakta yok (-340.000,00 TL'lik takı gelirini doğrulayan bir kaynak verisi veya hesaplama metni bulunmamaktadır.)",
+      "Yatırım yapmak / Düğün bütçesi: 620,000.00 TL: kaynakta yok (Kaynak metinlerde 620.000,00 TL tutarını destekleyen bir ifade veya formül bulunamamıştır.)",
+      "Yatırım yapmak / 1 yıllık mevduat getirisi: 238,700.00 TL: kaynakta yok (Mevduat getirisini ve oranı doğrulayacak TCMB verisi kaynak metinlerde geçmemektedir.)"
+    ],
+    "bulunan_sayfa": [
+      "https://anayurtgazetesi.com/haber/29232502/dugun-hayali-hesap-isine-dondu",
+      "https://www.instagram.com/reel/DgLOpcGNOln",
+      "https://www.instagram.com/dugunsayaci/reel/DfEVgKGkioh?hl=zh-cn",
+      "https://www.trendyol.com/elektrikli-bisiklet-x-c110349",
+      "https://www.instagram.com/reel/DgNYI9TBinT",
+      "https://dugun.com/dugun-mekanlari/indirim?page=21&fromPagination=1",
+      "https://www.bloomberght.com/altin-fiyatlari-27-kasim-2026-cuma-gram-altin-ne-kadar-oldu-ceyrek-altin-kac-tlden-satiliyor-pkh1-3795901",
+      "https://uzmanpara.milliyet.com.tr/uzmanpara/altin-fiyatlari-bugun-ne-kadar-26-kasim-2026-gram-ceyrek-yarim-tam-altin-fiyatlari-kac-tl-7708196",
+      "https://www.cnnturk.com/ekonomi/altin-fiyatlari-27-kasim-2026-bugun-gram-ceyrek-cumhuriyet-ne-kadar-kapalicarsi-altin-fiyatlari-ne-durumda-3498847",
+      "https://www.cumhuriyet.com.tr/ekonomi/altin-fiyatlarinda-surpriz-yukselis-gram-ceyrek-ve-cumhuriyet-altini-bugun-ne-kadar-oldu-guncel-altin-fiyatlari-27-kasim-2026-cuma-2559824",
+      "https://www.facebook.com/senem.gengec/videos/-tak%C4%B1-al%C4%B1%C5%9Fveri%C5%9Finde-bu-fiyatlar%C4%B1-ka%C3%A7%C4%B1rmay%C4%B1n-d%C3%BC%C4%9F%C3%BCn-ni%C5%9Fan-tak%C4%B1-setleri-gram%C4%B1-4600-/1166567622718847",
+      "https://www.hepsiburada.com/abiye-ayakkabi-c-60000800",
+      "https://www.instagram.com/reel/DfpOrZ1I9Dr",
+      "https://www.instagram.com/reel/DfzoMgPGQZM?hl=ja",
+      "https://www.instagram.com/p/DfpP7-3m_fq",
+      "https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+      "https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu",
+      "https://www.cnnturk.com/ekonomi/mevduat-faizi-hesaplama-1-milyon-tlnin-aylik-getirisi-belli-oldu-banka-banka-guncel-getiri-tablosu-3487870"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 62.6,
+    "ikincil": 26.1,
+    "vurgu": 6.4,
+    "yazi": 4.9
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 15,
+      "deger": 10,
+      "rakam_dogrulugu": 5,
+      "akis_ve_tutma": 5,
+      "ozgunluk": 5,
+      "platform_metinleri": 3,
+      "gorsel_okunurluk": 5
+    },
+    "toplam": 48,
+    "karar": "RED",
+    "tutar_mi": "Konu çok güncel ve yüksek tartışma potansiyeline sahip olsa da, kaynak denetim raporunda tüm ana kalemlerin desteksiz olduğu belirtilmiştir. Rakam doğruluğu kuralları gereği kaynaksız veri içeren içerikler onaylanamaz.",
+    "rakam_hatalari": [
+      "Kaynakta yok: Düğün yapmak / Mekan + yemek + kına/nişan: 460,000.00 TL",
+      "Kaynakta yok: Düğün yapmak / Gelinlik + damatlık + fotoğraf/müzik: 160,000.00 TL",
+      "Kaynakta yok: Düğün yapmak / Takı geliri: -340,000.00 TL",
+      "Kaynakta yok: Yatırım yapmak / Düğün bütçesi: 620,000.00 TL",
+      "Kaynakta yok: Yatırım yapmak / 1 yıllık mevduat getirisi: 238,700.00 TL",
+      "Mekan + yemek + kına/nişan: 460,000.00 TL (Kaynak doğrulayıcı raporda desteksiz)",
+      "Gelinlik + damatlık + fotoğraf/müzik: 160,000.00 TL (Kaynak doğrulayıcı raporda desteksiz)",
+      "Takı geliri: -340,000.00 TL (Kaynak doğrulayıcı raporda desteksiz)",
+      "Düğün bütçesi: 620,000.00 TL (Kaynak doğrulayıcı raporda desteksiz)",
+      "1 yıllık mevduat getirisi: 238,700.00 TL (Kaynak doğrulayıcı raporda desteksiz)"
+    ],
+    "geri_bildirim": "Tüm maliyet kalemlerinin ve getiri oranlarının resmi ve doğrulanabilir kaynaklara bağlanması gerekmektedir. Kaynaksız verilerle hazırlanan bu taslak REDdedilmiştir."
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 48,
+    "karar": "RED",
+    "gerekce": "Otomatik RED: 5 kalem kaynakta yok (Düğün yapmak / Mekan + yemek + kına/nişan: 460,000.00 TL; Düğün yapmak / Gelinlik + damatlık + fotoğraf/müzik: 160,000.00 TL; Düğün yapmak / Takı geliri: -340,000.00 TL; Yatırım yapmak / Düğün bütçesi: 620,000.00 TL; Yatırım yapmak / 1 yıllık mevduat getirisi: 238,700.00 TL). Kaynak denetim raporunda maliyet kalemlerinin ve getiri oranlarının doğrulanamadığı açıkça belirtilmiştir. Marka kurallarımıza göre kaynaksız veri içeren içerikler yayınlanamaz.",
+    "duzeltmeler": [
+      "Kaynak göster ya da 'tahmini' işaretle: Düğün yapmak / Mekan + yemek + kına/nişan: 460,000.00 TL",
+      "Kaynak göster ya da 'tahmini' işaretle: Düğün yapmak / Gelinlik + damatlık + fotoğraf/müzik: 160,000.00 TL",
+      "Kaynak göster ya da 'tahmini' işaretle: Düğün yapmak / Takı geliri: -340,000.00 TL",
+      "Kaynak göster ya da 'tahmini' işaretle: Yatırım yapmak / Düğün bütçesi: 620,000.00 TL",
+      "Kaynak göster ya da 'tahmini' işaretle: Yatırım yapmak / 1 yıllık mevduat getirisi: 238,700.00 TL",
+      "Tüm maliyet kalemleri (mekan, yemek, gelinlik vb.) resmi kaynaklara dayandırılmalı",
+      "Mevduat getirisi TCMB verileriyle güncellenmeli",
+      "Sahne sayısı artırılarak 7-11 aralığına getirilmeli"
+    ],
+    "seri_uyumu": false
+  }
+}
