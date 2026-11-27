@@ -35,7 +35,7 @@ T = TypeVar("T", bound=BaseModel)
 
 DEFAULTS = {
     "sira": ["gemini", "groq"],
-    "gemini_model": ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"],
+    "gemini_model": ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite", "gemini-flash-lite-latest"],
     "groq_model": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"],
     "groq_gorsel_model": ["meta-llama/llama-4-scout-17b-16e-instruct"],
     "groq_arastirma_model": ["groq/compound", "groq/compound-mini"],
@@ -51,6 +51,7 @@ class QuotaExhausted(LLMError):
 
 
 _down: set[str] = set()          # limiti dolan sağlayıcılar
+_down_models: set[str] = set()   # limiti dolan tek tek modeller (limitler model başına)
 _last_call: dict[str, float] = {}
 
 
@@ -130,7 +131,11 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
     if search:
         body["tools"] = [{"google_search": {}}]
     last_err = None
-    for model in _cfg("gemini_model"):
+    models = _cfg("gemini_model")
+    for model in models:
+        mkey = f"gemini:{model}:{'arama' if search else 'normal'}"
+        if mkey in _down_models:  # bu modelin limiti bu çalışmada dolmuştu
+            continue
         for attempt in range(3):
             _throttle("gemini", 6.5)
             r = requests.post(
@@ -154,13 +159,16 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
             msg = r.text[:600]
             if r.status_code == 429:
                 low = msg.lower()
-                if "perday" in low or "per day" in low or ("quota" in low and "minute" not in low):
-                    raise QuotaExhausted(f"Gemini günlük limiti doldu: {msg[:200]}")
-                if attempt == 0:
+                daily = "perday" in low or "per day" in low or ("quota" in low and "minute" not in low)
+                if not daily and attempt == 0:
                     log("gemini", "Dakika başı sınır, 30 sn bekleniyor")
                     time.sleep(30)
                     continue
-                raise QuotaExhausted(f"Gemini sınırı aşıldı: {msg[:200]}")
+                # Limitler MODEL BAŞINA: bu modeli kapat, sıradaki Gemini modelini dene
+                _down_models.add(mkey)
+                last_err = f"{model} limiti doldu"
+                log("gemini", f"{model} limiti doldu → sıradaki Gemini modeli")
+                break
             if r.status_code == 404 or "not found" in msg.lower():
                 last_err = f"{model} bulunamadı"
                 break  # sıradaki modeli dene
@@ -175,6 +183,8 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
                 log("gemini", f"{model} yanıt vermiyor → sıradaki Gemini modeli")
                 break
             raise LLMError(f"Gemini hata {r.status_code}: {msg[:300]}")
+    if all(f"gemini:{m}:{'arama' if search else 'normal'}" in _down_models for m in models):
+        raise QuotaExhausted(f"Gemini: bütün modellerin limiti doldu (son: {last_err})")
     raise LLMError(f"Gemini: hiçbir model yanıt vermedi (son: {last_err})")
 
 
@@ -195,6 +205,9 @@ def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool,
         user = prompt
     last_err = None
     for model in models:
+        mkey = f"groq:{model}"
+        if mkey in _down_models:
+            continue
         body: dict[str, Any] = {"model": model, "temperature": 0.6, "max_completion_tokens": 8192,
                                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         if json_mode:
@@ -211,13 +224,16 @@ def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool,
                 return text
             msg = r.text[:600]
             if r.status_code == 429:
-                if "per day" in msg.lower() or "TPD" in msg or "RPD" in msg:
-                    raise QuotaExhausted(f"Groq günlük limiti doldu: {msg[:200]}")
+                daily = "per day" in msg.lower() or "TPD" in msg or "RPD" in msg
                 wait = min(float(r.headers.get("retry-after", 20) or 20), 60)
-                if attempt == 0:
+                if not daily and attempt == 0:
                     log("groq", f"Dakika başı sınır, {wait:.0f} sn bekleniyor")
                     time.sleep(wait)
                     continue
+                _down_models.add(mkey)  # Groq'ta da limitler model başına
+                last_err = f"{model} limiti doldu"
+                log("groq", f"{model} limiti doldu → sıradaki Groq modeli")
+                break
             if r.status_code == 413 or "too large" in msg.lower():
                 if isinstance(user, str) and len(user) > 12000:  # istemi kısaltıp tekrar dene
                     user = user[:9000] + "\n…(kısaltıldı)…\n" + user[-3000:]
@@ -230,6 +246,8 @@ def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool,
                 time.sleep(10)
                 continue
             raise LLMError(f"Groq hata {r.status_code}: {msg[:300]}")
+    if all(f"groq:{m}" in _down_models for m in models):
+        raise QuotaExhausted(f"Groq: bütün modellerin limiti doldu (son: {last_err})")
     raise LLMError(f"Groq: kullanılabilir model yok ({last_err})")
 
 

@@ -66,7 +66,7 @@ yapay_zeka:
   # İsteğe bağlı ek sağlayıcılar: "claude_abonelik", "claude_api"
   sira: ["gemini", "groq"]
   # Model listeleri: ilk model kapanmış/bulunamamışsa sıradaki denenir.
-  gemini_model: ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"]
+  gemini_model: ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite", "gemini-flash-lite-latest"]
   groq_model: ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"]
   groq_gorsel_model: ["meta-llama/llama-4-scout-17b-16e-instruct"]
   groq_arastirma_model: ["groq/compound", "groq/compound-mini"]
