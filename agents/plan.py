@@ -71,6 +71,14 @@ def runs_on(day: datetime, crons) -> list[datetime]:
     return sorted(set(out))
 
 
+def every(times: list[datetime]) -> str:
+    """Sık çalışan ajan için aralık metni: 'her 30 dk', 'her 2 sa'."""
+    if len(times) < 2:
+        return ""
+    gap = min((b - a).total_seconds() for a, b in zip(times, times[1:])) / 60
+    return f"her {int(gap)} dk" if gap < 60 else f"her {gap / 60:g} sa"
+
+
 def next_run(crons, ref: datetime) -> datetime | None:
     for d in range(8):
         for t in runs_on(ref + timedelta(days=d), crons):
@@ -165,7 +173,7 @@ def build() -> Path:
         short = re.sub(r"^\d+\s*·\s*", "", s["ad"]).split(" (")[0]
         times = runs_on(t0, s["crons"])
         if len(times) > 6:  # sık çalışan (ör. yayıncı her 30 dk): tek etiket
-            evs.append((times[0], f"{short} · her 30 dk", "agent", 0))
+            evs.append((times[0], f"{short} · {every(times)} ({times[0]:%H:%M}–{times[-1]:%H:%M})", "agent", 0))
             continue
         for k, t in enumerate(times):
             evs.append((t, f"{t:%H:%M} {short}", "agent", 0))
@@ -180,9 +188,10 @@ def build() -> Path:
     for t, label, kind, base_row in sorted(evs, key=lambda e: (e[3], e[0])):
         x = pos(t)
         row = base_row * 2
-        while any(abs(x - o) < 9 for o in rows_used.get(row, [])):
+        w = len(label) * 0.62 + 2  # etiket genişliği (% cinsinden, yaklaşık)
+        while any(abs(x - o) < (w + ow) / 2 for o, ow in rows_used.get(row, [])):
             row += 1
-        rows_used.setdefault(row, []).append(x)
+        rows_used.setdefault(row, []).append((x, w))
         chips.append(f'<span class="ev {kind}" style="left:{x:.2f}%;top:{6 + row * 21}px" title="{html.escape(label)}">'
                      f'{html.escape(label)}</span>')
     hours = "".join(f'<div class="h" style="left:{h / 24 * 100:.2f}%"></div><div class="hl" style="left:{h / 24 * 100:.2f}%">{h:02d}</div>'
@@ -226,7 +235,7 @@ def build() -> Path:
     agents = "".join(
         f'<tr><td>{html.escape(s["ad"])}</td><td>'
         + (", ".join(sorted({f"{t:%H:%M}" for t in runs_on(t0, s["crons"])})[:6]) or "elle")
-        + (f' <span class="sec">(her 30 dk)</span>' if len(runs_on(t0, s["crons"])) > 6 else "")
+        + (f' <span class="sec">({every(runs_on(t0, s["crons"]))})</span>' if len(runs_on(t0, s["crons"])) > 6 else "")
         + "</td><td>" + ((lambda n: f"{GUNLER[n.weekday()][:3]} {n:%H:%M}" if n else "—")(next_run(s["crons"], t0)) if s["crons"] else "—")
         + "</td></tr>" for s in sch)
 
