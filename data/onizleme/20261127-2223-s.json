@@ -1,0 +1,225 @@
+{
+  "id": "20261127-2223-s",
+  "olusturma": "2026-11-27T22:25:22.614724+03:00",
+  "kaynak": "senaryo",
+  "fikir": {
+    "konu": "Aynı işi uzaktan yaparken İstanbul mu, sahil şehri Aydın mı? (1 yıl, Kasım 2026)",
+    "alt_seri": "A MI B Mİ?"
+  },
+  "veri": {
+    "baslik": "İstanbul mu, Aydın mı? Kira + ulaşım (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {
+        "ad": "İstanbul",
+        "kalemler": [
+          {
+            "kalem": "Kira (100 m²)",
+            "tutar_tl": 570240.0,
+            "aciklama": "TCMB 2026 3. çeyrek: İstanbul'da 100 m² konutun aylık kira karşılığı 47.520 TL × 12",
+            "kaynak": "TCMB değerlemesi yapılan konutların birim kiraları (gazeteoksijen.com, onedio.com)",
+            "tahmini": false
+          },
+          {
+            "kalem": "Ulaşım (Mavi Kart)",
+            "tutar_tl": 43536.0,
+            "aciklama": "Tam Mavi Kart aylık abonman 3.628 TL (20.07.2026 tarifesi) × 12",
+            "kaynak": "İBB tarifesi (haberturk.com, posta.com.tr)",
+            "tahmini": false
+          },
+          {
+            "kalem": "Kaçan faiz",
+            "tutar_tl": 49558.0,
+            "aciklama": "Fark: (570.240 + 43.536) − (307.380 + 20.592) = 285.804 TL/yıl = aylık 23.817 TL. Net faiz = brüt %41,62 × (1 − 0,175 stopaj) = %34,3365 → aylık %2,8614. Her ay 23.817 TL yatırılırsa yıl sonu = 23.817 × ((1,028614)^12 − 1) / 0,028614 = 23.817 × 14,0808 = 335.362 TL; faiz = 335.362 − 285.804 = 49.558 TL",
+            "kaynak": "EKOTÜRK / Hibya: TL mevduat faizi %41,62 (TCMB, 20.11.2026 haftası); stopaj %17,5",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 663334.0
+      },
+      {
+        "ad": "Aydın",
+        "kalemler": [
+          {
+            "kalem": "Kira (100 m²)",
+            "tutar_tl": 307380.0,
+            "aciklama": "TCMB 2026 3. çeyrek: Aydın'da m² başına 256,15 TL → 100 m² aylık 25.615 TL × 12",
+            "kaynak": "TCMB birim kira verisi (aydindenge.com.tr, yenisokegazetesi.com)",
+            "tahmini": false
+          },
+          {
+            "kalem": "Ulaşım (toplu taşıma)",
+            "tutar_tl": 20592.0,
+            "aciklama": "Tam bilet 30 TL (Aralık 2025) + %30 zam (Mayıs 2026) = 39 TL × ayda 44 biniş × 12",
+            "kaynak": "Aydın Büyükşehir Meclisi kararı (gzt.com, gazetebirlik.com)",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 327972.0
+      }
+    ],
+    "varsayimlar": [
+      "Uzaktan çalışma: iki şehirde aynı maaş",
+      "Market ve günlük harcamalar iki şehirde benzer kabul edildi (hesaba katılmadı)",
+      "100 m² konut, TCMB değerleme raporlarına dayalı ortanca kira karşılığı",
+      "İş günlerinde günde 2 biniş (ayda 44)"
+    ],
+    "kaynaklar": [
+      "TCMB il bazında kira (İstanbul 47.520 TL) https://gazeteoksijen.com/turkiye/istanbulda-100-metrekarelik-evin-kirasi-47-bin-520-oldu-kiralarin-en-yuksek-oldugu-10-il-296041",
+      "TCMB Aydın kira https://www.aydindenge.com.tr/aydin/27/11/2026/aydin-kira-fiyatlarinda-turkiyenin-en-pahali-6-ili-arasinda-100-metrekarelik-evin-bedeli-belli-oldu",
+      "İstanbul ulaşım tarifesi https://www.haberturk.com/tam-ve-ogrenci-akbil-ne-kadar-oldu-aylik-abonman-ucreti-kac-tl-2026-istanbul-da-tam-ve-ogrenci-akbil-ne-kadar-oldu-3899253",
+      "Aydın ulaşım zammı https://www.gzt.com/gundem/aydin-ulasim-zammi-toplu-tasima-tarifelerine-yuzde-30-artis-meclisten-oy-birligiyle-gecti-gundem-haberleri-4223137",
+      "Hibya TL mevduat faizi %41,62 https://hibya.com/tl-mevduat-faizi-yuzde-4162ye-geriledi-1107822"
+    ],
+    "sonuc": "Uzaktan çalışan biri için İstanbul, Aydın'a göre kira ve ulaşımda yılda 285.804 TL, kaçan faizle 335.362 TL daha pahalı.",
+    "guven": "yuksek"
+  },
+  "taslak": {
+    "hook": "İstanbul'un farkı: yılda 335.362 TL",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "İstanbul'un farkı: yılda 335.362 TL",
+        "metin": "Sahil şehri Aydın'a göre · kira + ulaşım + faiz",
+        "seslendirme": "Aynı işi uzaktan yapıyorsan, İstanbul sana yılda 335 bin pahalı.",
+        "gorsel": "sehir",
+        "efekt": "subbass",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "İstanbul kira: 570.240 TL",
+        "metin": "100 m² · aylık 47.520 (TCMB)",
+        "seslendirme": "İstanbul'da 100 metrekare kira, yılda 570 bin.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Aydın kira: 307.380 TL",
+        "metin": "100 m² · aylık 25.615 (TCMB)",
+        "seslendirme": "Sahil şehri Aydın'da 307 bin.",
+        "gorsel": "",
+        "efekt": "onay",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "İstanbul ulaşım: 43.536 TL",
+        "metin": "Mavi Kart aylık 3.628 × 12",
+        "seslendirme": "İstanbul'da aylık abonman, yılda 43 bin.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Aydın ulaşım: 20.592 TL",
+        "metin": "Bilet 39 · ayda 44 biniş",
+        "seslendirme": "Aydın'da 20 bin.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kaçan faiz: 49.558 TL",
+        "metin": "Aradaki parayı her ay net %34,3 mevduata koysan",
+        "seslendirme": "Aradaki parayı her ay mevduata koysan, 49 bin faiz.",
+        "gorsel": "",
+        "efekt": "darbe",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Maaş ve market eşit",
+        "metin": "Uzaktan çalışma · market fiyatları iki şehirde benzer",
+        "seslendirme": "Maaşı ve marketi eşit saydık.",
+        "gorsel": "yok",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "İstanbul mu, Aydın mı?",
+        "metin": "",
+        "seslendirme": "Yan yana koyunca İstanbul iki katına yakın.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "",
+        "seslendirme": "Aydın'da yılda 335 bin lira cebinde kalıyor.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "AYDIN'DA CEBİNDE KALAN",
+        "sure": 0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "335.362 TL için İstanbul'u terk eder misin?",
+        "metin": "Tarafını yorumda seç",
+        "seslendirme": "335 bin lira için İstanbul'u terk eder misin?",
+        "gorsel": "",
+        "efekt": "kart",
+        "ton": "",
+        "etiket": "",
+        "sure": 3.0
+      }
+    ],
+    "caption": "Aynı işi uzaktan yapıyorsan İstanbul mu, sahil şehri Aydın mı? Kasım 2026 verileriyle 1 yıl:\n\n🏙 İstanbul: kira (100 m², 47.520/ay) 570.240 + Mavi Kart 43.536 + aradaki paranın kaçan faizi 49.558 = 663.334 TL\n🌊 Aydın: kira (100 m², 25.615/ay) 307.380 + toplu taşıma 20.592 = 327.972 TL\n\nAydın'da yılda 335.362 TL cebinde kalıyor. Maaş ve market iki şehirde eşit kabul edildi.\n\nKaynaklar: TCMB il bazında konut kira verileri (2026 3. çeyrek), İBB ve Aydın BB ulaşım tarifeleri, TCMB mevduat faizi (%41,62).",
+    "hashtagler": [
+      "gercekmaliyet",
+      "istanbul",
+      "aydin",
+      "kira",
+      "uzaktancalisma",
+      "yasammaliyeti",
+      "kisiselfinans",
+      "tasinma"
+    ],
+    "tiktok_aciklama": "",
+    "tiktok_hashtagler": [],
+    "youtube_baslik": "",
+    "youtube_aciklama": "",
+    "youtube_etiketler": [],
+    "yorum_sorusu": "335.362 TL için İstanbul'u terk eder misin?",
+    "alt_text": "İstanbul mu, Aydın mı? Kira + ulaşım (1 yıl)"
+  },
+  "seri_no": 6,
+  "alt_seri": "A MI B Mİ?",
+  "senaryo_denetimi": {
+    "format": [],
+    "rakam": [],
+    "senkron": [
+      "Süre hedef dışında: 31.8 sn (hedef 35-42 sn)"
+    ]
+  },
+  "video": "media/generated/20261127-2223-s/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-2223-s/sahne1.jpg"
+  ],
+  "durum": "onizleme"
+}
