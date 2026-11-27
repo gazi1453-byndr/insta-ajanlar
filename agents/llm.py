@@ -35,7 +35,7 @@ T = TypeVar("T", bound=BaseModel)
 
 DEFAULTS = {
     "sira": ["gemini", "groq"],
-    "gemini_model": ["gemini-flash-latest", "gemini-2.5-flash"],
+    "gemini_model": ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"],
     "groq_model": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"],
     "groq_gorsel_model": ["meta-llama/llama-4-scout-17b-16e-instruct"],
     "groq_arastirma_model": ["groq/compound", "groq/compound-mini"],
@@ -131,7 +131,7 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
         body["tools"] = [{"google_search": {}}]
     last_err = None
     for model in _cfg("gemini_model"):
-        for attempt in range(2):
+        for attempt in range(3):
             _throttle("gemini", 6.5)
             r = requests.post(
                 f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
@@ -164,11 +164,18 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
             if r.status_code == 404 or "not found" in msg.lower():
                 last_err = f"{model} bulunamadı"
                 break  # sıradaki modeli dene
-            if r.status_code >= 500 and attempt == 0:
-                time.sleep(10)
-                continue
+            if r.status_code >= 500 or "high demand" in msg.lower() or "overloaded" in msg.lower():
+                # Geçici yoğunluk: artan aralıklarla bekle, olmazsa sıradaki Gemini modeline geç
+                if attempt < 2:
+                    wait = 8 * (attempt + 1)
+                    log("gemini", f"{model} yoğun ({r.status_code}), {wait} sn sonra tekrar")
+                    time.sleep(wait)
+                    continue
+                last_err = f"{model} yoğun ({r.status_code})"
+                log("gemini", f"{model} yanıt vermiyor → sıradaki Gemini modeli")
+                break
             raise LLMError(f"Gemini hata {r.status_code}: {msg[:300]}")
-    raise LLMError(f"Gemini: kullanılabilir model yok ({last_err})")
+    raise LLMError(f"Gemini: hiçbir model yanıt vermedi (son: {last_err})")
 
 
 # ================================================================== GROQ
