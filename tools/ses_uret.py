@@ -188,6 +188,53 @@ def impact() -> np.ndarray:
     return s / np.max(np.abs(s)) * 0.9
 
 
+def subbass() -> np.ndarray:
+    """Açılış kancası: derin sinematik sub-bass vuruşu (60→32 Hz kayan sinüs + kısa tık ataklı)."""
+    n = int(1.3 * SR)
+    t = np.arange(n) / SR
+    freq = 32 + 30 * np.exp(-t * 6)
+    sub = np.sin(2 * np.pi * np.cumsum(freq) / SR) * np.exp(-t * 2.6) * np.minimum(1, t / 0.004)
+    click = lowpass(rng.standard_normal(n), 2200) * np.exp(-t * 90) * 0.35
+    s = np.tanh((sub + click) * 1.6)
+    return s / np.max(np.abs(s)) * 0.95
+
+
+def tick() -> np.ndarray:
+    """Kırmızı maliyet kartı: kısa, keskin dijital uyarı tıkı (punch)."""
+    n = int(0.12 * SR)
+    t = np.arange(n) / SR
+    tone = np.sign(np.sin(2 * np.pi * 1850 * t)) * 0.35 + np.sin(2 * np.pi * 3700 * t) * 0.3
+    punch = np.sin(2 * np.pi * (140 * np.exp(-t * 40) + 60) * t) * np.exp(-t * 45)
+    s = lowpass(tone, 6000) * np.exp(-t * 55) + punch * 0.8
+    return s / np.max(np.abs(s)) * 0.8
+
+
+def chime() -> np.ndarray:
+    """Yeşil taksi sahnesi: temiz, pozitif onay çınlaması (majör üçlü, çan zarfı)."""
+    n = int(1.1 * SR)
+    t = np.arange(n) / SR
+    s = np.zeros(n)
+    for f0, start, a in ((1318.5, 0.0, 1.0), (1975.5, 0.07, 0.8)):  # E6 → B6
+        k = t >= start
+        tt = t[k] - start
+        s[k] += a * (np.sin(2 * np.pi * f0 * tt) + 0.25 * np.sin(2 * np.pi * f0 * 2.76 * tt) * np.exp(-tt * 9)) * np.exp(-tt * 4.2)
+    s *= np.minimum(1, t / 0.003)
+    return s / np.max(np.abs(s)) * 0.7
+
+
+def thud() -> np.ndarray:
+    """Final özet kartı: hafif, tok kart oturma sesi."""
+    n = int(0.35 * SR)
+    t = np.arange(n) / SR
+    body = np.sin(2 * np.pi * (95 * np.exp(-t * 9) + 55) * t) * np.exp(-t * 16)
+    slap = lowpass(rng.standard_normal(n), 1400) * np.exp(-t * 70) * 0.45
+    s = np.tanh((body + slap) * 1.3)
+    return s / np.max(np.abs(s)) * 0.85
+
+
+NEW_SFX = (("subbass", subbass), ("tik", tick), ("onay", chime), ("kart", thud))
+
+
 def save_wav(x: np.ndarray, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     pcm = (np.clip(x, -1, 1) * 32767).astype("<i2")
@@ -202,7 +249,7 @@ def save_wav(x: np.ndarray, path: Path) -> None:
 if __name__ == "__main__":
     import imageio_ffmpeg
     import sys
-    for name, fn in (("korna", horn), ("kasa", kaching), ("cink", coin), ("darbe", impact)):
+    for name, fn in (("korna", horn), ("kasa", kaching), ("cink", coin), ("darbe", impact), *NEW_SFX):
         save_wav(fn(), ROOT / "assets" / "sfx" / f"{name}.wav")
     if "--efekt" in sys.argv:  # sadece efektleri üret
         print("ok efektler")
