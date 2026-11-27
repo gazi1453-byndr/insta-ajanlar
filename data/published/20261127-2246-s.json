@@ -215,9 +215,13 @@
   "gorseller": [
     "media/generated/20261127-2246-s/sahne1.jpg"
   ],
-  "durum": "kuyrukta",
+  "durum": "yayinlandi",
   "planlanan_zaman": "2026-11-27T22:55:23+03:00",
   "onaylayan": "kullanici",
   "hata_sayisi": 1,
-  "son_hata": "Yayın öncesi kontrol: Sahne 6 çok uzun (4.5 sn > 4.3 sn): seslendirmesini kısalt (rakamları yuvarla, dolguyu at)"
+  "son_hata": "Yayın öncesi kontrol: Sahne 6 çok uzun (4.5 sn > 4.3 sn): seslendirmesini kısalt (rakamları yuvarla, dolguyu at)",
+  "ig_media_id": "18110741084250885",
+  "yayin_zamani": "2026-11-27T23:00:41.134083+03:00",
+  "permalink": "https://www.instagram.com/reel/DgQfPH8qzfs/",
+  "hesaplayici": "https://gazi1453-byndr.github.io/insta-ajanlar/hesap/7-telefonu-her-yil-yenilemek-mi-eskisiyle-1-yil-daha.html"
 }
