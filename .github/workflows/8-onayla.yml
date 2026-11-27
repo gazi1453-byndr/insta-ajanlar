@@ -1,10 +1,15 @@
 name: "8 · Önizlemeyi onayla (yayın kuyruğuna al)"
 on:
   workflow_dispatch:
+    inputs:
+      kimlik:
+        description: "Yalnız bu önizleme(ler)i onayla (ör. 20261127-1948-s; virgülle birden fazla). Boşsa hepsi."
+        required: false
+        default: ""
 permissions: { contents: write, pull-requests: write, issues: write }
 jobs:
   ajan:
     uses: ./.github/workflows/_ajan.yml
     with:
-      komut: onayla
+      komut: ${{ format('onayla {0}', inputs.kimlik) }}
     secrets: inherit

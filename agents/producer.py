@@ -269,10 +269,14 @@ def check_alarm() -> dict | None:
     return run_breaking(sorted(hot, key=lambda h: -h["guncellik"])[0])
 
 
-def approve_previews() -> list[str]:
-    """Önizlemedeki videoları yayın kuyruğuna alır (kullanıcı izleyip onayladıktan sonra)."""
+def approve_previews(only: str = "") -> list[str]:
+    """Önizlemedeki videoları yayın kuyruğuna alır (kullanıcı izleyip onayladıktan sonra).
+    only: virgülle ayrılmış önizleme kimlikleri; boşsa hepsi."""
     done = []
+    ids = {i.strip() for i in only.split(",") if i.strip()}
     for f in sorted((DATA / "onizleme").glob("*.json")):
+        if ids and f.stem not in ids:
+            continue
         post = read_json(f)
         post.update(durum="kuyrukta", planlanan_zaman=next_slot(), onaylayan="kullanici")
         write_json(QUEUE / f.name, post)

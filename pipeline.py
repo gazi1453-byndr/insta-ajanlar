@@ -12,6 +12,7 @@ DRY_RUN=1 ortam değişkeniyle Instagram'a hiçbir şey gönderilmez.
 """
 from __future__ import annotations
 
+import re
 import sys
 
 from agents.common import DATA, PUBLISHED, QUEUE, REJECTED, read_json
@@ -146,7 +147,10 @@ def main() -> None:
         producer.check_alarm()                   # büyük zam haberi varsa acil video
     elif cmd == "onayla":
         from agents import producer
-        for line in producer.approve_previews() or ["Önizlemede onay bekleyen video yok"]:
+        only = sys.argv[2] if len(sys.argv) > 2 else ""
+        if only and not re.fullmatch(r"[\w,-]+", only):
+            raise SystemExit(f"Geçersiz kimlik: {only}")
+        for line in producer.approve_previews(only) or ["Önizlemede onay bekleyen video yok"]:
             print("Onaylandı:", line)
     elif cmd == "yeniden_ciz":
         yeniden_ciz()
