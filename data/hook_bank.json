@@ -7,7 +7,7 @@
       "platform_kaniti": "Haber siteleri (Google Trends verisi yok): Milli Gazete %28,4-35 tablosu, RayHaber %25-30 senaryoları (Kasım 2026), Paratic 40 bin TL senaryosu, Türkgün 25.11.2026",
       "veri_ihtiyaci": "Bugünkü net asgari ücret 28.075,50 TL (resmi kaynaktan doğrula). Her senaryo için çarp: %25 = 35.094,38 TL; %30 = 36.498,15 TL; %35 = 37.901,93 TL. Tablonun 'tahmini senaryo' olduğunu, kararın Aralık'ta komisyonda çıkacağını yaz.",
       "format": "carousel",
-      "kullanildi": false
+      "kullanildi": true
     },
     {
       "soru": "Asgari ücret açlık sınırına yetişiyor mu?",

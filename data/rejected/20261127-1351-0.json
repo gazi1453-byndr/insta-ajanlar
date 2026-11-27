@@ -1,0 +1,309 @@
+{
+  "id": "20261127-1351-0",
+  "olusturma": "2026-11-27T13:58:40.211283+03:00",
+  "seri_no": 1,
+  "fikir": {
+    "konu": "2027 asgari ücret: %25, %30, %35 zam senaryolarında net maaşın kaç TL olur? (tahmini senaryo tablosu)",
+    "aci": "Haberler 'yapay zekâ tahmin etti' diye ilerliyor. Biz tahmin yürütmüyoruz, her senaryonun sonucunu kaynaklı bir tabloda gösteriyoruz. Gizli boyut: aynı zam oranı yıllık gelirde ne fark yaratıyor (12 ay × fark) ve en yüksek senaryo bile Türk-İş'in Ekim açlık sınırının (38.024 TL, 4 kişilik aile) altında mı kalıyor? Yorum katmadan, sadece fark gösterilecek. Slayt sırası: 1. soru + 'Kasım 2026, tahmini senaryo' damgası, 2. bugünkü net 28.075,50 TL ve kaynağı, 3-5. her senaryoya bir slayt, 6. toplu tablo, 7. açlık sınırıyla yan yana, 8. varsayımlar ('karar Aralık'ta komisyonda', 'net ≈ brüt × 0,85, vergi istisnası sürerse'), 9. 'Sence kaç olur? Yoruma oranı yaz' CTA'sı.",
+    "format": "carousel",
+    "veri_ihtiyaci": "- Bugünkü net asgari ücret 28.075,50 TL ve brüt karşılığı: ÇSGB/Resmî Gazete'den doğrula\n- Senaryolar (kontrol edildi): %25 = 35.094,38 TL; %30 = 36.498,15 TL; %35 = 37.901,93 TL\n- Aylık artış tutarları: +7.018,88 / +8.422,65 / +9.826,43 TL; yıllık karşılıkları ×12: 84.226,50 / 101.071,80 / 117.917,10 TL\n- Gelir vergisi ve damga vergisi istisnasının 2027'de süreceğine dair resmi kaynak. Sürmezse net/brüt oranı değişir, bunu not olarak düş\n- Türk-İş Ekim 2026 açlık sınırı 38.024 TL ve yoksulluk sınırı 123.856 TL (4 kişilik aile). Hook bankasındaki Eylül verisi (37.801 TL) yerine en güncelini kullan, Kasım raporu çıkarsa onunla güncelle\n- Senaryo kaynakları: Milli Gazete, RayHaber, Paratic (36-38 bin TL ekonomist aralığı), Türkgün 25.11.2026",
+    "hedef_duygu": "merak ve kendi maaşını hesaplama rahatlığı",
+    "neden_simdi": "Aralık'taki asgari ücret kararından önce arama ilgisi zirvede. Haber siteleri senaryoları dağınık veriyor; tek, kaynaklı ve kaydedilebilir bir tablo bu hafta boşta. Karar açıklanınca aynı carousel 'tahmin vs gerçek' diye güncellenip yeniden paylaşılabilir.",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": 0,
+    "puan": 88
+  },
+  "veri": {
+    "baslik": "2027 asgari ücret: %25, %30 ve %35 zam senaryolarında net maaş ve yıllık gelir (tahmini senaryo tablosu)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl (2027, 12 ay net asgari ücret)",
+    "secenekler": [
+      {
+        "ad": "%25 zam senaryosu (aylık net 35.094,38 TL, brüt 41.287,50 TL)",
+        "kalemler": [
+          {
+            "kalem": "Bugünkü net asgari ücret (12 ay)",
+            "tutar_tl": 336906.0,
+            "aciklama": "2026 aylık net 28.075,50 TL × 12. Brüt 33.030 TL × 0,85.",
+            "kaynak": "ÇSGB, https://csgb.gov.tr/poco-pages/asgari-ucret/",
+            "tahmini": false
+          },
+          {
+            "kalem": "Zamdan gelen artış (12 ay)",
+            "tutar_tl": 84226.5,
+            "aciklama": "Aylık artış +7.018,88 TL. Yıllık tutar yuvarlanmamış aylık farkla hesaplandı (7.018,875 × 12).",
+            "kaynak": "Paratic 16.11.2026, https://paratic.com/asgari-ucrette-2027-icin-uc-farkli-hesap-37-bin-tlyi-asabilir/ ; Türkgün, https://www.turkgun.com/ekonomi/asgari-ucret-2027-ocak-zammi-ne-kadar-olacak/415009",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 421132.5
+      },
+      {
+        "ad": "%30 zam senaryosu (aylık net 36.498,15 TL, brüt 42.939,00 TL)",
+        "kalemler": [
+          {
+            "kalem": "Bugünkü net asgari ücret (12 ay)",
+            "tutar_tl": 336906.0,
+            "aciklama": "2026 aylık net 28.075,50 TL × 12.",
+            "kaynak": "ÇSGB, https://csgb.gov.tr/poco-pages/asgari-ucret/",
+            "tahmini": false
+          },
+          {
+            "kalem": "Zamdan gelen artış (12 ay)",
+            "tutar_tl": 101071.8,
+            "aciklama": "Aylık artış +8.422,65 TL × 12. SGK uzmanı Özgür Erdursun'un merkez senaryosu %30.",
+            "kaynak": "Milli Gazete 26.11.2026, https://milligazete.com.tr/2027-yeni-asgari-ucret-kac-tl-yuzde-284-295-30-337-ve-35-zamli-maas-hesaplama-tablosu ; Paratic 16.11.2026",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 437977.8
+      },
+      {
+        "ad": "%35 zam senaryosu (aylık net 37.901,93 TL, brüt 44.590,50 TL)",
+        "kalemler": [
+          {
+            "kalem": "Bugünkü net asgari ücret (12 ay)",
+            "tutar_tl": 336906.0,
+            "aciklama": "2026 aylık net 28.075,50 TL × 12.",
+            "kaynak": "ÇSGB, https://csgb.gov.tr/poco-pages/asgari-ucret/",
+            "tahmini": false
+          },
+          {
+            "kalem": "Zamdan gelen artış (12 ay)",
+            "tutar_tl": 117917.1,
+            "aciklama": "Aylık artış +9.826,43 TL. Yıllık tutar yuvarlanmamış aylık farkla hesaplandı (9.826,425 × 12). Milli Gazete bu senaryoyu '%30 enflasyon beklentisi + 5 puan refah payı' diye açıklıyor.",
+            "kaynak": "Milli Gazete 26.11.2026 ; Paratic 16.11.2026 ; Türkgün",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 454823.1
+      }
+    ],
+    "varsayimlar": [
+      "Senaryo hesabı: net = 28.075,50 × (1 + oran), brüt = 33.030 × (1 + oran). Bunlar tahmin değil, belirli oranların sonucu. Kararı Aralık 2026'da Asgari Ücret Tespit Komisyonu verecek. Komisyonun ilk toplantı tarihi 26.11.2026 itibarıyla açıklanmamıştı (Milli Gazete). '20–25 Aralık' ilan tarihi resmî bir tarih değil.",
+      "Net = brüt × 0,85 oranı, 2026'da gelir ve damga vergisi istisnası sayesinde tam olarak geçerli (%14 SGK işçi payı ve %1 işsizlik primi). Oranın 2027'de değişmemesi için istisnanın sürmesi gerekiyor. Dayanak: 7349 sayılı Kanun, GVK md. 23/18. 2027 bütçesinde istisna için 1 trilyon 460 milyar TL öngörülmüş (Endeks24, 24.10.2026). Ancak '2027'de sürecek' diyen bir yasal metin bulunamadı.",
+      "İstisna kalkarsa (kaba not): net ≈ brüt × 0,7149 olur. %35 senaryosunda bu yaklaşık 31.878 TL eder ve vergi dilimi yükseldikçe yıl içinde daha da düşer. Bu tahmin tabloya dahil edilmedi.",
+      "Yıllık rakamlar yuvarlanmamış aylık farkla hesaplandı. Yuvarlanmış aylık farkı 12 ile çarparsan %25'te 84.226,56 TL, %35'te 117.917,16 TL çıkar.",
+      "Yıllık toplam, 12 ayın tamamında aynı net ücretin ödendiğini varsayar (yıl içinde ara zam yok).",
+      "Açlık sınırı karşılaştırması, Türk-İş'in Ekim 2026 verisine (Ankara, 4 kişilik aile) dayanıyor: açlık sınırı 38.024,03 TL, yoksulluk sınırı 123.856,80 TL, bekâr çalışanın yaşama maliyeti 49.124,30 TL. Aylık net ile açlık sınırı arasındaki fark şöyle: bugün −9.948,53 TL, %25'te −2.929,65 TL, %30'da −1.525,88 TL, %35'te −122,10 TL. Yoksulluk sınırıyla fark ise %25'te −88.762,42 TL, %30'da −87.358,65 TL, %35'te −85.954,87 TL.",
+      "Tarih farkı: Ekim 2026 sınırı, Ocak 2027 maaşıyla karşılaştırılıyor. Açlık sınırı Ekim'de aylık %0,59 artmıştı. Ocak'a kadar sınır yükselirse %35 senaryosundaki fark büyüyebilir. Türk-İş'in Kasım raporu henüz bulunamadı, yayından önce turkis.org.tr kontrol edilmeli.",
+      "Kaynak düzeltmeleri: RayHaber kaynağı bulunamadı, yerine CNBCE kullanılabilir. Paratic'te '36-38 bin TL ekonomist aralığı' ifadesi geçmiyor; haberdeki aralık 35.094–37.902 TL. Türkgün sayfası 403 hatası verdiği için 25.11.2026 tarihi doğrulanamadı.",
+      "Bu tablo yalnızca işçinin eline geçen net tutarı gösteriyor. İşveren maliyeti ayrı. 2026 için teşviksiz işveren maliyeti 40.874,63 TL (ÇSGB).",
+      "Fiyatlar Kasım 2026 itibarıyla. Enflasyon nedeniyle rakamlar hızla eskiyebilir."
+    ],
+    "kaynaklar": [
+      "ÇSGB Asgari Ücret: https://csgb.gov.tr/poco-pages/asgari-ucret/",
+      "Alomaliye 2026 asgari ücret (Resmî Gazete 26.12.2025): https://www.alomaliye.com/2025/12/23/2026-yili-asgari-ucreti-2026-yili-asgari-ucret-bilgilendirme/",
+      "Milli Gazete 26.11.2026: https://milligazete.com.tr/2027-yeni-asgari-ucret-kac-tl-yuzde-284-295-30-337-ve-35-zamli-maas-hesaplama-tablosu",
+      "Paratic 16.11.2026: https://paratic.com/asgari-ucrette-2027-icin-uc-farkli-hesap-37-bin-tlyi-asabilir/",
+      "Türkgün (tarih doğrulanamadı): https://www.turkgun.com/ekonomi/asgari-ucret-2027-ocak-zammi-ne-kadar-olacak/415009",
+      "CNBCE (RayHaber yerine): https://www.cnbce.com/haberler/asgari-ucrette-3-senaryo-2027de-maaslar-ve-isveren-maliyeti-ne-olacak-g41199",
+      "Türk-İş Ekim 2026: https://www.turkis.org.tr/turk-is-ekim-2026-aclik-ve-yoksulluk-siniri/",
+      "Dünya Gazetesi: https://www.dunya.com/ekonomik-veriler/turk-is-acikladi-aclik-siniri-38-bin-yoksulluk-siniri-123-bin-lirayi-asti-haberi-845815",
+      "Endeks24 24.10.2026: https://www.endeks24.com/asgari-ucret-vergi-istisnasi-1-trilyon-460-milyar",
+      "Alomaliye vergi istisnası: https://www.alomaliye.com/2022/01/28/asgari-ucretin-gelir-ve-damga-vergisinden-istisna-edilmesi/"
+    ],
+    "sonuc": "Kasım 2026 verileriyle üç senaryoda 2027'nin yıllık net asgari ücreti 421.132,50 TL ile 454.823,10 TL arasında değişiyor; en yüksek %35 senaryosunda bile aylık net (37.901,93 TL), Türk-İş'in Ekim 2026 açlık sınırının (38.024,03 TL) 122,10 TL altında kalıyor.",
+    "guven": "orta"
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "Tahmini: %35 zamla 2027'de yıllık net asgari ücret 454.823 TL.",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 70,
+        "gerekce": "Yıllık toplam tablodaki %35 satırıyla aynı (454.823,10 TL) ve 'tahmini' damgası var. Altı haneli rakam dikkat çekiyor ama tek başına bir gerilim kurmuyor. İzleyici bu rakamı neyle karşılaştıracağını bilmiyor."
+      },
+      {
+        "metin": "Vergi istisnası kalkarsa %35 zamlı net 37.902 değil, ~31.878 TL.",
+        "teknik": "gizli maliyet",
+        "puan": 72,
+        "gerekce": "Haberlerin atladığı bir varsayımı öne çıkarıyor: istisna kalkarsa net ≈ brüt × 0,7149 olur. Ancak bu rakam tablonun kendisinde yok, varsayımlardaki kaba bir notta geçiyor. 'İstisna kalkacak' diye yanlış anlaşılırsa korku yaratabilir. Hook'a uygun değil, 8. slayt için iyi."
+      },
+      {
+        "metin": "%25 mi %35 mi? Senaryolar arası fark yılda 33.690 TL.",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 75,
+        "gerekce": "Fark tablodan doğrudan hesaplanıyor: 454.823,10 − 421.132,50 = 33.690,60 TL. Fikirdeki gizli boyutu (12 ay × fark) iki senaryo arasında gösteriyor. Fakat izleyici oranları seçemiyor, bu yüzden ikilem gerçek bir karar gibi hissettirmiyor."
+      },
+      {
+        "metin": "%35 zam bile Ekim açlık sınırına yetmiyor: 122 TL eksik.",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 88,
+        "gerekce": "En yüksek senaryoda bile beklentiyi tersine çeviriyor: 37.901,93 TL, Türk-İş'in Ekim 2026 açlık sınırı olan 38.024,03 TL'nin 122,10 TL altında kalıyor. Tarih (Ekim) ve somut fark hook'un içinde. Kaynağın Türk-İş olduğu ve sınırın 4 kişilik aile için hesaplandığı açılış görselinde ya da ikinci satırda yazılmalı. Yorum yok, sadece fark var. Kaydetme ve paylaşma potansiyeli en yüksek olan bu."
+      },
+      {
+        "metin": "2027'de asgari ücret %30 artarsa net kaç olur? 36.498 TL.",
+        "teknik": "doğrudan soru",
+        "puan": 68,
+        "gerekce": "Çok aranan bir soruya net bir cevap veriyor ve rakam tabloyla birebir aynı. Ama haber siteleri de aynı kalıbı kullanıyor, bu yüzden akışta ayrışmıyor. Cevabı hemen verdiği için kaydırmaya devam etme isteği de zayıflıyor."
+      },
+      {
+        "metin": "Asgari ücretliysen %30 zam, yılda cebine +101.072 TL demek.",
+        "teknik": "kişisel hesap",
+        "puan": 78,
+        "gerekce": "Aylık 8.422,65 TL'lik artışı 12 ayla çarpıp yıllık karşılığına (101.071,80 TL) çeviriyor ve izleyicinin kendi cebine bağlıyor. Hedef duygu olan 'kendi maaşını hesaplama' ile uyumlu. Sadece tek bir senaryoyu gösteriyor."
+      },
+      {
+        "metin": "3 zam senaryosu, 1 tablo: net maaşın kaç TL olur? 📊",
+        "teknik": "liste vaadi",
+        "puan": 66,
+        "gerekce": "Kaydedilebilir bir tablo vaat ediyor, bu da kaydetme hedefine uygun. Ama içinde somut bir rakam yok. Marka kuralı olan 'kanca gerçek bir rakama dayanır' ilkesini zayıf karşılıyor."
+      },
+      {
+        "metin": "Karar Aralık'ta: %25, %30, %35 zamda net maaşın tek tabloda.",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 74,
+        "gerekce": "Aralık'taki komisyon kararından önce zirve yapan arama ilgisine dayanıyor. 'Tek tablo' ifadesi dağınık haberlere karşı bir fark yaratıyor. Senaryolar bilinen oranlar olduğu için doğru, ama hook'ta net bir rakam ya da şaşırtıcı bir sonuç yok."
+      }
+    ],
+    "secilen_index": 3
+  },
+  "taslak": {
+    "hook": "%35 zam bile Ekim açlık sınırının 122,10 TL altında kalıyor.",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "%35 zam bile açlık sınırının altında",
+        "metin": "Fark: 122,10 TL · Türk-İş Ekim 2026 açlık sınırı 38.024,03 TL (4 kişilik aile)\nKasım 2026 · senaryo hesabı, tahmin değil",
+        "seslendirme": "%35 zam bile Ekim açlık sınırının 122,10 TL altında kalıyor. Tahmin yapmıyoruz, sadece üç oranın sonucunu hesapladık."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Bugün net asgari ücret: 28.075,50 TL",
+        "metin": "Brüt 33.030 TL. 12 ayda net 336.906,00 TL. Kaynak: ÇSGB, Resmî Gazete 26.12.2025. · 2/7",
+        "seslendirme": "Başlangıç noktası belli. Bugün net asgari ücret 28.075,50 TL. Bu da yılda 336.906 TL ediyor."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Yıllık net: taban + zam artışı",
+        "metin": "%25 → 35.094,38 TL/ay · %30 → 36.498,15 TL/ay · %35 → 37.901,93 TL/ay · Yıllık fark (%35 − %25): 33.690,60 TL · ÇSGB · Milli Gazete 26.11.2026 · Paratic 16.11.2026 · Kasım 2026 · 3/7",
+        "seslendirme": "%25 zamda net maaş yaklaşık 35 bin 94 TL, %30'da yaklaşık 36 bin 498, %35'te yaklaşık 37 bin 902 TL oluyor. Her çubukta taban aynı, değişen sadece zamdan gelen kısım."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Yılda cebine ne kadar fark eder?",
+        "metin": "Zamdan gelen yıllık artış: %25 +84.226,50 TL · %30 +101.071,80 TL · %35 +117.917,10 TL. Yıllık net: 421.132,50 – 454.823,10 TL. · 4/7",
+        "seslendirme": "Asıl fark yıllık rakamda görünüyor. En düşük senaryoyla en yüksek senaryo arasında yılda yaklaşık 33 bin 691 TL var."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Açlık sınırıyla yan yana (Ekim verisi)",
+        "metin": "Çizgi: 38.024,03 TL (Türk-İş Ekim 2026, 4 kişilik aile) · Bugün −9.948,53 · %25 −2.929,65 · %30 −1.525,88 · %35 −122,10 TL · 5/7",
+        "seslendirme": "Türk-İş'in Ekim verisine göre açlık sınırı yaklaşık 38 bin 24 TL. Dört çubuğun hepsi bu çizginin altında kalıyor. Not: burada Ekim'deki sınırı Ocak maaşıyla karşılaştırıyoruz."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Bu tablo neyi varsayıyor?",
+        "metin": "Karar Aralık'ta komisyonda. Net = brüt × 0,85, vergi istisnası sürerse. İstisna kalkarsa net belirgin düşer. Ara zam yok. · 6/7",
+        "seslendirme": "Kararı Aralık'ta komisyon verecek. Vergi istisnasının 2027'de süreceğini söyleyen bir yasal metin henüz yok. İstisna kalkarsa net belirgin şekilde düşer."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Sence zam kaç olur?",
+        "metin": "Oranı yoruma yaz. Karar açıklanınca 'tahmin vs gerçek' diye güncelleyeceğiz. Kaydet, Ocak'ta karşılaştır. 📊 · 7/7",
+        "seslendirme": "Sence oran kaç olur? Yoruma yaz, karar açıklanınca birlikte karşılaştıralım."
+      }
+    ],
+    "caption": "%35 zam bile Ekim açlık sınırının 122,10 TL altında kalıyor. 📊\n\nBu bir tahmin değil, senaryo hesabı. Haberlerde geçen üç oranı aldık ve bugünkü net asgari ücretle (28.075,50 TL) hesapladık.\n\nAylık net:\n%25 → 35.094,38 TL\n%30 → 36.498,15 TL\n%35 → 37.901,93 TL\n\nYıllık net (12 ay = bugünkü taban 336.906,00 TL + zamdan gelen artış):\n%25 → 421.132,50 TL (+84.226,50 TL)\n%30 → 437.977,80 TL (+101.071,80 TL)\n%35 → 454.823,10 TL (+117.917,10 TL)\nYıllık fark (%35 − %25): 33.690,60 TL\n\nTürk-İş Ekim 2026 verisi (Ankara, 4 kişilik aile): açlık sınırı 38.024,03 TL, yoksulluk sınırı 123.856,80 TL.\nAçlık sınırıyla fark: bugün −9.948,53 TL · %25 −2.929,65 TL · %30 −1.525,88 TL · %35 −122,10 TL.\n\nVarsayımlar: Kararı Aralık 2026'da Asgari Ücret Tespit Komisyonu verecek. Net = brüt × 0,85 hesabı, gelir ve damga vergisi istisnası 2027'de de sürerse geçerli. İstisnanın süreceğini söyleyen bir yasal metin henüz yok. İstisna kalkarsa net belirgin düşer. Hesap, yıl içinde ara zam olmayacağını varsayıyor. Ekim'deki açlık sınırını Ocak maaşıyla karşılaştırıyoruz, sınır o zamana kadar yükselebilir. Tablo sadece çalışanın eline geçen neti gösteriyor, işveren maliyeti dahil değil.\n\nSence zam oranı kaç olur? Yoruma yaz, karar açıklanınca karşılaştıralım.\n\nKaynaklar: ÇSGB, Resmî Gazete 26.12.2025 (Alomaliye), Milli Gazete 26.11.2026, Paratic 16.11.2026, CNBCE, Türkgün (tarih doğrulanamadı), Türk-İş Ekim 2026, Dünya Gazetesi, Endeks24 24.10.2026.\nKasım 2026 verileriyle. Enflasyon yüzünden rakamlar hızla eskiyebilir.",
+    "hashtagler": [
+      "asgariücret",
+      "asgariücret2027",
+      "maaşzammı",
+      "gerçekmaliyet",
+      "ekonomi"
+    ],
+    "tiktok_aciklama": "%35 zam bile Ekim açlık sınırının 122,10 TL altında kalıyor 📊 Üç senaryo, kaynaklı tablo (Kasım 2026, senaryo hesabı). Sence oran kaç olur?",
+    "tiktok_hashtagler": [
+      "asgariücret2027",
+      "asgariücret",
+      "maaş",
+      "gerçekmaliyet"
+    ],
+    "youtube_baslik": "2027 Asgari Ücret: %25, %30, %35 Zamla Net Maaş Kaç TL? #1",
+    "youtube_aciklama": "2027 asgari ücret zammında %25, %30 ve %35 senaryolarına göre net maaş ve yıllık gelir ne olur? Kaynaklı tabloda gösteriyoruz. Bugünkü net asgari ücret 28.075,50 TL. %35 senaryosunda net maaş 37.901,93 TL oluyor ve bu rakam Türk-İş'in Ekim 2026 açlık sınırının (38.024,03 TL) 122,10 TL altında kalıyor. Yıllık net, senaryoya göre 421.132,50 TL ile 454.823,10 TL arasında. Bu, Kasım 2026 verilerine dayanan bir senaryo hesabı ve vergi istisnasının süreceğini varsayıyor. İstisna kalkarsa net belirgin düşer. Gerçek Maliyet serisi #1. Kaynaklar: ÇSGB, Resmî Gazete 26.12.2025, Milli Gazete 26.11.2026, Paratic 16.11.2026, CNBCE, Türkgün (tarih doğrulanamadı), Türk-İş Ekim 2026, Dünya Gazetesi, Endeks24 24.10.2026.",
+    "youtube_etiketler": [
+      "2027 asgari ücret",
+      "asgari ücret zammı",
+      "asgari ücret ne kadar olacak",
+      "net asgari ücret 2027",
+      "asgari ücret hesaplama",
+      "açlık sınırı",
+      "Türk-İş açlık sınırı",
+      "asgari ücret senaryoları"
+    ],
+    "yorum_sorusu": "Sence 2027 asgari ücret zammı yüzde kaç olur? %25, %30, %35, yoksa başka bir oran mı? Oranı yaz, karar açıklanınca karşılaştıralım.",
+    "alt_text": "7 slaytlık carousel: 2027 asgari ücret zam senaryoları (Kasım 2026, senaryo hesabı). Bugünkü net asgari ücret 28.075,50 TL, yıllık 336.906,00 TL. Aylık net maaş %25 zamda 35.094,38 TL, %30'da 36.498,15 TL, %35'te 37.901,93 TL. Yığılmış çubuk grafik, her senaryoda yıllık neti 336.906 TL taban ve zam artışı olarak iki parçada gösteriyor. Yıllık fark (%35 − %25) 33.690,60 TL. İkinci grafikte dört çubuk (bugün, %25, %30, %35) ve 38.024,03 TL'de Türk-İş Ekim 2026 açlık sınırı çizgisi (4 kişilik aile) var. %35 senaryosu bu çizginin 122,10 TL altında kalıyor."
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 21,
+      "deger": 16,
+      "rakam_dogrulugu": 15,
+      "akis_ve_tutma": 6,
+      "ozgunluk": 7,
+      "platform_metinleri": 4,
+      "gorsel_okunurluk": 4
+    },
+    "toplam": 73,
+    "karar": "REVIZYON",
+    "tutar_mi": "Aralık kararı öncesinde arama ilgisi zirvede. '%35 bile açlık sınırının 122 TL altında' cümlesi güçlü, rakama dayalı ve kaydedilmeye uygun bir hook. Hesapların hepsi doğru: 28.075,50 × oran, ×12 ve açlık sınırı farklarını tek tek kontrol ettim. Ama kaydedilecek asıl slayt olan grafik bozuk: etiketler kesik, renkler çelişkili, lejant üst üste binmiş ve grafik başlığın söylediğini göstermiyor. Bu haliyle hem güveni hem kaydetme oranını düşürür.",
+    "rakam_hatalari": [
+      "Slayt 3 (grafik): Başlık 'taban + zam artışı' diyor ama grafikte zam artışı katmanı yok. Kırılımda sadece 336.906 TL taban var, 84.226,50 / 101.071,80 / 117.917,10 TL artışlar görünmüyor. Alt metin de var olmayan yığılmış bir grafiği anlatıyor.",
+      "Slayt 3: Renkler birbirini tutmuyor. Üstteki çubuklarda %25 ve %30 yeşil, %35 kırmızı. Lejantta ise %25 yeşil, %30 kırmızı, %35 mavi. Böyle olunca hangi rakamın hangi senaryoya ait olduğu karışıyor.",
+      "Slayt 3: Etiketler kesilmiş: 'aylık net 35.094,38 T', '36.498,15 T', '37.901,93 T'. Para birimi okunmuyor.",
+      "Slayt 3: 'FARK 33.691 TL' neyin farkı belli değil (%35 − %25, yıllık). Slayt 4, caption ve seslendirmede ise 33.690,60 TL yazıyor. Yuvarlama tutarsız.",
+      "Slayt 3: Yıllık toplamlar 421.132 / 437.978 / 454.823 TL olarak yuvarlanmış. Slayt 4 ve caption'da ise 421.132,50 / 437.977,80 / 454.823,10 TL var. Aynı rakam iki farklı biçimde yazılmış.",
+      "Slayt 3: '* tahmini' notu var ama hiçbir rakamda yıldız yok. Kaynak satırı da 'Milli' diye kesilmiş, Paratic ve tarih görünmüyor.",
+      "Kaynak listesinde Türkgün '(tarih doğrulanamadı)' notuyla duruyor. Doğrulanamayan kaynak güven vermez, çıkarılmalı. Rakamlar zaten Milli Gazete, Paratic ve CNBCE ile destekleniyor."
+    ],
+    "geri_bildirim": "Hesaplar doğru, fikir ve hook güçlü. Sorun neredeyse tamamen görsel ve tutarlılık. Düzeltmeler:\n\n1. Slayt 3'ü baştan render et:\n   - Gerçek yığılmış çubuk yap: her senaryoda 336.906 TL taban (gri) + zam artışı (renkli: 84.226,50 / 101.071,80 / 117.917,10 TL).\n   - Toplamları sağa 421.132,50 / 437.977,80 / 454.823,10 TL olarak yaz.\n   - Aynı rengi tüm slaytta aynı senaryo için kullan. Üst çubuklar ile lejant farklı renk kodu kullanmasın.\n   - Etiketleri kısalt, kesilmesin: '%25 · 35.094,38 TL/ay'.\n   - 'Kalem kalem' başlığı ile lejant üst üste binmesin. Tabanı zaten çubuğa koyuyorsan alttaki üç özdeş 336.906 TL çubuğunu tamamen kaldır, gereksiz tekrar.\n   - FARK kutusunu 'Yıllık fark (%35 − %25): 33.690,60 TL' diye etiketle.\n   - Sayfa numarasını (3/7) ekle.\n   - Kaynak satırını tam yaz: 'ÇSGB · Milli Gazete 26.11.2026 · Paratic 16.11.2026 · Kasım 2026'.\n   - '* tahmini' ibaresini ya kaldır ya da gerçekten ilgili rakamlara yıldız koy. Daha net olanı şu: 'senaryo hesabı, tahmin değil' de.\n\n2. Ondalık biçimini her yerde aynı yap. Görsel, caption, seslendirme ve alt metinde ya kuruşlu ya yuvarlanmış kullan, karıştırma. Seslendirmede 'yaklaşık' demen sorun değil.\n\n3. Slayt 2 ve 4'te metnin içindeki '· 2/7' ve '· 4/7' fazla, köşede zaten sayfa numarası var. Metinden sil.\n\n4. Slayt 1: Başlık 'açlık sınırının altında' diyor ama 'Ekim' kelimesi sadece alt metinde var. Başlığa 'Ekim açlık sınırının' yaz ya da alt metinde 'Ekim 2026 sınırı, Ocak 2027 maaşıyla karşılaştırılıyor' notunu görünür yap. 122 TL'lik fark, sınır Kasım'da güncellenirse kolayca değişir.\n\n5. Türk-İş Kasım raporu ay sonunda (28-30 Kasım) çıkabilir. Yayından hemen önce turkis.org.tr'yi kontrol et. Rapor çıktıysa hook dahil tüm açlık sınırı rakamlarını güncelle.\n\n6. Türkgün'ü kaynak listesinden çıkar. CNBCE kalsın, ama CNBCE'yi gerçekten hangi rakam için kullandığını belirt.\n\n7. Alt metni yeni grafiğe göre yeniden yaz. Slayt 5'teki açlık sınırı grafiğinde de aynı sorunların (etiket kesilmesi, renk tutarsızlığı) olmadığını kontrol et."
+  },
+  "mudur_gecmisi": [
+    {
+      "deneme": 1,
+      "toplam": 74,
+      "karar": "REVIZYON",
+      "rakam_hatalari": [
+        "Slayt 1: 122,10 TL farkın dayandığı açlık sınırı ekranda kaynaksız. 'Türk-İş, Ekim 2026, Ankara, 4 kişilik aile: 38.024,03 TL' ibaresi yok, ayrıca slaytta 'Ekim' bile yazmıyor.",
+        "Slayt 3: senaryo etiketlerindeki aylık netler kesilmiş ('35.094,38 T', '36.498,15 T', '37.901,93 T'). Parantez kapanmıyor, 'TL' eksik.",
+        "Slayt 3: renk kodlaması lejantla çelişiyor. Üstte %35 çubuğu kırmızı, lejantta kırmızı %30, mavi %35. İzleyici yanlış senaryoyu okur.",
+        "Slayt 3: 'Kalem kalem' bölümünde sadece taban (336.906 TL) var, zamdan gelen artış kalemleri (84.226 / 101.072 / 117.917 TL) yok. Ara toplamlar grafikte toplamı oluşturmuyor.",
+        "Slayt 3 seslendirmesi: '%35'te 37.901 TL' denmiş, 37.901,93 TL yuvarlanınca 37.902 TL olur. Ya tam ya doğru yuvarlanmış söylenmeli.",
+        "Yıllık 421.132,50 ve 84.226,50 TL aşağı yuvarlanmış, diğer satırlar normal yuvarlanmış. Tutarlılık için ya ondalıkla (421.132,50) ya da tek kuralla yazılmalı.",
+        "Hook'taki 122,10 TL farkı Türk-İş'in Kasım raporuna bağlı. Rapor ay sonunda (bugün/yarın) çıkabilir. Yayından önce turkis.org.tr kontrol edilmeden bu rakam kullanılmamalı."
+      ],
+      "geri_bildirim": "1. Slayt 1: Alt metne \"Türk-İş Ekim 2026 açlık sınırı (Ankara, 4 kişilik aile): 38.024,03 TL\" ekle. \"tahmini senaryo tablosu… Bunlar tahmin değil\" çelişkisini kaldır. Şöyle yaz: \"Kasım 2026 · senaryo hesabı: zam oranı tahmin değil, verilen oranların sonucu.\"\n2. Slayt 3'ü yeniden üret:\n   a) Etiketleri kısalt: \"%25 → 35.094,38 TL/ay\". Kesilme olmasın.\n   b) Renkler tek düzende olsun: her senaryo için aynı renk hem çubukta hem lejantta. %35'i kırmızıyla gösterme, olumsuz bir anlam taşıyor.\n   c) \"Kalem kalem\" bölümüne zamdan gelen artış kalemlerini ekle (84.226 / 101.072 / 117.917 TL). Taban ile artışın toplamı, yıllık toplamı göstersin. Lejantın başlıkla çakışmasını düzelt.\n   d) Alt kaynak satırı kesik (\"Milli\"). Tam yaz: \"ÇSGB, Milli Gazete 26.11.2026, Paratic 16.11.2026\".\n   e) Sayfa numarasını (3/7) ekle. \"FARK 33.691 TL\"nin yanına neyin farkı olduğunu yaz: \"yıllık, %35 ile %25 arası\".\n3. Seslendirmede 37.901 yerine \"37.902 TL\" ya da \"37 bin 902 TL\" de. Yıllık rakamlarda tek yuvarlama kuralı uygula: 421.133 / 84.227 ya da ondalıklı yaz. Tablo, slayt ve caption birebir aynı olsun.\n4. Slayt 5'te (açlık sınırı) \"Ekim sınırı ↔ Ocak maaşı\" tarih farkını tek satırla ekranda da belirt. Şu an sadece varsayım slaytında var.\n5. Yayından hemen önce Türk-İş Kasım 2026 raporunu kontrol et. Çıktıysa hook, slayt 1, slayt 5, caption, TikTok ve YouTube metinlerindeki 38.024,03 TL ve 122,10 TL'yi güncelle, \"Ekim\" ibarelerini \"Kasım\" yap.\n6. Caption kaynak listesinde Türkgün'ün tarihi doğrulanamadı. Ya çıkar ya \"tarih doğrulanamadı\" notu ekle. RayHaber/Paratic \"36-38 bin\" ifadesi hiçbir yerde kullanılmamalı. Şu an kullanılmıyor, öyle kalsın.\n7. YouTube başlığındaki \"#1\"i kaldır, \"(Kasım 2026, senaryo)\" ekle. Seri numarası açıklamada kalabilir."
+    },
+    {
+      "deneme": 2,
+      "toplam": 73,
+      "karar": "REVIZYON",
+      "rakam_hatalari": [
+        "Slayt 3: 'FARK 33.691 TL' kutusu etiketsiz. Neyin farkı olduğu yazmıyor (yıllık, %35 ile %25 arası). Ayrıca taslak metindeki 33.690,60 TL ile ondalık uyumu yok, 'yaklaşık' ibaresi de eksik",
+        "Slayt 3: Dipnotta '* tahmini' yazıyor ama grafikte yıldızlı hiçbir rakam yok. Bu dipnot sahipsiz kalmış",
+        "Slayt 3: Senaryo etiketleri kesilmiş ('aylık net 35.094,38 T'). Rakam ekranda tam okunmuyor",
+        "Slayt 3: Renkler tutarsız. Üstteki %35 çubuğu kırmızı, alttaki lejantta ise %35 mavi, %30 kırmızı. İzleyici yanlış senaryoyu okuyabilir",
+        "Slayt 3: Kaynak satırı 'Milli' diye kesilmiş. Paratic (16.11.2026) ve tarihler eksik, taslaktaki kaynak listesiyle uyuşmuyor",
+        "Açlık sınırı 38.024,03 TL Ekim verisi. Türk-İş Kasım raporu ay sonunda çıkar; yayın öncesi turkis.org.tr kontrol edilmedi. Kasım verisi açıklandıysa hook'taki 122,10 TL farkı değişir"
+      ],
+      "geri_bildirim": "Hesapları tek tek kontrol ettim, hepsi doğru: 28.075,50 × 1,25/1,30/1,35; 12 aylık toplamlar; artışlar; açlık sınırıyla farklar; brüt × 0,85. İçerik iyi, düzeltilmesi gereken yer görsel ve sunum.\n\n1) SLAYT 3'Ü BAŞTAN ÇİZ (yayını engelleyen sorun):\n- Etiketleri kısalt, kesilmesin: \"%25 → 35.094,38 TL/ay\".\n- Tek renk sistemi kullan: %25, %30 ve %35 her yerde aynı renkte olsun.\n- Alttaki \"Kalem kalem\" bölümünü kaldır. Üç tane aynı 336.906 TL çubuğu bilgi vermiyor, üstelik lejant başlığın üstüne binmiş. Yerine her çubuğu \"taban 336.906 + zam artışı\" diye iki parçalı (stacked) göster.\n- FARK kutusunu \"Yıllık fark (%35 − %25): 33.690,60 TL\" yap.\n- Sahipsiz \"* tahmini\" dipnotunu kaldır ya da \"senaryo hesabı\" yaz.\n- Kaynak satırını tam yaz: \"ÇSGB · Milli Gazete 26.11.2026 · Paratic 16.11.2026 · Kasım 2026\".\n- 3/7 sayfa numarasını ekle.\n\n2) SLAYT 1: Gövde metni çok kalabalık. Hook'u koru ama altını iki satıra indir:\n\"Fark: 122,10 TL · Türk-İş Ekim 2026 açlık sınırı 38.024,03 TL (4 kişilik aile)\" ve \"Kasım 2026 · senaryo hesabı, tahmin değil\".\n\n3) Açlık sınırı karşılaştırmasını görselleştir: Slayt 5'te dört çubuk (bugün, %25, %30, %35) ve 38.024 TL'de yatay bir çizgi olsun. Paylaşılacak kare bu, düz metinle boşa gidiyor.\n\n4) YAYIN ÖNCESİ: Türk-İş Kasım 2026 raporunu kontrol et. Açıklandıysa hook, slayt 1, slayt 5, caption ve YouTube açıklamasındaki 38.024,03 TL ile 122,10 TL'yi güncelle. Aksi hâlde \"Ekim verisi\" etiketi her yerde kalsın.\n\n5) Ton: Fikir notu \"yorum katmadan\" diyordu. Hook ve seslendirmedeki \"yetmiyor\" yerine \"altında kalıyor\" de; tarafsız ton böyle korunur.\n\n6) Slayt 6: Vergi istisnasının 2027'de süreceğine dair yasal metin yok. Bu riski bir satırla görünür yap: \"İstisna kalkarsa net belirgin düşer\". Tabloda olmayan 31.878 TL'yi yazma."
+    },
+    {
+      "deneme": 3,
+      "toplam": 73,
+      "karar": "REVIZYON",
+      "rakam_hatalari": [
+        "Slayt 3 (grafik): Başlık 'taban + zam artışı' diyor ama grafikte zam artışı katmanı yok. Kırılımda sadece 336.906 TL taban var, 84.226,50 / 101.071,80 / 117.917,10 TL artışlar görünmüyor. Alt metin de var olmayan yığılmış bir grafiği anlatıyor.",
+        "Slayt 3: Renkler birbirini tutmuyor. Üstteki çubuklarda %25 ve %30 yeşil, %35 kırmızı. Lejantta ise %25 yeşil, %30 kırmızı, %35 mavi. Böyle olunca hangi rakamın hangi senaryoya ait olduğu karışıyor.",
+        "Slayt 3: Etiketler kesilmiş: 'aylık net 35.094,38 T', '36.498,15 T', '37.901,93 T'. Para birimi okunmuyor.",
+        "Slayt 3: 'FARK 33.691 TL' neyin farkı belli değil (%35 − %25, yıllık). Slayt 4, caption ve seslendirmede ise 33.690,60 TL yazıyor. Yuvarlama tutarsız.",
+        "Slayt 3: Yıllık toplamlar 421.132 / 437.978 / 454.823 TL olarak yuvarlanmış. Slayt 4 ve caption'da ise 421.132,50 / 437.977,80 / 454.823,10 TL var. Aynı rakam iki farklı biçimde yazılmış.",
+        "Slayt 3: '* tahmini' notu var ama hiçbir rakamda yıldız yok. Kaynak satırı da 'Milli' diye kesilmiş, Paratic ve tarih görünmüyor.",
+        "Kaynak listesinde Türkgün '(tarih doğrulanamadı)' notuyla duruyor. Doğrulanamayan kaynak güven vermez, çıkarılmalı. Rakamlar zaten Milli Gazete, Paratic ve CNBCE ile destekleniyor."
+      ],
+      "geri_bildirim": "Hesaplar doğru, fikir ve hook güçlü. Sorun neredeyse tamamen görsel ve tutarlılık. Düzeltmeler:\n\n1. Slayt 3'ü baştan render et:\n   - Gerçek yığılmış çubuk yap: her senaryoda 336.906 TL taban (gri) + zam artışı (renkli: 84.226,50 / 101.071,80 / 117.917,10 TL).\n   - Toplamları sağa 421.132,50 / 437.977,80 / 454.823,10 TL olarak yaz.\n   - Aynı rengi tüm slaytta aynı senaryo için kullan. Üst çubuklar ile lejant farklı renk kodu kullanmasın.\n   - Etiketleri kısalt, kesilmesin: '%25 · 35.094,38 TL/ay'.\n   - 'Kalem kalem' başlığı ile lejant üst üste binmesin. Tabanı zaten çubuğa koyuyorsan alttaki üç özdeş 336.906 TL çubuğunu tamamen kaldır, gereksiz tekrar.\n   - FARK kutusunu 'Yıllık fark (%35 − %25): 33.690,60 TL' diye etiketle.\n   - Sayfa numarasını (3/7) ekle.\n   - Kaynak satırını tam yaz: 'ÇSGB · Milli Gazete 26.11.2026 · Paratic 16.11.2026 · Kasım 2026'.\n   - '* tahmini' ibaresini ya kaldır ya da gerçekten ilgili rakamlara yıldız koy. Daha net olanı şu: 'senaryo hesabı, tahmin değil' de.\n\n2. Ondalık biçimini her yerde aynı yap. Görsel, caption, seslendirme ve alt metinde ya kuruşlu ya yuvarlanmış kullan, karıştırma. Seslendirmede 'yaklaşık' demen sorun değil.\n\n3. Slayt 2 ve 4'te metnin içindeki '· 2/7' ve '· 4/7' fazla, köşede zaten sayfa numarası var. Metinden sil.\n\n4. Slayt 1: Başlık 'açlık sınırının altında' diyor ama 'Ekim' kelimesi sadece alt metinde var. Başlığa 'Ekim açlık sınırının' yaz ya da alt metinde 'Ekim 2026 sınırı, Ocak 2027 maaşıyla karşılaştırılıyor' notunu görünür yap. 122 TL'lik fark, sınır Kasım'da güncellenirse kolayca değişir.\n\n5. Türk-İş Kasım raporu ay sonunda (28-30 Kasım) çıkabilir. Yayından hemen önce turkis.org.tr'yi kontrol et. Rapor çıktıysa hook dahil tüm açlık sınırı rakamlarını güncelle.\n\n6. Türkgün'ü kaynak listesinden çıkar. CNBCE kalsın, ama CNBCE'yi gerçekten hangi rakam için kullandığını belirt.\n\n7. Alt metni yeni grafiğe göre yeniden yaz. Slayt 5'teki açlık sınırı grafiğinde de aynı sorunların (etiket kesilmesi, renk tutarsızlığı) olmadığını kontrol et."
+    }
+  ],
+  "durum": "reddedildi"
+}
