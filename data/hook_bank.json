@@ -1,0 +1,165 @@
+{
+  "tarih": "2026-11-27T13:43:44.842271+03:00",
+  "hooklar": [
+    {
+      "soru": "2027 asgari ücret kaç TL olacak, zam senaryolarına göre net maaş ne olur?",
+      "hook": "%25, %30, %35 zam: Net maaşın her senaryoda kaç TL?",
+      "platform_kaniti": "Haber siteleri (Google Trends verisi yok): Milli Gazete %28,4-35 tablosu, RayHaber %25-30 senaryoları (Kasım 2026), Paratic 40 bin TL senaryosu, Türkgün 25.11.2026",
+      "veri_ihtiyaci": "Bugünkü net asgari ücret 28.075,50 TL (resmi kaynaktan doğrula). Her senaryo için çarp: %25 = 35.094,38 TL; %30 = 36.498,15 TL; %35 = 37.901,93 TL. Tablonun 'tahmini senaryo' olduğunu, kararın Aralık'ta komisyonda çıkacağını yaz.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Asgari ücret açlık sınırına yetişiyor mu?",
+      "hook": "%30 zam bile Eylül'ün açlık sınırını geçmiyor. Rakamlara bak.",
+      "platform_kaniti": "Evrensel (Türk-İş Eylül 2026 verisi) + asgari ücret zam haberleri (Türkgün 25.11). Türk-İş'in Kasım raporu ay sonunda bekleniyor, yayımlanınca güncelle.",
+      "veri_ihtiyaci": "Açlık sınırı 37.801 TL, yoksulluk sınırı 123.130 TL (Eylül 2026, Türk-İş; 4 kişilik aile için olduğu belirtilmeli). %30 zamlı tahmini net 36.498 TL ile kıyasla, fark 1.303 TL. Türk-İş'in Kasım verisi çıkarsa onu kullan. Ton tarafsız kalsın.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Asgari ücretli ve İstanbul'da kiracı biri için 2027 bütçesi nasıl olur?",
+      "hook": "Asgari ücretle İstanbul'da kiradasın. 2027 bütçen kalem kalem burada 📊",
+      "platform_kaniti": "Haberlerde kalemler ayrı ayrı var ama birleşik tablo yok: asgari ücret senaryoları (Türkgün, Milli Gazete), İstanbul ortalama kirası (Emlakjet-Endeksa, Turchina Group), Türk-İş sınırları (Evrensel)",
+      "veri_ihtiyaci": "Tahmini net asgari ücret (%30 senaryo 36.498 TL), İstanbul ortalama kira 45.510 TL (Ağustos 2026, Emlakjet-Endeksa) ve kira artış tavanı. Ek olarak market sepeti, ulaşım (İBB tarifesi) ve fatura ortalamaları için kaynak bul. Tek kişinin geliri kiraya bile yetmiyor; varsayımı (tek kişi mi, ev arkadaşlı mı) açıkça yaz.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Yapay zekâ 2027 asgari ücretini ne tahmin ediyor, ekonomistlerle aynı mı?",
+      "hook": "Dört yapay zekâ asgari ücreti tahmin etti. Ekonomistlerle aynı mı?",
+      "platform_kaniti": "CNBC-e 'Asgari ücret 2027'de ne olacak? 4 yapay zekânın tahmini' haberi; Paratic'te ekonomistin 36-38 bin TL tahmini",
+      "veri_ihtiyaci": "CNBC-e'deki dört yapay zekânın tahmin rakamları, Paratic'teki 36-38 bin TL ekonomist aralığı ve medyandaki senaryo tabloları. Bunların hepsinin tahmin olduğunu, kararın Aralık'ta verileceğini yaz.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Emekliye ek zam olacak mı, taban aylık 30 bin TL olursa ne değişir?",
+      "hook": "Taban emekli aylığı 30 bin TL olursa ne değişir?",
+      "platform_kaniti": "Kamudanhaber (27.11.2026 Beştepe görüşmesi), CNN Türk 26.11 bülteni 'yeni zam senaryosu'",
+      "veri_ihtiyaci": "Mevcut taban emekli aylığı (SGK/resmi kaynak), 30 bin TL senaryosunda aradaki fark, Türk-İş açlık sınırı (37.801 TL, Eylül 2026) ile karşılaştırma. Henüz karar değil, görüşme aşamasında olduğu net söylensin.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Kira mı ödemeli, konut kredisi mi çekmeli?",
+      "hook": "Aynı ev için kira mı, kredi taksiti mi? Yan yana koydum.",
+      "platform_kaniti": "Doğrudan soru bulunamadı. Bu hafta iki veri ayrı ayrı yoğun haber oldu: kira tavanı (Posta, Paradefter), konut kredisi faizleri (Emlakmanşet, Emlak Haber Ajansı, Ekonomipolitikasi)",
+      "veri_ihtiyaci": "Örnek bir dairenin satış fiyatı ve aynı dairenin kirası (Endeksa/Emlakjet), peşinat oranı, en düşük aylık faiz %2,87 ile 120 ay taksit, tapu harcı, DASK, aidat. Kira tarafında 12 ay sonraki tahmini artış. Tavsiye verme, iki senaryonun toplam nakit çıkışını göster.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "1 milyon TL konut kredisi 120 ay vadeyle aylık kaç TL, toplamda ne ödenir?",
+      "hook": "1 milyon TL kredi çektin. 10 yılda geri ne ödüyorsun?",
+      "platform_kaniti": "Politikam '120 ay vadeli kredi taksitleri Kasım 2026', Emlakmanşet ve Emlak Haber Ajansı (en düşük oran %2,87), Ekonomipolitikasi haftalık oran tabloları",
+      "veri_ihtiyaci": "Aylık %2,87 faizle 1.000.000 TL, 120 ay için yaklaşık hesap: taksit ≈ 29.695 TL, toplam geri ödeme ≈ 3,56 milyon TL. Bunu bankanın kredi hesaplayıcısında doğrula, %2,85 ve %3,83 oranlarıyla da hesapla. Masraf, sigorta ve vergi istisnalarını ekle. Kasım 2026 oranları olduğunu yaz.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Bu ay kiraya en fazla yüzde kaç zam yapılabilir?",
+      "hook": "Ev sahibin zam istedi. Yasal üst sınırı biliyor musun?",
+      "platform_kaniti": "Posta zam haberleri (kasım tavanı TÜİK ekim verisiyle belli oldu), Paradefter (%31,49, tek kaynak)",
+      "veri_ihtiyaci": "TÜİK'ten 12 aylık TÜFE ortalamasını doğrula (%31,49 yalnızca Paradefter'de geçiyor). 45.510 TL'lik İstanbul ortalama kirasına (Ağustos 2026, Emlakjet-Endeksa) uygulanınca: 45.510 × 1,3149 ≈ 59.841 TL. Aralık tavanı 3 Aralık'ta açıklanacak, güncelle.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Araba sahibi olmanın yıllık gerçek maliyeti ne kadar?",
+      "hook": "Araba almak bir kere. Ya her yıl ödediğin?",
+      "platform_kaniti": "Yeni Ankara 'Araba almak değil, tutmak zor' haberi (B segment benzinli yaklaşık 90 bin TL/yıl), Hesapyapar ve AraçHesap gibi hesaplama sitelerinin varlığı",
+      "veri_ihtiyaci": "B segment benzinli için kalem kalem: MTV, zorunlu trafik sigortası (Kasım tarifesi), kasko teklifi, yıllık yakıt (varsayılan km ve tüketim belirt, güncel benzin fiyatı), bakım, lastik, muayene, otopark. Yeni Ankara'daki 90 bin TL'yi kendi tablonla kontrol et. Ara toplamlar tutsun.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "2027'de MTV ne kadar olacak?",
+      "hook": "Aracının 2027 MTV'si yaklaşık ne kadar artıyor? Motor hacmine bak 💸",
+      "platform_kaniti": "Türkiye Gazetesi, Milli Gazete, A Haber 2027 MTV tabloları (%27,83 yeniden değerleme oranına göre tahmin)",
+      "veri_ihtiyaci": "Tahmini: 1.300 cc altı 5.750 → ~7.350 TL; 1.301-1.600 cc 10.016 → ~12.803 TL (%27,83 oranıyla). Resmi tarife değil, Resmî Gazete'de yayımlanınca güncellenecek diye belirt. Araç yaşı ve değer dilimlerini ekle.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Akaryakıta ÖTV zammı sonrası depo doldurmak kaç TL oldu?",
+      "hook": "ÖTV zammından sonra aynı depo artık kaç TL'ye doluyor?",
+      "platform_kaniti": "Akaryakit.org Kasım başı zam haberleri (motorin +3,60 TL, benzin ~+4,15 TL, LPG ~+9 TL)",
+      "veri_ihtiyaci": "Güncel pompa fiyatları (EPDK veya dağıtıcı firma sitesi, il belirt), 50 litrelik depo için zam öncesi ve sonrası fark, yılda 15 bin km için ek maliyet (tüketim varsayımını belirt). LPG'deki +9 TL rakamı alışılmadık yüksek, mutlaka doğrula.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Zorunlu trafik sigortası Kasım tarifesinde ne kadar?",
+      "hook": "Trafik sigortan yenileniyor. Kasım tarifesinde tavan kaç TL?",
+      "platform_kaniti": "Düzcenin Sesi zam haberleri",
+      "veri_ihtiyaci": "SEDDK/Sigortacılık Bilgi Merkezi resmi Kasım 2026 tavan tarifeleri (il ve hasarsızlık basamağına göre), bir önceki aya göre artış. Tek yerel kaynak var, resmi kaynaktan doğrula.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "ÖTV muafiyetiyle hangi sıfır araçlar alınabiliyor?",
+      "hook": "ÖTV muafiyetinde sınır 2.873.972 TL. Hangi sıfır araçlar giriyor?",
+      "platform_kaniti": "Webtekno ÖTV muafiyetli araç listesi, Yeni Şafak '820 bin TL veren sıfır araç sahibi olacak', Doğu Gazetesi, Arabam",
+      "veri_ihtiyaci": "Resmi muafiyet fiyat sınırının doğrulanması (2.873.972 TL), muafiyetli ve muafiyetsiz fiyat farkı, listedeki modellerin Kasım 2026 liste fiyatları (marka sitelerinden), muafiyet koşulları (engellilik oranı vb.). '820 bin TL' iddiasının neye dayandığını kontrol et.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Togg mu, Corolla gibi benzinli/hibrit mi? Toplam maliyet hangisinde düşük?",
+      "hook": "Togg mu Corolla mı? Sadece fiyatı değil, 5 yılı karşılaştırdım.",
+      "platform_kaniti": "Araclo ve Arabayorum Kasım Togg fiyat listeleri (1,88-3,2 milyon TL), Arabakarsilastirma Kasım kampanyaları (Corolla Sedan liste 2.545.500 TL, kampanyalı 1.965.000 TL)",
+      "veri_ihtiyaci": "Benzer donanım seviyelerinin resmi marka sitelerindeki Kasım 2026 fiyatları, enerji maliyeti (kWh ev şarjı/DC şarj ve benzin litre fiyatı, aynı km varsayımı), MTV, kasko, bakım. Karşılaştırma aynı koşullarda ve adil olsun, kampanya fiyatının geçici olduğunu belirt.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Efsane Cuma'da iPhone 17 nereden en ucuza alınır?",
+      "hook": "Aynı iPhone 17, dört mağaza, dört farklı fiyat 📊",
+      "platform_kaniti": "Akakçe (en ucuz 86.175 TL, 26.11), Amazon 87.463 TL, Turkcell Pasaj 87.999 TL, Apple TR 99.999 TL; Log.com.tr 512 GB 91.999 TL (23.11). Bugün Efsane Cuma.",
+      "veri_ihtiyaci": "Tüm fiyatların aynı depolama ve aynı modelde olduğunu doğrula. Apple TR ile Akakçe en düşük fiyatı arasındaki fark 13.824 TL. Fiyatların tarih ve saatini yaz, garanti ve satıcı farkını (resmi distribütör mü) belirt. Fiyatlar saatlik değişebilir.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "YouTube Premium web'den mi ucuz, App Store'dan mı?",
+      "hook": "Aynı YouTube Premium'a her ay 40 TL fazla ödüyor olabilirsin.",
+      "platform_kaniti": "Etkisepeti ve Karekod (web 119,99 TL, App Store 159,99 TL), Fiyatinedir",
+      "veri_ihtiyaci": "Bireysel paket web 119,99 TL ve App Store 159,99 TL. Aylık fark 40 TL, yıllık 480 TL. Google'ın resmi fiyat sayfasından doğrula, Kasım 2026 fiyatı olduğunu yaz. Aboneliği değiştirme adımlarını kısaca göster.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Dijital aboneliklere ayda toplam ne kadar ödüyoruz?",
+      "hook": "Netflix, Spotify, YouTube: Üçü birlikte ayda en az kaç TL?",
+      "platform_kaniti": "Shiftdelete Kasım 2026 dijital abonelik tablosu (Netflix 259,99-499,99 TL), Fiyatinedir (YouTube Premium 119,99 TL, Spotify 115 TL)",
+      "veri_ihtiyaci": "En ucuz paketlerle toplam: 259,99 + 119,99 + 115 = 494,98 TL/ay, yıllık 5.939,76 TL. En pahalı Netflix paketiyle: 734,98 TL/ay. Diğer platformlar (Disney+, Prime, Exxen vb.) için resmi fiyatları ekle. Kasım 2026 tarihli olduğunu yaz.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "1 milyon TL mevduatta 32 günde ne kazandırır, altınla karşılaştırınca ne olur?",
+      "hook": "1 milyon TL'yi bankaya 32 gün koydun. Eline net ne geçiyor?",
+      "platform_kaniti": "CNN Türk Finans 18.11.2026 (yıllık %35-42, net getiri yaklaşık 25.300-27.500 TL), Ekonomim. Mevduat-altın karşılaştırması bulunamadı, içerik boşluğu.",
+      "veri_ihtiyaci": "Bankaların güncel 32 günlük faiz oranları, stopaj oranı, net getirinin hesabı, aynı dönemde altının gram fiyat değişimi (geçmiş veri, gelecek tahmini değil). Tavsiye verme, geçmiş performansın gelecek getiriyi göstermediğini yaz.",
+      "format": "reel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Kafe açmak gerçekte kaça mal olur?",
+      "hook": "Kafe açmak istiyorsun. İlk kahveyi satana kadar ne harcıyorsun?",
+      "platform_kaniti": "Meslekmaas (en az 1,5-2 milyon TL), SecretCV '2027 kafe açma maliyeti', Hisse.net 'Kafeler aylık ne kadar kazanıyor'. Hepsi arama trafiği için yazılmış bloglar.",
+      "veri_ihtiyaci": "Kalem kalem kendi araştırman: depozito ve kira, dekorasyon, espresso makinesi ve ekipman fiyatları (satıcı sitelerinden), ruhsat ve belediye harçları, ilk ay personel maliyeti (asgari ücret ve SGK), ilk stok. Blog rakamlarını yalnızca karşılaştırma için kullan. Şehir ve metrekare varsayımını belirt.",
+      "format": "carousel",
+      "kullanildi": false
+    },
+    {
+      "soru": "Kademeli elektrik/doğalgaz tarifesi ve yeni model faturamı ne kadar artırır, gecikme zammı ne oldu?",
+      "hook": "Faturan zamlanmadı ama artabilir. Yeni tarife modelini rakamla anlattım.",
+      "platform_kaniti": "Diken, Ekonomim (yeni fiyatlandırma modeli), Paratic, CNN Türk, BirGün (EMO 'gizli zam' uyarısı), Akşam Haberleri (27.11.2026 Resmî Gazete: gecikme zammı aylık %3,2)",
+      "veri_ihtiyaci": "EPDK güncel tarife ve kademe limitleri, BOTAŞ il bazlı tüketim limitleri, örnek bir hane için limit altı ve üstü fatura hesabı (tüketim varsayımını belirt). Gecikme zammı %3,2 ile 2.000 TL'lik faturada bir ay gecikmenin maliyeti 64 TL. Kasım 2026 için kesinleşmiş zam olmadığını açıkça yaz.",
+      "format": "carousel",
+      "kullanildi": false
+    }
+  ]
+}
