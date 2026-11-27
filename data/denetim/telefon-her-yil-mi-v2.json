@@ -1,6 +1,6 @@
 {
   "dosya": "data/senaryolar/telefon-her-yil-mi-v2.json",
-  "tarih": "2026-11-27T22:41:42.037014+03:00",
+  "tarih": "2026-11-27T22:47:01.770858+03:00",
   "format_grafik_denetimi": [],
   "kaynak_dogrulama": {
     "rapor": {
@@ -10,32 +10,32 @@
           "kalem": "Yeni telefon (18 Pro 256 GB)",
           "durum": "kaynakta_var",
           "alinti": "fiyatı: 137.999 TL",
-          "aciklama": "iPhone 18 Pro 256 GB satış fiyatı Apple resmi mağaza kaynağında birebir geçmektedir."
+          "aciklama": "Apple resmi sitesinde iPhone 18 Pro 256 GB satış fiyatı 137.999 TL olarak geçmektedir."
         },
         {
           "secenek": "Her yıl yenile",
           "kalem": "Eskisinin satışı (17 Pro)",
           "durum": "tahmini_isaretli",
           "alinti": "",
-          "aciklama": "Kalem tahmini olarak işaretlenmiştir ve ikinci el piyasa taban fiyatı varsayımı makuldür."
+          "aciklama": "İkinci el ilan fiyatlarına dayanan tahmini bir tutardır."
         },
         {
           "secenek": "Her yıl yenile",
           "kalem": "Kaçan faiz",
           "durum": "hesaplanan",
-          "alinti": "57.200 × (%41,62 × (1 - 0,175)) = 19.640,48 TL; 'TL mevduat hesaplarına uyguladığı faiz oranı, 20 Kasım haftasında bir önceki haftaya göre 6 baz puan azalarak yüzde 41,62’ye geriledi.'",
-          "aciklama": "Faiz (%41,62) ve stopaj (%17,5) oranları kaynaklarda yer almaktadır; net getiri formülü uygulandığında tutar 1 TL içinde uyuşmaktadır."
+          "alinti": "Bankaların TL mevduat hesaplarına uyguladığı faiz oranı, 20 Kasım haftasında bir önceki haftaya göre 6 baz puan azalarak yüzde 41,62’ye geriledi.",
+          "aciklama": "Formül: (137.999 - 75.000) - 5.799 = 57.200 TL. Net faiz: %41,62 * (1 - 0,175) = %34,3365. 57.200 * 0,343365 = 19.640 TL. Sonuç hesaplanan tutarla birebir uyuşmaktadır."
         },
         {
           "secenek": "Eskisiyle devam",
           "kalem": "Batarya değişimi",
           "durum": "tahmini_isaretli",
           "alinti": "",
-          "aciklama": "Kalem tahmini olarak işaretlenmiştir ve yetkili servis pil değişim bedeli varsayımı makuldür."
+          "aciklama": "Yetkili servis pil değişim ücreti için tahmini olarak belirtilmiştir."
         }
       ],
       "tarih_guncel_mi": true,
-      "ozet": "Tabloda yer alan yeni telefon fiyatı resmi Apple kaynağında birebir doğrulanmıştır. İkinci el satış ve batarya değişim kalemleri tahmini olarak açıkça işaretlenmiş makul varsayımlardır. Kaçan faiz hesabı kaynaklardaki mevduat faizi ve stopaj oranlarıyla tam olarak örtüşmektedir. Kaynak tarihleri Kasım 2026 dönemiyle günceldir."
+      "ozet": "Tablodaki iPhone 18 Pro fiyatı resmi kaynakla uyuşmaktadır. Mevduat faizi oranı TCMB verileriyle desteklenmektedir. Hesaplamalar doğru yapılmış olup tahmini kalemler uygun şekilde işaretlenmiştir."
     },
     "sorunlar": [],
     "bulunan_sayfa": [
@@ -53,50 +53,37 @@
   },
   "renk_dengesi": {
     "baskin": 60.7,
-    "ikincil": 29.2,
+    "ikincil": 29.1,
     "vurgu": 6.8,
-    "yazi": 3.3
+    "yazi": 3.4
   },
   "mudur": {
     "puanlar": {
-      "hook_gucu": 19,
-      "deger": 17,
-      "rakam_dogrulugu": 15,
-      "akis_ve_tutma": 8,
-      "ozgunluk": 8,
-      "platform_metinleri": 2,
-      "gorsel_okunurluk": 8
+      "hook_gucu": 22,
+      "deger": 18,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
     },
-    "toplam": 77,
-    "karar": "REVIZYON",
-    "tutar_mi": "iPhone takası ve fırsat maliyeti (mevduat getirisi) açısı Türkiye'de çok tartışılan ve yüksek etkileşim alan bir konu. Ancak ilk ekrandaki rakam ile içerideki hesap uyuşmazlığı izleyicinin yorumlarda hesap hatası aramasına ve güven kaybına yol açabilir.",
-    "rakam_hatalari": [
-      "Slayt 1 (Hook): 'Her yıl yeni telefon: bu yıl 76.840 TL' başlığı hatalı; yenilemenin gerçek maliyeti 82.639 TL'dir (62.999 TL takas farkı + 19.640 TL kaçan faiz). 76.840 TL ise eskiyle devam etmeye kıyasla 'cebinde kalan net fark'tır.",
-      "Slayt 4 başlığı: 'Her yıl cebinden: 62.999' yazılmış, birim (TL) eksik bırakılmış."
-    ],
-    "geri_bildirim": "1. Hook Çelişkisini Düzelt: İlk slayt 'Her yıl yeni telefon: 76.840 TL' diyor ama 4. slaytta nakit çıkışı 62.999 TL, toplam maliyet ise 82.639 TL olarak çıkıyor. Hook'u ya doğrudan net tasarrufa odakla ('Telefonu 1 yıl geciktirmenin ödülü: 76.840 TL') ya da yenileme maliyetini doğru yaz ('Her yıl yeni telefon: bu yıl 82.639 TL').\n2. 4. Slayt Tasarımı: Başlığa mutlaka 'TL' ibaresini ekle ('Her yıl cebinden: 62.999 TL').\n3. Platform Metinlerini Tamamla: TikTok ve YouTube başlık/açıklama/etiket alanları tamamen boş bırakılmış, bunları doldur."
+    "toplam": 92,
+    "karar": "ONAY",
+    "tutar_mi": "Her yıl telefon değiştiren kitlenin doğrudan cebini hedefliyor ve kaçan mevduat faizi gibi detaylarla ezber bozuyor. Rakamlar güncel kaynaklara dayanıyor ve net bir maliyet karşılaştırması sunuyor.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
   },
   "sanat_yonetmeni": {
-    "puan": 72,
-    "gecti": false,
-    "sorunlar": [
-      "Sahne 4: Ana tutarda para birimi unutulmuş ('Her yıl cebinden: 62.999' yerine '62.999 TL' olmalı).",
-      "Sahne 7: 'Her yıl yenile' çubuğu koyu kart alanının sağ kenarından dışarı taşmış ve ekran kenarına kadar uzanıyor (taşma / layout hatası)."
-    ],
-    "yazim_hatalari": [
-      "Sahne 4: '62.999' değerinin yanına 'TL' birimi eklenmemiş."
-    ]
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
   },
   "bas_mudur": {
-    "puan": 77,
-    "karar": "REVIZYON",
-    "gerekce": "Maliyet analizi ve veriler oldukça güncel ve sağlam; ancak hook cümlesindeki 76.840 TL rakamı net tasarruf tutarı iken ilk slaytta yenileme maliyeti gibi lanse edilerek kafa karışıklığı yaratıyor. Ayrıca 4. slaytta TL biriminin eksik olması ve sanat yönetmenliği kontrollerinde belirtilen görsel taşma hatalarının giderilmesi gerekiyor.",
-    "duzeltmeler": [
-      "İlk slayttaki hook ifadesini 'Telefonu 1 yıl geciktirmenin ödülü: 76.840 TL' olarak düzelt.",
-      "4. slayttaki başlığa 'TL' birimini ekle ('Her yıl cebinden: 62.999 TL').",
-      "7. slayttaki grafik kartının ekran kenarına taşma sorununu düzelt.",
-      "TikTok ve YouTube platform metinlerini (başlık, açıklama, etiketler) eksiksiz doldur."
-    ],
+    "puan": 92,
+    "karar": "YAYINLA",
+    "gerekce": "Video, hedef kitlenin günlük hayatına doğrudan dokunan çok güçlü bir finansal karşılaştırma sunuyor. Takas farkı, batarya değişimi ve kaçan mevduat faizi gibi kalemler eksiksiz ve güncel kaynaklarla hesaplanmış. Marka kurallarına tam uyum sağlayan, yüksek etkileşim potansiyeli olan kusursuz bir içerik.",
+    "duzeltmeler": [],
     "seri_uyumu": true
   }
 }
