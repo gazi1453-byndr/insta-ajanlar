@@ -1,0 +1,48 @@
+{
+  "konu": "Aynı maaşla İstanbul mu, küçük şehir mi? (1 yıl, Kasım 2026)",
+  "aci": "İstanbul'un zorunlu giderleri vs küçük şehirde biriken para + getirisi",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "İSTANBUL'DA YAŞAMAK SANA YILDA 350.520 TL KAYBETTİRİYOR",
+  "not": "Gemini senaryosu BİREBİR (rakamlar ve kaynak adları değiştirilmedi); ajan denetimi için.",
+  "denetim_sorgulari": [
+    "İstanbul ortalama kira Kasım 2026",
+    "İstanbul yaşam maliyeti 2026 aylık",
+    "küçük şehir yaşam maliyeti 2026",
+    "TÜİK yaşam maliyeti 2026",
+    "mevduat faizi Kasım 2026",
+    "İstanbulkart aylık abonman 2026"
+  ],
+  "veri": {
+    "baslik": "İstanbul mu, küçük şehir mi? Aylık 65.000 TL maaş (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {"ad": "İstanbul", "toplam_tl": 684000, "kalemler": [
+        {"kalem": "Kira + aidat", "tutar_tl": 372000, "aciklama": "Aylık 31.000 TL", "kaynak": "TÜİK Tüketici Fiyat Endeksi (Kasım 2026)", "tahmini": false},
+        {"kalem": "Ulaşım + sosyal hayat + market", "tutar_tl": 312000, "aciklama": "", "kaynak": "TÜİK Tüketici Fiyat Endeksi (Kasım 2026)", "tahmini": false}
+      ]},
+      {"ad": "Sahil şehri", "toplam_tl": 390000, "kalemler": [
+        {"kalem": "Yıllık toplam yaşam gideri", "tutar_tl": 390000, "aciklama": "", "kaynak": "TÜİK (Kasım 2026)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": ["Aylık 65.000 TL net maaş, iki şehirde aynı"],
+    "kaynaklar": ["TÜİK", "TCMB"],
+    "sonuc": "Küçük şehir yatırım getirisiyle 350.520 TL öne geçiyor.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "İstanbul'da yaşamak sana yılda 350.520 TL kaybettiriyor", "metin": "Aynı maaşla büyükşehir vs sahil şehri",
+     "seslendirme": "Aynı maaşla İstanbul'da yaşamak mı, yoksa küçük bir şehre taşınmak mı daha avantajlı?", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Kira + aidat (31.000 TL): yılda 372.000 TL", "metin": "Ulaşım + sosyal hayat + market: yılda 312.000 TL",
+     "seslendirme": "İstanbul'da orta halli bir kira, ulaşım ve market giderleri yılda altı yüz seksen dört bin lirayı buluyor", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Yıl sonu kalan birikim: sadece 96.000 TL", "metin": "İstanbul yıllık toplam gider: 684.000 TL",
+     "seslendirme": "ve geriye sadece doksan altı bin lira birikim kalıyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Yatırım getirisi dahil net fark: +350.520 TL", "metin": "Yıllık toplam yaşam gideri: 390.000 TL",
+     "seslendirme": "Aynı maaşla sahil veya Anadolu şehrine taşındığında ise yatırım getirisiyle üç yüz elli bin lira öne geçiyorsun.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "350.520 TL için İstanbul'u terk eder misin?", "metin": "Tarafını yorumda seç 👇",
+     "seslendirme": "Sen hangisini seçerdin?", "sure": 3.0}
+  ],
+  "caption": "İstanbul'da yaşamak sana yılda 350.520 TL kaybettiriyor.",
+  "hashtagler": ["gercekmaliyet", "istanbul", "kira", "yasammaliyeti", "kisiselfinans"],
+  "yorum_sorusu": "350.520 TL için İstanbul'u terk eder misin?"
+}
