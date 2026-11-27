@@ -19,7 +19,7 @@
     "mevduat stopaj oranı 6 aya kadar vadede yüzde 17,5 2026",
     "iPhone 18 Pro Türkiye fiyatı 137.999 TL 256 GB",
     "iPhone 17 Pro ikinci el fiyatları 75.000 TL'den başlıyor",
-    "iPhone 17 Pro pil değişim ücreti 5.799 TL"
+    "iPhone 17 Pro Max ekran ve batarya değişim ücreti belli oldu 5.799 TL"
   ],
   "veri": {
     "baslik": "Her yıl yeni telefon mu, eskisiyle devam mı? (1 yıl)",
@@ -60,9 +60,9 @@
           {
             "kalem": "Batarya değişimi",
             "tutar_tl": 5799,
-            "aciklama": "iPhone 17 Pro yetkili servis pil değişim ücreti 5.799 TL (garanti dışı)",
+            "aciklama": "iPhone 17 Pro yetkili servis pil değişim ücreti 5.799 TL (garanti dışı, Eylül 2025 servis listesi; güncel ücret bir miktar daha yüksek olabilir)",
             "kaynak": "DonanımHaber: iPhone 17 serisi Türkiye servis ücretleri",
-            "tahmini": false
+            "tahmini": true
           }
         ]
       }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useCurrentFrame, useVideoConfig} from 'remotion';
+import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {sp, SOFT} from './motion';
 
 /** Konuya özel hareketli görseller (vektör, telifsiz). DESIGN_SYSTEM.md §4: vurgu rengi yalnızca anlam taşıyan yerde. */
@@ -193,25 +193,57 @@ const House: React.FC<V> = ({accent, text, height = 300}) => {
   );
 };
 
-// ---------------------------------------------------------------- telefon (bildirimler düşer)
-const Phone: React.FC<V> = ({accent, text, panel, height = 300}) => {
+// ---------------------------------------------------------------- telefon (değeri düşer, birikim yükselir)
+const Phone: React.FC<V> = ({accent, text, height = 300}) => {
   const {f, fps} = useT();
   const k = sp(f, fps, 0, SOFT);
+  const draw = interpolate(f, [10, 40], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const grow = interpolate(f, [22, 58], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const green = '#00E676';
+  const down = 'M168 92 L188 104 L204 98 L224 130 L240 124 L258 168';
+  const up = [[318, 250], [348, 226], [374, 232], [402, 190], [428, 196], [456, 140], [486, 96]];
+  const n = Math.max(2, Math.ceil(grow * up.length));
+  const pts = up.slice(0, n).map((p) => p.join(' ')).join(' L');
+  const tip = up[n - 1];
   return (
     <svg viewBox="0 0 520 300" width="100%" height={height}>
-      <g transform={`translate(0 ${(1 - k) * 80})`} opacity={k}>
-        <rect x={190} y={10} width={150} height={290} rx={30} fill={panel} stroke={text} strokeWidth={6} />
-        <rect x={238} y={22} width={54} height={10} rx={5} fill="#0B1220" />
-        {[0, 1, 2].map((i) => {
-          const s = sp(f, fps, 10 + i * 9);
-          return (
-            <g key={i} transform={`translate(${(1 - s) * 120} 0)`} opacity={s}>
-              <rect x={204} y={60 + i * 62} width={122} height={48} rx={12} fill={i === 0 ? accent : '#ffffff1f'} />
-              <rect x={216} y={72 + i * 62} width={70} height={8} rx={4} fill={i === 0 ? '#0B1220' : text} opacity={0.8} />
-              <rect x={216} y={88 + i * 62} width={46} height={8} rx={4} fill={i === 0 ? '#0B1220' : text} opacity={0.5} />
-            </g>
-          );
-        })}
+      <defs>
+        <linearGradient id="phBody" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#CBD5E1" />
+          <stop offset="1" stopColor="#475569" />
+        </linearGradient>
+        <linearGradient id="phScreen" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#1E293B" />
+          <stop offset="1" stopColor="#0B1220" />
+        </linearGradient>
+        <linearGradient id="phGrow" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor={green} stopOpacity={0} />
+          <stop offset="1" stopColor={green} stopOpacity={0.35} />
+        </linearGradient>
+      </defs>
+      <ellipse cx={212} cy={292} rx={96} ry={7} fill="#000" opacity={0.35 * k} />
+      <g transform={`translate(0 ${(1 - k) * 90}) rotate(${(1 - k) * -8} 212 150)`} opacity={k}>
+        <rect x={146} y={8} width={132} height={278} rx={28} fill="url(#phBody)" />
+        <rect x={152} y={14} width={120} height={266} rx={23} fill="url(#phScreen)" />
+        <rect x={190} y={24} width={44} height={13} rx={6.5} fill="#020617" />
+        <rect x={278} y={74} width={4} height={34} rx={2} fill="#94A3B8" />
+        <rect x={142} y={64} width={4} height={22} rx={2} fill="#94A3B8" />
+        <rect x={142} y={94} width={4} height={36} rx={2} fill="#94A3B8" />
+        <text x={212} y={66} textAnchor="middle" fill={text} opacity={0.55} fontSize={13} fontFamily="Inter" fontWeight={700} letterSpacing={2}>DEĞERİ</text>
+        <path d={down} fill="none" stroke={accent} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round"
+          pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} />
+        <path d="M246 160 L258 168 L262 154" fill="none" stroke={accent} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" opacity={draw > 0.95 ? 1 : 0} />
+        {[0, 1, 2].map((i) => (
+          <rect key={i} x={168} y={196 + i * 24} width={i === 0 ? 88 : 64 - i * 10} height={10} rx={5} fill={text} opacity={0.14} />
+        ))}
+        <rect x={190} y={268} width={44} height={4} rx={2} fill={text} opacity={0.5} />
+      </g>
+      <g opacity={grow > 0 ? 1 : 0}>
+        <line x1={310} y1={262} x2={500} y2={262} stroke="#ffffff22" strokeWidth={3} />
+        <path d={`M${up[0].join(' ')} L${pts} L${tip[0]} 262 L${up[0][0]} 262 Z`} fill="url(#phGrow)" />
+        <path d={`M${pts}`} fill="none" stroke={green} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx={tip[0]} cy={tip[1]} r={9} fill={green} />
+        <circle cx={tip[0]} cy={tip[1]} r={9 + 10 * (1 - grow)} fill="none" stroke={green} strokeWidth={3} opacity={1 - grow * 0.6} />
       </g>
     </svg>
   );
