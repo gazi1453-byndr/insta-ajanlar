@@ -244,9 +244,12 @@ def review_script(spec_path: str) -> dict:
     slides = [Slide(**s) for s in spec["slaytlar"]]
     draft = Draft.model_construct(slaytlar=slides, hook=spec.get("hook", slides[0].baslik),
                                   caption=spec.get("caption", sheet.sonuc), hashtagler=spec.get("hashtagler", []),
-                                  yorum_sorusu=spec.get("yorum_sorusu", slides[-1].baslik), alt_text=sheet.baslik,
-                                  tiktok_aciklama="", youtube_baslik="", youtube_aciklama="",
-                                  youtube_etiketler=[], tiktok_hashtagler=[])
+                                  yorum_sorusu=spec.get("yorum_sorusu", slides[-1].baslik),
+                                  alt_text=spec.get("alt_text") or sheet.baslik,
+                                  tiktok_aciklama=spec.get("tiktok_aciklama", ""), youtube_baslik=spec.get("youtube_baslik", ""),
+                                  youtube_aciklama=spec.get("youtube_aciklama", ""),
+                                  youtube_etiketler=spec.get("youtube_etiketler", []),
+                                  tiktok_hashtagler=spec.get("tiktok_hashtagler", []))
     series = _series_no()
     idea = strategist.Idea(konu=spec.get("konu", sheet.baslik), aci=spec.get("aci", ""), format="reel",
                            veri_ihtiyaci=", ".join(i.kalem for o in sheet.secenekler for i in o.kalemler),

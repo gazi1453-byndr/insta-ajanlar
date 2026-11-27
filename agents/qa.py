@@ -123,6 +123,10 @@ def _overlap(a, b, tol=2) -> bool:
 def _expected_numbers(sheet: DataSheet) -> set[float]:
     exp = {round(i.tutar_tl, 2) for o in sheet.secenekler for i in o.kalemler}
     exp |= {round(o.toplam_tl, 2) for o in sheet.secenekler}
+    # aynı seçenekteki iki kalemin toplamı (ör. yeni fiyat − eskinin satışı = takas farkı)
+    for o in sheet.secenekler:
+        ks = o.kalemler
+        exp |= {round(abs(a.tutar_tl + b.tutar_tl), 2) for i, a in enumerate(ks) for b in ks[i + 1:]}
     _, hv = designer.headline_value(sheet)
     exp.add(round(hv, 2))
     items = sorted(sheet.secenekler[0].kalemler, key=lambda i: i.tutar_tl, reverse=True)

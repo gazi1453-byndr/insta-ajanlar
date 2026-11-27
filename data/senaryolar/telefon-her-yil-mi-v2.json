@@ -2,7 +2,7 @@
   "konu": "Telefonu her yıl yenilemek mi, eskisiyle 1 yıl daha devam mı? (Kasım 2026)",
   "aci": "Takas farkı + o paranın kaçan mevduat faizi; eskisiyle devam edene tek masraf batarya",
   "alt_seri": "A MI B Mİ?",
-  "hook": "Her yıl yeni telefon: bu yıl 76.840 TL",
+  "hook": "Yeni telefon, eskisinden 76.840 TL pahalı",
   "stil": {
     "vurgu": "#00E676",
     "uyari": "#FF3D00",
@@ -86,9 +86,9 @@
   "slaytlar": [
     {
       "tur": "metin",
-      "baslik": "Her yıl yeni telefon: bu yıl 76.840 TL",
+      "baslik": "Yeni telefon, eskisinden 76.840 TL pahalı",
       "metin": "Geçen yılın Pro'sunu satıp yenisini almak · 1 yıl",
-      "seslendirme": "Telefonunu her yıl yenilemek, bu yıl sana 76 bin liraya patlıyor.",
+      "seslendirme": "Telefonunu her yıl yenilemek, eskisiyle devam etmekten 76 bin lira pahalı.",
       "gorsel": "telefon",
       "efekt": "subbass",
       "ton": "kirmizi"
@@ -111,7 +111,7 @@
     },
     {
       "tur": "metin",
-      "baslik": "Her yıl cebinden: 62.999",
+      "baslik": "Her yıl cebinden: 62.999 TL",
       "metin": "Yeni 137.999 - eski 75.000",
       "seslendirme": "Yani her yıl cebinden 63 bin çıkıyor.",
       "efekt": "tik",
@@ -138,7 +138,7 @@
       "baslik": "Yeni telefon mu, eskisi mi?",
       "metin": "",
       "seslendirme": "Yan yana koyunca yenilemek on dört kat pahalı.",
-      "ton": "yesil"
+      "ton": "kirmizi"
     },
     {
       "tur": "reveal",
@@ -167,5 +167,23 @@
     "birikim",
     "tasarruf"
   ],
-  "yorum_sorusu": "76.840 TL için 1 yıl daha bekler misin?"
+  "yorum_sorusu": "76.840 TL için 1 yıl daha bekler misin?",
+  "alt_text": "Koyu arka planda telefon silüeti, değer kaybını gösteren kırmızı düşen çizgi ve birikimi gösteren yeşil yükselen grafik; her yıl telefon yenilemenin maliyet karşılaştırması.",
+  "tiktok_aciklama": "Her yıl yeni telefon mu, eskisiyle 1 yıl daha mı? Takas farkı + kaçan faiz = 76.840 TL. Sen hangisisin?",
+  "tiktok_hashtagler": [
+    "gercekmaliyet",
+    "telefon",
+    "iphone",
+    "tasarruf",
+    "kisiselfinans"
+  ],
+  "youtube_baslik": "Her yıl yeni telefon almak sana 76.840 TL kaybettiriyor #shorts",
+  "youtube_aciklama": "Kasım 2026 fiyatlarıyla: yeni Pro 137.999 TL, eski modelin ikinci el satışı 75.000 TL, batarya değişimi 5.799 TL, aradaki paranın kaçan mevduat faizi 19.640 TL. Kaynaklar açıklamada.",
+  "youtube_etiketler": [
+    "telefon",
+    "iphone",
+    "tasarruf",
+    "kişisel finans",
+    "gerçek maliyet"
+  ]
 }
