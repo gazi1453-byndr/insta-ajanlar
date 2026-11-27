@@ -1,20 +1,17 @@
 """ÜRETİM HATTI (ajanları sırayla çalıştıran koordinatör)
 
-Fikir Ajanı → Hook Yazarı → İçerik Üretici → Tasarımcı → Müdür
-                                   ↑______ REVİZYON _______|
+Fikir Ajanı → Veri Araştırmacısı → Hook Yazarı → İçerik Üretici → Tasarımcı/Video → Müdür
+                                                       ↑__________ REVİZYON __________|
 
-ONAY alan içerik, bir paylaşım saatiyle data/queue/ klasörüne girer.
-Reel senaryoları data/reels/ klasörüne yazılır (videoyu sen çekersin).
+ONAY alan içerik bir paylaşım saatiyle data/queue/ klasörüne girer.
 """
 from __future__ import annotations
 
 import shutil
 from datetime import datetime, timedelta
-from pathlib import Path
 
-from . import creator, designer, hook_writer, manager, strategist
-from .common import (DATA, MEDIA_INBOX, MEDIA_USED, PUBLISHED, QUEUE, REJECTED, ROOT, TR,
-                     config, log, now, read_json, write_json)
+from . import creator, data_researcher, designer, hook_writer, manager, strategist, video
+from .common import (PUBLISHED, QUEUE, REJECTED, ROOT, TR, config, log, now, read_json, write_json, DATA)
 
 AGENT = "Üretim Hattı"
 
@@ -30,7 +27,6 @@ def _taken_slots() -> set[str]:
 
 
 def next_slot() -> str:
-    """Kuyrukta boş olan bir sonraki paylaşım saatini bulur."""
     hours = config()["uretim"]["paylasim_saatleri"]
     taken = _taken_slots()
     start = now() + timedelta(minutes=30)
@@ -44,74 +40,72 @@ def next_slot() -> str:
     raise RuntimeError("60 gün içinde boş paylaşım saati yok")
 
 
-def _inbox_image() -> Path | None:
-    imgs = sorted(p for p in MEDIA_INBOX.iterdir()
-                  if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"))
-    return imgs[0] if imgs else None
+def _series_no() -> int:
+    return len(list(PUBLISHED.glob("*.json"))) + len(list(QUEUE.glob("*.json"))) + 1
+
+
+def _rel(p) -> str:
+    return str(p.relative_to(ROOT)).replace("\\", "/")
 
 
 def produce_one(idea: strategist.Idea, idx: int) -> dict:
     post_id = f"{now():%Y%m%d-%H%M}-{idx}"
     log(AGENT, f"Fikir: {idea.konu} ({idea.format})")
 
-    hooks = hook_writer.run(idea)
+    sheet = data_researcher.run(idea)
+    if sheet.guven == "dusuk":
+        log(AGENT, "Veri güveni düşük, içerik üretilmedi")
+        post = {"id": post_id, "durum": "reddedildi", "fikir": idea.model_dump(),
+                "veri": sheet.model_dump(), "mudur": {"toplam": 0, "tutar_mi": "Veri güveni düşük"}}
+        write_json(REJECTED / f"{post_id}.json", post)
+        return post
+
+    hooks = hook_writer.run(idea, sheet)
     best = hooks.hooklar[min(max(hooks.secilen_index, 0), len(hooks.hooklar) - 1)]
     log(AGENT, f"Hook: {best.metin} ({best.puan})")
 
-    user_img = _inbox_image() if idea.format == "tek_gorsel" else None
-    draft, verdict, images = None, None, []
-    history = []
-    max_attempts = 1 + config()["uretim"]["revizyon_hakki"]
-
-    for attempt in range(1, max_attempts + 1):
-        draft = creator.run(idea, best.metin, user_img, previous=draft,
+    series = _series_no()
+    draft, verdict, images, history = None, None, [], []
+    for attempt in range(1, 2 + config()["uretim"]["revizyon_hakki"]):
+        draft = creator.run(idea, best.metin, sheet, series, previous=draft,
                             feedback=verdict.geri_bildirim if verdict else None)
-        images = [designer.from_user_image(user_img, post_id)] if user_img else designer.run(draft, post_id)
-        verdict = manager.run(idea, draft, images, attempt)
+        images = (designer.stills_vertical(draft, sheet, post_id) if idea.format == "reel"
+                  else designer.carousel(draft, sheet, post_id))
+        verdict = manager.run(idea, draft, sheet, images, attempt)
         history.append({"deneme": attempt, "toplam": verdict.toplam, "karar": verdict.karar,
-                        "geri_bildirim": verdict.geri_bildirim})
+                        "rakam_hatalari": verdict.rakam_hatalari, "geri_bildirim": verdict.geri_bildirim})
         log(AGENT, f"Müdür kararı (deneme {attempt}): {verdict.karar} - {verdict.toplam}/100")
         if verdict.karar != "REVIZYON":
             break
 
     post = {
-        "id": post_id,
-        "olusturma": now().isoformat(),
-        "fikir": idea.model_dump(),
-        "hook_secenekleri": hooks.model_dump(),
-        "taslak": draft.model_dump(),
-        "gorseller": [str(p.relative_to(ROOT)).replace("\\", "/") for p in images],
-        "mudur": verdict.model_dump(),
-        "mudur_gecmisi": history,
+        "id": post_id, "olusturma": now().isoformat(), "seri_no": series,
+        "fikir": idea.model_dump(), "veri": sheet.model_dump(),
+        "hook_secenekleri": hooks.model_dump(), "taslak": draft.model_dump(),
+        "mudur": verdict.model_dump(), "mudur_gecmisi": history,
     }
-
     if verdict.karar != "ONAY":
         post["durum"] = "reddedildi"
         write_json(REJECTED / f"{post_id}.json", post)
         shutil.rmtree(images[0].parent, ignore_errors=True)
         return post
 
-    if idea.format == "reel_senaryosu":
-        post["durum"] = "cekim_bekliyor"
-        write_json(DATA / "reels" / f"{post_id}.json", post)
-        (DATA / "reels" / f"{post_id}.md").write_text(
-            f"# Reel: {draft.hook}\n\n## Senaryo\n{draft.reel_senaryosu}\n\n"
-            f"## Açıklama\n{draft.caption}\n\n" + " ".join("#" + h for h in draft.hashtagler) + "\n",
-            encoding="utf-8")
-        return post
-
+    if idea.format == "reel":
+        post["video"] = _rel(video.render(draft, sheet, post_id))
+        post["gorseller"] = [_rel(images[0])]          # kapak
+        for p in images[1:]:
+            p.unlink(missing_ok=True)
+    else:
+        post["gorseller"] = [_rel(p) for p in images]
     post["durum"] = "kuyrukta"
     post["planlanan_zaman"] = next_slot()
     write_json(QUEUE / f"{post_id}.json", post)
-    if user_img:
-        shutil.move(str(user_img), MEDIA_USED / user_img.name)
     log(AGENT, f"Kuyruğa eklendi → {post['planlanan_zaman']}")
     return post
 
 
 def run() -> list[dict]:
-    count = config()["uretim"]["gunluk_gonderi"]
-    ideas = strategist.run(count)
+    ideas = strategist.run(config()["uretim"]["gunluk_gonderi"])
     results = []
     for i, idea in enumerate(ideas):
         try:
@@ -119,6 +113,6 @@ def run() -> list[dict]:
         except Exception as e:  # bir içerik bozulursa diğerleri devam etsin
             log(AGENT, f"HATA ({idea.konu}): {e}")
     write_json(DATA / "last_production.json", [
-        {"id": r["id"], "konu": r["fikir"]["konu"], "durum": r["durum"],
+        {"id": r["id"], "konu": r["fikir"]["konu"], "format": r["fikir"]["format"], "durum": r["durum"],
          "puan": r["mudur"]["toplam"], "zaman": r.get("planlanan_zaman")} for r in results])
     return results

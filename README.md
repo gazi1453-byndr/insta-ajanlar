@@ -1,124 +1,109 @@
-# Instagram Ajan Sistemi
+# Gerçek Maliyet: Instagram Ajan Sistemi
 
-Claude ile çalışan, GitHub Actions üzerinde kendi kendine dönen 9 ajanlı bir Instagram ekibi.
-Sunucu gerekmez; resmi Instagram API'sini kullanır (hesabın kapanma riski olan bot hilesi yok).
+"Bu kaça mal oluyor?" sorusunu güncel Türkiye fiyatlarıyla, kalem kalem ve kaynaklı yanıtlayan
+45 saniyelik Reels ve carousel içerikleri üreten, Claude ile çalışan otomatik bir ekip.
+GitHub Actions üzerinde kendi kendine çalışır; sunucu gerekmez; resmi Instagram API'sini kullanır.
+
+Yapay zeka arka planda gizli bir araştırma ekibi gibi çalışır. İzleyici sadece net rakamları,
+animasyonlu grafikleri ve tartışma başlatan soruları görür.
 
 ## Ekip
 
 ```
- 05:00  1. ARAŞTIRMACI ──── büyük sayfaların en iyi gönderileri + hashtag'ler + web trendleri
-          │                  → "ne tutuyor, neden tutuyor" raporu
- 06:00  2. FİKİR AJANI ──── günün içerik fikirleri (tekrar yok, öğrenilenlere göre)
-          │
-        3. HOOK YAZARI ──── 8 farklı teknikle açılış cümlesi, en güçlüsünü seçer
-          │
-        4. İÇERİK ÜRETİCİ ─ carousel slaytları, açıklama, hashtag, reel senaryosu
-          │       ▲
-        5. TASARIMCI ────── markana uygun 1080x1350 görseller (ya da senin görselin)
-          │       │ REVİZYON (geri bildirimle, en fazla 2 kez)
-        6. MÜDÜR ─┴──────── 100 puan üzerinden değerlendirir: TUTAR MI?
-          │                  ONAY → yayın kuyruğu   RED → arşiv
-          ▼
- */30dk 7. YAYINCI ──────── saati gelen gönderiyi Instagram'a yükler
- */2sa  8. TOPLULUK ─────── yorumlara (ve izinliyse DM'lere) yanıt verir
- Pzt    9. ANALİST ──────── haftalık rapor (GitHub issue) + "öğrenilenler"
-                              ↳ tüm ajanlar bir sonraki hafta bunları okur
+ Pzt     TREND MADENCİSİ ──── Google Trends, Reddit, YouTube, Ekşi: son 7 günün en çok aranan
+                               soruları → 15-20 "ilk 3 saniye" kancası (hook bankası)
+ 05:00   ARAŞTIRMACI ──────── nişteki büyük sayfaları kendisi bulur, en iyi gönderilerini inceler
+ 06:00   FİKİR AJANI ──────── hook bankasından günün konusunu seçer (reel %70 / carousel %30)
+           │
+         VERİ ARAŞTIRMACISI ─ güncel fiyatları kaynağıyla toplar → maliyet tablosu
+           │                   (toplamları Python yeniden hesaplar: hesap hatası olamaz)
+         HOOK YAZARI ──────── tablodaki en şaşırtıcı rakamdan 8 farklı kanca, en iyisini seçer
+           │
+         İÇERİK ÜRETİCİ ───── sahneler + seslendirme metni + Reels / TikTok / YouTube metinleri
+           │       ▲
+         TASARIMCI ────────── animasyonlu çubuk grafikler (çubuklar büyür, rakamlar sayar)
+           │       │ REVİZYON
+         MÜDÜR ───┴────────── 100 puan: hook, değer, RAKAM DOĞRULUĞU, akış, özgünlük...
+           │                   tabloyla uyuşmayan tek rakam bile varsa onay yok
+         VİDEO KURGUCU ────── 1080x1920, 45 sn Reels (+ ses klonu ve müzik varsa onlar da)
+           ▼
+ */30dk  YAYINCI ──────────── Instagram'a yükler, ilk yorumu (tartışma sorusu) yazar,
+                               TikTok + YouTube Shorts paketini GitHub bildirimi olarak gönderir
+ */2sa   TOPLULUK ─────────── yorumlara yanıt verir
+ Pzt     ANALİST ──────────── haftalık rapor + "öğrenilenler" (tüm ajanlar bunu okur)
 ```
 
-Müdürün puanlama tablosu: hook gücü 25 · değer 25 · trend uyumu 15 · özgünlük 15 · marka/doğruluk 10 · görsel okunurluk 10.
-Onay eşiği `config.yaml` içinde (varsayılan 75).
+## Kurulum durumu
 
-## Kurulum (yaklaşık 45 dakika, bir kez)
+| Adım | Durum |
+|---|---|
+| Instagram hesabı + Facebook sayfası + bağlantı | ✅ |
+| Meta uygulaması (YZ Pratik Ajan) + izinler | ✅ |
+| Süresiz sistem kullanıcısı tokeni → `IG_ACCESS_TOKEN` | ✅ |
+| `ANTHROPIC_API_KEY` | Senin eklemen gerekiyor ([console.anthropic.com](https://console.anthropic.com)) |
+| Instagram kullanıcı adını `gercekmaliyet` yapmak | Senin yapman gerekiyor (Instagram → Profili düzenle) |
+| Ses klonu (isteğe bağlı) | Aşağıya bak |
 
-### 1. Instagram hesabı
-1. Yeni Instagram hesabını aç.
-2. **Ayarlar → Hesap türü ve araçlar → Profesyonel hesaba geç → İçerik üreticisi**. Bu sistemin kullandığı API özelliklerinin hepsi İçerik üreticisi hesapta da çalışıyor. Üstüne Reels'te popüler müziklerin tamamını kullanabiliyorsun (İşletme hesabında sadece telifsiz ticari müzik var). Hesap türünü istediğin zaman takipçi kaybetmeden değiştirebilirsin.
-3. Bir **Facebook Sayfası** oluştur ve Instagram ayarlarından bu sayfaya bağla. Bu adım zorunlu: büyük sayfaları inceleme ve hashtag araştırması yalnızca Facebook sayfasına bağlı hesaplarda çalışıyor.
+`IG_USER_ID` ve `FB_PAGE_ID` gerekmiyor; sistem token'dan kendisi buluyor.
 
-### 2. Meta geliştirici uygulaması ve token
-1. [developers.facebook.com](https://developers.facebook.com) adresinde **Uygulama oluştur** de ve tür olarak **İşletme** seç.
-2. Uygulamaya **Instagram Graph API** (Facebook Girişi ile) ürününü ekle.
-3. **Graph API Explorer**'da kendi uygulamanı seç ve şu izinlerle bir kullanıcı tokeni oluştur:
-   `instagram_basic, instagram_content_publish, instagram_manage_comments, instagram_manage_insights, pages_show_list, pages_read_engagement, business_management`
-4. Bu tokeni **uzun ömürlü** yap (Access Token Debugger → *Extend*).
-5. Explorer'da `me/accounts` sorgusunu çalıştır. Sayfanın `access_token` değeri süresi dolmayan sayfa tokenidir: bu **IG_ACCESS_TOKEN** olacak. Aynı satırdaki `id` değeri **FB_PAGE_ID** olacak.
-6. `{FB_PAGE_ID}?fields=instagram_business_account` sorgusunu çalıştır. Dönen `id` değeri **IG_USER_ID** olacak.
+## Ses klonu (isteğe bağlı ama önerilir)
 
-> Daha sağlam bir yol: Business Manager'da bir **Sistem Kullanıcısı** oluşturup ona token verirsen, bu token hiç süresi dolmadan çalışır.
+Kendi sesinin klonu marka güvenini ciddi şekilde artırır. Ayarlanmazsa videolar sessiz çıkar,
+ekranda yazı ve (varsa) müzikle oynar.
 
-### 3. Claude API anahtarı
-[console.anthropic.com](https://console.anthropic.com) → API Keys → yeni anahtar oluştur. Bu **ANTHROPIC_API_KEY** olacak.
+1. [elevenlabs.io](https://elevenlabs.io)'da hesap aç. Ses klonu için ücretli plan gerekiyor.
+2. **Voices → Add voice → Instant Voice Clone** ile 1-3 dakikalık temiz bir kayıt yükle.
+3. Repo **Settings → Secrets → Actions** altına iki değer ekle:
+   - `ELEVENLABS_API_KEY`: profil → API Keys
+   - `ELEVENLABS_VOICE_ID`: sesin ayarlarındaki Voice ID
 
-### 4. GitHub reposu
-1. Bu klasörü yeni bir GitHub reposuna yükle. Repo **Public** olmalı, çünkü Instagram görselleri herkese açık bir adresten çekiyor. Sırların hiçbiri kodda değil; hepsi Secrets'ta duruyor.
-   - Repo gizli kalsın istiyorsan görselleri başka bir yerde barındırıp adresini `MEDIA_BASE_URL` değişkenine yaz.
-2. **Settings → Secrets and variables → Actions → New repository secret** yolundan şunları ekle:
-   | Secret | Değer |
-   |---|---|
-   | `ANTHROPIC_API_KEY` | Claude API anahtarın |
-   | `IG_USER_ID` | 2.6. adımdaki ID |
-   | `IG_ACCESS_TOKEN` | 2.5. adımdaki sayfa tokeni |
-   | `FB_PAGE_ID` | 2.5. adımdaki sayfa ID'si (sadece DM için) |
-3. **Settings → Actions → General → Workflow permissions** altında **Read and write** seç ve **Allow GitHub Actions to create and approve pull requests** kutusunu işaretle.
+Arka plan müziği için `assets/music/` klasörüne **telifsiz** bir mp3 koyman yeterli.
 
-### 5. Ayarlar
-`config.yaml` hazır gelir: niş **yapay zeka araçları ve pratik kullanım**, hesap adı `yapayzeka.pratik`, ton, renkler, hashtag'ler ve paylaşım saati belirlenmiş durumda. Profil fotoğrafı `assets/profil.png` içinde.
-İncelenecek büyük sayfaları araştırmacı kendisi bulur ve Instagram API ile doğrular (`buyuk_sayfalar: []` + `otomatik_sayfa_bulma: true`). İstersen listeye kendi seçtiğin hesapları da ekleyebilirsin.
+## TikTok ve YouTube Shorts
 
-### 6. İlk çalıştırma (deneme)
-Reponun **Actions** sekmesinde sırayla şunları yap:
-1. **1 · Araştırmacı** → *Run workflow*.
-2. **2 · İçerik Üretimi** → *Run workflow*. İlk seferde `dry_run` kutusunu işaretlersen hiçbir şey kaydedilmez, sadece log'lara bakarsın.
-3. Logları ve `data/queue/` klasörüne düşen içeriği kontrol et.
-4. **3 · Yayıncı** → *Run workflow* (dry_run seçili). Paylaşılacak görsel adreslerini ve açıklamayı gösterir.
-
-Her şey doğru görünüyorsa başka bir şey yapmana gerek yok. Zamanlanmış çalışmalar her gün kendiliğinden başlar.
+İki platform da denetimden (audit) geçmemiş uygulamaların API ile yüklediği videoları
+**gizli** yayınlıyor. Bu yüzden şu an şöyle çalışıyor: her Reels yayınlandığında GitHub'da
+**"📤 TikTok + YouTube'a paylaş"** başlıklı bir issue açılıyor. İçinde videonun indirme linki,
+TikTok açıklaması, hashtag'ler, YouTube başlığı (seri numaralı), açıklaması ve etiketleri hazır
+duruyor. Telefondan bir dakikada paylaşılıyor. Denetim onaylanınca otomatik yüklemeye geçilebilir.
 
 ## Günlük kullanım
 
 | İstediğin | Yapman gereken |
 |---|---|
-| Kendi görselini paylaştırmak | Görseli `media/inbox/` klasörüne yükle. Fikir ajanı bir sonraki üretimde tek görsellik gönderi planlar, açıklamayı görsele bakarak yazar. |
-| Her içeriği önce görmek | `config.yaml` içinde `insan_onayi: true` yap. Onaylanan içerikler sana Pull Request olarak gelir. **Merge** dersen yayın kuyruğuna girer, **Close** dersen iptal olur. |
-| Reel çekmek | Müdürün onayladığı reel senaryoları `data/reels/` klasörüne düşer. Çekip kendin paylaşırsın. |
-| Raporları görmek | Her pazartesi **Issues** sekmesinde yeni bir rapor açılır (GitHub mobil uygulamasına bildirim gelir). |
-| Kuyruğu görmek | `data/queue/` klasörü. Bir gönderiyi iptal etmek için dosyasını sil. |
-| Neden reddedildi? | `data/rejected/` klasöründe müdürün gerekçesi yazıyor. |
-| Maliyeti düşürmek | `config.yaml` → `modeller.varsayilan: "claude-sonnet-5-5"` |
+| Her içeriği önce görmek | `config.yaml` → `insan_onayi: true`. İçerikler Pull Request olarak gelir: **Merge** = yayınla |
+| Raporlar | Her pazartesi **Issues**'da haftalık rapor açılır |
+| Kuyruk | `data/queue/` (iptal için dosyayı sil) |
+| Neden reddedildi? | `data/rejected/`: müdürün gerekçesi ve rakam hataları |
+| Bu hafta hangi sorular trend? | `data/hook_bank.json` |
+| Maliyet tablosu ve kaynaklar | Her içeriğin JSON'unda `veri` alanı |
+| Günde 2 içerik | `config.yaml` → `gunluk_gonderi: 2` ve iki paylaşım saati |
 
 ## Bilmen gerekenler
 
-- **Tahmini maliyet:** Claude Opus 5.5 ile günde 1 gönderi için ayda yaklaşık 20-40 $. Sonnet ile bunun kabaca yarısı. GitHub Actions, public repolarda ücretsiz.
-- **DM yanıtı:** Instagram mesajlaşma API'si, uygulamada rolü olmayan kişilerle yazışmak için Meta'nın **uygulama incelemesinden** (App Review) geçmeyi istiyor. Ayrıca `instagram_manage_messages` izni gerekiyor. Bunlar tamamlanmadan `dm_yaniti: false` kalsın. Yorum yanıtı ise inceleme olmadan çalışıyor.
-- **Büyük sayfa analizi** yalnızca Business/Creator hesaplarda çalışıyor. Kişisel hesap girersen araştırmacı o hesabı atlıyor ve log'a yazıyor.
-- **Hashtag araştırması:** Instagram haftada en fazla 30 farklı hashtag aramaya izin veriyor.
-- **Yeni hesap tavsiyesi:** İlk 2 hafta günde 1 gönderiyi geçme. Ara sıra hesaba girip elle etkileşim de yap; tamamen otomatik görünen yeni hesapların erişimi düşük kalabiliyor.
-- **GitHub zamanlaması** yoğun saatlerde 5-15 dakika gecikebiliyor. Bu yüzden gönderi, planlanan saatten biraz sonra çıkabilir.
-- Meta, API sürümlerini ve metrik adlarını zaman zaman değiştiriyor. Bir şey bozulursa repo **Variables** bölümüne `GRAPH_API_VERSION` ekleyerek sürümü güncelleyebilirsin.
-
-## Yerelde çalıştırma (isteğe bağlı)
-
-```powershell
-pip install -r requirements.txt
-$env:ANTHROPIC_API_KEY="..."; $env:IG_USER_ID="..."; $env:IG_ACCESS_TOKEN="..."; $env:DRY_RUN="1"
-python pipeline.py arastir
-python pipeline.py uret
-python pipeline.py durum
-```
+- **Tahmini Claude maliyeti:** Opus 5.5 ile günde 1 içerik için ayda yaklaşık 30-50 $. Web
+  araştırmaları bu tutara dahil. `modeller.varsayilan: "claude-sonnet-5-5"` yaparsan kabaca yarıya iner.
+- **Medya barındırma:** Instagram videoyu herkese açık bir adresten çekiyor. Varsayılan olarak bu
+  public reponun raw adresi kullanılıyor. Repo şişmesin diye 3 haftadan eski videolar silinir.
+- **Rakam güvenliği:** Veri güveni "düşük" çıkan konular hiç üretilmez. Tahmini kalemler grafikte
+  `*` ile işaretlenir. Fiyat tarihi her içerikte yazar.
+- **Yeni hesap:** İlk 2 hafta günde 1 içerikle başla. Ara sıra hesaba girip elle de etkileşim yap.
+- **DM yanıtı:** Meta uygulama incelemesi gerektiriyor, o yüzden kapalı (`dm_yaniti: false`).
 
 ## Dosya yapısı
 
 ```
-config.yaml                 ← tek ayar dosyası
-pipeline.py                 ← komut satırı (arastir | uret | yayinla | topluluk | analiz | durum)
+config.yaml          ← tek ayar dosyası (niş, ton, renkler, formatlar, saatler)
+pipeline.py          ← arastir | uret | yayinla | topluluk | analiz | durum
 agents/
-  researcher.py  strategist.py  hook_writer.py  creator.py  designer.py
-  manager.py     publisher.py   community.py    analyst.py
-  producer.py    (ajanları sırayla çalıştıran üretim hattı)
-  llm.py         (Claude bağlantısı)   instagram.py (Instagram API)
-data/
-  research/  queue/  published/  rejected/  reels/  reports/  learnings.md
-media/
-  inbox/ (senin görsellerin)  generated/ (ajanın görselleri)  used/
-.github/workflows/          ← 5 zamanlanmış görev
+  researcher.py      trend madencisi + büyük sayfa analizi
+  strategist.py      fikir ajanı          data_researcher.py  veri araştırmacısı
+  hook_writer.py     hook yazarı          creator.py          içerik üretici
+  designer.py        grafik/slayt         video.py            video kurgucu
+  voice.py           ElevenLabs ses       manager.py          müdür
+  publisher.py       yayıncı + çapraz yayın paketi
+  community.py       topluluk             analyst.py          analist
+  producer.py        üretim hattı         instagram.py / llm.py  API bağlantıları
+data/                hook_bank, research, queue, published, rejected, reports, learnings.md
+media/generated/     üretilen görseller ve videolar
 ```

@@ -121,8 +121,54 @@ def collect_instagram() -> dict:
     return out
 
 
+class HookIdea(BaseModel):
+    soru: str = Field(description="İnsanların gerçekten aradığı/sorduğu soru")
+    hook: str = Field(description="İlk 3 saniyede söylenecek/yazılacak kanca, en fazla 12 kelime")
+    platform_kaniti: str = Field(description="Bu ilginin görüldüğü yer: Google Trends, Reddit, YouTube, Ekşi Sözlük, haber vb.")
+    veri_ihtiyaci: str = Field(description="Bu içerik için hangi fiyatlar/rakamlar araştırılmalı")
+    format: str = Field(description="reel ya da carousel")
+
+
+class HookBank(BaseModel):
+    hooklar: list[HookIdea] = Field(description="15-20 adet")
+
+
+def weekly_hook_bank() -> list[dict]:
+    """TREND MADENCİSİ: Haftada bir son 7 günün en çok aranan sorularından 15-20 hook üretir."""
+    bank_file = DATA / "hook_bank.json"
+    bank = read_json(bank_file, {})
+    if bank.get("tarih") and (now() - datetime.fromisoformat(bank["tarih"])).days < 7:
+        return bank["hooklar"]
+    cfg = config()["hesap"]
+    notes = research(
+        AGENT,
+        system="Sen bir arama ve sosyal medya trend analistisin. Sadece gerçekten gözlemlediğin ilgiyi raporla.",
+        prompt=(
+            f"Bugün {now():%d.%m.%Y}. Niş: {cfg['nis']}. Kitle: {cfg['hedef_kitle']}.\n"
+            "Son 7 günde Türkiye'de bu nişte insanların en çok aradığı ve sorduğu soruları bul: "
+            "Google Trends (yükselen aramalar), Reddit (r/Turkey, r/TurkeyJerky, r/KGBTR vb. ve global finans "
+            "subreddit'leri), YouTube (popüler yeni videolar ve yorumlardaki sorular), Ekşi Sözlük ve "
+            "gündemdeki fiyat/zam haberleri. 'X kaça mal olur', 'A mı B mi', 'X ile ne yapılır' tipi "
+            "soruları öne çıkar. Her soru için nerede gördüğünü yaz. 25 madde."
+        ),
+        max_searches=15,
+    )
+    hb = ask(
+        AGENT,
+        system=("Sen viral kısa video senaristisin. Gerçek arama ilgisinden ilk 3 saniyede izleyiciyi "
+                "durduran, merak uyandıran ama yalan vaat etmeyen kancalar yazarsın.\n\n" + brand_brief()),
+        content=f"Şu trend notlarından 15-20 içerik kancası üret:\n\n{notes}",
+        schema=HookBank,
+    )
+    items = [{**h.model_dump(), "kullanildi": False} for h in hb.hooklar]
+    write_json(bank_file, {"tarih": now().isoformat(), "hooklar": items})
+    log(AGENT, f"Haftalık hook bankası yenilendi: {len(items)} kanca")
+    return items
+
+
 def run() -> ResearchReport:
     cfg = config()
+    weekly_hook_bank()
     ig_data = collect_instagram()
 
     web = research(

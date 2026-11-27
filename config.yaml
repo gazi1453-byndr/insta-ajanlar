@@ -4,19 +4,19 @@
 # ============================================================
 
 hesap:
-  kullanici_adi: "yapayzeka.pratik"      # @ olmadan. Alınmışsa: yapayzekapratik / pratik.yapayzeka
-  gorunen_ad: "Yapay Zeka Pratik | AI İpuçları"
-  biyografi: "Yapay zekayı işinde ve hayatında kullanmanın en kolay yolları 🤖 Her gün 1 pratik araç & ipucu 📌 Kaydet, sonra dene"
-  nis: "yapay zeka araçlarını iş, okul ve günlük hayatta pratik şekilde kullanmak (ChatGPT, Claude, Gemini, görsel ve video yapay zeka araçları, hazır promptlar, verimlilik)"
-  hedef_kitle: "18-40 yaş, Türkiye'de yaşayan öğrenciler, çalışanlar, serbest çalışanlar ve küçük işletme sahipleri; yapay zekayı duymuş ama verimli kullanamayan kişiler"
+  kullanici_adi: "gercekmaliyet"         # @ olmadan. Alınmışsa: gercek.maliyet / maliyet.tablosu
+  gorunen_ad: "Gerçek Maliyet | Rakamlarla"
+  biyografi: "Ne kadara mal oluyor? 💸 Gerçek rakamlar, kaynaklı tablolar 📊 Araba, ev, iş kurmak, abonelikler… A vs B karşılaştırmaları"
+  nis: "gerçek maliyet ve karşılaştırma analizleri: bir şeyin cebe gerçekte kaça mal olduğunu güncel Türkiye fiyatlarıyla, kalem kalem ve kaynaklı gösteren içerikler (araba sahibi olmanın yıllık maliyeti, X TL ile iş kurmak, kira vs kredi, abonelik ve teknoloji karşılaştırmaları, şehirlerde yaşam maliyeti)"
+  hedef_kitle: "22-40 yaş, Türkiye'de yaşayan, karar vermeden önce rakam görmek isteyen çalışanlar, yeni iş kurmak isteyenler, araba/ev almayı düşünenler"
   dil: "Türkçe"
-  ton: "samimi, enerjik ve net; teknik jargon yok, varsa tek cümleyle açıklanır; okura 'sen' diye hitap; emoji az ve yerinde"
+  ton: "net, meraklı, tarafsız; rakamla konuşur, abartmaz; 'sen' diye hitap; kısa cümleler; emoji sadece 💸📊 gibi az ve yerinde"
   marka_kurallari:
-    - "Var olmayan araç, özellik ya da fiyat uydurma; emin olmadığın bilgiyi yazma, araştırma raporunda geçen ya da çok bilinen araçları kullan."
-    - "Ücretli araçları 'ücretli' ya da 'ücretsiz sürümü var' diye belirt."
-    - "Abartılı vaat yok: 'para basan prompt', 'işini elinden alacak' gibi korku/tık tuzağı dili kullanma."
-    - "Her gönderi tek bir net, hemen denenebilir fikir anlatsın; mümkünse kopyalanabilir bir prompt örneği ver."
-    - "Kişisel veri, sağlık ve hukuk konularında yapay zekaya körü körüne güvenmemeyi hatırlat."
+    - "Her rakamın bir kaynağı olmalı; kaynağı olmayan rakamı yazma. Tahmin ise açıkça 'tahmini' de ve varsayımı belirt."
+    - "Fiyatların tarihini belirt (ör. 'Kasım 2026 fiyatlarıyla'); enflasyon nedeniyle eskiyebileceğini hatırlat."
+    - "Kesin yatırım/finans tavsiyesi verme; 'şunu al' deme, karşılaştırmayı göster, kararı izleyiciye bırak."
+    - "Marka kötülemesi yok: karşılaştırmalar adil ve aynı koşullarda yapılsın."
+    - "Toplamları ve hesapları doğru yap; ara toplamlar tabloyla birebir tutsun."
 
 # Araştırmacının inceleyeceği büyük sayfalar.
 # Boş bırakılırsa araştırmacı nişteki büyük sayfaları web'de KENDİSİ bulur,
@@ -26,16 +26,20 @@ otomatik_sayfa_bulma: true
 
 # İncelenecek hashtag'ler (Instagram kuralı: haftada en fazla 30 farklı hashtag aranabilir)
 hashtagler:
-  - "yapayzeka"
-  - "chatgpt"
-  - "yapayzekaaraçları"
-  - "verimlilik"
-  - "dijitalpazarlama"
+  - "maliyet"
+  - "kişiselfinans"
+  - "ekonomi"
+  - "otomobil"
+  - "girişimcilik"
 
 uretim:
   gunluk_gonderi: 1            # Yeni hesap: ilk 2 hafta günde 1, sonra 2'ye çıkarılabilir
   paylasim_saatleri: ["20:00"] # Türkiye saati; analist en iyi saatleri raporlar
-  carousel_slayt_sayisi: 6
+  format_orani:                # Fikir ajanı bu dağılıma göre format seçer
+    reel: 0.7                  # 45 sn dikey video (slaytlardan otomatik üretilir)
+    carousel: 0.3              # Kaydırmalı maliyet tablosu
+  carousel_slayt_sayisi: 7
+  video_suresi_sn: 45
   revizyon_hakki: 2            # Müdür beğenmezse içerik kaç kez yeniden yazılsın
   onay_esigi: 75               # Müdürün 100 üzerinden vermesi gereken en düşük puan
   insan_onayi: false           # true: onaylanan içerik önce sana Pull Request olarak gelir,
@@ -45,14 +49,16 @@ topluluk:
   yorum_yaniti: true           # Yorumlara otomatik yanıt
   dm_yaniti: false             # DM için Meta uygulama incelemesi gerekir (README'ye bak)
   yanitlanmayacak_konular:
-    - "şikayet, hukuki konular, iş/reklam teklifleri -> yanıtlama, raporla"
+    - "şikayet, hukuki konular, sponsorluk/reklam teklifleri -> yanıtlama, raporla"
+    - "kişiye özel yatırım tavsiyesi isteyen sorular -> genel bilgi ver, tavsiye verme"
 
 gorsel:
-  # Şablon görsellerin renkleri (carousel slaytları için)
-  arka_plan: "#0B1020"         # gece mavisi
-  vurgu: "#3DDCFF"             # elektrik mavisi
-  yazi: "#F5F7FF"
-  boyut: [1080, 1350]          # Instagram 4:5 dikey
+  arka_plan: "#0E1116"         # koyu antrasit
+  vurgu: "#22C55E"             # para yeşili
+  uyari: "#F43F5E"             # pahalı/olumsuz kalemler için kırmızı
+  yazi: "#F8FAFC"
+  boyut: [1080, 1350]          # Carousel: Instagram 4:5 dikey
+  video_boyut: [1080, 1920]    # Reels: 9:16
 
 modeller:
   # Varsayılan: Claude Opus 5.5. Maliyeti düşürmek istersen sadece burayı değiştir.

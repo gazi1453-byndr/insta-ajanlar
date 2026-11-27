@@ -1,10 +1,10 @@
 """Resmi Instagram Graph API istemcisi (Facebook Login ile, Business/Creator hesap).
 
 Gerekli ortam değişkenleri (GitHub Secrets):
-  IG_USER_ID       Instagram profesyonel hesabının ID'si
-  IG_ACCESS_TOKEN  Uzun ömürlü erişim tokeni
-  FB_PAGE_ID       (sadece DM için) bağlı Facebook sayfasının ID'si
-  GRAPH_API_VERSION (isteğe bağlı) ör. v23.0
+  IG_ACCESS_TOKEN  Süresiz sistem kullanıcısı tokeni (zorunlu)
+  IG_USER_ID       (isteğe bağlı) boşsa token'dan otomatik bulunur
+  FB_PAGE_ID       (isteğe bağlı) boşsa token'dan otomatik bulunur
+  GRAPH_API_VERSION (isteğe bağlı) ör. v25.0
 """
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ class InstagramError(RuntimeError):
 
 
 def _ver() -> str:
-    return os.environ.get("GRAPH_API_VERSION", "v23.0")
+    return os.environ.get("GRAPH_API_VERSION") or "v25.0"
 
 
 def _base() -> str:
@@ -30,14 +30,33 @@ def _base() -> str:
 
 
 def configured() -> bool:
-    return bool(os.environ.get("IG_USER_ID") and os.environ.get("IG_ACCESS_TOKEN"))
+    return bool(os.environ.get("IG_ACCESS_TOKEN"))
+
+
+_ids: dict = {}
+
+
+def _discover() -> dict:
+    """Token'ın eriştiği Facebook sayfasını ve ona bağlı Instagram hesabını bulur."""
+    if not _ids:
+        pages = _req("GET", "me/accounts", fields="id,name,instagram_business_account{id,username}").get("data", [])
+        for p in pages:
+            iga = p.get("instagram_business_account")
+            if iga:
+                _ids.update(page=p["id"], ig=iga["id"], username=iga.get("username"))
+                log("instagram", f"Hesap bulundu: @{iga.get('username')} (sayfa: {p.get('name')})")
+                break
+        else:
+            raise InstagramError("Token'a bağlı, Instagram hesabı olan bir Facebook sayfası bulunamadı")
+    return _ids
 
 
 def _uid() -> str:
-    uid = os.environ.get("IG_USER_ID")
-    if not uid:
-        raise InstagramError("IG_USER_ID tanımlı değil")
-    return uid
+    return os.environ.get("IG_USER_ID") or _discover()["ig"]
+
+
+def _page_id() -> str:
+    return os.environ.get("FB_PAGE_ID") or _discover()["page"]
 
 
 def _token() -> str:
@@ -85,7 +104,7 @@ def hashtag_top_media(tag: str) -> list[dict]:
 
 # ---------------------------------------------------------------- Yayın
 
-def _wait_container(cid: str, timeout: int = 300) -> None:
+def _wait_container(cid: str, timeout: int = 600) -> None:
     start = time.time()
     while time.time() - start < timeout:
         st = _req("GET", cid, fields="status_code").get("status_code")
@@ -116,6 +135,37 @@ def publish(image_urls: list[str], caption: str) -> str:
     return _req("POST", f"{_uid()}/media_publish", creation_id=cid)["id"]
 
 
+def publish_reel(video_url: str, caption: str, cover_url: str | None = None) -> str:
+    """Dikey videoyu Reels olarak paylaşır (akışta da görünür)."""
+    if dry_run():
+        log("instagram", "[DRY_RUN] Reels paylaşılacaktı")
+        return "dry-run"
+    params = dict(media_type="REELS", video_url=video_url, caption=caption, share_to_feed="true")
+    if cover_url:
+        params["cover_url"] = cover_url
+    cid = _req("POST", f"{_uid()}/media", **params)["id"]
+    _wait_container(cid, timeout=900)
+    return _req("POST", f"{_uid()}/media_publish", creation_id=cid)["id"]
+
+
+def permalink(media_id: str) -> str:
+    try:
+        return _req("GET", media_id, fields="permalink").get("permalink", "")
+    except InstagramError:
+        return ""
+
+
+def pin_comment(media_id: str, text: str) -> None:
+    """İlk yorumu (tartışma sorusu) hesabın kendisi yazar."""
+    if dry_run():
+        log("instagram", f"[DRY_RUN] ilk yorum: {text[:60]}")
+        return
+    try:
+        _req("POST", f"{media_id}/comments", message=text)
+    except InstagramError as e:
+        log("instagram", f"İlk yorum yazılamadı: {e}")
+
+
 # ---------------------------------------------------------------- Topluluk
 
 def recent_media(limit: int = 10) -> list[dict]:
@@ -136,10 +186,7 @@ def reply_comment(comment_id: str, message: str) -> None:
 
 
 def conversations(limit: int = 20) -> list[dict]:
-    page = os.environ.get("FB_PAGE_ID")
-    if not page:
-        raise InstagramError("DM için FB_PAGE_ID gerekli")
-    return _req("GET", f"{page}/conversations", platform="instagram", limit=limit,
+    return _req("GET", f"{_page_id()}/conversations", platform="instagram", limit=limit,
                 fields="id,updated_time,messages.limit(5){id,message,from,created_time}").get("data", [])
 
 
@@ -148,7 +195,7 @@ def send_dm(recipient_id: str, text: str) -> None:
         log("instagram", f"[DRY_RUN] DM: {text[:60]}")
         return
     import json
-    _req("POST", f"{os.environ['FB_PAGE_ID']}/messages",
+    _req("POST", f"{_page_id()}/messages",
          recipient=json.dumps({"id": recipient_id}), message=json.dumps({"text": text}),
          messaging_type="RESPONSE")
 

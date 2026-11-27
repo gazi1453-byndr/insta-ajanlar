@@ -1,19 +1,20 @@
-"""6) MÜDÜR AJAN (Yayın Yönetmeni)
-Her gönderiyi yayına çıkmadan önce inceler ve "bu içerik tutar mı?" sorusuna
-puanlı bir karar verir: ONAY, REVİZYON (geri bildirimle üreticiye geri gönder)
-ya da RED. Görselleri de görerek değerlendirir.
+"""MÜDÜR AJAN (Yayın Yönetmeni)
+Her içeriği yayına çıkmadan önce inceler ve "bu içerik tutar mı?" sorusuna
+puanlı karar verir: ONAY, REVİZYON (geri bildirimle üreticiye geri gönder)
+ya da RED. Görselleri görür; ekrandaki her rakamı maliyet tablosuyla
+karşılaştırır. Kaynaksız ya da tabloyla uyuşmayan rakam = onay yok.
 """
 from __future__ import annotations
 
 import base64
-import json
 from pathlib import Path
 from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from .common import DATA, brand_brief, config, learnings, read_json
+from .common import brand_brief, config, learnings
 from .creator import Draft
+from .data_researcher import DataSheet, as_text
 from .llm import ask
 from .strategist import Idea
 
@@ -21,12 +22,13 @@ AGENT = "Müdür"
 
 
 class Scores(BaseModel):
-    hook_gucu: int = Field(description="0-25: ilk 1 saniyede kaydırmayı durdurur mu?")
-    deger: int = Field(description="0-25: okuyan bir şey öğrenir/kazanır mı, kaydetmeye değer mi?")
-    trend_uyumu: int = Field(description="0-15: şu anki trendler ve kitle ilgisiyle uyumlu mu?")
-    ozgunluk: int = Field(description="0-15: büyük sayfaların kopyası değil, farklı bir açı var mı?")
-    marka_ve_dogruluk: int = Field(description="0-10: tona, kurallara uygun ve bilgiler doğru mu?")
-    gorsel_okunurluk: int = Field(description="0-10: görseller telefonda kolay okunuyor mu?")
+    hook_gucu: int = Field(description="0-25: ilk 3 saniyede kaydırmayı durdurur mu?")
+    deger: int = Field(description="0-20: izleyiciye para kazandırır/tasarruf ettirir/merakını giderir mi?")
+    rakam_dogrulugu: int = Field(description="0-20: ekrandaki ve seslendirmedeki her rakam tabloyla birebir mi, kaynak ve tarih var mı?")
+    akis_ve_tutma: int = Field(description="0-10: sahneler sonuna kadar izletir mi, kurgu hızlı mı?")
+    ozgunluk: int = Field(description="0-10: farklı bir açı ya da gizli maliyet var mı?")
+    platform_metinleri: int = Field(description="0-5: Reels/TikTok/YouTube metinleri platforma uygun mu?")
+    gorsel_okunurluk: int = Field(description="0-10: telefonda kolay okunuyor mu?")
 
 
 class Verdict(BaseModel):
@@ -34,6 +36,7 @@ class Verdict(BaseModel):
     toplam: int = Field(description="Puanların toplamı, 0-100")
     karar: Literal["ONAY", "REVIZYON", "RED"]
     tutar_mi: str = Field(description="Bu içerik neden tutar ya da tutmaz, 2-3 cümle")
+    rakam_hatalari: list[str] = Field(description="Tabloyla uyuşmayan ya da kaynaksız her rakam; yoksa boş")
     geri_bildirim: str = Field(description="REVİZYON ise somut, maddeli düzeltme talimatları")
 
 
@@ -42,31 +45,30 @@ def _img(path: Path) -> dict:
                                         "data": base64.standard_b64encode(path.read_bytes()).decode()}}
 
 
-def run(idea: Idea, draft: Draft, images: list[Path], attempt: int) -> Verdict:
+def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt: int) -> Verdict:
     cfg = config()["uretim"]
-    research = read_json(DATA / "research" / "latest.json", {}).get("rapor", {})
     text = (
-        f"## Fikir\n{idea.model_dump_json()}\n\n## Taslak\n{draft.model_dump_json()}\n\n"
-        f"## Güncel araştırma\n{json.dumps(research, ensure_ascii=False)[:20000]}\n\n"
+        f"## Fikir\n{idea.model_dump_json()}\n\n## Maliyet tablosu\n{as_text(sheet)}\n"
+        f"Veri güveni: {sheet.guven}. Kaynaklar: {'; '.join(sheet.kaynaklar)}\n\n"
+        f"## Taslak\n{draft.model_dump_json()}\n\n"
         f"## Geçmiş verilerden öğrenilenler\n{learnings()}\n\n"
-        f"Bu {attempt}. deneme. Onay eşiği {cfg['onay_esigi']}/100. "
-        f"Eşik altındaysa ve düzeltilebilirse REVIZYON, fikir temelden zayıfsa RED ver. "
-        "İlk görseller ektedir."
+        f"Bu {attempt}. deneme. Onay eşiği {cfg['onay_esigi']}/100. Eşik altındaysa ve düzeltilebilirse "
+        "REVIZYON, fikir temelden zayıfsa ya da veri güveni düşükse RED ver. İlk sahnelerin görselleri ektedir."
     )
-    content = [*[_img(p) for p in images[:3]], {"type": "text", "text": text}]
+    content = [*[_img(p) for p in images[:4]], {"type": "text", "text": text}]
     v = ask(
         AGENT,
         system=(
-            "Sen büyük bir medya şirketinde Instagram yayın yönetmenisin. Yüzlerce viral içerik "
-            "yönettin. Sert ama adilsin: ortalama içeriği onaylamazsın, çünkü yeni bir hesapta "
-            "her vasat gönderi erişimi düşürür. Puanları gerçekçi verirsin.\n\n" + brand_brief()
+            "Sen büyük bir finans/medya yayınının yayın yönetmenisin. Yüzlerce viral kısa video yönettin. "
+            "Sert ama adilsin: vasat içeriği onaylamazsın, yanlış rakamı ASLA geçirmezsin; çünkü sponsorlar "
+            "ve izleyici güveni doğruluğa bağlı.\n\n" + brand_brief()
         ),
         content=content,
         schema=Verdict,
     )
-    # Karar puanla tutarlı olsun
-    total = sum(v.puanlar.model_dump().values())
-    v.toplam = total
-    if v.karar == "ONAY" and total < cfg["onay_esigi"]:
+    v.toplam = sum(v.puanlar.model_dump().values())
+    if v.karar == "ONAY" and (v.toplam < cfg["onay_esigi"] or v.rakam_hatalari):
         v.karar = "REVIZYON"
+        if v.rakam_hatalari:
+            v.geri_bildirim = "Rakam hataları: " + "; ".join(v.rakam_hatalari) + "\n" + v.geri_bildirim
     return v

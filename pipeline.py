@@ -43,6 +43,7 @@ def main() -> None:
     elif cmd == "yayinla":
         from agents import publisher
         publisher.run()
+        publisher.cleanup_old_media()
     elif cmd == "topluluk":
         from agents import community
         community.run()

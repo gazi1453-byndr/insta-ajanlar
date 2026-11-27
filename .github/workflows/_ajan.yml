@@ -47,10 +47,26 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
           GRAPH_API_VERSION: ${{ vars.GRAPH_API_VERSION }}
           MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
         run: python pipeline.py ${{ inputs.komut }}
+
+      - name: TikTok / YouTube paylaşım paketlerini bildir
+        if: ${{ !inputs.dry_run && inputs.komut == 'yayinla' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/crosspost/done
+          for f in data/crosspost/pending/*.md; do
+            [ -e "$f" ] || continue
+            title=$(head -1 "$f" | sed 's/^# //')
+            tail -n +3 "$f" > /tmp/body.md
+            gh issue create --title "📤 TikTok + YouTube'a paylaş: $title" --body-file /tmp/body.md
+            git mv -f "$f" data/crosspost/done/ 2>/dev/null || mv "$f" data/crosspost/done/
+          done
 
       - name: Sonuçları kaydet
         if: ${{ !inputs.dry_run }}
