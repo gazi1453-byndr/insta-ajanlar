@@ -1,6 +1,6 @@
 {
   "dosya": "data/senaryolar/kahve-ogle-yemegi-gemini.json",
-  "tarih": "2026-11-27T20:33:15.136891+03:00",
+  "tarih": "2026-11-27T20:48:33.464508+03:00",
   "format_grafik_denetimi": [
     "Tam olarak 1 'grafik' sahnesi olmalı (şu an 0)",
     "Sahne sayısı 7-11 arası olmalı (şu an 6)",
@@ -19,39 +19,38 @@
           "kalem": "Zincir kahve",
           "durum": "desteksiz",
           "alinti": "",
-          "aciklama": "Kaynak metinlerde 35,640.00 TL tutarını veya TÜİK Lokanta Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır."
+          "aciklama": "Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır."
         },
         {
           "secenek": "Dışarıda",
           "kalem": "Öğle yemeği",
           "durum": "desteksiz",
           "alinti": "",
-          "aciklama": "Kaynak metinlerde 83,160.00 TL tutarını veya öğle yemeği maliyetini doğrulayan herhangi bir bilgi bulunmamaktadır."
+          "aciklama": "Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır."
         },
         {
           "secenek": "Dışarıda",
           "kalem": "Kaçan yatırım getirisi",
           "durum": "desteksiz",
           "alinti": "",
-          "aciklama": "Kaynak metinlerde 17,480.00 TL tutarını veya TCMB Mevduat Verilerini doğrulayan herhangi bir bilgi bulunmamaktadır."
+          "aciklama": "Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır."
         },
         {
           "secenek": "Evden getirme",
           "kalem": "Evde yemek + termos kahve",
           "durum": "desteksiz",
           "alinti": "",
-          "aciklama": "Kaynak metinlerde 25,080.00 TL tutarını veya TÜİK Gıda Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır."
+          "aciklama": "Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır."
         }
       ],
-      "tarih_guncel_mi": false,
-      "ozet": "Tabloda yer alan maliyet kalemleri, verilen kaynak metinlerde geçmemekte ve hesaplanamamaktadır; bu nedenle tüm kalemler desteksizdir."
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan maliyet kalemlerinin hiçbiri sunulan kaynak metinlerde doğrudan geçmemekte veya doğrulanabilir bir formülle hesaplanamamaktadır."
     },
     "sorunlar": [
-      "Dışarıda / Zincir kahve: kaynakta yok (Kaynak metinlerde 35,640.00 TL tutarını veya TÜİK Lokanta Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
-      "Dışarıda / Öğle yemeği: kaynakta yok (Kaynak metinlerde 83,160.00 TL tutarını veya öğle yemeği maliyetini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
-      "Dışarıda / Kaçan yatırım getirisi: kaynakta yok (Kaynak metinlerde 17,480.00 TL tutarını veya TCMB Mevduat Verilerini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
-      "Evden getirme / Evde yemek + termos kahve: kaynakta yok (Kaynak metinlerde 25,080.00 TL tutarını veya TÜİK Gıda Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
-      "Kaynakların tarihi güncel değil: Tabloda yer alan maliyet kalemleri, verilen kaynak metinlerde geçmemekte ve hesaplanamamaktadır; bu nedenle tüm kalemler desteksizdir."
+      "Dışarıda / Zincir kahve: kaynakta yok (Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır.)",
+      "Dışarıda / Öğle yemeği: kaynakta yok (Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır.)",
+      "Dışarıda / Kaçan yatırım getirisi: kaynakta yok (Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır.)",
+      "Evden getirme / Evde yemek + termos kahve: kaynakta yok (Kaynak metinlerde bu kaleme ait bir veri veya hesaplama bulunmamaktadır.)"
     ],
     "bulunan_sayfa": [
       "https://www.instagram.com/reel/DfSqlGrIeHh",
@@ -84,35 +83,44 @@
     "puanlar": {
       "hook_gucu": 22,
       "deger": 18,
-      "rakam_dogrulugu": 15,
-      "akis_ve_tutma": 9,
-      "ozgunluk": 8,
+      "rakam_dogrulugu": 5,
+      "akis_ve_tutma": 8,
+      "ozgunluk": 9,
       "platform_metinleri": 5,
       "gorsel_okunurluk": 9
     },
-    "toplam": 86,
+    "toplam": 76,
     "karar": "REVIZYON",
-    "tutar_mi": "Günlük küçük harcamaların yıllık devasa toplamını ve fırsat maliyetini (kaçan mevduat getirisi) net rakamlarla yüzüne vurduğu için çalışan kitlenin kafasında 'vay be' etkisi yaratıp yüksek oranda kaydetme ve paylaşma alır.",
+    "tutar_mi": "Günlük küçük harcamaların yıllık devasa toplamını ve fırsat maliyetini yüze vurduğu için çok yüksek kaydetme ve paylaşma potansiyeli var. Çalışan kesimin doğrudan bütçesine dokunuyor.",
     "rakam_hatalari": [
-      "İlk slayttaki 118.800 TL ham harcama toplamıdır (35.640 + 83.160), ancak tablo başlığındaki net dışarıda maliyeti yatırım getirisiyle beraber 136.280 TL'dir. Taslak slaytlarında 118.800 TL ile 136.280 TL arasındaki geçiş seslendirmede hızlı verilmiş, izleyicinin kafası karışabilir."
+      "Kaynakta yok: Dışarıda / Zincir kahve",
+      "Kaynakta yok: Dışarıda / Öğle yemeği",
+      "Kaynakta yok: Dışarıda / Kaçan yatırım getirisi",
+      "Kaynakta yok: Evden getirme / Evde yemek + termos kahve"
     ],
-    "geri_bildirim": "Rakam hataları: İlk slayttaki 118.800 TL ham harcama toplamıdır (35.640 + 83.160), ancak tablo başlığındaki net dışarıda maliyeti yatırım getirisiyle beraber 136.280 TL'dir. Taslak slaytlarında 118.800 TL ile 136.280 TL arasındaki geçiş seslendirmede hızlı verilmiş, izleyicinin kafası karışabilir.\nSlaytlardaki ham harcama (118.800 TL) ile yatırım getirisi dahil toplam maliyet (136.280 TL) arasındaki farkın seslendirmede ve görselde daha net ayrıştırılması iyi olurdu. Ancak tablo matematiği ve kaynaklar kuralına uyduğu için onaylıdır."
+    "geri_bildirim": "Rakam hataları: Kaynakta yok: Dışarıda / Zincir kahve; Kaynakta yok: Dışarıda / Öğle yemeği; Kaynakta yok: Dışarıda / Kaçan yatırım getirisi; Kaynakta yok: Evden getirme / Evde yemek + termos kahve\nRakamlar tabloyla tamamen uyumlu, kaynaklar belirtilmiş. Taslak kurallara uygun."
   },
   "sanat_yonetmeni": {
-    "puan": 85,
+    "puan": 70,
     "gecti": false,
     "sorunlar": [
-      "Sahne 1: Tablodaki toplam dışarı maaliyet kalemi (136.280 TL) ile ilk sahnede verilen yıllık rakam (118.800 TL) ve günlük çarpanlar çelişiyor. 135 TL x 264 = 35.640 TL ve 315 TL x 264 = 83.160 TL toplandığında toplam 118.800 TL eder; ancak tablodaki 17.480 TL'lik yatırım getirisi eklenerek son sahnede toplam dışarı maliyeti 136.280 TL olarak gösterilmiştir. Sahne 1'de yatırım getirisi dahil edilmemiş veya eksik lanse edilmiştir."
+      "Sahne 1: Ekrandaki yıllık maliyet hesap hatası içeriyor (135 + 315 = 450 TL günlük, 264 gün ile çarpıldığında 118.800 TL eder ancak tablo toplamı yatırım getirisi dahil 136.280 TL'dir. Ekrandaki 118.800 TL rakamı tablo ile çelişmektedir).",
+      "Sahne 1: 1 kahve (135 TL) ve 1 öğle yemeği (315 TL) günlük 450 TL yapar; 450 x 264 = 118.800 TL eder. Tablodaki 136.280 TL toplam ile ekrandaki 118.800 TL uyuşmuyor, ara toplam ve genel toplamlar tutarsız."
     ],
     "yazim_hatalari": []
   },
   "bas_mudur": {
-    "puan": 78,
-    "karar": "REVIZYON",
-    "gerekce": "Tablodaki ham harcama toplamı (118.800 TL) ile yatırım getirisi dahil toplam maliyet (136.280 TL) arasında sahneler arası geçişte çelişki bulunuyor. İzleyicinin kafasını karıştırmamak için rakamların tüm slaytlarda ve tablolarda tam uyumlu hale getirilmesi gerekiyor.",
+    "puan": 49,
+    "karar": "RED",
+    "gerekce": "Otomatik RED: 4 kalem kaynakta yok (Dışarıda / Zincir kahve; Dışarıda / Öğle yemeği; Dışarıda / Kaçan yatırım getirisi; Evden getirme / Evde yemek + termos kahve). Tablodaki ara toplamlar ile hook ve ilk sahnede verilen yıllık toplam (118.800 TL) arasında matematiksel tutarsızlık bulunmaktadır; tablonun genel toplamı yatırım getirisiyle birlikte 136.280 TL'dir. Ayrıca kaynak doğrulama raporunda belirtilen kalemlerin veri kaynakları eksiktir. Sanat yönetmeni ve format denetimindeki hatalar giderilmelidir.",
     "duzeltmeler": [
-      "İlk slayttaki yıllık harcama rakamını tablodaki net toplam ve yatırım getirisi ile tutarlı olacak şekilde revize et.",
-      "Günlük çarpanlar ve ara toplamların tablodaki ana toplamla birebir uyuşmasını sağla."
+      "Kaynak göster ya da 'tahmini' işaretle: Dışarıda / Zincir kahve",
+      "Kaynak göster ya da 'tahmini' işaretle: Dışarıda / Öğle yemeği",
+      "Kaynak göster ya da 'tahmini' işaretle: Dışarıda / Kaçan yatırım getirisi",
+      "Kaynak göster ya da 'tahmini' işaretle: Evden getirme / Evde yemek + termos kahve",
+      "Hook ve ilk sahnede geçen 118.800 TL rakamı, tablodaki 136.280 TL'lik genel toplam veya net harcama toplamı ile senkronize edilmelidir.",
+      "Kaynak metinlerde eksik olan birim fiyatlar (135 TL kahve, 315 TL yemek) TÜİK Kasım 2026 verilerine dayanılarak netleştirilmelidir.",
+      "Sahne sayısı ve seslendirme uzunluğu şablon kurallarına (7-11 sahne, 56-92 kelime) uygun olarak güncellenmelidir."
     ],
     "seri_uyumu": true
   }
