@@ -1,0 +1,210 @@
+{
+  "id": "20261127-1450-0",
+  "olusturma": "2026-11-27T14:51:27.864715+03:00",
+  "seri_no": 1,
+  "fikir": {
+    "konu": "YouTube Premium: Web vs App Store Farkı",
+    "aci": "Aynı hizmete sırf yanlış yerden ödediğin için her ay fazladan verdiğin gizli para",
+    "format": "reel",
+    "veri_ihtiyaci": "Bireysel paket Kasım 2026 fiyatları: Google resmi web sayfası 119,99 TL, App Store 159,99 TL. Aylık 40 TL, yıllık 480 TL fark.",
+    "hedef_duygu": "şaşkınlık",
+    "neden_simdi": "Dijital abonelik zamlarının ardından kullanıcıların faturalarını optimize etmek istediği dönemde en hızlı tasarruf kalemi.",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": 15,
+    "puan": 95
+  },
+  "veri": {
+    "baslik": "YouTube Premium: Web vs App Store Maliyet Farkı",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 ay",
+    "secenekler": [
+      {
+        "ad": "Web Aboneliği",
+        "kalemler": [
+          {
+            "kalem": "Bireysel Paket (Web)",
+            "tutar_tl": 119.99,
+            "aciklama": "Google resmi web sitesi üzerinden doğrudan yapılan aylık ödeme",
+            "kaynak": "https://etkisepeti.com/blog/youtube-premium-fiyati",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 119.99
+      },
+      {
+        "ad": "App Store Aboneliği",
+        "kalemler": [
+          {
+            "kalem": "Bireysel Paket (App Store)",
+            "tutar_tl": 159.99,
+            "aciklama": "Apple iOS uygulaması üzerinden yapılan aylık ödeme",
+            "kaynak": "https://teknoloji.org/youtube-premium-fiyat",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 159.99
+      }
+    ],
+    "varsayimlar": [
+      "Yıllık fark hesaplanırken aylık 40 TL'lik fark 12 ay ile çarpılmıştır."
+    ],
+    "kaynaklar": [
+      "YouTube Premium Fiyatı 2026: Bireysel, Aile, Lite, Öğrenci - https://etkisepeti.com/blog/youtube-premium-fiyati",
+      "YouTube Premium Fiyatları 2026: Bireysel, Aile, Öğrenci - https://teknoloji.org/youtube-premium-fiyat"
+    ],
+    "sonuc": "Aynı YouTube Premium bireysel paketine App Store üzerinden ödeme yapmak, web'e kıyasla her ay fazladan 40 TL, yılda ise 480 TL ödemene neden olur.",
+    "guven": "yuksek"
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "YouTube Premium'a yılda fazladan 480 TL ödeten o gizli fark 💸",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Yıllık 480 TL'lik somut toplam rakam ve gizli fark vurgusu yüksek merhamet uyandırıyor."
+      },
+      {
+        "metin": "Kimsenin hesaba katmadığı App Store komisyonuyla YouTube Premium faturası…",
+        "teknik": "gizli maliyet",
+        "puan": 90,
+        "gerekce": "App Store'un gizli maliyetine odaklanarak kullanıcıda merak uyandırıyor."
+      },
+      {
+        "metin": "Web mi App Store mu? Aynı YouTube Premium'a 40 TL fazla ödeme 📊",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 88,
+        "gerekce": "İki ödeme yöntemini karşılaştırarak aradaki net farkı ortaya koyuyor."
+      },
+      {
+        "metin": "Uygulama mağazasından YouTube Premium almak her zaman daha güvenli değil.",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 85,
+        "gerekce": "Kolaylık sandığımız App Store'un maliyet dezavantajına dikkat çekiyor."
+      },
+      {
+        "metin": "App Store üzerinden ödediğin YouTube Premium maliyetinden haberin var mı?",
+        "teknik": "doğrudan soru",
+        "puan": 82,
+        "gerekce": "İzleyiciye doğrudan soru sorarak etkileşimi artırıyor."
+      },
+      {
+        "metin": "Kasım 2026 fiyatlarıyla YouTube Premium için kaç ay fazladan çalışıyorsun?",
+        "teknik": "kişisel hesap",
+        "puan": 80,
+        "gerekce": "Zaman ve para ilişkisini kurarak kişisel bütçeye vurgu yapıyor."
+      },
+      {
+        "metin": "YouTube Premium aboneliğinde fazladan ödediğin parayı kurtarmanın 2 yolu 📊",
+        "teknik": "liste vaadi",
+        "puan": 86,
+        "gerekce": "Çözüm odaklı yaklaşım ve liste vaadi kaydetme oranını artırır."
+      },
+      {
+        "metin": "Dijital abonelik zamlarından sonra YouTube Premium'u bu hatayla kullanma 💸",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 89,
+        "gerekce": "Zam gündemi ve hata vurgusu ile izleyicide hemen izleme isteği yaratır."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "taslak": {
+    "hook": "YouTube Premium'a yılda fazladan 480 TL ödeten o gizli fark 💸",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "YouTube Premium'a Fazla Ödeme",
+        "metin": "Aynı hizmete neden daha fazla ödeyesin?",
+        "seslendirme": "YouTube Premium'a yılda fazladan 480 TL ödeten o gizli farkı açıklıyorum."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Gizli Fark Nedir?",
+        "metin": "Ödemeyi nereden yaptığın faturayı değiştiriyor.",
+        "seslendirme": "Aynı üyeliğe sırf yanlış yerden ödediğin için her ay cebinden fazladan para çıkıyor."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Web ve App Store Maliyet Farkı",
+        "metin": "Kasım 2026 bireysel paket fiyatları",
+        "seslendirme": "Kasım 2026 fiyatlarına göre, Google resmi web sayfasından bireysel paket aylık 119,99 TL, yani yuvarlarsak 120 TL."
+      },
+      {
+        "tur": "metin",
+        "baslik": "App Store Fiyatı",
+        "metin": "App Store Bireysel Paket: 159,99 TL (~160 TL)",
+        "seslendirme": "Aynı paketi App Store üzerinden aldığında ise fiyat 159,99 TL, yani ~160 TL oluyor."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Aylık ve Yıllık Kayıp",
+        "metin": "Aylık 40 TL, Yıllık 480 TL fark",
+        "seslendirme": "Bu da aradaki komisyonlar yüzünden her ay 40 TL, yılda tam 480 TL fazladan ödemen demektir."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Nasıl Ödeme Yapıyorsun?",
+        "metin": "Kararı vermeden önce faturalarını kontrol et.",
+        "seslendirme": "Sen üyeliğini hangi kanaldan ödüyorsun, şimdiye kadar bu farka dikkat etmiş miydin?"
+      }
+    ],
+    "caption": "Aynı YouTube Premium bireysel paketine sırf App Store üzerinden ödeme yaptığın için her ay fazladan 40 TL veriyor olabilirsin.\n\nKasım 2026 güncel fiyatlarıyla web üzerinden ödenen tutar aylık 119,99 TL (~120 TL) iken, App Store üzerinde bu rakam 159,99 TL (~160 TL) oluyor. Yıllık bazda bu küçük gibi görünen fark 480 TL'yi buluyor.\n\nDijital aboneliklerde bu tarz gizli komisyonlara dikkat ediyor musun? Uygulama mağazası üzerinden ödemeye devam eder misin?\n\nKaynaklar:\n- Etki Sepeti, YouTube Premium Fiyatı 2026\n- Teknoloji.org, YouTube Premium Fiyatları 2026\n(Fiyatlar Kasım 2026 tarihlidir, enflasyon nedeniyle değişiklik gösterebilir.)",
+    "hashtagler": [
+      "gercekmaliyet",
+      "youtubepremium",
+      "tasarruf",
+      "teknoloji",
+      "fiyatkarsilastirma"
+    ],
+    "tiktok_aciklama": "YouTube Premium'a yılda fazladan 480 TL ödeten o gizli farkı hesapladık. Sen nereden ödeme yapıyorsun? #gercekmaliyet #youtubepremium #tasarruf",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "youtubepremium",
+      "tasarruf",
+      "fiyat"
+    ],
+    "youtube_baslik": "YouTube Premium Web vs App Store: 1 Yıllık Gizli Maliyet #1",
+    "youtube_aciklama": "YouTube Premium bireysel paket fiyatlarını web ve App Store üzerinden karşılaştırdık. Kasım 2026 verilerine göre aradaki aylık 40 TL ve yıllık 480 TL'lik farkı bu videoda inceledik. Bu seri maliyetleri net rakamlarla gösterir.\n\nKaynaklar:\n- https://etkisepeti.com/blog/youtube-premium-fiyati\n- https://teknoloji.org/youtube-premium-fiyat\n(Kasım 2026 fiyatlarıdır.)",
+    "youtube_etiketler": [
+      "youtube premium fiyat",
+      "gerçek maliyet",
+      "app store youtube premium",
+      "web vs app store",
+      "abonelik tasarrufu",
+      "2026 fiyatları"
+    ],
+    "yorum_sorusu": "Sen YouTube Premium faturasını hangi kanaldan ödüyorsun, bu 480 TL'lik farkı fark etmiş miydin?",
+    "alt_text": "YouTube Premium web ve App Store fiyat karşılaştırmasını gösteren gerçek maliyet tablosu ve analiz grafiği"
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 18,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 10
+    },
+    "toplam": 93,
+    "karar": "ONAY",
+    "tutar_mi": "Dijital abonelik zamlarının en yoğun olduğu dönemde, herkesin her ay fazladan ödediği somut bir kalemi doğrudan gösterdiği için yüksek kaydetme ve paylaşma alır. Rakamlar net, kaynaklar sağlam ve hedef kitleyle birebir örtüşüyor.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "mudur_gecmisi": [
+    {
+      "deneme": 1,
+      "toplam": 93,
+      "karar": "ONAY",
+      "rakam_hatalari": [],
+      "geri_bildirim": ""
+    }
+  ],
+  "video": "media/generated/20261127-1450-0/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-1450-0/sahne1.jpg"
+  ],
+  "durum": "kuyrukta",
+  "planlanan_zaman": "2026-11-27T20:00:00+03:00"
+}

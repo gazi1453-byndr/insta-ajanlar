@@ -127,7 +127,7 @@
       "platform_kaniti": "Etkisepeti ve Karekod (web 119,99 TL, App Store 159,99 TL), Fiyatinedir",
       "veri_ihtiyaci": "Bireysel paket web 119,99 TL ve App Store 159,99 TL. Aylık fark 40 TL, yıllık 480 TL. Google'ın resmi fiyat sayfasından doğrula, Kasım 2026 fiyatı olduğunu yaz. Aboneliği değiştirme adımlarını kısaca göster.",
       "format": "reel",
-      "kullanildi": false
+      "kullanildi": true
     },
     {
       "soru": "Dijital aboneliklere ayda toplam ne kadar ödüyoruz?",
