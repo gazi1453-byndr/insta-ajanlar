@@ -1,0 +1,15 @@
+name: "4 · Topluluk Yöneticisi"
+on:
+  schedule:
+    - cron: "20 5-20/2 * * *"  # 08:20-23:20 (TR) arası her 2 saatte bir
+  workflow_dispatch:
+    inputs:
+      dry_run: { type: boolean, default: true, description: "Deneme (yanıt gönderme)" }
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: topluluk
+      dry_run: ${{ inputs.dry_run || false }}
+    secrets: inherit

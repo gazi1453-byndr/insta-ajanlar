@@ -1,0 +1,55 @@
+# ============================================================
+#  INSTAGRAM AJAN SİSTEMİ - AYARLAR
+#  Sadece bu dosyayı düzenleyerek sistemi kendi hesabına uyarla.
+# ============================================================
+
+hesap:
+  kullanici_adi: "yeni_hesabin"          # @ olmadan
+  nis: "kişisel finans ve para yönetimi"  # Hesabın konusu (örnek, değiştir)
+  hedef_kitle: "22-35 yaş, Türkiye'de yaşayan, maaşını yönetmekte zorlanan genç çalışanlar"
+  dil: "Türkçe"
+  ton: "samimi, enerjik, kısa cümleler, abartısız; emoji az ve yerinde"
+  marka_kurallari:
+    - "Asla kesin yatırım tavsiyesi verme, eğitim amaçlı konuş."
+    - "Yanıltıcı ya da tık tuzağı vaatler kullanma."
+    - "Her gönderi tek bir net fikir anlatsın."
+
+# Araştırmacı ajanın inceleyeceği BÜYÜK sayfalar (nişindeki en iyi hesaplar).
+# Not: Instagram API sadece Business/Creator hesapları inceleyebilir.
+buyuk_sayfalar:
+  - "ornek_buyuk_sayfa_1"
+  - "ornek_buyuk_sayfa_2"
+  - "ornek_buyuk_sayfa_3"
+
+# İncelenecek hashtag'ler (Instagram kuralı: haftada en fazla 30 farklı hashtag aranabilir)
+hashtagler:
+  - "kişiselfinans"
+  - "birikim"
+  - "paratasarrufu"
+
+uretim:
+  gunluk_gonderi: 1            # Her gün kaç gönderi üretilsin
+  paylasim_saatleri: ["19:30"] # Türkiye saati; analist en iyi saatleri raporlar
+  carousel_slayt_sayisi: 6
+  revizyon_hakki: 2            # Müdür beğenmezse içerik kaç kez yeniden yazılsın
+  onay_esigi: 75               # Müdürün 100 üzerinden vermesi gereken en düşük puan
+  insan_onayi: false           # true: onaylanan içerik önce sana Pull Request olarak gelir,
+                               #       sen "Merge" deyince yayın kuyruğuna girer.
+
+topluluk:
+  yorum_yaniti: true           # Yorumlara otomatik yanıt
+  dm_yaniti: false             # DM için Meta uygulama incelemesi gerekir (README'ye bak)
+  yanitlanmayacak_konular:
+    - "şikayet, iade, hukuki konular -> yanıtlama, raporla"
+
+gorsel:
+  # Şablon görsellerin renkleri (carousel slaytları için)
+  arka_plan: "#101418"
+  vurgu: "#FFC83D"
+  yazi: "#F5F5F5"
+  boyut: [1080, 1350]          # Instagram 4:5 dikey
+
+modeller:
+  # Varsayılan: Claude Opus 5.5. Maliyeti düşürmek istersen sadece burayı değiştir.
+  varsayilan: "claude-opus-5-5"
+  topluluk: "claude-opus-5-5"

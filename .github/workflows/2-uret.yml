@@ -1,0 +1,16 @@
+name: "2 · İçerik Üretimi (Fikir → Hook → Üretici → Tasarımcı → Müdür)"
+on:
+  schedule:
+    - cron: "0 3 * * *"     # her gün 06:00 (TR), araştırmadan 1 saat sonra
+  workflow_dispatch:
+    inputs:
+      dry_run: { type: boolean, default: false, description: "Deneme (hiçbir şey kaydetme)" }
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: uret
+      onay_pr: true
+      dry_run: ${{ inputs.dry_run || false }}
+    secrets: inherit

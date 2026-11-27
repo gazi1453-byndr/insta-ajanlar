@@ -1,0 +1,15 @@
+name: "1 · Araştırmacı"
+on:
+  schedule:
+    - cron: "0 2 * * *"     # her gün 05:00 (TR)
+  workflow_dispatch:
+    inputs:
+      dry_run: { type: boolean, default: false, description: "Deneme (hiçbir şey kaydetme)" }
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: arastir
+      dry_run: ${{ inputs.dry_run || false }}
+    secrets: inherit

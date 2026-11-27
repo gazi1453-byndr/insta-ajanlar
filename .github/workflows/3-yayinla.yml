@@ -1,0 +1,15 @@
+name: "3 · Yayıncı"
+on:
+  schedule:
+    - cron: "7,37 * * * *"  # her 30 dakikada bir saati gelen gönderiyi paylaşır
+  workflow_dispatch:
+    inputs:
+      dry_run: { type: boolean, default: true, description: "Deneme (Instagram'a gönderme)" }
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: yayinla
+      dry_run: ${{ inputs.dry_run || false }}
+    secrets: inherit

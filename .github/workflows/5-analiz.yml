@@ -1,0 +1,26 @@
+name: "5 · Analist (haftalık rapor)"
+on:
+  schedule:
+    - cron: "0 6 * * 1"     # her pazartesi 09:00 (TR)
+  workflow_dispatch:
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: analiz
+    secrets: inherit
+
+  rapor:
+    needs: ajan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Raporu issue olarak aç (telefonuna bildirim gelir)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          F=$(ls -t data/reports/*.md | head -1)
+          gh issue create --title "📊 Haftalık rapor - $(date +%d.%m.%Y)" --body-file "$F"

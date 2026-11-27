@@ -1,0 +1,78 @@
+# Ortak çalıştırıcı: diğer tüm workflow'lar bunu çağırır.
+# Ajanı çalıştırır, ürettiği veriyi (data/, media/) repoya geri kaydeder.
+name: _ajan
+
+on:
+  workflow_call:
+    inputs:
+      komut:
+        required: true
+        type: string
+      dry_run:
+        required: false
+        type: boolean
+        default: false
+      onay_pr:
+        description: "config.yaml'da insan_onayi: true ise sonucu Pull Request olarak aç"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # Aynı anda tek ajan çalışsın; veri dosyaları çakışmasın.
+    concurrency:
+      group: insta-ajanlar
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Ajanı çalıştır (${{ inputs.komut }})
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          GRAPH_API_VERSION: ${{ vars.GRAPH_API_VERSION }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+        run: python pipeline.py ${{ inputs.komut }}
+
+      - name: Sonuçları kaydet
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "insta-ajan"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data media
+          if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
+
+          HUMAN=$(python -c "import yaml;print(str(yaml.safe_load(open('config.yaml',encoding='utf-8'))['uretim'].get('insan_onayi',False)).lower())")
+          if [ "${{ inputs.onay_pr }}" = "true" ] && [ "$HUMAN" = "true" ]; then
+            BR="onay/$(date +%Y%m%d-%H%M)"
+            git switch -c "$BR"
+            git commit -m "Onay bekleyen içerikler ($(date +%d.%m.%Y))"
+            git push -u origin "$BR"
+            gh pr create --base "${{ github.ref_name }}" --head "$BR" \
+              --title "📝 Onay bekleyen içerikler - $(date +%d.%m.%Y)" \
+              --body "Müdür ajanın onayladığı içerikler. Görselleri **Files changed** sekmesinde görebilirsin. **Merge** = yayın kuyruğuna al, **Close** = iptal."
+          else
+            git commit -m "ajan: ${{ inputs.komut }} ($(date +%d.%m.%Y\ %H:%M))"
+            git pull --rebase
+            git push
+          fi
