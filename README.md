@@ -32,7 +32,7 @@ Onay eşiği `config.yaml` içinde (varsayılan 75).
 
 ### 1. Instagram hesabı
 1. Yeni Instagram hesabını aç.
-2. **Ayarlar → Hesap türü ve araçlar → Profesyonel hesaba geç → İşletme**. Creator da olur; ancak İşletme hesabı API ile en sorunsuz çalışan seçenek.
+2. **Ayarlar → Hesap türü ve araçlar → Profesyonel hesaba geç → İçerik üreticisi**. Bu sistemin kullandığı API özelliklerinin hepsi İçerik üreticisi hesapta da çalışıyor. Üstüne Reels'te popüler müziklerin tamamını kullanabiliyorsun (İşletme hesabında sadece telifsiz ticari müzik var). Hesap türünü istediğin zaman takipçi kaybetmeden değiştirebilirsin.
 3. Bir **Facebook Sayfası** oluştur ve Instagram ayarlarından bu sayfaya bağla. Bu adım zorunlu: büyük sayfaları inceleme ve hashtag araştırması yalnızca Facebook sayfasına bağlı hesaplarda çalışıyor.
 
 ### 2. Meta geliştirici uygulaması ve token
