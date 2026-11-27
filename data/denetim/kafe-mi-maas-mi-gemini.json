@@ -1,0 +1,107 @@
+{
+  "dosya": "data/senaryolar/kafe-mi-maas-mi-gemini.json",
+  "tarih": "2026-11-27T21:46:56.261814+03:00",
+  "format_grafik_denetimi": [
+    "Tam olarak 1 'grafik' sahnesi olmalı (şu an 0)",
+    "Tam olarak 1 'reveal' (GERÇEK MALİYET) sahnesi olmalı (şu an 0)",
+    "Sahne sayısı 7-11 arası olmalı (şu an 5)",
+    "Sahne 2 (ekran): '504.000 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 2 (ekran): '558.000 TL' tablodaki hiçbir rakamla eşleşmiyor"
+  ],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Net kâr (ciro 4,5 milyon − tüm giderler): 918,000.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Gider kalemleri ve net kâr hesaplaması için kaynak metinlerde yeterli ve birebir veri bulunmamaktadır."
+        },
+        {
+          "secenek": "Maaşlı çalışan",
+          "kalem": "Yıllık maaş: 715,000.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynaklarda asgari ücret net tutarı 28.075,50 TL olarak belirtilmiştir, ancak 55.000 TL net maaş ve yıllık toplam rakam kaynaklarla uşuymamaktadır."
+        },
+        {
+          "secenek": "Maaşlı çalışan",
+          "kalem": "Sermayenin mevduat getirisi: 577,500.00 TL",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "1.500.000 TL için 577.500 TL getiri tutarı kaynak metinlerdeki faiz oranları ve hesaplamalarla tam olarak doƟrulanamamaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan bazı kalemler kaynak metinlerdeki verilerle birebir uyuşmadığı veya doğrulanamadığı için desteksiz olarak işaretlenmiştir."
+    },
+    "sorunlar": [
+      "Kafe sahibi / Net kâr (ciro 4,5 milyon − tüm giderler): 918,000.00 TL: kaynakta yok (Gider kalemleri ve net kâr hesaplaması için kaynak metinlerde yeterli ve birebir veri bulunmamaktadır.)",
+      "Maaşlı çalışan / Yıllık maaş: 715,000.00 TL: kaynakta yok (Kaynaklarda asgari ücret net tutarı 28.075,50 TL olarak belirtilmiştir, ancak 55.000 TL net maaş ve yıllık toplam rakam kaynaklarla uşuymamaktadır.)",
+      "Maaşlı çalışan / Sermayenin mevduat getirisi: 577,500.00 TL: kaynakta yok (1.500.000 TL için 577.500 TL getiri tutarı kaynak metinlerdeki faiz oranları ve hesaplamalarla tam olarak doƟrulanamamaktadır.)"
+    ],
+    "bulunan_sayfa": [
+      "https://www.instagram.com/reel/DfWtws3IeH4",
+      "https://www.instagram.com/reel/Dfe9PVwMzbc",
+      "https://www.yeniisfikirleri.net/butik-acmak",
+      "https://www.instagram.com/reel/DfhqlZytgNj",
+      "https://ghmuhasebe.com/pratik/asgari-ucret",
+      "https://www.hesapkurdu.com/ihtiyac-kredisi/rehber/asgari-ucret-zammi",
+      "https://www.secretcv.com/blog/yazi/2026-asgari-ucret-ne-kadar-3258",
+      "https://www.memurlar.net/haber/1184085/asgari-ucret-ne-kadar-olacak-gorusmeler-oncesi-10-soruda-yanit.html",
+      "https://www.instagram.com/p/DfpP7-3m_fq",
+      "https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+      "https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 61.0,
+    "ikincil": 27.5,
+    "vurgu": 6.4,
+    "yazi": 5.1
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 15,
+      "deger": 10,
+      "rakam_dogrulugu": 5,
+      "akis_ve_tutma": 6,
+      "ozgunluk": 6,
+      "platform_metinleri": 3,
+      "gorsel_okunurluk": 6
+    },
+    "toplam": 51,
+    "karar": "RED",
+    "tutar_mi": "Kendi işini kurmak ile maaşlı çalışmayı kıyaslayan güçlü bir merak unsuru barındırıyor. Ancak kaynak raporunda net kâr ve maaş gibi ana kalemlerin desteksiz olduğu belirtildiği için güvenilirlik kuralına takılıyor.",
+    "rakam_hatalari": [
+      "Kaynakta yok: Kafe sahibi / Net kâr (ciro 4,5 milyon − tüm giderler): 918,000.00 TL",
+      "Kaynakta yok: Maaşlı çalışan / Yıllık maaş: 715,000.00 TL",
+      "Kaynakta yok: Maaşlı çalışan / Sermayenin mevduat getirisi: 577,500.00 TL",
+      "Net kâr (ciro 4,5 milyon − tüm giderler): 918,000.00 TL",
+      "Yıllık maaş: 715,000.00 TL",
+      "Sermayenin mevduat getirisi: 577,500.00 TL"
+    ],
+    "geri_bildirim": "Kaynak raporunda belirtilen desteksiz kalemler resmi ve doğrulanabilir verilerle güncellenmelidir. Rakam doğruluğu puanı artırılmadan bu içerik yayınlanamaz."
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 49,
+    "karar": "RED",
+    "gerekce": "Otomatik RED: 3 kalem kaynakta yok (Kafe sahibi / Net kâr (ciro 4,5 milyon − tüm giderler): 918,000.00 TL; Maaşlı çalışan / Yıllık maaş: 715,000.00 TL; Maaşlı çalışan / Sermayenin mevduat getirisi: 577,500.00 TL). Kaynak raporunda net kâr, yıllık maaş ve mevduat getirisi gibi temel finansal kalemlerin desteksiz olduğu açıkça belirtilmiştir. Marka kurallarımıza göre kaynağı olmayan veya doğrulanamayan hiçbir rakam yayınlanamaz. Müdür onayından da bu gerekçeyle RED almıştır.",
+    "duzeltmeler": [
+      "Kaynak göster ya da 'tahmini' işaretle: Kafe sahibi / Net kâr (ciro 4,5 milyon − tüm giderler): 918,000.00 TL",
+      "Kaynak göster ya da 'tahmini' işaretle: Maaşlı çalışan / Yıllık maaş: 715,000.00 TL",
+      "Kaynak göster ya da 'tahmini' işaretle: Maaşlı çalışan / Sermayenin mevduat getirisi: 577,500.00 TL",
+      "Tüm finansal kalemler resmi ve doğrulanabilir kaynaklarla güncellenmelidir.",
+      "Tablo verileri ile sahnelerdeki ekran metinleri birebir uyuşmalıdır.",
+      "Eksik olan grafik ve reveal sahneleri format standartlarına göre eklenmelidir."
+    ],
+    "seri_uyumu": true
+  }
+}
