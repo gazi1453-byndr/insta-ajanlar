@@ -266,7 +266,92 @@ const Coins: React.FC<V> = ({accent, text, height = 300}) => {
   );
 };
 
+// ---------------------------------------------------------------- take-away kahve + öğle yemeği tabağı
+const Coffee: React.FC<V> = ({accent, text, height = 300}) => {
+  const {f, fps, t} = useT();
+  const drop = sp(f, fps, 2, {damping: 13, stiffness: 160, mass: 1});
+  const slide = sp(f, fps, 8, {damping: 16, stiffness: 120, mass: 1});
+  const cupY = (1 - drop) * -260;
+  const plateX = (1 - slide) * 520;
+  const steam = (i: number) => {
+    const p = (t * 0.55 + i / 3) % 1;
+    const sway = Math.sin(t * 2.4 + i * 2) * 8;
+    return (
+      <path key={i} d={`M${178 + i * 22} 52 c ${-14 + sway} -18, ${14 + sway} -30, 0 -50 c ${-12 + sway} -16, ${10 + sway} -28, 0 -44`}
+        fill="none" stroke={text} strokeWidth={5} strokeLinecap="round"
+        opacity={drop * 0.5 * Math.sin(Math.PI * p)} transform={`translate(0 ${-p * 26})`} />
+    );
+  };
+  return (
+    <svg viewBox="0 0 700 300" width="100%" height={height} style={{overflow: 'visible'}}>
+      <defs>
+        <linearGradient id="cf-cup" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#CBD5E1" />
+          <stop offset="0.35" stopColor="#F8FAFC" />
+          <stop offset="1" stopColor="#94A3B8" />
+        </linearGradient>
+        <linearGradient id="cf-lid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#334155" />
+          <stop offset="1" stopColor="#0F172A" />
+        </linearGradient>
+        <radialGradient id="cf-plate" cx="0.5" cy="0.4" r="0.6">
+          <stop offset="0" stopColor="#F8FAFC" />
+          <stop offset="0.75" stopColor="#E2E8F0" />
+          <stop offset="1" stopColor="#94A3B8" />
+        </radialGradient>
+        <filter id="cf-soft" x="-20%" y="-200%" width="140%" height="500%">
+          <feGaussianBlur stdDeviation="7" />
+        </filter>
+        <filter id="cf-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4" />
+        </filter>
+      </defs>
+      {/* masa çizgisi + gölgeler */}
+      <line x1={20} y1={276} x2={680} y2={276} stroke="#ffffff22" strokeWidth={3} />
+      <ellipse cx={200} cy={274} rx={86} ry={9} fill="#000" opacity={0.55 * drop} filter="url(#cf-soft)" />
+      <ellipse cx={470 + plateX} cy={272} rx={180} ry={12} fill="#000" opacity={0.5 * slide} filter="url(#cf-soft)" />
+
+      {/* tabak: kenarda neon vurgu halkası, pilav + köfte + salata, çatal-bıçak */}
+      <g transform={`translate(${plateX} 0)`} opacity={Math.min(1, slide * 1.4)}>
+        <rect x={660} y={168} width={10} height={96} rx={5} fill="#CBD5E1" />
+        <path d="M656 168 L656 200 M665 168 L665 200 M674 168 L674 200" stroke="#CBD5E1" strokeWidth={4} strokeLinecap="round" />
+        <path d="M694 164 Q712 200 698 262 L690 262 L690 164 Z" fill="#CBD5E1" />
+        <ellipse cx={470} cy={236} rx={176} ry={38} fill="url(#cf-plate)" />
+        <ellipse cx={470} cy={236} rx={176} ry={38} fill="none" stroke={accent} strokeWidth={3} opacity={0.9} />
+        <ellipse cx={470} cy={236} rx={176} ry={38} fill="none" stroke={accent} strokeWidth={6} opacity={0.35} filter="url(#cf-glow)" />
+        <ellipse cx={470} cy={234} rx={128} ry={25} fill="#F1F5F9" stroke="#CBD5E1" strokeWidth={2} />
+        <path d="M372 236 Q392 196 438 198 Q470 200 476 236 Z" fill="#FEF3C7" />
+        {[0, 1, 2].map((i) => (
+          <g key={i}>
+            <ellipse cx={392 + i * 26} cy={226 - (i % 2) * 4} rx={5} ry={3} fill="#FDE68A" />
+          </g>
+        ))}
+        {[0, 1, 2].map((i) => {
+          const s = sp(f, fps, 18 + i * 4, {damping: 11, stiffness: 220, mass: 1});
+          return <ellipse key={i} cx={500 + i * 32} cy={226 - (1 - s) * 90} rx={17} ry={12} fill={i === 1 ? '#78350F' : '#92400E'} opacity={s} />;
+        })}
+        <path d="M486 242 Q520 230 572 240 Q548 252 500 250 Z" fill="#22C55E" opacity={0.85} />
+        <circle cx={560} cy={238} r={7} fill="#EF4444" />
+      </g>
+
+      {/* take-away kahve bardağı: kapak, vurgu renkli kılıf, buhar */}
+      <g transform={`translate(0 ${cupY})`}>
+        {[0, 1, 2].map(steam)}
+        <path d="M128 92 L272 92 L252 268 Q250 274 244 274 L156 274 Q150 274 148 268 Z" fill="url(#cf-cup)" />
+        <path d="M120 74 Q120 64 130 64 L270 64 Q280 64 280 74 L282 92 L118 92 Z" fill="url(#cf-lid)" />
+        <rect x={178} y={56} width={44} height={10} rx={4} fill="#1E293B" />
+        <path d="M138 152 L262 152 L254 222 L146 222 Z" fill={accent} />
+        <path d="M138 152 L262 152 L254 222 L146 222 Z" fill="none" stroke={accent} strokeWidth={6} opacity={0.45} filter="url(#cf-glow)" />
+        <path d="M150 166 L250 166" stroke="#0B1220" strokeOpacity={0.25} strokeWidth={3} />
+        <path d="M148 208 L252 208" stroke="#0B1220" strokeOpacity={0.25} strokeWidth={3} />
+        <path d="M146 100 L160 262" stroke="#FFFFFF" strokeOpacity={0.55} strokeWidth={6} strokeLinecap="round" />
+      </g>
+    </svg>
+  );
+};
+
 export const VISUALS: Record<string, React.FC<V>> = {
+  kahve: Coffee,
   araba: Car,
   benzin: Pump,
   ev: House,

@@ -1,0 +1,198 @@
+{
+  "id": "20261127-2103-s",
+  "olusturma": "2026-11-27T21:06:21.632465+03:00",
+  "kaynak": "senaryo",
+  "fikir": {
+    "konu": "Dışarıda kahve + öğle yemeği mi, evden getirmek mi? (2026, iş günleri)",
+    "alt_seri": "DIŞARIDA MI EVDE Mİ?"
+  },
+  "veri": {
+    "baslik": "Dışarıda mı, evden mi? Kahve + öğle yemeği (2026)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl (250 iş günü)",
+    "secenekler": [
+      {
+        "ad": "Dışarıda",
+        "kalemler": [
+          {
+            "kalem": "Zincir kahve (grande latte)",
+            "tutar_tl": 46250.0,
+            "aciklama": "185 TL × 250 iş günü. 185 TL: Starbucks Türkiye grande Caffè Latte, 2 Ocak 2026 zammından sonraki menü fiyatı (Kasım'da en az bu kadar)",
+            "kaynak": "Starbucks Türkiye menüsü (Ocak 2026) — habergazetesi.com.tr, 24saatgazetesi.com",
+            "tahmini": false
+          },
+          {
+            "kalem": "Öğle yemeği",
+            "tutar_tl": 82500.0,
+            "aciklama": "330 TL × 250 iş günü. 330 TL: 2026 günlük yemek bedeli istisnası (300 TL + KDV, GVK 23/8); İstanbul esnaf lokantası öğünü 250-500 TL aralığında",
+            "kaynak": "GİB / muhasebenews.com 2026 yemek istisnası; edenred.com.tr; sini.istanbul (21.10.2026)",
+            "tahmini": false
+          },
+          {
+            "kalem": "Kaçan mevduat faizi",
+            "tutar_tl": 17992.0,
+            "aciklama": "Evden getirince her ay biriken 8.645,83 TL (103.750 / 12) net %34,34 mevduatta (brüt %41,62, stopaj %17,5) aylık bileşik: 12 ayda 17.992 TL faiz",
+            "kaynak": "TCMB/EKOTÜRK 20.11.2026 haftası; Yapı Kredi stopaj tablosu",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 146742.0
+      },
+      {
+        "ad": "Evden getirme",
+        "kalemler": [
+          {
+            "kalem": "Evde yemek + termos kahve",
+            "tutar_tl": 25000.0,
+            "aciklama": "Günde ~100 TL × 250 iş günü (ev yapımı öğle yemeği ~85 TL + termos kahve ~15 TL)",
+            "kaynak": "Tahmini (market fiyatlarıyla porsiyon maliyeti)",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 25000.0
+      }
+    ],
+    "varsayimlar": [
+      "2026'da 261 hafta içi gün var; hafta içine denk gelen ~11 resmi tatil günü düşüldü → 250 iş günü (yıllık izin dahil edilmedi)",
+      "Her iş günü 1 grande latte + 1 öğle yemeği",
+      "Evden getirince oluşan aylık tasarruf her ay mevduata yatırılır (net %34,34, aylık bileşik)"
+    ],
+    "kaynaklar": [
+      "Starbucks fiyat listesi 2026 https://www.habergazetesi.com.tr/starbucks-kahve-fiyatlari",
+      "Starbucks Ocak 2026 zammı https://www.24saatgazetesi.com/starbucksa-zam-geldi-mistarbucksta-en-ucuz-kahve-fiyati-2026da-kac-tl-starbucks-turkiyede-fiyatlari-guncelledi",
+      "2026 yemek istisnası https://www.muhasebenews.com/2026-yili-yemek-bedeli-gunluk-vergiden-istisna-edilen-tutar-300-tl-kdv-haric-olarak-belirlendi/",
+      "Edenred günlük yemek bedeli https://www.edenred.com.tr/gunluk-yemek-bedeli",
+      "İstanbul yemek fiyatları (21.10.2026) https://sini.istanbul/guides/istanbul-food-prices-guide",
+      "EKOTÜRK mevduat faizi https://www.ekoturk.com/ekoturk-ozel/yeni-tl-mevduatta-ortalama-faiz-yilin-en-dusuk-seviyesinde",
+      "Yapı Kredi stopaj https://www.yapikredi.com.tr/bireysel-bankacilik/mevduat-urunleri/mevduat-stopaj-oranlari",
+      "2026 resmi tatiller https://www.isbank.com.tr/blog/2026-resmi-tatiller-takvimi"
+    ],
+    "sonuc": "Her iş günü dışarıda kahve + öğle yemeği, kaçan faizle yılda 146.742 TL; evden getirmek 25.000 TL. Evden getirirsen yıl sonunda 121.742 TL cebinde kalır.",
+    "guven": "yuksek"
+  },
+  "taslak": {
+    "hook": "Günde 1 kahve + 1 öğle yemeği: yılda 146.742 TL",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Kahve + öğle yemeği: yılda 146.742 TL",
+        "metin": "Kaçan faiz dahil · 2026'nın 250 iş günü",
+        "seslendirme": "Her iş günü bir kahve, bir öğle yemeği. Yılda 146 bin lira.",
+        "gorsel": "kahve",
+        "efekt": "subbass",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kahve: 46.250 TL",
+        "metin": "Grande latte 185 × 250 iş günü (Starbucks, 2026 menüsü)",
+        "seslendirme": "Zincirde bir latte, yılda 46 bin lira.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Öğle yemeği: 82.500 TL",
+        "metin": "Yemek kartının günlük vergisiz tavanı 330 × 250 gün",
+        "seslendirme": "Yemek kartı tavanından öğle yemeği, 82 bin lira.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kaçan faiz: 17.992 TL",
+        "metin": "Biriken parayı her ay net %34,3 mevduata koysaydın",
+        "seslendirme": "O para her ay mevduatta dursa, 18 bin lira faiz getirirdi.",
+        "gorsel": "",
+        "efekt": "darbe",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Evden getirmek: 25.000 TL",
+        "metin": "Ev yemeği + termos kahve, günde ~100 (tahmini)",
+        "seslendirme": "Evden getirsen aynı yıl sadece 25 bin lira.",
+        "gorsel": "",
+        "efekt": "onay",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Dışarıda mı, evden mi?",
+        "metin": "",
+        "seslendirme": "Yan yana koyunca aradaki uçurum açılıyor.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "",
+        "seslendirme": "Yıl sonunda cebinde 121 bin lira kalıyor.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "EVDEN GETİRİRSEN CEBİNDE KALAN",
+        "sure": 0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "121.742 TL için evden taşır mısın?",
+        "metin": "Tarafını yorumda seç",
+        "seslendirme": "121 bin lira için evden taşır mısın?",
+        "gorsel": "",
+        "efekt": "kart",
+        "ton": "",
+        "etiket": "",
+        "sure": 3.0
+      }
+    ],
+    "caption": "Günde 1 kahve + 1 öğle yemeği yılda kaç para? 2026'nın 250 iş günüyle hesapladık:\n\n☕ Grande latte (185 TL): 46.250 TL\n🍽 Öğle yemeği (yemek kartı tavanı 330 TL): 82.500 TL\n📉 Kaçan mevduat faizi: 17.992 TL\n= 146.742 TL\n\nEvden getirirsen: 25.000 TL (tahmini). Yıl sonunda cebinde 121.742 TL kalıyor.\n\nKaynaklar: Starbucks Türkiye 2026 menüsü, GİB 2026 yemek istisnası (GVK 23/8), TCMB mevduat verileri, Resmî Gazete tatil takvimi. Evde yemek maliyeti tahminidir.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "tasarruf",
+      "kahve",
+      "oglenyemegi",
+      "yemekkarti",
+      "kisiselfinans",
+      "butce",
+      "mevduat"
+    ],
+    "tiktok_aciklama": "",
+    "tiktok_hashtagler": [],
+    "youtube_baslik": "",
+    "youtube_aciklama": "",
+    "youtube_etiketler": [],
+    "yorum_sorusu": "121.742 TL için evden taşır mısın?",
+    "alt_text": "Dışarıda mı, evden mi? Kahve + öğle yemeği (2026)"
+  },
+  "seri_no": 2,
+  "alt_seri": "DIŞARIDA MI EVDE Mİ?",
+  "senaryo_denetimi": {
+    "format": [],
+    "rakam": [],
+    "senkron": [
+      "Süre hedef dışında: 29.0 sn (hedef 35-42 sn)"
+    ]
+  },
+  "video": "media/generated/20261127-2103-s/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-2103-s/sahne1.jpg"
+  ],
+  "durum": "onizleme"
+}

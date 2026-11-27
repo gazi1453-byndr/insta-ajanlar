@@ -192,7 +192,8 @@ def _scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
             return {**d, "kind": "grafik", "mode": "breakdown", "rows": _rows_breakdown(sheet),
                     "totalLabel": f"TOPLAM ({_short(sheet.hesap_donemi, 20)})", "total": round(sheet.secenekler[0].toplam_tl, 2)}
         label, val = headline_value(sheet)
-        return {**d, "kind": "grafik", "mode": "compare", "rows": _rows_compare(sheet), "totalLabel": label, "total": round(val, 2)}
+        return {**d, "kind": "grafik", "mode": "compare", "rows": _rows_compare(sheet),
+                "totalLabel": STYLE.get("fark_etiketi") or label, "total": round(val, 2)}
     if s.tur == "reveal":
         label, val = headline_value(sheet)
         mc = maas_cevir(val)
@@ -231,12 +232,14 @@ TOPICS = [  # (görsel, anahtar kelimeler) — ilk eşleşen kazanır
     ("benzin", ["benzin", "motorin", "akaryakıt", "mazot", "lpg", "depo", "litre", "pompa"]),
     ("araba", ["araba", "otomobil", "araç", "kasko", "muayene", "lastik", "trafik sigortası", "mtv", "otv", "ötv",
                "sedan", "suv", "corolla", "clio", "egea", "togg", "fiat", "renault", "toyota", "hyundai", "elektrikli araç"]),
+    ("kahve", ["kahve", "latte", "öğle yemeği", "yemek kartı", "lokanta", "restoran", "kafe"]),
     ("ev", ["kira", "ev ", "evin", "konut", "daire", "aidat", "tapu", "emlak", "metrekare", "mortgage"]),
     ("telefon", ["telefon", "iphone", "samsung", "abonelik", "internet", "netflix", "spotify", "youtube premium", "tarife"]),
     ("market", ["market", "gıda", "sepet", "mutfak", "ekmek", "süt", "et ", "yumurta", "alışveriş"]),
 ]
-SFX_FOR = {"araba": "korna", "benzin": "cink", "ev": "pop", "telefon": "pop", "market": "kasa", "para": "kasa"}
-SFX_GAIN = {"korna": 0.32, "kasa": 0.42, "cink": 0.36, "darbe": 0.5, "whoosh": 0.28, "pop": 0.3}
+SFX_FOR = {"araba": "korna", "kahve": "kasa", "benzin": "cink", "ev": "pop", "telefon": "pop", "market": "kasa", "para": "kasa"}
+SFX_GAIN = {"korna": 0.32, "kasa": 0.42, "cink": 0.36, "darbe": 0.5, "whoosh": 0.28, "pop": 0.3,
+            "subbass": 0.30, "tik": 0.36, "onay": 0.22, "kart": 0.36}
 
 
 def topic_of(draft: Draft, sheet: DataSheet) -> str:
