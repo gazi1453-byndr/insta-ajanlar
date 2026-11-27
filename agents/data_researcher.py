@@ -1,7 +1,8 @@
 """VERİ ARAŞTIRMACISI AJAN
-Her içerik fikri için güncel Türkiye fiyatlarını web'de araştırır ve kalem
-kalem, kaynaklı bir maliyet tablosu (DataSheet) çıkarır. Toplamları Python
-yeniden hesaplar; böylece içerikteki hiçbir toplam yanlış olamaz.
+Her içerik fikri için güncel Türkiye fiyatlarını web'de araştırır ve kalem kalem, kaynaklı
+bir maliyet tablosu (DataSheet) çıkarır. Toplamları Python yeniden hesaplar.
+Ardından KAYNAK DOĞRULAYICI her kalemi kaynak sayfa metniyle karşılaştırır; desteksiz rakam
+varsa tablo bir kez düzeltilir, yine geçmezse güven 'düşük' olur ve içerik üretilmez.
 """
 from __future__ import annotations
 
@@ -25,7 +26,7 @@ class CostItem(BaseModel):
 
 
 class Option(BaseModel):
-    ad: str = Field(description="Seçeneğin KISA adı, en fazla 22 karakter, ör. 'Renault Clio', '%30 zam'; detaylar kalem açıklamalarına")
+    ad: str = Field(description="Seçeneğin KISA adı, en fazla 22 karakter, ör. 'Renault Clio', '%30 zam'")
     kalemler: list[CostItem]
     toplam_tl: float = Field(description="Kalemlerin toplamı (sistem yeniden hesaplar)")
 
@@ -33,7 +34,7 @@ class Option(BaseModel):
 class DataSheet(BaseModel):
     baslik: str
     fiyat_tarihi: str = Field(description="Fiyatların ait olduğu ay/yıl, ör. 'Kasım 2026'")
-    hesap_donemi: str = Field(description="Tüm tutarların kapsadığı dönem, ör. '1 yıl', 'tek seferlik kurulum'")
+    hesap_donemi: str = Field(description="Tüm tutarların kapsadığı dönem, ör. '1 yıl', '1 ay'")
     secenekler: list[Option] = Field(description="Tek konu ise 1, karşılaştırma ise 2-3 seçenek")
     varsayimlar: list[str]
     kaynaklar: list[str] = Field(description="Kullanılan kaynakların listesi (site adı + URL)")
@@ -50,7 +51,25 @@ def _recompute(sheet: DataSheet) -> DataSheet:
     return sheet
 
 
-def run(idea: Idea) -> DataSheet:
+def _build(idea: Idea, notes: str, feedback: list[str] | None = None) -> DataSheet:
+    extra = ""
+    if feedback:
+        extra = ("\n\n## KAYNAK DOĞRULAYICI BU SORUNLARI BULDU (düzelt: kaynakta olmayan rakamı çıkar ya da "
+                 "açıkça tahmini işaretle ve varsayımını yaz)\n- " + "\n- ".join(feedback))
+    sheet = ask(
+        AGENT,
+        system=("Araştırma notlarını tutarlı bir maliyet tablosuna dönüştürürsün. Tüm tutarlar aynı "
+                "hesap dönemine çevrilmiş olmalı. Notlarda olmayan rakamı ekleme; varsayımla "
+                "hesapladığın kalemi tahmini=true işaretle.\n\n" + brand_brief()),
+        content=f"## Fikir\n{idea.model_dump_json()}\n\n## Araştırma notları\n{notes}{extra}",
+        schema=DataSheet,
+    )
+    return _recompute(sheet)
+
+
+def run(idea: Idea) -> tuple[DataSheet, dict]:
+    from . import fact_checker, llm
+
     notes = research(
         AGENT,
         system=("Sen titiz bir fiyat ve maliyet araştırmacısısın. Türkiye'deki GÜNCEL fiyatları "
@@ -63,28 +82,31 @@ def run(idea: Idea) -> DataSheet:
             "gizli maliyetleri de bul (vergi, sigorta, bakım, amortisman, komisyon vb.). "
             "Bulamadığın rakamları uydurma; 'bulunamadı' yaz."
         ),
-        max_searches=12,
+        max_searches=10,
     )
-    sheet = ask(
-        AGENT,
-        system=("Araştırma notlarını tutarlı bir maliyet tablosuna dönüştürürsün. Tüm tutarlar aynı "
-                "hesap dönemine çevrilmiş olmalı. Notlarda olmayan rakamı ekleme; varsayımla "
-                "hesapladığın kalemi tahmini=true işaretle.\n\n" + brand_brief()),
-        content=f"## Fikir\n{idea.model_dump_json()}\n\n## Araştırma notları\n{notes}",
-        schema=DataSheet,
-    )
-    sheet = _recompute(sheet)
+    pages = list(getattr(llm, "last_pages", []) or [])
+    sheet = _build(idea, notes)
+    fc = fact_checker.run(sheet, pages)
+    probs = fact_checker.problems(fc)
+    if probs:
+        log(AGENT, f"Kaynak doğrulayıcı {len(probs)} sorun buldu → tablo düzeltiliyor")
+        sheet = _build(idea, notes, probs)
+        fc = fact_checker.run(sheet, pages)
+        probs = fact_checker.problems(fc)
+    if probs:
+        sheet.guven = "dusuk"
+        log(AGENT, f"Tablo doğrulamadan geçemedi: {probs[:3]}")
     log(AGENT, f"Tablo hazır: {sheet.baslik} ({len(sheet.secenekler)} seçenek, güven: {sheet.guven})")
-    return sheet
+    return sheet, {"kaynak_dogrulama": fc.model_dump(), "sorunlar": probs}
 
 
 def as_text(sheet: DataSheet) -> str:
     """Diğer ajanlara verilecek okunur tablo."""
     out = [f"# {sheet.baslik} ({sheet.hesap_donemi}, {sheet.fiyat_tarihi} fiyatları)"]
     for o in sheet.secenekler:
-        out.append(f"\n## {o.ad} — TOPLAM {o.toplam_tl:,.0f} TL")
+        out.append(f"\n## {o.ad} — TOPLAM {o.toplam_tl:,.2f} TL")
         for i in o.kalemler:
-            out.append(f"- {i.kalem}: {i.tutar_tl:,.0f} TL{' (tahmini)' if i.tahmini else ''} — {i.kaynak}")
+            out.append(f"- {i.kalem}: {i.tutar_tl:,.2f} TL{' (tahmini)' if i.tahmini else ''} — {i.kaynak}")
     out.append("\nVarsayımlar: " + "; ".join(sheet.varsayimlar))
     out.append("Sonuç: " + sheet.sonuc)
     return "\n".join(out)

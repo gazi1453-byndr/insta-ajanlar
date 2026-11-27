@@ -33,6 +33,23 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
  Pzt     ANALİST ──────────── haftalık rapor + "öğrenilenler" (tüm ajanlar bunu okur)
 ```
 
+## Kalite kontrol zinciri (her video)
+
+| Kontrol | Türü | Ne yapar |
+|---|---|---|
+| Kaynak Doğrulayıcı | Yapay zeka | Tablodaki her rakamı kaynak sayfa metniyle karşılaştırır |
+| Format Denetçisi | Ölçüm (kod) | Seri formatı, sahne sırası, ~60 sn seslendirme |
+| Rakam Denetçisi | Ölçüm (kod) | Ekrandaki ve seslendirmedeki her TL rakamı tabloyla eşleşmeli |
+| Grafik Denetçisi | Ölçüm (kod) | Taşan / üst üste binen yazı, güvenli alan, grafikteki her rakam |
+| Müdür | Yapay zeka | İçerik değeri, hook, rakam doğruluğu |
+| Senkron Kontrolcüsü | Ölçüm (kod) | Bitmiş videoyu ölçer: ses-görüntü farkı, sahne sınırları, süre |
+| Sanat Yönetmeni | Yapay zeka | Bitmiş videonun her sahne karesi: okunurluk, yazım, tutarlılık |
+| Baş Müdür | Yapay zeka | Tüm raporlar, daha yüksek eşik (85), veto |
+| Yayın Öncesi Kontrol | Ölçüm (kod) | Yüklemeden hemen önce dosya + senkron + medya adresi |
+
+Ses kayması tasarım gereği olamaz: sahne sınırları kare cinsinden hesaplanır ve her sahnenin sesi
+tam o sahnenin kare süresine göre kesilir. Senkron Kontrolcüsü yine de her videoyu ölçer.
+
 ## Kurulum durumu
 
 | Adım | Durum |

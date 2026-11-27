@@ -32,16 +32,24 @@ hashtagler:
   - "otomobil"
   - "girişimcilik"
 
+seri:
+  # Her videoda AYNI kimlik: izleyicinin aklında kalması için değiştirme.
+  ad: "GERÇEK MALİYET"
+  acilis: "Bunun gerçek maliyetini hesapladık."        # her videonun ilk cümlesi bununla başlar
+  kapanis_ses: "Gerçek rakamlar için takipte kal."     # her videonun son cümlesi
+  kapanis: "Her gün gerçek rakamlar · Takip et"         # son sahnedeki imza yazısı
+
 uretim:
-  gunluk_gonderi: 1            # Yeni hesap: ilk 2 hafta günde 1, sonra 2'ye çıkarılabilir
-  paylasim_saatleri: ["20:00"] # Türkiye saati; analist en iyi saatleri raporlar
+  gunluk_gonderi: 3            # Günde 3 video
+  paylasim_saatleri: ["12:30", "18:30", "21:30"]  # Türkiye saati (öğle, iş çıkışı, akşam)
   format_orani:                # Fikir ajanı bu dağılıma göre format seçer
-    reel: 0.7                  # 45 sn dikey video (slaytlardan otomatik üretilir)
-    carousel: 0.3              # Kaydırmalı maliyet tablosu
+    reel: 1.0                  # Hepsi video
+    carousel: 0.0
   carousel_slayt_sayisi: 7
-  video_suresi_sn: 45
-  revizyon_hakki: 2            # Müdür beğenmezse içerik kaç kez yeniden yazılsın
-  onay_esigi: 75               # Müdürün 100 üzerinden vermesi gereken en düşük puan
+  video_suresi_sn: 60          # ~1 dakika
+  revizyon_hakki: 3            # Kontrollerden geçemeyen içerik en fazla kaç kez düzeltilsin
+  onay_esigi: 80               # Müdürün eşiği (100 üzerinden)
+  bas_mudur_esigi: 85          # Baş Müdürün eşiği (daha yüksek, veto yetkili)
   insan_onayi: false           # true: onaylanan içerik önce sana Pull Request olarak gelir,
                                #       sen "Merge" deyince yayın kuyruğuna girer.
 

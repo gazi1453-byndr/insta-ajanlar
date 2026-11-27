@@ -11,6 +11,7 @@ import os
 from datetime import datetime
 
 from . import instagram as ig
+from . import qa
 from .common import DATA, PUBLISHED, QUEUE, REJECTED, ROOT, dry_run, log, now, read_json, write_json
 
 AGENT = "Yayıncı"
@@ -69,6 +70,14 @@ def run() -> int:
     for f, post in due[:2]:  # bir çalışmada en fazla 2 (spam görünmesin)
         try:
             cap = caption_of(post)
+            # YAYIN ÖNCESİ SON KONTROL: dosya, ses-görüntü senkronu, medya adresi
+            check_url = None if dry_run() else media_url(post["video"] if post.get("video") else post["gorseller"][0])
+            issues, ready = qa.preflight(post, check_url)
+            if not ready:
+                log(AGENT, f"{post['id']}: medya adresi henüz yayında değil (GitHub Pages derleniyor), sonraki turda")
+                continue
+            if issues:
+                raise RuntimeError("Yayın öncesi kontrol: " + "; ".join(issues))
             if post.get("video"):
                 video_link = media_url(post["video"])
                 cover = media_url(post["gorseller"][0]) if post.get("gorseller") else None

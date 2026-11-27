@@ -43,13 +43,13 @@ def yeniden_ciz() -> None:
         draft, sheet = Draft(**p["taslak"]), DataSheet(**p["veri"])
         rel = lambda x: str(x.relative_to(ROOT)).replace("\\", "/")
         if p.get("video"):
-            stills = designer.stills_vertical(draft, sheet, p["id"])
-            p["video"] = rel(video.render(draft, sheet, p["id"]))
+            stills = designer.stills_vertical(draft, sheet, p["id"], p.get("seri_no", 0))
+            p["video"] = rel(video.render(draft, sheet, p["id"], p.get("seri_no", 0)))
             p["gorseller"] = [rel(stills[0])]
             for s in stills[1:]:
                 s.unlink(missing_ok=True)
         else:
-            p["gorseller"] = [rel(x) for x in designer.carousel(draft, sheet, p["id"])]
+            p["gorseller"] = [rel(x) for x in designer.carousel(draft, sheet, p["id"], p.get("seri_no", 0))]
         write_json(f, p)
         print("Yeniden çizildi:", p["fikir"]["konu"])
 

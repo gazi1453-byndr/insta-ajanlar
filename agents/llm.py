@@ -52,7 +52,8 @@ class QuotaExhausted(LLMError):
 
 _down: set[str] = set()          # limiti dolan sağlayıcılar
 _down_models: set[str] = set()   # limiti dolan tek tek modeller (limitler model başına)
-_busy_until: dict[str, float] = {}  # geçici yoğun modeller: bu zamana kadar atlanır
+_busy_until: dict[str, float] = {}
+last_pages: list[dict] = []          # son Tavily aramasının ham sayfaları (Kaynak Doğrulayıcı için)  # geçici yoğun modeller: bu zamana kadar atlanır
 _last_call: dict[str, float] = {}
 
 
@@ -356,6 +357,8 @@ def research(agent: str, system: str, prompt: str, max_searches: int = 8, recent
     """Web araştırması. TAVILY_API_KEY varsa: model sorgu yazar → Tavily arar → model SADECE bulunan
     sayfalardan kaynaklı not çıkarır. Yoksa sağlayıcının kendi web araması kullanılır."""
     from . import search as web
+    global last_pages
+    last_pages = []
 
     if web.enabled():
         n = max(1, min(6, (max_searches + 1) // 2))
@@ -365,6 +368,7 @@ def research(agent: str, system: str, prompt: str, max_searches: int = 8, recent
                 f"olarak ekle (ör. 'benzin fiyatı Kasım 2026'):\n\n{prompt}",
                 _Queries)
         pages = web.gather(q.sorgular[:n], per_query=4, days=recent_days)
+        last_pages = pages
         if pages:
             ctx = "\n\n".join(f"[{i + 1}] {p['title']} — {p['url']}\n{p['content']}" for i, p in enumerate(pages))
             notes = _text_chain(agent, system,
