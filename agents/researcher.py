@@ -6,11 +6,12 @@ neden tutuyor" raporu çıkarır.
 from __future__ import annotations
 
 import json
+from datetime import datetime
 
 from pydantic import BaseModel, Field
 
 from . import instagram as ig
-from .common import DATA, brand_brief, config, log, now, write_json
+from .common import DATA, brand_brief, config, log, now, read_json, write_json
 from .llm import ask, research
 
 AGENT = "Araştırmacı"
@@ -39,13 +40,60 @@ def _top_posts(posts: list[dict], followers: int, n: int = 6) -> list[dict]:
     return sorted(posts, key=lambda p: p["etkilesim_orani"], reverse=True)[:n]
 
 
+class PageCandidates(BaseModel):
+    kullanici_adlari: list[str] = Field(description="Instagram kullanıcı adları, @ ve link olmadan")
+
+
+def _clean(u: str) -> str:
+    u = u.strip().lstrip("@").rstrip("/")
+    return u.split("instagram.com/")[-1].split("?")[0].strip("/").lower()
+
+
+def discover_pages(max_pages: int = 10) -> list[str]:
+    """Nişteki büyük sayfaları web'de bulur ve Instagram API ile doğrular. Haftada bir yenilenir."""
+    cache_file = DATA / "pages.json"
+    cache = read_json(cache_file, {})
+    if cache.get("sayfalar") and (now() - datetime.fromisoformat(cache["tarih"])).days < 7:
+        return cache["sayfalar"]
+
+    cfg = config()["hesap"]
+    notes = research(
+        AGENT,
+        system="Instagram hesaplarını araştıran bir asistansın. Sadece gerçekten var olduğundan emin olduğun hesapları yaz.",
+        prompt=(f"Niş: {cfg['nis']}. Bu nişte Instagram'da en çok takipçili ve en çok etkileşim alan "
+                "hesapları bul: önce Türkçe içerik üretenler, sonra dünyadaki en büyükler. "
+                "Her biri için tam kullanıcı adını (instagram.com/... linkindeki haliyle) ve yaklaşık takipçi sayısını yaz. "
+                "25 hesap listele."),
+        max_searches=10,
+    )
+    cands = ask(AGENT, system="Metinden Instagram kullanıcı adlarını çıkar.", content=notes,
+                schema=PageCandidates, effort="low").kullanici_adlari
+    cands = list(dict.fromkeys(_clean(c) for c in cands if c.strip()))
+
+    valid = []
+    for u in cands:
+        try:
+            bd = ig.business_discovery(u, media_limit=1)
+            valid.append((u, bd.get("followers_count") or 0))
+        except ig.InstagramError:
+            log(AGENT, f"@{u} doğrulanamadı (yok ya da kişisel hesap), atlandı")
+    pages = [u for u, _ in sorted(valid, key=lambda x: x[1], reverse=True)[:max_pages]]
+    write_json(cache_file, {"tarih": now().isoformat(), "sayfalar": pages,
+                            "takipciler": dict(valid)})
+    log(AGENT, f"Otomatik bulunan büyük sayfalar: {', '.join('@' + p for p in pages) or 'yok'}")
+    return pages
+
+
 def collect_instagram() -> dict:
     cfg = config()
     out: dict = {"sayfalar": [], "hashtagler": []}
     if not ig.configured():
         log(AGENT, "Instagram bağlı değil, sadece web araştırması yapılacak")
         return out
-    for user in cfg.get("buyuk_sayfalar", []):
+    pages = list(cfg.get("buyuk_sayfalar") or [])
+    if cfg.get("otomatik_sayfa_bulma", True):
+        pages += [p for p in discover_pages() if p not in pages]
+    for user in pages:
         try:
             bd = ig.business_discovery(user)
             posts = bd.get("media", {}).get("data", [])

@@ -4,32 +4,37 @@
 # ============================================================
 
 hesap:
-  kullanici_adi: "yeni_hesabin"          # @ olmadan
-  nis: "kişisel finans ve para yönetimi"  # Hesabın konusu (örnek, değiştir)
-  hedef_kitle: "22-35 yaş, Türkiye'de yaşayan, maaşını yönetmekte zorlanan genç çalışanlar"
+  kullanici_adi: "yapayzeka.pratik"      # @ olmadan. Alınmışsa: yapayzekapratik / pratik.yapayzeka
+  gorunen_ad: "Yapay Zeka Pratik | AI İpuçları"
+  biyografi: "Yapay zekayı işinde ve hayatında kullanmanın en kolay yolları 🤖 Her gün 1 pratik araç & ipucu 📌 Kaydet, sonra dene"
+  nis: "yapay zeka araçlarını iş, okul ve günlük hayatta pratik şekilde kullanmak (ChatGPT, Claude, Gemini, görsel ve video yapay zeka araçları, hazır promptlar, verimlilik)"
+  hedef_kitle: "18-40 yaş, Türkiye'de yaşayan öğrenciler, çalışanlar, serbest çalışanlar ve küçük işletme sahipleri; yapay zekayı duymuş ama verimli kullanamayan kişiler"
   dil: "Türkçe"
-  ton: "samimi, enerjik, kısa cümleler, abartısız; emoji az ve yerinde"
+  ton: "samimi, enerjik ve net; teknik jargon yok, varsa tek cümleyle açıklanır; okura 'sen' diye hitap; emoji az ve yerinde"
   marka_kurallari:
-    - "Asla kesin yatırım tavsiyesi verme, eğitim amaçlı konuş."
-    - "Yanıltıcı ya da tık tuzağı vaatler kullanma."
-    - "Her gönderi tek bir net fikir anlatsın."
+    - "Var olmayan araç, özellik ya da fiyat uydurma; emin olmadığın bilgiyi yazma, araştırma raporunda geçen ya da çok bilinen araçları kullan."
+    - "Ücretli araçları 'ücretli' ya da 'ücretsiz sürümü var' diye belirt."
+    - "Abartılı vaat yok: 'para basan prompt', 'işini elinden alacak' gibi korku/tık tuzağı dili kullanma."
+    - "Her gönderi tek bir net, hemen denenebilir fikir anlatsın; mümkünse kopyalanabilir bir prompt örneği ver."
+    - "Kişisel veri, sağlık ve hukuk konularında yapay zekaya körü körüne güvenmemeyi hatırlat."
 
-# Araştırmacı ajanın inceleyeceği BÜYÜK sayfalar (nişindeki en iyi hesaplar).
-# Not: Instagram API sadece Business/Creator hesapları inceleyebilir.
-buyuk_sayfalar:
-  - "ornek_buyuk_sayfa_1"
-  - "ornek_buyuk_sayfa_2"
-  - "ornek_buyuk_sayfa_3"
+# Araştırmacının inceleyeceği büyük sayfalar.
+# Boş bırakılırsa araştırmacı nişteki büyük sayfaları web'de KENDİSİ bulur,
+# Instagram API ile doğrular ve haftada bir listeyi yeniler (data/pages.json).
+buyuk_sayfalar: []
+otomatik_sayfa_bulma: true
 
 # İncelenecek hashtag'ler (Instagram kuralı: haftada en fazla 30 farklı hashtag aranabilir)
 hashtagler:
-  - "kişiselfinans"
-  - "birikim"
-  - "paratasarrufu"
+  - "yapayzeka"
+  - "chatgpt"
+  - "yapayzekaaraçları"
+  - "verimlilik"
+  - "dijitalpazarlama"
 
 uretim:
-  gunluk_gonderi: 1            # Her gün kaç gönderi üretilsin
-  paylasim_saatleri: ["19:30"] # Türkiye saati; analist en iyi saatleri raporlar
+  gunluk_gonderi: 1            # Yeni hesap: ilk 2 hafta günde 1, sonra 2'ye çıkarılabilir
+  paylasim_saatleri: ["20:00"] # Türkiye saati; analist en iyi saatleri raporlar
   carousel_slayt_sayisi: 6
   revizyon_hakki: 2            # Müdür beğenmezse içerik kaç kez yeniden yazılsın
   onay_esigi: 75               # Müdürün 100 üzerinden vermesi gereken en düşük puan
@@ -40,13 +45,13 @@ topluluk:
   yorum_yaniti: true           # Yorumlara otomatik yanıt
   dm_yaniti: false             # DM için Meta uygulama incelemesi gerekir (README'ye bak)
   yanitlanmayacak_konular:
-    - "şikayet, iade, hukuki konular -> yanıtlama, raporla"
+    - "şikayet, hukuki konular, iş/reklam teklifleri -> yanıtlama, raporla"
 
 gorsel:
   # Şablon görsellerin renkleri (carousel slaytları için)
-  arka_plan: "#101418"
-  vurgu: "#FFC83D"
-  yazi: "#F5F5F5"
+  arka_plan: "#0B1020"         # gece mavisi
+  vurgu: "#3DDCFF"             # elektrik mavisi
+  yazi: "#F5F7FF"
   boyut: [1080, 1350]          # Instagram 4:5 dikey
 
 modeller:

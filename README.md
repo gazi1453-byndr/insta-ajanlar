@@ -62,7 +62,8 @@ Onay eşiği `config.yaml` içinde (varsayılan 75).
 3. **Settings → Actions → General → Workflow permissions** altında **Read and write** seç ve **Allow GitHub Actions to create and approve pull requests** kutusunu işaretle.
 
 ### 5. Ayarlar
-`config.yaml` dosyasını aç ve kendi bilgilerinle doldur: kullanıcı adı, niş, hedef kitle, ton, **incelenecek büyük sayfalar** (nişindeki en iyi 5-10 hesap), hashtag'ler ve paylaşım saatleri.
+`config.yaml` hazır gelir: niş **yapay zeka araçları ve pratik kullanım**, hesap adı `yapayzeka.pratik`, ton, renkler, hashtag'ler ve paylaşım saati belirlenmiş durumda. Profil fotoğrafı `assets/profil.png` içinde.
+İncelenecek büyük sayfaları araştırmacı kendisi bulur ve Instagram API ile doğrular (`buyuk_sayfalar: []` + `otomatik_sayfa_bulma: true`). İstersen listeye kendi seçtiğin hesapları da ekleyebilirsin.
 
 ### 6. İlk çalıştırma (deneme)
 Reponun **Actions** sekmesinde sırayla şunları yap:
