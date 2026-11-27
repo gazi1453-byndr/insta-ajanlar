@@ -1,0 +1,128 @@
+{
+  "dosya": "data/senaryolar/ev-mi-kira-mi-gemini.json",
+  "tarih": "2026-11-27T21:20:16.828535+03:00",
+  "format_grafik_denetimi": [
+    "Tam olarak 1 'grafik' sahnesi olmalı (şu an 0)",
+    "Tam olarak 1 'reveal' (GERÇEK MALİYET) sahnesi olmalı (şu an 0)",
+    "Sahne sayısı 7-11 arası olmalı (şu an 5)",
+    "Sahne 3 (ekran): '1.080.000 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 4 (ekran): '78.200 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 4 (ekran): '381.000 TL' tablodaki hiçbir rakamla eşleşmiyor"
+  ],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Ev sahibi",
+          "kalem": "Kredi taksidi + masraf",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "2,7 milyon TL kredi için yıllık 1.000.800 TL taksit + masraf tutarı kaynak metinlerde yer almamaktadır ve net bir masraf/oran detayı verilmediği için birebir hesaplanamamaktadır."
+        },
+        {
+          "secenek": "Ev sahibi",
+          "kalem": "Peşinatın kaçan mevduat getirisi",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde mevduat faiz oranlarına ilişkin herhangi bir TCMB verisi bulunmamaktadır; 693.000 TL hesaplanamaz."
+        },
+        {
+          "secenek": "Ev sahibi",
+          "kalem": "Evin değer artışı",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynaklarda Türkiye geneli KFE yıllık artışı %21,1 olarak geçmektedir (%24 artış varsayımı ile 1.080.000 TL hesaplansa dahi bu oran ve BETAM verisi kaynakta yer almamaktadır)."
+        },
+        {
+          "secenek": "Kiracı",
+          "kalem": "Yıllık kira",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde TÜİK kira verisi veya 312.000 TL'lik (aylık 26.000 TL) kira tutarına dayanak teşkil eden bir veri bulunmamaktadır."
+        },
+        {
+          "secenek": "Kiracı",
+          "kalem": "Peşinat getirisi",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Mevduat getirisine ilişkin kaynaklarda hiçbir faiz oranı veya tutar yer almamaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan kredi masrafı, mevduat getirisi, kira tutarı ve evin değer artışı kalemlerine ilişkin rakamlar ve oranlar sunulan kaynaklarda yer almamakta olup doğrulanamamaktadır."
+    },
+    "sorunlar": [
+      "Ev sahibi / Kredi taksidi + masraf: kaynakta yok (2,7 milyon TL kredi için yıllık 1.000.800 TL taksit + masraf tutarı kaynak metinlerde yer almamaktadır ve net bir masraf/oran detayı verilmediği için birebir hesaplanamamaktadır.)",
+      "Ev sahibi / Peşinatın kaçan mevduat getirisi: kaynakta yok (Kaynak metinlerde mevduat faiz oranlarına ilişkin herhangi bir TCMB verisi bulunmamaktadır; 693.000 TL hesaplanamaz.)",
+      "Ev sahibi / Evin değer artışı: kaynakta yok (Kaynaklarda Türkiye geneli KFE yıllık artışı %21,1 olarak geçmektedir (%24 artış varsayımı ile 1.080.000 TL hesaplansa dahi bu oran ve BETAM verisi kaynakta yer almamaktadır).)",
+      "Kiracı / Yıllık kira: kaynakta yok (Kaynak metinlerde TÜİK kira verisi veya 312.000 TL'lik (aylık 26.000 TL) kira tutarına dayanak teşkil eden bir veri bulunmamaktadır.)",
+      "Kiracı / Peşinat getirisi: kaynakta yok (Mevduat getirisine ilişkin kaynaklarda hiçbir faiz oranı veya tutar yer almamaktadır.)"
+    ],
+    "bulunan_sayfa": [
+      "https://www.facebook.com/emlakfikirleri/posts/g%C3%BCncel-konut-kredisi-faiz-oranlar%C4%B1-25-kas%C4%B1m-2026-12-bankan%C4%B1n-120-ay-vadeli-konut/1827177631805551",
+      "https://www.yenisafak.com/galeri/ekonomi/ev-alacaklara-mujde-konut-kredisi-faizi-dustu-1-2-ve-3-milyon-tlnin-yeni-taksitleri-belli-oldu-4876355",
+      "https://uzmanpara.milliyet.com.tr/uzmanpara/ev-alacaklara-guzel-haber-konut-kredisi-faizlerinde-beklenen-hareket-basladi-7707453",
+      "https://www.hesapkurdu.com/tasit-kredisi",
+      "https://muhammedikbalyilmaz.com/posts/konut-fiyat-endeksi-eylul-2026",
+      "https://www.evrensel.net/haber/6009868/konut-fiyatlari-yillik-yuzde-21-1-yeni-kiralar-yuzde-24-5-artti",
+      "https://www.karar.com/ekonomi-haberleri/konut-fiyatlari-yillik-yuzde-211-artti-2084558",
+      "https://t24.com.tr/ekonomi/konut-fiyatlari-yillik-yuzde-211-artti-kiralardaki-yukselis-yuzde-245e-ulasti-istanbul-yine-ilk-sirada,1359388",
+      "https://www.instagram.com/p/DfpP7-3m_fq"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 62.7,
+    "ikincil": 26.3,
+    "vurgu": 6.4,
+    "yazi": 4.7
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 20,
+      "deger": 18,
+      "rakam_dogrulugu": 5,
+      "akis_ve_tutma": 8,
+      "ozgunluk": 9,
+      "platform_metinleri": 4,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 73,
+    "karar": "REVIZYON",
+    "tutar_mi": "Ev almak mı kirada oturmak mı sorusu her zaman yüksek etkileşim alır ve merak uyandırır. Ancak kaynak raporunda belirtildiği üzere temel kalemlerin doğrulanması ve netleştirilmesi gerekiyor.",
+    "rakam_hatalari": [
+      "Kaynakta yok: Ev sahibi / Kredi taksidi + masraf",
+      "Kaynakta yok: Ev sahibi / Peşinatın kaçan mevduat getirisi",
+      "Kaynakta yok: Ev sahibi / Evin değer artışı",
+      "Kaynakta yok: Kiracı / Yıllık kira",
+      "Kaynakta yok: Kiracı / Peşinat getirisi",
+      "Ev sahibi / Kredi taksidi + masraf kalemi kaynakta eksik.",
+      "Ev sahibi / Peşinatın kaçan mevduat getirisi kalemi kaynakta eksik.",
+      "Ev sahibi / Evin değer artışı kalemi kaynakta eksik.",
+      "Kiracı / Yıllık kira kalemi kaynakta eksik.",
+      "Kiracı / Peşinat getirisi kalemi kaynakta eksik."
+    ],
+    "geri_bildirim": "1. Kaynak doğrulayıcı raporundaki eksik kalemleri resmi ve güncel verilerle (TCMB, TÜİK) destekle.\n2. Kasım 2026 tarih vurgusunu tüm hesaplamalarda ve seslendirmede net şekilde koru.\n3. Ara toplamlar ile nihai servet farkının matematiksel tutarlılığını tabloda açıkça göster."
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 49,
+    "karar": "RED",
+    "gerekce": "Otomatik RED: 5 kalem kaynakta yok (Ev sahibi / Kredi taksidi + masraf; Ev sahibi / Peşinatın kaçan mevduat getirisi; Ev sahibi / Evin değer artışı; Kiracı / Yıllık kira; Kiracı / Peşinat getirisi). Ev alım maliyeti ve kira karşılaştırması yüksek etkileşim potansiyeline sahip harika bir niş konu. Ancak kontrol raporunda tespit edilen kredi masrafı, mevduat getirisi ve TÜİK kira verisi gibi temel kalemlerin kaynak doğrulamaları eksiktir.",
+    "duzeltmeler": [
+      "Kaynak göster ya da 'tahmini' işaretle: Ev sahibi / Kredi taksidi + masraf",
+      "Kaynak göster ya da 'tahmini' işaretle: Ev sahibi / Peşinatın kaçan mevduat getirisi",
+      "Kaynak göster ya da 'tahmini' işaretle: Ev sahibi / Evin değer artışı",
+      "Kaynak göster ya da 'tahmini' işaretle: Kiracı / Yıllık kira",
+      "Kaynak göster ya da 'tahmini' işaretle: Kiracı / Peşinat getirisi",
+      "Kredi taksidi, peşinat mevduat getirisi ve yıllık kira tutarlarına ait resmi TCMB ve TÜİK Kasım 2026 verilerini tabloya ve kaynaklara ekle.",
+      "Tablodaki ara toplamlar ile son sahnedeki 994.800 TL fark tutarının matematiksel tutarlılığını netleştir.",
+      "Sahne sayısını 7 ile 11 aralığına çıkararak içerik akışını zenginleştir ve grafik/reveal sahnelerini ekle."
+    ],
+    "seri_uyumu": true
+  }
+}
