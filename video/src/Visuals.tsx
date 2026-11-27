@@ -11,56 +11,123 @@ const useT = () => {
   return {f, fps, t: f / fps};
 };
 
-// ---------------------------------------------------------------- yolda giden araba
-const Car: React.FC<V> = ({accent, text, panel, height = 300}) => {
+// ---------------------------------------------------------------- yolda giden araba (gerçekçi sedan, yandan)
+const Car: React.FC<V> = ({accent, text, height = 300}) => {
   const {f, fps, t} = useT();
   const arrive = sp(f, fps, 2, {damping: 15, stiffness: 120, mass: 1});
   const x = (1 - arrive) * -760;
-  const bob = Math.sin(t * 9) * 1.6 * arrive;
-  const roll = (x + t * 520) / 42; // tekerlek dönüşü (radyan)
+  const bob = Math.sin(t * 9) * 1.2 * arrive; // süspansiyon: yalnız gövde salınır
+  const roll = (x + t * 520) / 40; // tekerlek dönüşü (radyan)
   const dash = -(t * 520) % 80;
+  const WY = 200; // tekerlek merkezi
   const wheel = (cx: number) => (
-    <g transform={`translate(${cx} 192)`}>
-      <circle r={44} fill="#0B1220" />
-      <circle r={30} fill="#1E293B" stroke="#CBD5E1" strokeWidth={4} />
+    <g transform={`translate(${cx} ${WY})`}>
+      <circle r={41} fill="#0A0D13" />
+      <circle r={41} fill="none" stroke="#1F2937" strokeWidth={3} />
+      <circle r={35} fill="none" stroke="#111827" strokeWidth={6} />
+      <circle r={28} fill="url(#car-rim)" />
+      <circle r={20} fill="#1F2937" />
+      <rect x={6} y={-22} width={13} height={18} rx={4} fill="#DC2626" />
       <g transform={`rotate(${(roll * 180) / Math.PI})`}>
-        {[0, 60, 120].map((a) => (
-          <rect key={a} x={-3} y={-28} width={6} height={56} rx={3} fill="#CBD5E1" transform={`rotate(${a})`} />
+        {[0, 72, 144, 216, 288].map((a) => (
+          <path key={a} d="M-4 -6 L-6.5 -26 Q0 -28.5 6.5 -26 L4 -6 Z" fill="url(#car-spoke)" transform={`rotate(${a})`} />
+        ))}
+        <circle r={27} fill="none" stroke="#E5E7EB" strokeWidth={2.5} />
+        <circle r={8} fill="#9CA3AF" stroke="#E5E7EB" strokeWidth={2} />
+        {[0, 72, 144, 216, 288].map((a) => (
+          <circle key={a} cx={0} cy={-4.5} r={1.4} fill="#374151" transform={`rotate(${a})`} />
         ))}
       </g>
-      <circle r={7} fill={accent} />
     </g>
   );
+  const body =
+    'M54 198 Q44 196 44 184 L44 166 Q44 152 56 146 L78 136 Q96 128 126 125 L214 118 ' +
+    'C238 112 262 84 300 70 Q326 61 372 60 L410 61 Q446 63 470 78 L520 110 ' +
+    'Q560 116 612 124 Q644 130 654 146 Q660 158 658 176 Q656 196 640 198 ' +
+    'L576 198 A56 56 0 0 0 464 198 L226 198 A56 56 0 0 0 114 198 Z';
   return (
     <svg viewBox="0 0 700 270" width="100%" height={height} style={{overflow: 'visible'}}>
       <defs>
-        <linearGradient id="carBody" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor={text} />
-          <stop offset="1" stopColor="#CBD5E1" />
+        <linearGradient id="car-paint" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#FFFFFF" />
+          <stop offset="0.28" stopColor="#E2E8F0" />
+          <stop offset="0.55" stopColor="#B8C2D0" />
+          <stop offset="0.62" stopColor="#F1F5F9" />
+          <stop offset="1" stopColor="#64748B" />
         </linearGradient>
-        <radialGradient id="beam" cx="0" cy="0.5" r="1">
-          <stop offset="0" stopColor="#FEF9C3" stopOpacity={0.55} />
+        <linearGradient id="car-glass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#334155" />
+          <stop offset="0.55" stopColor="#0F172A" />
+          <stop offset="1" stopColor="#1E293B" />
+        </linearGradient>
+        <linearGradient id="car-glare" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#FFFFFF" stopOpacity={0} />
+          <stop offset="0.5" stopColor="#FFFFFF" stopOpacity={0.28} />
+          <stop offset="1" stopColor="#FFFFFF" stopOpacity={0} />
+        </linearGradient>
+        <radialGradient id="car-rim" cx="0.35" cy="0.3" r="0.8">
+          <stop offset="0" stopColor="#F8FAFC" />
+          <stop offset="0.6" stopColor="#94A3B8" />
+          <stop offset="1" stopColor="#475569" />
+        </radialGradient>
+        <linearGradient id="car-spoke" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#CBD5E1" />
+          <stop offset="0.5" stopColor="#F8FAFC" />
+          <stop offset="1" stopColor="#94A3B8" />
+        </linearGradient>
+        <radialGradient id="car-beam" cx="0" cy="0.5" r="1">
+          <stop offset="0" stopColor="#FEF9C3" stopOpacity={0.6} />
           <stop offset="1" stopColor="#FEF9C3" stopOpacity={0} />
         </radialGradient>
+        <filter id="car-soft" x="-20%" y="-200%" width="140%" height="500%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+        <clipPath id="car-clip"><path d={body} /></clipPath>
       </defs>
+      {/* yol */}
       <line x1={0} y1={242} x2={700} y2={242} stroke="#ffffff22" strokeWidth={3} />
       <line x1={0} y1={242} x2={700} y2={242} stroke={accent} strokeOpacity={0.55} strokeWidth={4}
         strokeDasharray="40 40" strokeDashoffset={dash} />
-      <g transform={`translate(${x} ${bob})`}>
+      <g transform={`translate(${x} 0)`}>
+        {/* hız çizgileri */}
         {[0, 1, 2].map((k) => (
           <rect key={k} x={-40 - k * 30 - ((t * 400 + k * 50) % 60)} y={110 + k * 28} width={70 + k * 20} height={5} rx={2.5}
             fill={text} opacity={0.25 * arrive} />
         ))}
-        <ellipse cx={330} cy={236} rx={300} ry={10} fill="#000" opacity={0.35} />
-        <path d="M40 172 L72 122 Q92 96 132 93 L252 89 Q300 58 362 56 L470 58 Q522 61 562 108 L606 120 Q632 127 632 150 L632 180 Q632 192 619 192 L40 192 Q26 192 26 180 Z"
-          fill="url(#carBody)" />
-        <path d="M268 92 Q308 66 362 64 L412 64 L418 108 L262 110 Z" fill={panel} />
-        <path d="M430 64 L468 66 Q508 70 540 106 L436 108 Z" fill={panel} />
-        <rect x={60} y={140} width={560} height={9} rx={4.5} fill={accent} />
-        <circle cx={620} cy={138} r={9} fill="#FEF9C3" />
-        <path d="M628 130 L700 100 L700 176 L628 146 Z" fill="url(#beam)" />
-        {wheel(162)}
-        {wheel(512)}
+        {/* zemin gölgesi */}
+        <ellipse cx={350} cy={240} rx={300} ry={9} fill="#000" opacity={0.6} filter="url(#car-soft)" />
+        <g transform={`translate(0 ${bob})`}>
+          {/* çamurluk içleri */}
+          <circle cx={170} cy={WY} r={50} fill="#05070C" />
+          <circle cx={520} cy={WY} r={50} fill="#05070C" />
+          {/* gövde */}
+          <path d={body} fill="url(#car-paint)" />
+          <g clipPath="url(#car-clip)">
+            {/* alt marşpiye gölgesi + omuz parlaması */}
+            <rect x={0} y={176} width={700} height={30} fill="#0F172A" opacity={0.35} />
+            <path d="M60 150 Q330 136 650 142" fill="none" stroke="#FFFFFF" strokeOpacity={0.85} strokeWidth={3} />
+            <path d="M120 170 Q330 162 600 166" fill="none" stroke="#475569" strokeOpacity={0.5} strokeWidth={2} />
+          </g>
+          {/* camlar */}
+          <path d="M226 118 C248 110 270 88 302 76 Q328 68 360 67 L360 116 Z" fill="url(#car-glass)" />
+          <path d="M372 67 L408 68 Q440 70 462 84 L500 112 L372 116 Z" fill="url(#car-glass)" />
+          <path d="M250 116 L300 72 L330 70 L278 116 Z" fill="url(#car-glare)" />
+          <path d="M392 116 L432 70 L452 76 L414 116 Z" fill="url(#car-glare)" />
+          {/* kapı çizgileri, kollar, ayna */}
+          <path d="M366 118 L364 192 M236 120 Q232 160 240 190 M500 116 Q503 132 497 144" fill="none" stroke="#334155" strokeOpacity={0.55} strokeWidth={2} />
+          <rect x={300} y={132} width={30} height={7} rx={3.5} fill="#94A3B8" />
+          <rect x={428} y={132} width={30} height={7} rx={3.5} fill="#94A3B8" />
+          <path d="M488 104 Q500 96 512 100 L514 112 L494 114 Z" fill="#CBD5E1" stroke="#64748B" strokeWidth={1.5} />
+          {/* farlar ve stop */}
+          <path d="M622 134 Q644 134 652 146 L626 146 Z" fill="#F8FAFC" />
+          <path d="M628 134 L700 104 L700 180 L628 146 Z" fill="url(#car-beam)" />
+          <path d="M46 152 L66 146 L66 158 L46 162 Z" fill="#EF4444" />
+          <ellipse cx={56} cy={154} rx={18} ry={8} fill="#EF4444" opacity={0.35} filter="url(#car-soft)" />
+          {/* ön tampon hava girişi */}
+          <path d="M606 182 L650 180" stroke="#1E293B" strokeWidth={5} strokeLinecap="round" />
+        </g>
+        {wheel(170)}
+        {wheel(520)}
       </g>
     </svg>
   );
