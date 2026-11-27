@@ -1,0 +1,47 @@
+{
+  "konu": "Her yıl yeni telefon mu, 4 yıl kullanıp farkı yatırmak mı? (Kasım 2026)",
+  "aci": "Her yıl takas farkı ödemek vs aynı telefonu batarya değiştirip 4 yıl kullanmak + farkın getirisi",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "HER YIL TELEFON YENİLEMEK SANA 142.800 TL KAYBETTİRİYOR",
+  "not": "Gemini senaryosu BİREBİR (rakamlar ve kaynak adları değiştirilmedi); ajan denetimi için.",
+  "denetim_sorgulari": [
+    "mevduat faizi Kasım 2026",
+    "amiral gemisi telefon fiyatı Türkiye Kasım 2026",
+    "ikinci el telefon değer kaybı 1 yıl 2026",
+    "telefon batarya değişim ücreti yetkili servis 2026",
+    "Apple Trade In Türkiye takas değeri 2026"
+  ],
+  "veri": {
+    "baslik": "Her yıl yeni telefon mu, 4 yıl kullanım mı? (4 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "4 yıl",
+    "secenekler": [
+      {"ad": "Her yıl yeni telefon", "toplam_tl": 170500, "kalemler": [
+        {"kalem": "İlk alım", "tutar_tl": 85000, "aciklama": "", "kaynak": "Perakende ve İkinci El Piyasa Verileri (Kasım 2026)", "tahmini": false},
+        {"kalem": "3 yıllık takas farkı", "tutar_tl": 85500, "aciklama": "", "kaynak": "Perakende ve İkinci El Piyasa Verileri (Kasım 2026)", "tahmini": false}
+      ]},
+      {"ad": "4 yıl kullanım", "toplam_tl": 89500, "kalemler": [
+        {"kalem": "Telefon + batarya değişimi", "tutar_tl": 89500, "aciklama": "", "kaynak": "Yetkili Servis Tarifeleri (Kasım 2026)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": ["85.000 TL'lik telefon"],
+    "kaynaklar": ["TCMB", "Sektör Fiyat Ortalamaları", "Yetkili Servis Tarifeleri"],
+    "sonuc": "Farkı yatırımda tutan 4 yıl sonunda 142.800 TL öne geçiyor.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "Her yıl telefon yenilemek sana 142.800 TL kaybettiriyor", "metin": "4 Yıllık Gerçek Teknoloji Bilançosu",
+     "seslendirme": "Eski telefonunu satıp her yıl son modeline geçmenin gerçek maliyetini hesapladık.", "gorsel": "telefon", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "4 yılda toplam nakit çıkışı: 170.500 TL", "metin": "İlk Alım (85.000 TL) + 3 Yıllık Takas Farkı (85.500 TL)",
+     "seslendirme": "Seksen beş bin liralık bir telefonu her yıl yenilediğinde dört yılda toplam yüz yetmiş bin beş yüz lira ödüyorsun.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Sadece cihaz değişimine giden ekstra para: 81.000 TL", "metin": "Tek Telefonu 4 Yıl Kullanma (Batarya Dahil): 89.500 TL",
+     "seslendirme": "Oysa aynı telefonu bataryasını değiştirip dört yıl kullandığında seksen bir bin lira cebinde kalıyor.", "ton": "yesil"},
+    {"tur": "metin", "baslik": "4 yıl sonunda cebinde kalan net fark: +142.800 TL", "metin": "Yenileme Bütçesi Yatırımda Kaldığında",
+     "seslendirme": "Bu tutarı yatırımda değerlendirdiğinde ise toplam kazancın yüz kırk iki bin sekiz yüz liraya çıkıyor.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "Her yıl son model telefon mu, 142.800 TL birikim mi?", "metin": "Tarafını yorumda seç 👇",
+     "seslendirme": "Sen hangisini seçerdin?", "sure": 3.0}
+  ],
+  "caption": "Her yıl telefon yenilemek sana 142.800 TL kaybettiriyor.",
+  "hashtagler": ["gercekmaliyet", "telefon", "teknoloji", "kisiselfinans", "birikim"],
+  "yorum_sorusu": "Her yıl son model telefon mu, 142.800 TL birikim mi?"
+}
