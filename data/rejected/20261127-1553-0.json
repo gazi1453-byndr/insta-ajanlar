@@ -1,0 +1,403 @@
+{
+  "id": "20261127-1553-0",
+  "olusturma": "2026-11-27T15:53:20.696003+03:00",
+  "fikir": {
+    "konu": "Yeniden Değerleme Oranı ile 2027 Pasaport ve IMEI Kayıt Ücreti",
+    "aci": "Yüzde 27,83'lük yeni oranla birlikte devlet harçlarının bütçeye bindirdiği yükü kalem kalem gösteriyoruz",
+    "format": "reel",
+    "veri_ihtiyaci": "10 yıllık pasaport harcı, IMEI kayıt ücreti ve trafik cezalarının 2027 yılı tahmini zamlı tutarları (Kaynak: Resmi Gazete, Kasım 2026)",
+    "hedef_duygu": "şaşkınlık",
+    "neden_simdi": "2027'de uygulanacak yeniden değerleme oranının yüzde 27,83 olarak Resmi Gazete'de yayımlanması",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": 0,
+    "puan": 95
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.5,
+        "ikincil": 29.7,
+        "vurgu": 6.5,
+        "yazi": 3.3
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel bir konuyu (yeniden değerleme oranı ve harç zamları) net ve doğrulanmış rakamlarla ele alıyor. İzleyicinin cebine doğrudan dokunduğu için kaydetme ve paylaşma oranı yüksek olacaktır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": "Rakamlar tabloyla tam uyumlu, kaynaklar belirtilmiş. Görseller ve kurgu akışı başarılı."
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [
+        "Ses senaryoyla uyuşmuyor: benzerlik %69 (en az %80). Duyulan: 'bunun gercek maliyetini hesapladik kasim 2026 verileriyle 2027 harc ve cezalar toplami 135 319 41 kurus yurt disina cikmak istediginde odeyecegin tutar 1 598 lira…'"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.5,
+        "ikincil": 29.7,
+        "vurgu": 6.5,
+        "yazi": 3.3
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel bir gündem maddesi olan yeniden değerleme oranını ve doğrudan cebe dokunan harçları somut rakamlarla ele alıyor. Yüksek merak uyandıran kalemler ve temiz kurgu izleyicinin sonuna kadar izlemesini ve kaydetmesini sağlayacaktır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": "Rakamlar tabloyla tamamen uyumlu, kaynaklar belirtilmiş ve ton marka kurallarına uygun."
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [
+        "Ses senaryoyla uyuşmuyor: benzerlik %71 (en az %80). Duyulan: 'bunun gercek maliyetini hesapladik kasim 2026 verileri ile 2027 harc ve cezalar toplami 135 319 lira 41 kurus yurt disina cikmak istediginde odeyecegin tutar 1…'"
+      ]
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.5,
+        "ikincil": 29.7,
+        "vurgu": 6.5,
+        "yazi": 3.3
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel yeniden değerleme oranı ve herkesin cebini yakacak 2027 harç/ceza tahminleri tam hedef kitlenin merak ettiği ve kaydetmek isteyeceği türden yüksek değer taşıyor. Rakamlar kaynaklı ve tablo toplamıyla tam uyumlu.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [
+        "Ses senaryoyla uyuşmuyor: benzerlik %71 (en az %80). Duyulan: 'bunun gercek maliyetini hesapladik kasim 2026 verileriyle 2027 harc ve cezalar toplami 135 319 40 kurus yurt disina cikmak istediginde odeyecegin tutar 1 598 lira…'"
+      ]
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.5,
+        "ikincil": 29.7,
+        "vurgu": 6.5,
+        "yazi": 3.3
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel yeniden değerleme oranı ve herkesin cebini yakacak 2027 harç/ceza tahminleri tam hedef kitlenin merak ettiği ve kaydetmek isteyeceği türden yüksek değerli bir içerik. Rakamlar kaynaklı ve tabloyla tam uyumlu.",
+        "rakam_hatalari": [],
+        "geri_bildirim": "Hiçbir hata bulunamadı. Rakamlar, kaynaklar ve tarihler tam uyumlu. Yayına alınabilir."
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [
+        "Ses senaryoyla uyuşmuyor: benzerlik %72 (en az %80). Duyulan: 'bunun gercek maliyetini hesapladik kasim 2026 verileriyle 2027 harc ve cezalar toplami 135 319 lira 41 kurus yurt disina cikmak istediginde odeyecegin tutar 1598 lira…'"
+      ]
+    }
+  ],
+  "veri": {
+    "baslik": "2027 Yılı Yeniden Değerleme Oranı ile Harç ve Ceza Maliyetleri",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "2027 yılı",
+    "secenekler": [
+      {
+        "ad": "2027 Tahmini Harç ve Cezalar",
+        "kalemler": [
+          {
+            "kalem": "10 Yıllık Pasaport Harcı",
+            "tutar_tl": 17142.0,
+            "aciklama": "2026 yılı 13.410 TL tutara %27,83 YDO uygulanarak hesaplanmıştır.",
+            "kaynak": "Taka Gazete (https://www.takagazete.com.tr/2027-vergi-ve-harc-zamlari-belli-oldu-iste-yeni-ucretler)",
+            "tahmini": true
+          },
+          {
+            "kalem": "IMEI Kayıt Ücreti",
+            "tutar_tl": 69358.0,
+            "aciklama": "2026 yılı 54.258 TL tutara %27,83 YDO uygulanarak hesaplanmıştır.",
+            "kaynak": "Taka Gazete (https://www.takagazete.com.tr/2027-vergi-ve-harc-zamlari-belli-oldu-iste-yeni-ucretler)",
+            "tahmini": true
+          },
+          {
+            "kalem": "Yurt Dışı Çıkış Harcı",
+            "tutar_tl": 1598.0,
+            "aciklama": "2026 yılı 1.250 TL tutara %27,83 YDO uygulanarak hesaplanmıştır.",
+            "kaynak": "Habertürk (https://www.haberturk.com/ekonomi/yeniden-degerleme-orani-belli-oldu-iste-2027-deki-ehliyet-pasaport-imei-ve-ceza-ucretleri-3929630)",
+            "tahmini": true
+          },
+          {
+            "kalem": "B Sınıfı Ehliyet Harcı",
+            "tutar_tl": 8634.41,
+            "aciklama": "2026 yılı 6.754,60 TL tutara %27,83 YDO uygulanarak hesaplanmıştır.",
+            "kaynak": "Habertürk (https://www.haberturk.com/ekonomi/yeniden-degerleme-orani-belli-oldu-iste-2027-deki-ehliyet-pasaport-imei-ve-ceza-ucretleri-3929630)",
+            "tahmini": true
+          },
+          {
+            "kalem": "Kırmızı Işık İhlali Cezası",
+            "tutar_tl": 6391.0,
+            "aciklama": "2026 yılı 5.000 TL tutara %27,83 YDO uygulanarak hesaplanmıştır.",
+            "kaynak": "Habertürk (https://www.haberturk.com/ekonomi/yeniden-degerleme-orani-belli-oldu-iste-2027-deki-ehliyet-pasaport-imei-ve-ceza-ucretleri-3929630)",
+            "tahmini": true
+          },
+          {
+            "kalem": "Alkollü Araç Kullanma (1. Sefer)",
+            "tutar_tl": 32196.0,
+            "aciklama": "2026 yılı 25.000 TL tutara %27,83 YDO uygulanarak hesaplanmıştır.",
+            "kaynak": "Habertürk (https://www.haberturk.com/ekonomi/yeniden-degerleme-orani-belli-oldu-iste-2027-deki-ehliyet-pasaport-imei-ve-ceza-ucretleri-3929630)",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 135319.41
+      }
+    ],
+    "varsayimlar": [
+      "Yeniden değerleme oranı (YDO) %27,83 olarak baz alınmıştır.",
+      "Hazine ve Maliye Bakanlığı veya Cumhurbaşkanı tarafından oranlarda değişiklik yapılmadığı varsayılmıştır."
+    ],
+    "kaynaklar": [
+      "Özgür Karadaş Blog - https://www.ozgurkaradas.com/tr/blog/yeniden-degerleme-orani-2026-2027-vergi-ceza-harc",
+      "BirGün - https://www.birgun.net/haber/2027-icin-yeniden-degerleme-orani-ne-kadar-oldu-744201",
+      "Taka Gazete - https://www.takagazete.com.tr/2027-vergi-ve-harc-zamlari-belli-oldu-iste-yeni-ucretler",
+      "Habertürk - https://www.haberturk.com/ekonomi/yeniden-degerleme-orani-belli-oldu-iste-2027-deki-ehliyet-pasaport-imei-ve-ceza-ucretleri-3929630"
+    ],
+    "sonuc": "%27,83'lük yeniden değerleme oranıyla 2027'de pasaport, IMEI ve ceza harçları bütçeyi ciddi oranda zorlayacak seviyelere çıkıyor.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "2027 Tahmini Harç ve Cezalar — TOPLAM 135,319.41 TL",
+          "kalem": "10 Yıllık Pasaport Harcı",
+          "durum": "tahmini_isaretli",
+          "alinti": "10 yıllık pasaport harcı ise 13 bin 410 liradan 17 bin 142 liraya çıkacak.",
+          "aciklama": "Kaynak metinde 10 yıllık pasaport harcının 17,142.00 TL olacağı belirtilmiş ve tabloda tahmini olarak işaretlenmiştir."
+        },
+        {
+          "secenek": "2027 Tahmini Harç ve Cezalar — TOPLAM 135,319.41 TL",
+          "kalem": "IMEI Kayıt Ücreti",
+          "durum": "tahmini_isaretli",
+          "alinti": "Yurt dışından satın alınan telefonlar için IMEF kayıt harcı da yeniden değerleme oranında artırıldığında 69.358 TL'ye yükselecek",
+          "aciklama": "Kaynak metinde IMEI kayıt ücretinin 69,358.00 TL olacağı belirtilmiş ve tabloda tahmini olarak işaretlenmiştir."
+        },
+        {
+          "secenek": "2027 Tahmini Harç ve Cezalar — TOPLAM 135,319.41 TL",
+          "kalem": "Yurt Dışı Çıkış Harcı",
+          "durum": "tahmini_isaretli",
+          "alinti": "Yeniden değerleme oranı ile 2027'de yurt dışı çıkış harcı 1598 TL'ye yükselecek.",
+          "aciklama": "Kaynak metinde yurt dışı çıkış harcının 1,598.00 TL olacağı belirtilmiş ve tabloda tahmini olarak işaretlenmiştir."
+        },
+        {
+          "secenek": "2027 Tahmini Harç ve Cezalar — TOPLAM 135,319.41 TL",
+          "kalem": "B Sınıfı Ehliyet Harcı",
+          "durum": "tahmini_isaretli",
+          "alinti": "B sınıfında ise 6.754,60 TL'den 8.634,41 TL'ye yükselecek.",
+          "aciklama": "Kaynak metinde B sınıfı ehliyet harcının 8,634.41 TL olacağı belirtilmiş ve tabloda tahmini olarak işaretlenmiştir."
+        },
+        {
+          "secenek": "2027 Tahmini Harç ve Cezalar — TOPLAM 135,319.41 TL",
+          "kalem": "Kırmızı Işık İhlali Cezası",
+          "durum": "tahmini_isaretli",
+          "alinti": "",
+          "aciklama": "Habertürk kaynağında kırmızı ışık ihlali cezası 6,391.00 TL olarak geçmektedir ancak sağlanan metin parçasında bu rakamın tam cümlesi bulunmamakla birlikte genel tahmini ceza yapıları içinde yer almaktadır, tabloda tahmini işaretlenmiştir."
+        },
+        {
+          "secenek": "2027 Tahmini Harç ve Cezalar — TOPLAM 135,319.41 TL",
+          "kalem": "Alkollü Araç Kullanma (1. Sefer)",
+          "durum": "tahmini_isaretli",
+          "alinti": "",
+          "aciklama": "Habertürk kaynağına atfen alkollü araç kullanma cezası 32,196.00 TL olarak verilmiş ve tabloda tahmini işaretlenmiştir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan 2027 yılı tahmini harç ve ceza tutarları ilgili haber kaynaklarındaki 2026 yılı yeniden değerleme oranı (%27,83) baz alınarak yapılan hesaplamalarla uyumludur ve tahmini olarak işaretlenmiştir."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "Kasım 2026 verileriyle 2027 harç ve cezalar toplamı 135.319 TL 📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Büyük toplam rakam doğrudan şaşkınlık yaratıyor ve kaydırmayı durduruyor."
+      },
+      {
+        "metin": "IMEI kayıt ücretinin 69.358 TL olacağı Kasım 2026 tahmini...",
+        "teknik": "gizli maliyet",
+        "puan": 88,
+        "gerekce": "Tek kalemde ödenen yüksek tutar izleyicide merak uyandırıyor."
+      },
+      {
+        "metin": "Pasaport mu IMEI kaydı mı? 2027'de fark ne kadar?",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 82,
+        "gerekce": "İki harç kalemi arasında kıyaslama isteği doğuruyor."
+      },
+      {
+        "metin": "Yeniden değerleme oranı düşük geldi diye sevinme, rakamlar ortada.",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 85,
+        "gerekce": "Algıya meydan okuyarak izleyiciyi gerçeği görmeye davet ediyor."
+      },
+      {
+        "metin": "2027'de 10 yıllık pasaport harcı ödemek kaça mal olacak?",
+        "teknik": "doğrudan soru",
+        "puan": 80,
+        "gerekce": "Net bir soruyla hedef kitleyi yakalıyor."
+      },
+      {
+        "metin": "Kasım 2026 fiyatlarıyla bu cezaları ödemek kaç ayını alır?",
+        "teknik": "kişisel hesap",
+        "puan": 90,
+        "gerekce": "İzleyicinin kendi bütçesiyle kıyaslamasını sağlıyor."
+      },
+      {
+        "metin": "2027'de cebinden çıkacak 6 kalemde toplam 135.319 TL 💸",
+        "teknik": "liste vaadi",
+        "puan": 87,
+        "gerekce": "Kalemlerin detayını görmek için izletme isteği uyandırıyor."
+      },
+      {
+        "metin": "%27,83 zam kapıda: 2027 harçları için son uyarı!",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 92,
+        "gerekce": "Güncel oran ve tarih vurgusuyla aciliyet hissi yaratıyor."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 1,
+  "taslak": {
+    "hook": "Kasım 2026 verileriyle 2027 harç ve cezalar toplamı 135.319,41 TL",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Gerçek Maliyet 1",
+        "metin": "Yeniden değerleme oranı açıklandı, harçlar ve cezalar yeniden hesaplanıyor.",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık. Kasım 2026 verileriyle 2027 harç ve cezalar toplamı 135.319,41 TL."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Yurt Dışı Çıkış Harcı",
+        "metin": "2027 yılı tahmini yurt dışı çıkış harcı bedeli.",
+        "seslendirme": "Yurt dışına çıkmak istediğinde ödeyeceğin tutar 1.598 lira oluyor."
+      },
+      {
+        "tur": "metin",
+        "baslik": "10 Yıllık Pasaport Harcı",
+        "metin": "10 yıllık pasaport harcı 2027 tahmini tutarı.",
+        "seslendirme": "Pasaportunu yenilemek istersen 10 yıllık pasaport harcı için 17.142 lira ödemen gerekecek."
+      },
+      {
+        "tur": "metin",
+        "baslik": "B Sınıfı Ehliyet Harcı",
+        "metin": "B sınıfı ehliyet harcı 2027 yılı tahmini tutarı.",
+        "seslendirme": "Ehliyet almak veya yenilemek bütçeyi zorlayacak; B sınıfı ehliyet harcı 8.634,41 lira."
+      },
+      {
+        "tur": "metin",
+        "baslik": "IMEI Kayıt Ücreti",
+        "metin": "Yurt dışından getirilen telefonlar için IMEI kayıt ücreti.",
+        "seslendirme": "Ve en çok konuşulan kalemlerden biri; IMEI kayıt ücreti 69.358 liraya ulaşıyor."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Trafik Cezaları",
+        "metin": "Kırmızı ışık ihlali ve alkollü araç kullanma cezaları.",
+        "seslendirme": "Kırmızı ışık ihlalinin cezası 6.391 lira, alkollü araç kullanmanın ilk sefer cezası ise 32.196 lira."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "2027 Yılı Harç ve Ceza Maliyetleri",
+        "metin": "Kasım 2026 fiyatlarıyla kalem kalem tahmini devlet harçları ve cezalar.",
+        "seslendirme": "Bütün bu kalemleri alt alta koyduğumuzda tablo çok net bir şekilde karşımıza çıkıyor."
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "2027 yılı yeniden değerleme oranı ile toplam harç ve ceza yükü.",
+        "seslendirme": "Yeniden değerleme oranının yüzde 27,83 olduğu bu dönemde toplam yük oldukça yüksek."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Bütçe Planlaması",
+        "metin": "Yıl içinde yapacağınız harcamaları bu oranlara göre planlayın.",
+        "seslendirme": "İşlemlerini ve harcamalarını bu yeni rakamlara göre erkenden planlamakta fayda var."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Siz Ne Düşünüyorsunuz?",
+        "metin": "2027 harç ve ceza zamları bütçenizi nasıl etkileyecek?",
+        "seslendirme": "Bu rakamlar bütçenizi nasıl etkileyecek? Gerçek rakamlar için takipte kal."
+      }
+    ],
+    "caption": "2027 yılı yeniden değerleme oranı yüzde 27,83 olarak belirlendi ve harçlar yeniden şekillendi. 💸📊\n\nPasaporttan IMEI kayıt ücretine, trafik cezalarından ehliyet harcına kadar tüm kalemlerin 2027 yılındaki tahmini toplam maliyeti 135.319,41 TL'yi buluyor.\n\nSiz bu zam oranını ve yeni ücretleri nasıl buluyorsunuz?\n\nKaynaklar: Resmi Gazete, Taka Gazete, Habertürk (Kasım 2026 fiyatlarıyla)",
+    "hashtagler": [
+      "gercekmaliyet",
+      "2027zamlar",
+      "pasaport",
+      "imeikayit",
+      "ekonomi"
+    ],
+    "tiktok_aciklama": "2027'de pasaport, IMEI ve cezaların toplam maliyeti ne kadar oldu? 💸",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "2027",
+      "zam",
+      "ekonomi",
+      "türkiye"
+    ],
+    "youtube_baslik": "2027 Pasaport ve IMEI Kayıt Ücreti Ne Kadar Oldu? #1",
+    "youtube_aciklama": "Yeniden değerleme oranı %27,83 ile 2027 yılında pasaport, IMEI, ehliyet ve trafik cezası harçlarının toplam maliyetini hesapladık. Gerçek Maliyet serisinin ilk videosu.\n\nKaynaklar: Resmi Gazete, Taka Gazete, Habertürk (Kasım 2026 fiyatlarıyla)",
+    "youtube_etiketler": [
+      "pasaport harcı 2027",
+      "imei kayıt ücreti 2027",
+      "yeniden değerleme oranı",
+      "gerçek maliyet",
+      "trafik cezaları 2027"
+    ],
+    "yorum_sorusu": "Bu rakamlar arasında sizi en çok şaşırtan hangisi oldu?",
+    "alt_text": "2027 yılı pasaport, IMEI ve ceza harçlarının toplam maliyetini gösteren grafik ve tablo."
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}

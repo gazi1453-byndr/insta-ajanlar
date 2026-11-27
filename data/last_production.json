@@ -1,10 +1,18 @@
 [
   {
-    "id": "20261127-1450-0",
-    "konu": "YouTube Premium: Web vs App Store Farkı",
-    "format": "reel",
-    "durum": "kuyrukta",
-    "puan": 93,
-    "zaman": "2026-11-27T20:00:00+03:00"
+    "id": "20261127-1553-0",
+    "konu": "Yeniden Değerleme Oranı ile 2027 Pasaport ve IMEI Kayıt Ücreti",
+    "durum": "reddedildi",
+    "puan": 0,
+    "zaman": null,
+    "neden": "4 denemede tüm kontrollerden geçemedi"
+  },
+  {
+    "id": "20261127-1558-1",
+    "konu": "İstanbul'da Benzin 68 TL Oldu: Aylık Depo Maliyeti",
+    "durum": "onizleme",
+    "puan": 89,
+    "zaman": null,
+    "neden": null
   }
 ]

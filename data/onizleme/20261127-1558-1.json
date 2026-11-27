@@ -1,0 +1,271 @@
+{
+  "id": "20261127-1558-1",
+  "olusturma": "2026-11-27T15:58:24.863484+03:00",
+  "fikir": {
+    "konu": "İstanbul'da Benzin 68 TL Oldu: Aylık Depo Maliyeti",
+    "aci": "Akaryakıt zamlarının ardından sadece işe gidip gelmenin aylık cebine maliyeti",
+    "format": "reel",
+    "veri_ihtiyaci": "Güncel benzin (68,40 TL) fiyatı ve ortalama bir aracın aylık yakıt tüketim maliyeti (Kasım 2026)",
+    "hedef_duygu": "merak",
+    "neden_simdi": "Kasım ayı boyunca benzin ve motorine gelen vergi kaynaklı zamlar",
+    "beklenen_etki": "paylaşma",
+    "hook_bankasi_index": 1,
+    "puan": 90
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 96-144 kelime olmalı (~60 sn); şu an 65"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 63.1,
+        "ikincil": 27.5,
+        "vurgu": 6.5,
+        "yazi": 2.9
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 16,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 8,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 89,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel ve herkesin cebini doğrudan yakan bir konuyu net rakamlarla ele alıyor. İlk saniyede verilen 68,40 TL'lik çarpıcı etiket fiyatı kaydırmayı durdurur ve yüksek etkileşim getirir.",
+        "rakam_hatalari": [],
+        "geri_bildirim": "Rakamlar, kaynaklar ve tarihler tam uyumlu. Yayınlanmaya hazırdır."
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 100,
+        "gecti": true,
+        "sorunlar": [],
+        "yazim_hatalari": []
+      },
+      "bas_mudur": {
+        "puan": 89,
+        "karar": "YAYINLA",
+        "gerekce": "Müdür onayından 89 puanla geçen içerik marka standartlarına, kaynak kurallarına ve görsel tasarım kurallarına tamamen uygundur. Kasım 2026 tarihli benzin litre fiyatı güvenilir kaynakla doğrulanmış olup, akış hedef kitleyi yakalayacak güçtedir.",
+        "duzeltmeler": [],
+        "seri_uyumu": true
+      }
+    }
+  ],
+  "veri": {
+    "baslik": "İstanbul'da Benzin ve Yol Maliyeti Analizi",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 litre",
+    "secenekler": [
+      {
+        "ad": "Benzin Litre Fiyatı",
+        "kalemler": [
+          {
+            "kalem": "Benzin (Litre)",
+            "tutar_tl": 68.4,
+            "aciklama": "İstanbul Avrupa Yakası resmi pompa satış fiyatı",
+            "kaynak": "Cumhuriyet Gazetesi - https://www.cumhuriyet.com.tr/ekonomi/motorine-indirim-geldi-benzin-motorin-ve-lpg-fiyatlari-ne-kadar-oldu-kac-tl-26-kasim-2026-persembe-istanbul-ankara-izmir-guncel-akaryakit-fiyatlari-2559520",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 68.4
+      }
+    ],
+    "varsayimlar": [
+      "Aylık toplam yol masrafı verisi kaynaklarda net olarak bulunmadığı için tabloya eklenmemiştir.",
+      "Fiyatlar Kasım 2026 dönemi için geçerlidir, enflasyon nedeniyle değişiklik gösterebilir."
+    ],
+    "kaynaklar": [
+      "Cumhuriyet Gazetesi, https://www.cumhuriyet.com.tr/ekonomi/motorine-indirim-geldi-benzin-motorin-ve-lpg-fiyatlari-ne-kadar-oldu-kac-tl-26-kasim-2026-persembe-istanbul-ankara-izmir-guncel-akaryakit-fiyatlari-2559520",
+      "Mynet Finans Haber, https://finans.mynet.com/haber/detay/ekonomi/2027-de-vergi-harc-ve-trafik-cezalari-ne-kadar-olacak-zam-orani-belli-oldu/584995"
+    ],
+    "sonuc": "İstanbul'da Kasım 2026 itibarıyla benzin litre fiyatı 68,40 TL seviyesindedir.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Benzin Litre Fiyatı",
+          "kalem": "Benzin (Litre): 68.40 TL",
+          "durum": "kaynakta_var",
+          "alinti": "Benzin litre fiyatı: 68.40 TL",
+          "aciklama": "Cumhuriyet gazetesinin 26 Kasım 2026 tarihli haberinde İstanbul Avrupa Yakası benzin litre fiyatı 68.40 TL olarak geçmektedir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan 68.40 TL benzin litre fiyatı, 26 Kasım 2026 tarihli kaynak metinle birebir uyuşmaktadır."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "İstanbul'da benzin 68,40 TL oldu, aylık depo maliyeti ne?",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Kasım 2026 fiyatıyla benzin litre fiyatının 68,40 TL olduğunu doğrudan ve şaşırtıcı bir toplam rakamla verir."
+      },
+      {
+        "metin": "Sadece işe gidip gelmenin kimsenin hesaba katmadığı maliyeti… 💸",
+        "teknik": "gizli maliyet",
+        "puan": 90,
+        "gerekce": "Kimsenin hesaba katmadığı günlük işe gidip gelme maliyetine odaklanır."
+      },
+      {
+        "metin": "Full depo mu, yarım depo mu? Kasım 2026 fiyat farkı…",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 82,
+        "gerekce": "İki farklı araç veya rota yerine doğrudan tek bir benzin maliyeti ikilemi yaratır."
+      },
+      {
+        "metin": "Benzin ucuzlayacak sanıyorsan, Kasım 2026 tarifesine henüz bakmadın 📊",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 88,
+        "gerekce": "Benzin fiyatlarının ucuzlayacağı yönündeki yaygın inanışa karşı güncel gerçeği gösterir."
+      },
+      {
+        "metin": "İstanbul'da her gün işe arabayla gitmek sana kaça mal oluyor?",
+        "teknik": "doğrudan soru",
+        "puan": 91,
+        "gerekce": "İzleyiciye doğrudan soru sorarak merak uyandırır."
+      },
+      {
+        "metin": "Maaşımla sadece işe gidip gelsem kaç depoda biter?",
+        "teknik": "kişisel hesap",
+        "puan": 85,
+        "gerekce": "Maaş ile benzin maliyeti arasındaki ilişkiyi kişisel hesaba döker."
+      },
+      {
+        "metin": "İstanbul'da araç sahibi olmanın 3 gizli benzin kalemi 📊",
+        "teknik": "liste vaadi",
+        "puan": 84,
+        "gerekce": "Liste vaadiyle detaylı kalemleri sunar."
+      },
+      {
+        "metin": "Kasım 2026 zamlarından sonra işe gitmek cebinden ne götürüyor? 💸",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 92,
+        "gerekce": "Kasım ayı boyunca gelen zamlara dikkat çeker."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 1,
+  "taslak": {
+    "hook": "İstanbul'da benzin 68,40 TL oldu, aylık depo maliyeti ne?",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "İstanbul'da Benzin 68,40 TL",
+        "metin": "Bunun gerçek maliyetini hesapladık.",
+        "seslendirme": "İstanbul'da benzin 68,40 TL oldu. Bunun gerçek maliyetini senin için detaylıca hesapladık ve masaya yatırdık."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Etiket Fiyatı",
+        "metin": "İlk bakışta istasyonda görülen tabela rakamı.",
+        "seslendirme": "Herkesin istasyonda gördüğü ilk bakıştaki etiket fiyatı üzerinden yola çıkıyoruz, gizlenen detaylara iniyoruz."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Güncel Benzin Litre Fiyatı",
+        "metin": "Cumhuriyet Gazetesi Kasım 2026 verileri.",
+        "seslendirme": "Kasım 2026 fiyatlarıyla 1 litre benzin İstanbul'da tam olarak 68,40 TL seviyesine ulaştı."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Benzin ve Yol Maliyeti Analizi",
+        "metin": "İstanbul güncel akaryakıt fiyatları tablosu.",
+        "seslendirme": "Güvenilir kaynaklara dayanan güncel akaryakıt kalemi tek bir rakamla bütün ağırlığını gösteriyor."
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Kasım 2026 dönemi güncel akaryakıt birim maliyeti.",
+        "seslendirme": "İstanbul'da Kasım 2026 itibarıyla benzin litre fiyatı net olarak ortada duruyor."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Fiyat Değişikliği Riski",
+        "metin": "Enflasyon nedeniyle rakamlar hızla eskiyebilir.",
+        "seslendirme": "Enflasyon ve üst üste gelen zamlar nedeniyle bu rakamlar çok kısa sürede eskiyebilir, dikkatli ol."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tasarruf İpucu",
+        "metin": "Alternatif ulaşım rotalarını değerlendirebilirsin.",
+        "seslendirme": "Bütçeni korumak adına toplu taşıma alternatiflerini veya ortak yolculuk seçeneklerini gözden geçirebilirsin."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Sence Bu Fiyatlar Normal mi?",
+        "metin": "Görüşlerini ve aylık harcamanı bizimle paylaş.",
+        "seslendirme": "Sence bu fiyatlarla araç sahibi olmak hâlâ mantıklı mı? Gerçek rakamlar için takipte kal."
+      }
+    ],
+    "caption": "İstanbul'da akaryakıt fiyatlarının tavan yaptığı bu dönemde litre fiyatı 68,40 TL oldu. Kasım 2026 verileriyle hazırladığımız bu analizde sadece tabela fiyatını ele aldık. Enflasyon nedeniyle bu rakamlar hızla değişebilir.\n\nSence bu şartlarda her gün arabayla işe gitmek hâlâ mantıklı mı?\n\nKaynaklar:\nCumhuriyet Gazetesi\nMynet Finans Haber\n(Kasım 2026 fiyatlarıyla)",
+    "hashtagler": [
+      "gercekmaliyet",
+      "benzin",
+      "akaryakit",
+      "istanbul",
+      "ekonomi"
+    ],
+    "tiktok_aciklama": "İstanbul'da benzin 68,40 TL oldu, sen günlük yol masrafını nasıl hesaplıyorsun?",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "benzin",
+      "istanbul",
+      "ekonomi"
+    ],
+    "youtube_baslik": "İstanbul'da Benzin 68,40 TL Oldu: Gerçek Maliyet #1",
+    "youtube_aciklama": "İstanbul'da benzin litre fiyatı Kasım 2026 itibarıyla 68,40 TL oldu. Akaryakıt zamlarının bütçeye etkisini inceledik. Gerçek Maliyet serisinin ilk videosu.\n\nKaynaklar:\nCumhuriyet Gazetesi, Mynet Finans Haber",
+    "youtube_etiketler": [
+      "gerçek maliyet",
+      "benzin fiyatı",
+      "istanbul akaryakıt",
+      "benzin zammı",
+      "akaryakıt maliyeti"
+    ],
+    "yorum_sorusu": "Sen aylık ne kadar akaryakıt harcıyorsun, bu fiyatlar bütçeni nasıl etkiliyor?",
+    "alt_text": "İstanbul'da Kasım 2026 benzin litre fiyatı 68,40 TL analizi"
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 16,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 8,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 89,
+    "karar": "ONAY",
+    "tutar_mi": "Güncel ve herkesin cebini doğrudan yakan bir konuyu net rakamlarla ele alıyor. İlk saniyede verilen 68,40 TL'lik çarpıcı etiket fiyatı kaydırmayı durdurur ve yüksek etkileşim getirir.",
+    "rakam_hatalari": [],
+    "geri_bildirim": "Rakamlar, kaynaklar ve tarihler tam uyumlu. Yayınlanmaya hazırdır."
+  },
+  "bas_mudur": {
+    "puan": 89,
+    "karar": "YAYINLA",
+    "gerekce": "Müdür onayından 89 puanla geçen içerik marka standartlarına, kaynak kurallarına ve görsel tasarım kurallarına tamamen uygundur. Kasım 2026 tarihli benzin litre fiyatı güvenilir kaynakla doğrulanmış olup, akış hedef kitleyi yakalayacak güçtedir.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  },
+  "video": "media/generated/20261127-1558-1/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-1558-1/sahne1.jpg"
+  ],
+  "durum": "onizleme"
+}

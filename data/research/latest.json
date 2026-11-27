@@ -1,115 +1,51 @@
 {
   "tarih": "2026-11-27",
   "rapor": {
-    "ozet": "Genel tablo (27 Kasım 2026): Bu sayfalarda takipçi sayısı etkileşimi garanti etmiyor. 2,7 milyon takipçili @calltoleap'in etkileşim oranı %0,02–0,08, 920 bin takipçili @minoritymindset'inki %0,06–0,18. İkisi de genel tavsiye veriyor ve her gönderide aynı kalıp CTA'yı kullanıyor. Öne çıkan gönderilerde dört ortak özellik var: (1) somut ve doğrulanabilir rakam, (2) güncel bir haber ya da tarih, (3) \"sen\" diye hitap edip haberi kişinin cebine bağlamak, (4) tek kelimelik bir yorum çağrısı.\n\nEn çarpıcı veriler:\n- @erikankullberg'in \"Comment TRAVEL / TOKYO\" gönderileri beğeniden çok yorum aldı: 9.415 beğeniye 16.281 yorum. Aynı gönderide \"All numbers used in this post are real - I personally verified the prices today\" yazıyor. Bu, senin \"her rakamın kaynağı ve tarihi olsun\" kuralının büyük ölçekte de işe yaradığını gösteriyor.\n- @your.richbff'in yorum kelimeli Reels'i 7.100 beğeniye karşılık 15.651 yorum aldı.\n- Türkçe tarafta #maliyet etiketinde \"Kaynak: Hazine ve Maliye Bakanlığı\" yazan, madde madde deprem maliyeti görseli 6.414 beğeni aldı. Kalem kalem yazılmış \"Gezi Maliyetimiz\" gönderisi de güçlü bir örnek.\n- #kişiselfinans etiketinde @finansdelisi'nin hikâye anlatan carousel'i 30.290 beğeni aldı. Gönderinin sonunda açık bir \"Kaynak Bilgisi ve Yasal Uyarı / YTD\" bloğu var.\n- @barisozcan \"(Bu bir iş birliği ya da reklam içeriği değildir)\" notunu ve meraklılar için teknik ayrıntıyı (kamera ve lens bilgisi) birlikte kullanıyor. Bu, Türk kitlesinde şeffaflık ile derinliğin birlikte ödüllendirildiğini gösteriyor.\n\nÖnümüzdeki 30 günün fırsatı takvimde: 3 Aralık'ta Kasım TÜFE ve kira artış tavanı, ardından Türk-İş'in açlık sınırı verisi, 10 Aralık'ta faiz kararı, Aralık sonunda 2027 asgari ücreti. Bunlara yeniden değerleme oranının (%27,83) etkileri ekleniyor: harçlar, IMEI, MTV belirsizliği ve ÖTV limiti. \"Sen hesap yapma, biz yaptık\" diyen tarafsız bir hesap sayfası için yılın en verimli dönemi bu.\n\nDikkat edilmesi gereken iki nokta:\n1. Web notlarında birbiriyle çelişen veriler var:\n   - Politika faizi %36 mı, %37 mi, belli değil.\n   - Yıllık enflasyon beklentisi notta yaklaşık %30 yazıyor, ama kaynak linkin başlığı \"%24'e yakın\" diyor.\n   - Yurt dışı çıkış harcı: 1.250 TL × 1,2783 = 1.597,9 TL ediyor, notta ise 1.590 TL yazıyor.\n   Bunlar resmi kaynaktan (TCMB, Resmî Gazete, GİB) teyit edilmeden yayınlanmamalı.\n2. Bu rapordaki hesapları kontrol ettim:\n   - %30 zamla 28.075,50 TL → 36.498 TL, %35 zamla → 37.902 TL. İkisi de doğru.\n   - Pasaport: 13.410 × 1,2783 ≈ 17.142 TL. Doğru.\n   - IMEI: 54.258 × 1,2783 ≈ 69.358 TL. Doğru.\n   - ÖTV limiti: 2.873.900 × 1,2783 ≈ 3.673.706 TL. Doğru.",
+    "ozet": "27 Kasım 2026 dönemi verileri, yüksek enflasyon, vergi güncellemeleri ve yüzde 27,83'lük yeniden değerleme oranı ekseninde vatandaşın bütçe kaygısının zirvede olduğunu gösteriyor. @gercek.maliyet nişi için güncel fiyatlar ve kaynaklı kalemler üzerinden net karşılaştırmalar sunmak yüksek etkileşim potansiyeli taşıyor.",
     "viral_kaliplar": [
       {
-        "kalip": "Yorum kelimesiyle kaynak dağıtmak: 'Yoruma HESAP yaz, Excel tablosunu DM'den göndereyim'",
-        "neden_tutuyor": "Kullanıcıya düşük çaba karşılığında somut bir değer veriyor; yorumlar algoritmayı besliyor. Örneklerde yorum sayısı beğeniyi geçiyor: Erika'da 9.415 beğeni / 16.281 yorum, richbff'te 7.100 beğeni / 15.651 yorum. Senin nişinde 'hesap tablosu' ya da 'kalem kalem liste' doğal ve dürüst bir ödül olur.",
+        "kalip": "Somut veri ve güncel maliyet dökümü içeren carousel ve rehberler",
+        "neden_tutuyor": "Kullanıcılar ezbere yorumlar yerine cebinden çıkan net rakamı görmek istiyor, kaydedilme oranını artırıyor",
         "ornek_link": "https://www.instagram.com/p/DeXHDcwDJNs/"
       },
       {
-        "kalip": "'Rakamlar gerçek, bugün kontrol ettim' güven ibaresi ve tarih damgası",
-        "neden_tutuyor": "Güncel olmayan ya da uydurma rakamlarla dolu bir alanda doğrulama sözü veriyor ve ayırt edici oluyor. Erika bunu yorum CTA'sıyla birlikte kullandı. Senin marka kuralın ('Kasım 2026 fiyatlarıyla' ve kaynak) bu kalıbın Türkçe hâli.",
-        "ornek_link": "https://www.instagram.com/p/DeXHDcwDJNs/"
-      },
-      {
-        "kalip": "Kaynağı açıkça yazılmış, madde madde resmi maliyet dökümü",
-        "neden_tutuyor": "#maliyet etiketinde öne çıkan görselde toplam, alt kalemler ve 'Kaynak: Hazine ve Maliye Bakanlığı' satırı var. Türk kitlesi resmi kaynak görünce paylaşıyor. Haber sayfalarıyla aynı güveni kişisel ölçekte sunabilirsin.",
-        "ornek_link": "https://www.instagram.com/p/Cp5ZTIMKUrK/"
-      },
-      {
-        "kalip": "Kişisel deneyimle kalem kalem 'ne kadar ödedim' dökümü",
-        "neden_tutuyor": "Gezi Maliyetimiz (uçak, tren, konaklama, yeme-içme) ve İsveçli kullanıcının Sicilya ev dökümü (ev + masraflar + tadilat = toplam) gibi gönderiler, kitlenin kendi kararını simüle etmesini sağlıyor ve kaydediliyor. Bu nişin özü bu kalıp.",
-        "ornek_link": "https://www.instagram.com/p/CqV4U3OoFLu/"
-      },
-      {
-        "kalip": "Haberi 'SENİN cebine' bağlamak: 'X oldu, bu senin paran için ne demek?'",
-        "neden_tutuyor": "richbff'in Nvidia ve Anthropic haber Reels'leri 35–41 bin beğeni aldı. Haberin aciliyeti ile kişisel çıkar birleşiyor. Türkiye karşılığı: '%27,83 yeniden değerleme senin pasaport, ehliyet ve IMEI masrafını nasıl değiştiriyor?'",
-        "ornek_link": "https://www.instagram.com/reel/DgF_jzmOozD/"
-      },
-      {
-        "kalip": "Tek bir ürünü iki seçenekle kıyaslayıp 'değer mi?' diye sormak",
-        "neden_tutuyor": "humphreytalks'ın Costco üyeliği gönderisi '65 dolar daha pahalı, değer mi?' sorusunu soruyor. Net fark ve açık uçlu soru yorumları tetikliyor, karar da izleyiciye kalıyor. Senin 'tavsiye verme' kuralınla birebir uyumlu.",
-        "ornek_link": "https://www.instagram.com/reel/Df5Na8EBlhG/"
-      },
-      {
-        "kalip": "Parayı somut karşılığa çevirmek: '20 bin dolar = 4 birinci sınıf bilet + dadı'",
-        "neden_tutuyor": "PFC'nin bu çevirisi soyut bir rakamı akılda kalan bir sahneye dönüştürüyor. Türkiye uyarlaması: 'Yıllık abonelik toplamın = X ay ... faturası' ya da 'kredi faizi toplamı = Y yıllık kira' (kaynaklı ve hesaplı).",
-        "ornek_link": "https://www.instagram.com/p/Dd64FD3GBuk/"
-      },
-      {
-        "kalip": "Hikâye anlatan carousel ve sonda kaynak/YTD bloğu",
-        "neden_tutuyor": "finansdelisi'nin Besim Tibuk carousel'i 30.290 beğeni aldı. Anlatı izleyiciyi slaytlar arasında ilerletiyor; sondaki 'Kaynak Bilgisi ve Yasal Uyarı' güven veriyor. 'Kaydet' ve 'paylaş' çağrıları açıkça yazılmış.",
-        "ornek_link": "https://www.instagram.com/p/DeZWOvKgnUQ/"
-      },
-      {
-        "kalip": "Şeffaflık notu ve meraklıya ek ayrıntı",
-        "neden_tutuyor": "Barış Özcan'ın 'iş birliği değildir' notu ve teknik ayrıntı kutusu Türk kitlesinde güven ve derinlik algısı yaratıyor. Senin karşılığın 'Varsayımlar: yılda 15.000 km, ... L/100 km' kutusu olabilir.",
-        "ornek_link": "https://www.instagram.com/p/DW1XNPzDVmc/"
+        "kalip": "Aksiyon odaklı CTA ile kelime yorumlatma (Comment X)",
+        "neden_tutuyor": "Algoritmayı tetikleyen DM otomasyonu etkileşimi katlıyor",
+        "ornek_link": "https://www.instagram.com/reel/DbdUvmTivc0/"
       }
     ],
     "hook_ornekleri": [
-      "'Kasım 2026 fiyatlarıyla: [X]'in sana yıllık gerçek maliyeti. Kalem kalem 📊' (Tarih ve kaynak sözü ilk satırda.)",
-      "'%27,83 açıklandı. Ocak'ta pasaport, ehliyet ve IMEI için cebinden çıkacak tahmini tutar:' (Haberi cebe bağlayan kalıp.)",
-      "'Telefonu yurt dışından getirmek: IMEI harcı tek başına tahminen ~69 bin TL. Hâlâ mantıklı mı? Hesapladık.'",
-      "'Asgari ücret %30 artarsa net 36.498 TL. Peki bu, Ankara'da bekâr bir çalışanın 49.124 TL'lik aylık yaşam maliyetinin yüzde kaçı?' (Türk-İş, Ekim 2026.)",
-      "'Aynı ev, iki yol: 120 ay kredi mi, kira mı? Toplam ödediğin para yan yana 💸'",
-      "'Kiran yasal olarak en fazla ne kadar artabilir? Kasım 2026 tavanı: %31,23.'",
-      "'[A] mı [B] mi? Aynı koşullarda, aynı km'de, aynı yılda karşılaştırdık. Karar senin.' (Adil kıyas sözü.)",
-      "'Netflix, Ekim 2026'dan beri Premium'da 499,99 TL. Aylık abonelik faturanı topladın mı?'",
-      "'Bu rakamı görünce [somut karşılık] diye düşüneceksin:' (Parayı sahneye çeviren kalıp.)",
-      "'Yoruma HESAP yaz, varsayımları değiştirebileceğin tabloyu göndereyim.'"
+      "Kasım 2026 fiyatlarıyla bu işi kurmanın gerçek maliyeti:",
+      "Yüzde 27,83'lük zamdan sonra cebinden fazladan çıkacak rakam:",
+      "2 milyon TL altındaki araçların güncel ÖTV'li ve ÖTV'siz listesi:"
     ],
     "konu_firsatlari": [
-      "Yurt dışından telefon getirmek ile Türkiye'den almanın toplam maliyeti: IMEI harcı (2027 tahmini) + cihaz fiyatı + kur varsayımı. Teknoloji ve harç gündemi aynı anda; viral olmaya yatkın, kaynakları hazır.",
-      "Arabanın yıllık gerçek maliyeti (2027 sürümü): MTV, trafik sigortası, kasko, yakıt, bakım, muayene ve değer kaybı. Kasko verisi eksik, bu yüzden rakiplerin de yarım bırakacağı bir konu; sigorta şirketlerinden teklif alarak 'gerçek teklif' içeriği yapılabilir.",
-      "ÖTV muafiyetli ve normal fiyat farkı: Egea, Corolla, i20 gibi modellerde liste fiyatı ile muafiyetli fiyatın adil karşılaştırması. Limit tahmini (~3,67 milyon TL) 'tahmini' etiketiyle verilmeli.",
-      "'Ocak zammından önce mi, sonra mı?' sorusu: kampanya indirimi ile %0 faizli kampanyanın aynı araçta karşılaştırması (ör. Bayon'da 240 bin TL indirim ya da 150 bin TL için 12 ay %0 faiz). Bunu yaparken bir alternatif getiri varsayımı açıkça yazılmalı.",
-      "Kira mı kredi mi: aynı ev için 2 milyon TL ve 120 ay vadede %2,87 ile %3,45 aylık oranların toplam faizi, bölgedeki ortalama kirayla yan yana. Tavsiye vermeden gösterilmeli.",
-      "Bekâr bir çalışanın ayda 49.124 TL'si nereye gidiyor (Türk-İş kalemleri)? Ardından aynı hesabın İstanbul, İzmir ve Anadolu şehirleri için uyarlaması. Şehir verisi az işlenmiş bir boşluk.",
-      "2027 'Ocak'ta ne zamlanıyor' tablosu: pasaport, ehliyet, yurt dışı çıkış harcı, trafik cezaları. MTV tarifesi kesinleşince güncellenebilir.",
-      "Dijital abonelik faturası: Netflix'in yeni fiyatları ile Spotify, YouTube Premium ve diğerlerinin resmi sayfadan alınan güncel fiyatları. Yıllık toplam somut bir karşılığa çevrilebilir.",
-      "X TL ile iş kurmak (esnaf kapanış verilerinin konuşulduğu dönemde): kira, depozito, demirbaş, ruhsat ve harçlar ile ilk 6 ayın sabit giderleri. Varsayımlar açıkça yazılmalı.",
-      "Faiz kararı sonrası 'kredi taksitim ne olur?': 10 Aralık'tan sonra aynı kredi tutarının eski ve yeni oranlarla taksit farkı."
+      "Yeniden değerleme oranı sonrası harç ve ceza kalemlerinin günlük giderlere yansıması",
+      "Şehirler arası su ve ulaşım maliyeti karşılaştırmaları",
+      "Yeni çıkan SUV modellerinin (örn. Fiat Fastback/Grizzly) yıllık sahip olma maliyeti"
     ],
     "guncel_trendler": [
-      "3 Aralık 2026: Kasım TÜFE açıklanıyor; aynı gün Aralık kira artış tavanı belli olacak. Kasım tavanı %31,23, Ekim'de %31,49'du. Her ayın 3'ünde tekrarlanabilecek bir seri formatı.",
-      "Aralık başı: Türk-İş Kasım verisi geliyor. Ekim 2026'da açlık sınırı 38.024 TL, yoksulluk sınırı 123.856 TL, bekâr bir çalışanın yaşam maliyeti 49.124 TL idi (Ankara).",
-      "10 Aralık 2026: Yılın son PPK faiz kararı, indirim bekleniyor. Mevcut politika faizi kaynaklarda çelişkili (%36 mı %37 mi), TCMB duyurusuyla teyit edilmeli.",
-      "Aralık boyunca 2027 asgari ücret senaryoları: net 28.075,50 TL; %30 zamla 36.498 TL, %35 zamla 37.902 TL. 'Yapay zekâ tahmin etti' haberleri yayılıyor; sen bunun yerine senaryo tablosu ve kaynak sunarak ayrışabilirsin.",
-      "Yeniden değerleme oranı %27,83 (Resmî Gazete, 24 Kasım 2026): harç, ceza ve IMEI artışları. MTV'ye aynen uygulanıp uygulanmayacağı henüz belli değil.",
-      "Yıl sonu sıfır araç kampanyaları ve 'Ocak zammı' kaygısı. Notlara göre ortalama sıfır araç fiyatı yaklaşık 2,88 milyon TL.",
-      "Konut kredisinde kampanyalı aylık oranlar %2,87–2,89 civarında. TCMB ortalaması yıllık %41,35 (aylık yaklaşık %3,45).",
-      "Netflix Türkiye Ekim 2026 zammı: Temel 259,99 TL, Standart 389,99 TL, Premium 499,99 TL.",
-      "Formatta yorum kelimesi CTA'sı ve 'rakamlar doğrulandı' ibaresi büyük finans hesaplarında standart hâline geliyor. Haberi kişiselleştiren Reels'ler ('YOUR money') yükselişte."
+      "Resmi Gazete'de yayımlanan yüzde 27,83'lük yeni yeniden değerleme oranı",
+      "Akaryakıt ve su zamları (Kocaeli örneği)",
+      "2027 ÖTV muafiyetli araç limitleri ve 2 milyon TL altı modeller",
+      "Dolar kurunun 50,68 TL seviyeleri"
     ],
     "format_onerileri": [
-      "Carousel (ana format): 1. slaytta soru ve tarih ('Kasım 2026 fiyatlarıyla'). 2–6. slaytlarda kalem başına bir slayt; her slaytta rakam ve küçük puntoyla kaynak. 7. slaytta toplam tablosu; ara toplamlar önceki slaytlarla birebir tutmalı. 8. slaytta varsayımlar ve 'enflasyonla eskiyebilir' notu. 9. slaytta 'Karar senin' ve yorum kelimesi CTA'sı. Instagram slayt başına izlenme süresini ölçtüğü için her slayt bir sonrakine merak bırakmalı.",
-      "Reels (erişim için): 20–35 saniyelik soru-cevap formatı ('40 bin maaşla araba alınır mı?'). İlk 2 saniyede rakam ekranda olmalı, kaynak altyazıda görünmeli. Gündem günlerinde (3 Aralık, 10 Aralık, asgari ücret kararı) aynı gün yayınlanmalı; ilk tepki verenin avantajı var.",
-      "Tek görsel (az kullanılmalı): yalnızca 'son dakika rakamı' için uygun, ör. 'Kira tavanı: %31,23'. Kaynak ve tarih görselin içinde yazmalı. Uzun analiz için tek görsel yetersiz kalıyor.",
-      "Seri ve tekrar eden formatlar: 'Her ayın 3'ü kira hesabı' ve 'Ocak zam tablosu' takip alışkanlığı yaratır ve kaydedilir.",
-      "Caption yapısı: kısa özet, kaynak listesi (link ya da kurum adı), 'tahmini' olan kalemlerin açıkça işaretlenmesi ve son satırda 'Bu bir yatırım tavsiyesi değildir; karar senin.' Barış Özcan ve finansdelisi örneklerinde olduğu gibi şeffaflık bloğu güven artırıyor.",
-      "Yorum kelimesi CTA'sı (HESAP, TABLO gibi): varsayımlarını değiştirebileceği bir hesap tablosu ya da kaynak listesi gönderilmeli. Erika ve richbff'te yorum sayısı beğeniyi geçti."
+      "Kalem kalem tablo içeren carousel gönderiler",
+      "Net rakamların karşılaştırıldığı kısa ve vurucu reels videoları",
+      "Kaynak linklerinin açıkça belirtildiği şeffaf metinler"
     ],
     "kacinilacaklar": [
-      "Takipçi sayısını başarı sanmak: @calltoleap 2,7 milyon takipçiyle %0,02–0,08 etkileşim alıyor. Nedenleri genel tavsiye ('start investing'), her gönderiye yapıştırılan 3 satırlık 'Follow calltoleap' kalıbı ve yerel veya güncel rakam olmaması.",
-      "Kaynaksız ya da yanlış yuvarlanmış 'günlük' hesaplar. #ekonomi'deki gönderi 103.595 kapanışı 'her gün 345 esnaf' diye veriyor; Ocak–Ekim 304 gün olduğu için doğrusu yaklaşık 341. Böyle küçük hatalar güveni bitirir. Her bölme ve çarpmayı iki kez kontrol et.",
-      "Çelişkili verileri teyitsiz yayınlamak: politika faizi (%36 mı %37 mi), yıllık enflasyon beklentisi (notta yaklaşık %30, kaynak başlığında %24'e yakın), yurt dışı çıkış harcı (hesapla 1.597,9 TL, notta 1.590 TL). Resmi kaynaktan (TCMB, Resmî Gazete, GİB) doğrulanmalı.",
-      "'Şunu al', 'şimdi alın' gibi yönlendirmeler. 'Ocak'tan önce mi?' içeriğinde senaryoları göster, hüküm verme.",
-      "Eski fiyatları güncelmiş gibi göstermek. Örneğin Spotify ve YouTube için 59,99 / 79,99 TL eski olabilir; resmi sayfadan bakmadan yazma.",
-      "Markaları kötüleyen ya da eşit olmayan koşullarda yapılan kıyaslar: farklı donanım, farklı km veya farklı dönem kullanmak. Kampanyaları da aynı tarih ve aynı koşullarla karşılaştır.",
-      "Siyasi yorum ve taraf tutmak. #ekonomi'deki parti ve muhalefet söylemleri, thefinancialdiet'in kültürel tartışma kalıbı yüksek etkileşim alsa da tarafsız marka tonuna zarar verir. Rakamı göster, yorumu izleyiciye bırak.",
-      "Hashtag doldurmak (Bursaspor gönderisindeki 20'den fazla alakasız etiket gibi). Az sayıda ve nişe uygun etiket kullan.",
-      "İçerikte 'tahmini' etiketini atlamak: MTV 2027, ÖTV limiti (~3,67 milyon TL), asgari ücret senaryoları kesin değil.",
-      "Kopyalamak: Erika ya da richbff'in cümlelerini çevirmek yerine kalıbı (yorum kelimesi, doğrulama ibaresi) Türkiye verisiyle kendi sesine uyarla."
+      "Kaynaksız veya tahmini olduğu belirtilmeyen rakamlar kullanmak",
+      "Kesin yatırım tavsiyesi veya 'şunu kesin al' yönlendirmesi yapmak",
+      "Marka kötülemesi içeren subjektif karşılaştırmalar"
     ]
   },
   "ham_instagram": {
     "sayfalar": [
       {
         "kullanici": "erikankullberg",
-        "takipci": 5244794,
+        "takipci": 5244744,
         "en_iyi_gonderiler": [
           {
             "caption": "Mom update 💔",
@@ -122,8 +58,8 @@
           },
           {
             "caption": "#AiraloPartner If you're visiting Tokyo, here are 5 ways to save money. 🇯🇵✈️\n\nComment TOKYO and I’ll send you 15 more tips!\n\nAnd use code ERIKA3 for $3 off your first eSIM",
-            "like_count": 49426,
-            "comments_count": 22091,
+            "like_count": 49430,
+            "comments_count": 22093,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DbdUvmTivc0/",
@@ -131,7 +67,7 @@
           },
           {
             "caption": "Last year on my birthday it had been 2 months of my mom in a coma, 2 months of not knowing if she’d ever wake up. And every day we’d go to the hospital and sing to her, talk to her, and rub her hands just hoping for a miracle. \n\nI can’t believe how lucky I am that today she sang to ME! \n\nOf course I’ll always feel sad that things aren’t the same as before.  She lost her long-term memory and short-term memory.  But she remembers my name (on good days) and knows she loves me and I love her.  And for that, I feel incredibly lucky ❤️",
-            "like_count": 90169,
+            "like_count": 90170,
             "comments_count": 3422,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
@@ -141,7 +77,7 @@
           {
             "caption": "Comment TRAVEL to register for my free travel workshop\n\nIn it, I’ll show you my strategies for traveling in business and first class without paying more than $200 cash 🎉\n\nIt’s free to join. Comment TRAVEL to join",
             "like_count": 40929,
-            "comments_count": 18318,
+            "comments_count": 18320,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DbGhh6nsnOY/",
@@ -149,7 +85,7 @@
           },
           {
             "caption": "Comment TRAVEL to register for my free travel workshop\n\nIn it, I’ll show you my strategies for traveling in business and first class without breaking the bank 🎉\n\nIt’s free to join. Comment TRAVEL to join\n\n(All numbers used in this post are real - I personally verified the prices today)",
-            "like_count": 9415,
+            "like_count": 9416,
             "comments_count": 16281,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
@@ -158,7 +94,7 @@
           },
           {
             "caption": "Would love your thoughts on whether we keep waiting or start trying again ❤️. I’m 36, my husband is 39",
-            "like_count": 40144,
+            "like_count": 40146,
             "comments_count": 3913,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -169,34 +105,34 @@
       },
       {
         "kullanici": "your.richbff",
-        "takipci": 4070154,
+        "takipci": 4070153,
         "en_iyi_gonderiler": [
           {
             "caption": "Comment LEVEL UP to learn more about the high yield savings account I use!\n.\n.\n.\n.\nTerms Apply. #affiliate #money #finance #savings #interest",
-            "like_count": 7100,
-            "comments_count": 15651,
+            "like_count": 7107,
+            "comments_count": 15665,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/Df7bcytxw4L/",
-            "etkilesim_orani": 1.328
+            "etkilesim_orani": 1.329
           },
           {
             "caption": "Try THIS side hustle to make a quick buck!\n.\n.\n.\n.\n#money #finance #sidehustle #job #save",
-            "like_count": 44058,
+            "like_count": 44098,
             "comments_count": 486,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/Df98abJxB2x/",
-            "etkilesim_orani": 1.118
+            "etkilesim_orani": 1.119
           },
           {
             "caption": "Use THIS hack to help save $$$ on YOUR next big purchase! & Comment DOLLY to get smarter with your money!\n.\n.\n.\n.\n#money #finance #shopping #wealth #save",
-            "like_count": 30092,
-            "comments_count": 4893,
+            "like_count": 30129,
+            "comments_count": 4896,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DgAkC1vxV2W/",
-            "etkilesim_orani": 1.1
+            "etkilesim_orani": 1.101
           },
           {
             "caption": "Is Anthropic’s IPO getting delayed??? Is AI cooked?!\n.\n.\n.\n.\n#AI #stockmarket #money #bluewave #finance",
@@ -209,7 +145,7 @@
           },
           {
             "caption": "What does Jensen Huang’s reinstatement mean for the stock market and YOUR money?? Comment DOLLY to learn more about how market news like this could impact your wallet!\n.\n.\n.\n.\n#money #finance #market #nvidia #wealth",
-            "like_count": 37659,
+            "like_count": 37671,
             "comments_count": 1517,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -229,29 +165,29 @@
       },
       {
         "kullanici": "calltoleap",
-        "takipci": 2757142,
+        "takipci": 2757160,
         "en_iyi_gonderiler": [
           {
             "caption": "minipapix\n\nA higher income doesn’t always translate into financial stability. When everyday expenses and debt leave little breathing room, getting clear about where the money goes can be a helpful first step. \n\nA budget, a debt-payoff plan, and consistent investing can all play a part in building a stronger financial foundation over time.\n\nFree budgeting tools, books, and details about the next investing class are in the bio.\n\n💬 Tag a friend and I'll send you both my FREE investing resources!\n\n— Steve\n\nFollow calltoleap\n\nFollow calltoleap for investing videos\n\nFollow me calltoleap to start your journey toward financial freedom!\n\n#MindsetShift #FinancialFreedom #MoneyMindset #WealthBuilding #CallToLeap",
-            "like_count": 1621,
-            "comments_count": 174,
+            "like_count": 1639,
+            "comments_count": 176,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DgLxJSjOBc_/",
-            "etkilesim_orani": 0.078
+            "etkilesim_orani": 0.079
           },
           {
             "caption": "💬 Comment \"ROADMAP\" and I'll send you my FREE step-by-step investing guide!\n\nIn your 40s, 50s, or 60s and just getting started with investing?\n\nYou can't go back in time, but you can start making better financial decisions today.\n\nStart with what you have, learn the basics, and build a plan for your retirement.\n\n— Steve\n\nFollow calltoleap\nFollow calltoleap for investing videos\nFollow me calltoleap to start your journey toward financial freedom!\n\n#InvestingForBeginners #RetirementPlanning #StockMarket #WealthBuilding #FinancialFreedom",
-            "like_count": 302,
-            "comments_count": 535,
+            "like_count": 313,
+            "comments_count": 574,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
             "permalink": "https://www.instagram.com/p/DgOIW8Ql1pr/",
-            "etkilesim_orani": 0.069
+            "etkilesim_orani": 0.074
           },
           {
             "caption": "💬 Comment \"ROADMAP\" for my FREE step-by-step investing guide!\n\nAre you taking full advantage of your 401(k)?\n\nAs you plan for 2027, make sure you understand your contribution limits and how much you can invest based on your age.\n\nRemember, retirement isn't just about saving money. It's about having a plan to make your money work for you.\n\n— Steve\n\nFollow calltoleap\nFollow calltoleap for investing videos\nFollow me calltoleap to start your journey toward financial freedom!\n\n#401k #RetirementPlanning #InvestingForBeginners #WealthBuilding #FinancialFreedom",
-            "like_count": 586,
+            "like_count": 589,
             "comments_count": 92,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
@@ -260,12 +196,21 @@
           },
           {
             "caption": "Starting with a small monthly investment can build more than a balance, it can help make investing a regular habit and prepare you for the emotions that come with market ups and downs. \n\nStaying consistent gives long-term growth time to work, though returns are never guaranteed.\n\n💬 Tag a friend and I'll send you both my FREE investing resources!\n\n— Steve\n\nFollow calltoleap\n\nFollow calltoleap for investing videos\n\nFollow me calltoleap to start your journey toward financial freedom!\n\n#MindsetShift #FinancialFreedom #MoneyMindset #WealthBuilding #CallToLeap",
-            "like_count": 411,
-            "comments_count": 48,
+            "like_count": 457,
+            "comments_count": 60,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DgOV--uiTeb/",
-            "etkilesim_orani": 0.02
+            "etkilesim_orani": 0.023
+          },
+          {
+            "caption": "Choosing an ETF isn’t about finding one “best” fund—it’s about understanding what it holds, what it costs, and how it fits your goals and comfort with risk.\n\nThis guide compares a few options, from broad U.S. and global stocks to bonds and dividend-focused funds. Use it as a starting point, and always research a fund before investing.\n\n— Steve\n\n💬 Comment ROADMAP for my FREE $1M Roadmap!\n\nFollow calltoleap\nFollow calltoleap for investing videos\nFollow me calltoleap to start your journey toward financial freedom!\n\n#MindsetShift #FinancialFreedom #MoneyMindset #WealthBuilding #CallToLeap",
+            "like_count": 220,
+            "comments_count": 80,
+            "media_type": "IMAGE",
+            "media_product_type": "FEED",
+            "permalink": "https://www.instagram.com/p/DgIVoxOl8nY/",
+            "etkilesim_orani": 0.017
           },
           {
             "caption": "Your 401(k) might NOT be enough to retire comfortably.\n\nA 401(k) is a great start, but have you actually calculated how much you'll need when you stop working?\n\nDon't wait until you're close to retirement to realize you need a bigger plan. Start learning how to build your retirement portfolio today.\n\n💬 Comment \"ROADMAP\" and I'll send you my FREE step-by-step investing guide!\n\n— Steve\n\nFollow calltoleap\n\nFollow calltoleap for investing videos\n\nFollow me calltoleap to start your journey toward financial freedom!\n\n#RetirementPlanning #401k #InvestingForBeginners #WealthBuilding #FinancialFreedom",
@@ -275,30 +220,21 @@
             "media_product_type": "FEED",
             "permalink": "https://www.instagram.com/p/DgI-wpRl4Tk/",
             "etkilesim_orani": 0.016
-          },
-          {
-            "caption": "Choosing an ETF isn’t about finding one “best” fund—it’s about understanding what it holds, what it costs, and how it fits your goals and comfort with risk.\n\nThis guide compares a few options, from broad U.S. and global stocks to bonds and dividend-focused funds. Use it as a starting point, and always research a fund before investing.\n\n— Steve\n\n💬 Comment ROADMAP for my FREE $1M Roadmap!\n\nFollow calltoleap\nFollow calltoleap for investing videos\nFollow me calltoleap to start your journey toward financial freedom!\n\n#MindsetShift #FinancialFreedom #MoneyMindset #WealthBuilding #CallToLeap",
-            "like_count": 219,
-            "comments_count": 78,
-            "media_type": "IMAGE",
-            "media_product_type": "FEED",
-            "permalink": "https://www.instagram.com/p/DgIVoxOl8nY/",
-            "etkilesim_orani": 0.016
           }
         ]
       },
       {
         "kullanici": "barisozcan",
-        "takipci": 1378051,
+        "takipci": 1378046,
         "en_iyi_gonderiler": [
           {
             "caption": "Yakaladılar!",
-            "like_count": 182985,
+            "like_count": 182981,
             "comments_count": 2265,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DBESUqHvIjO/",
-            "etkilesim_orani": 13.772
+            "etkilesim_orani": 13.771
           },
           {
             "caption": "Pi’yi hafife almayın!\n#piday #pigünü",
@@ -349,7 +285,7 @@
       },
       {
         "kullanici": "prof_demirtas",
-        "takipci": 985082,
+        "takipci": 985076,
         "en_iyi_gonderiler": [
           {
             "caption": "Sadece 24 Saat içinde Cumhurbaşkanlığına şüpheli listesini sunabilirim. Tek ihtiyacımız olan şey bana verilecek hesap datası, güçlü bir bilgisayar, Stata ve Matlab yazılımları ve sessiz bir oda… 💪🙋‍♂️❤️🧿🇹🇷🇹🇷🇹🇷",
@@ -440,7 +376,7 @@
           },
           {
             "caption": "Bad habits can outspend any income. Get educated. Get your finances in order and start moving forward. 🫡",
-            "like_count": 685,
+            "like_count": 687,
             "comments_count": 78,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
@@ -458,7 +394,7 @@
           },
           {
             "caption": null,
-            "like_count": 554,
+            "like_count": 558,
             "comments_count": 11,
             "media_type": "IMAGE",
             "media_product_type": "FEED",
@@ -469,11 +405,11 @@
       },
       {
         "kullanici": "humphreytalks",
-        "takipci": 907184,
+        "takipci": 907180,
         "en_iyi_gonderiler": [
           {
             "caption": "Once you hit 250k, there are three huge changes you will notice once you hit this milestone. Have you noticed these changes? Let me know in the comments.",
-            "like_count": 6655,
+            "like_count": 6656,
             "comments_count": 154,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -482,7 +418,7 @@
           },
           {
             "caption": "After you hit $100,000, the next money milestone is what I call the Crossover point. Do you agree or disagree? Let me know in the comments.",
-            "like_count": 4239,
+            "like_count": 4240,
             "comments_count": 77,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -500,12 +436,12 @@
           },
           {
             "caption": "The Costco executive membership costs $65 more per year than the Gold Star membership. Do you think it is worth it? Let me know in the comments.",
-            "like_count": 3034,
+            "like_count": 3035,
             "comments_count": 124,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/Df5Na8EBlhG/",
-            "etkilesim_orani": 0.375
+            "etkilesim_orani": 0.376
           },
           {
             "caption": "Overfunding your emergency fund is a wealth killer. Do you agree or disagree? Let me know in the comments.",
@@ -529,16 +465,16 @@
       },
       {
         "kullanici": "thefinancialdiet",
-        "takipci": 875797,
+        "takipci": 875801,
         "en_iyi_gonderiler": [
           {
             "caption": "The tech-based class divide is only going to continue getting worse.\n.\n.\n.\n.\nKeywords: Harry Styles, technology, moral high ground, class divide, classism, celebrities, rich, poor, tone deaf, economy",
-            "like_count": 91325,
+            "like_count": 91366,
             "comments_count": 836,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DerWpsqOtja/",
-            "etkilesim_orani": 10.714
+            "etkilesim_orani": 10.719
           },
           {
             "caption": "Go vote. That’s all.",
@@ -551,21 +487,21 @@
           },
           {
             "caption": "Maybe the question isn’t just “Why is it so hard to make friends as an adult?” Maybe it’s also “Am I being the kind of friend I’d want to have?”\n\n💚 Watch our full conversation with Ashley C. Ford ( smashfizzle )about navigating your 30s, redefining success, and building a life you actually want by commenting “VIDEO” below.",
-            "like_count": 15172,
+            "like_count": 15180,
             "comments_count": 299,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
             "permalink": "https://www.instagram.com/p/DfiD5jCnXGA/",
-            "etkilesim_orani": 1.835
+            "etkilesim_orani": 1.836
           },
           {
             "caption": "Is there any middle-aged white woman that we will hold even remotely accountable for her actions instead of blaming it on a man?\n.\n.\n.\n#whitewomen #midterms #girlboss #elizabethholmes #haleystevens",
-            "like_count": 11935,
+            "like_count": 11937,
             "comments_count": 326,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/DfQDG32uobX/",
-            "etkilesim_orani": 1.474
+            "etkilesim_orani": 1.475
           },
           {
             "caption": "We spend so much time telling people to build emergency funds, have backup plans, and prepare for the possibility of losing their jobs. But we rarely talk about what responsibility companies should have to the people whose livelihoods are affected by their business decisions.\n\ncanva recently announced a major restructuring affecting 1,271 employees, or roughly 22% of its workforce, as it reorganizes its operations. And they have absolutely just raised the bar for how companies should be showing up. Each laid off employee will be receiving:\n\n+ At least 6 months of salary, regardless of location\n+ 12 months of continued healthcare coverage (where available)\n+ 12 months of mental health and wellbeing support, including for family members\n+ One-on-one career coaching, résumé assistance, and interview prep\n+ A full year of LinkedIn Premium\n+ Access to an alumni talent directory shared with industry partners\n+ Their company MacBooks.\n+ Removal of the one-year equity vesting cliff for recent hires\n+ The opportunity to receive $10,000 to start a business or community project, with Canva taking ZERO equity (??!?!?!)\n\nThey’re not just giving people enough to “get by”. They’re giving them some breathing room to figure out what they actually WANT to do next.\n\nMore of this, please and thanks",
@@ -578,7 +514,7 @@
           },
           {
             "caption": "Beauty might be subjective, but the economic advantages of being considered beautiful certainly aren’t imaginary. And when wealth determines who can afford to meet increasingly impossible standards, pretty privilege starts looking a lot like class privilege. Meanwhile…we’re all supposed to pretend none of this is happening😒",
-            "like_count": 8574,
+            "like_count": 8578,
             "comments_count": 239,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -593,7 +529,7 @@
         "en_iyi_gonderiler": [
           {
             "caption": "Five years ago today, I said goodbye to Jerrell, my Superman, in physical form. \n\nIt remains the single most brutal and beautiful experience of my life.\n\nSometimes it feels like we lost him 5 seconds and 50 years ago, at the same time.\n\nThrough the brokenness I’ve become so much that I barely recognize myself.\n\nI didn’t know it was possible to love someone even more after losing them, yet here I am.\n\nI’ve discovered that love, if you let it, expands your ability to love and be loved.\n\nDespite the grief, I’m grateful for it all, because to love is to eventually lose. And I’m not alone in losing. \n\nWe are all in the process of losing or being lost.\n\nJerrell’s death taught me how to live in the meantime.\n\nI believe we come from God/Love and we return to God/Love. \n\nIn the meantime in this physical form, our job is to remember that Love, and to act accordingly. \n\nI lost well because I loved well.\n\nGoodbye for now, Superman.\n\nGo love well today.",
-            "like_count": 16919,
+            "like_count": 16922,
             "comments_count": 556,
             "media_type": "CAROUSEL_ALBUM",
             "media_product_type": "FEED",
@@ -602,7 +538,7 @@
           },
           {
             "caption": "And the worst part is we don't play about our skincare, so you KNOW that restock is about to HURT! 😭😂",
-            "like_count": 7505,
+            "like_count": 7506,
             "comments_count": 489,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -611,7 +547,7 @@
           },
           {
             "caption": "I don't want to HAVE to take a job or opportunity just because I need the money. I don't want every decision I make to come down to what I can afford.\nㅤ\nI want OPTIONS. I want to be able to say yes because I WANT to, and no because I CAN.",
-            "like_count": 5244,
+            "like_count": 5245,
             "comments_count": 93,
             "media_type": "IMAGE",
             "media_product_type": "FEED",
@@ -620,12 +556,12 @@
           },
           {
             "caption": "Happy Thanksgiving, Dream Catchers! 🦃❤️\nㅤ\nI hope today reminds you that some of life's greatest blessings can't be bought.\nㅤ\nWishing you a day full of love, laughter, and some GOOD food!",
-            "like_count": 4321,
+            "like_count": 4345,
             "comments_count": 34,
             "media_type": "IMAGE",
             "media_product_type": "FEED",
             "permalink": "https://www.instagram.com/p/DgNKdTflzyg/",
-            "etkilesim_orani": 0.63
+            "etkilesim_orani": 0.634
           },
           {
             "caption": "Y'ALL!!! Remember Mariza and Geffrey from my CNN Savings Challenge?! 👀\nㅤ\nWell, they've got a BIG update... and some of you might need to hear this.\nㅤ\nI'm SO proud of the progress they're making, but there's also a really important money lesson in what happened next.\nㅤ\nSwipe through to catch up on their journey!\nㅤ\n▶️Comment CNN and I'll send you the latest article so you can follow along with us! ❤️",
@@ -638,7 +574,7 @@
           },
           {
             "caption": "Losing someone you love changes you in ways you can't even begin to explain. ❤️\nㅤ\nFor a long time, I couldn't imagine anything worse than losing my husband. And then I had an experience that made me look at that thought differently.\nㅤ\nGrief is complicated. And sometimes two things can be true at once. Your pain can be real, AND there can be room for a different perspective.\nㅤ\nI opened up about this on The Calum Johnson Show, and it was one of the more personal conversations I've had.\nㅤ\n🎥 Watch the full episode at the link in my bio.\n📩 Booking: tiffany@thebudgetnista.com",
-            "like_count": 2899,
+            "like_count": 2901,
             "comments_count": 48,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -649,25 +585,25 @@
       },
       {
         "kullanici": "personalfinanceclub",
-        "takipci": 697976,
+        "takipci": 697975,
         "en_iyi_gonderiler": [
           {
             "caption": "I’ve been getting a lot of questions about whether YOU can do this, and YES, you can! I think it would really hard for someone to try to navigate the world of buying medical debt from scratch. (i.e. you need to know which hospitals to contact, which debt to buy, how much to pay, how to identify those most in need, and likely enough money to make it worth the hospital’s time). That’s what I was facing when I discovered unduemeddebt. (Not sponsored... in fact, it’s kind of reverse sponsored because I’m giving THEM money). They’re a charity who has deep expertise in unpaid medical debt. Every dollar donated typically erases about $100 of medical debt because they’re able to buy it for about a penny on the dollar. \n\nThey go even further and target the debt of those who need the most help. They look for families with lower income whose debt is more than 5% of their annual income, and communities disproportionately impacted by healthcare disparities. If you’re donating at higher levels (say $10K+) shoot me a DM and I can connect you with their team who may be able to provide some other cool perks like directing where your donation goes and additional reporting and stuff.\n\nAnyway, hopefully Jenn doesn’t think I’m as much of a scumbag anymore. \n\np.s. This is a clip from our podcast we release every Thursday! This episode hasn’t aired yet though, but will in a couple weeks.\n\nAs always, reminding you to build wealth by following the two PFC rules: 1.) Live below your means and 2.) Invest early and often.\n\n-Jeremy\n\n#medicaldebt #debt",
-            "like_count": 67019,
+            "like_count": 67057,
             "comments_count": 1400,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
             "permalink": "https://www.instagram.com/reel/Dd_x4AEIe_m/",
-            "etkilesim_orani": 10.204
+            "etkilesim_orani": 10.209
           },
           {
             "caption": "In the news today, Nvidia’s CEO Jensen Huang stepped down and was replaced with interim CEO Colette Kress. She joins the presigious club of female CEOs of S&P 500 companies. Nvidia is down about 30% from it’s all time highs earlier this year. Does this change make Nvidia a buy?!\n\nOf course, for regular PFC followers, the answer is WHO CARES. I’ve owned Nvidia stock for YEARS inside of my index fund and I’ll continue to buy and hold index funds and never trade in response to the news.\n\nAs always, reminding you to build wealth by following the two PFC rules: 1.) Live below your means and 2.) Invest early and often.\n\n-Vivi, Shane, & Jeremy",
-            "like_count": 24164,
+            "like_count": 24171,
             "comments_count": 1017,
             "media_type": "IMAGE",
             "media_product_type": "FEED",
             "permalink": "https://www.instagram.com/p/DfqVtQDBbaH/",
-            "etkilesim_orani": 3.899
+            "etkilesim_orani": 3.9
           },
           {
             "caption": "My wife, Andrea, gets credit for this idea. She was inspired by another donation and wanted to do our part to help those struggling. I’ve been there myself... in my 20s and early 30s a small medical bill would financially destroy me. I would avoid going to the doctors for fear of a financial crises. It’s heartbreaking to think of the fear, shame, and depression this unforeseen and unwanted debt can bring. I’m hoping many of those 1,600 people feels some relief getting the letter with the good news!\n\nI also want to address the “write-off” aspect of this. Sometimes there’s some angry commenters who say something like “Oh, he’s just doing that for the write-off. He doesn’t even lose any money.” Well, NO. That’s not how it works. We STILL HAD TO GIVE ALL THE MONEY AWAY. In our case our $25,000 donation was money (stock in our case) we gave away. On our taxes, that will count against our income. The net result is our tax bill may drop by $5,000 or so. So we’re still down net $20,000 that could have been in our pocket. And since we’re donating anyway, OF COURSE we’re gonna try to correctly mitigate our tax bill by the $5K.\n\nTo put it in more concrete terms, yesterday, I flew home on 2 flights from Michigan with a 5 year old and 1 year old. The second flight was pretty rough as the baby was uncomfortable, crying, etc. He was a lap child as the four of us were sitting three across in coach. Do you know what $20K could have bought me??? FOUR FIRST CLASS TICKETS SO THE BABY HAD HIS OWN SEAT, PLUS ANOTHER FIRST CLASS TICKET AND A NANNY TO TRAVEL WITH US AND HELP WITH HIM FOR THE 5 DAY VACATION. And we’d still have about $5k leftover. So don’t give me “oh he just did this for the write-off” bs. I SUFFERED to make that donation. (I mean, it obviously wasn’t a 1:1 trade and we would have flown coach anyway, but still).\n\nAs always, reminding you to build wealth by following the two PFC rules: 1.) Live below your means and 2.) Invest early and often.\n\n-Jeremy\n\n#medicaldebt",
@@ -680,7 +616,7 @@
           },
           {
             "caption": "What are you doing about the stock market correction?",
-            "like_count": 6716,
+            "like_count": 6717,
             "comments_count": 476,
             "media_type": "VIDEO",
             "media_product_type": "REELS",
@@ -843,17 +779,10 @@
           },
           {
             "caption": "(Berita selengkapnya cek IG Stories kompascom)\n\nKebutuhan investasi untuk membiayai pembangunan Indonesia selama periode 2025-2029 diperkirakan mencapai Rp 47.000 triliun. \n\nNamun, Anggaran Pendapatan dan Belanja Negara (APBN) hanya mampu menopang sekitar 7-8 persen dari total kebutuhan tersebut. \n\nDeputi Bidang Pembiayaan dan Investasi Pembangunan Kementerian Perencanaan Pembangunan Nasional/Badan Perencanaan Pembangunan Nasional (PPN/Bappenas) Putut Hari Satyaka mengatakan, besarnya kebutuhan pendanaan pembangunan membuat pemerintah perlu mengoptimalkan sumber pembiayaan di luar APBN.\n\n“Intinya kita harus punya ekosistem, kita harus siap dengan blended finance. Karena kalau semuanya menggantungkan anggaran negara, tidak akan jalan. Kalau tidak dibangun ekosistem juga tidak akan jalan,” ujarnya dalam agenda SDGs Annual Conference (SAC) 2026 di Gedung Bappenas, Jakarta, Rabu (18/11/2026).\n\n“Kalau pemerintah tidak jalan duluan juga tidak jalan karena dia yang menanggung risiko paling tinggi. Pemerintah juga harus siap. Jangan sampai pemerintah bilang itu sudah serahkan swasta saja. Swasta tidak akan ada yang tertarik kalau memang tidak ada sesuatu yang membuatnya menguntungkan,” tuturnya.\n\nMenurut Putut, pemerintah perlu mendorong keterlibatan berbagai pihak, mulai dari badan usaha milik negara (BUMN) melalui Danantara hingga sektor swasta. Kontribusi swasta bahkan ditargetkan mencapai 80 persen dari total kebutuhan pembiayaan.\n\nPenulis:  Erlangga Djumeda\n\n~J #Ekonomi #APBN #Kebijakan\n\n[20261119050400626]",
-            "like_count": 3579,
+            "like_count": 3581,
             "comments_count": 655,
             "media_type": "IMAGE",
             "permalink": "https://www.instagram.com/p/Df5t25IPXYk/"
-          },
-          {
-            "caption": "TCMB, yurt içinde cevherden üretilen altın alımlarına geçici ara verdi. Kararın piyasa etkilerinin önümüzdeki süreçte netleşmesi bekleniyor.\n\n👆 Haberin tamamı profilimizdeki linkte.",
-            "like_count": 484,
-            "comments_count": 111,
-            "media_type": "IMAGE",
-            "permalink": "https://www.instagram.com/p/DgMvWRwig8b/"
           },
           {
             "caption": "🍃 Min Ekonomi på Sicilien 🙏🧡🍃\n\nDen totala boendekostnaden bör enligt mäklaren bli ca 1000 kr/månaden, oavsett årstid, så detta blir det billigaste hus jag någonsin ägt, vi får hoppas att det också blir det bästa. Sista bilden visar dessutom att €560 är en ungefärlig månadskostnad för att leva på Sicilien, vilket stämmer med mina tidigare år här.\n\nDenna vecka har jag snickrat färdigt allt på övervåningen, en skärmvägg med dold dörr i gästrummet och ett utekök på takterrassen. Har därmed fått ett grepp om hur den totala kostnaden för vad detta gulliga lilla hus kommer att landa på. \n\nHus €30000 + Avgifter €7000 = €37000 \nLejd VVS och El €1650 + Murare €350 = €2000\nSnickerier och Färg övervåning = €1000 \nIkeakök och Färg nedervåning = €1000\nTotalt för ett färdigrenoverat hus = €41000\nVilket blir ca 450 000 i svenska kronor. \n\nMin budget är satt till en halv miljon totalt, så det ger mig ungefär 50 000 kr över för att leja bort fasadputs och inhandla lite billiga möbler samt husgeråd. Då ekonomin är en vanlig fråga från er, så hoppas jag att ni finner dessa siffror inspirerande. De kanske kan hjälpa er att våga drömma om något liknande i era liv. \n\n🍃 Tänk att få leva så här lyxigt för så lite 💰🙏🧡🍃\n\n#budget #ekonomi #Sicilien #köpahus #renovera",
@@ -864,17 +793,24 @@
           },
           {
             "caption": "Ekim ayında tam 10 bin 500 esnafımız kepenk indirdi. \n\nBu yılın ilk 10 ayında kapanan esnaf iş yeri sayısı 103 bin 595'e ulaştı. \n\nYani bu ülkede her gün 345 esnafımız ekmek teknesine kilit vuruyor! \n\nÜretim tesislerimiz de can çekişiyor. Ekim ayında kapanan şirket sayısı yüzde 17 artarak 2 bin 589'a çıktı; bunların 364'ü doğrudan üretim yapan fabrikalarımızdı. \n\nİlk 10 ayda 249 şirket konkordato sürecinden çıkamayıp resmen iflas etti. Yeni şirket kuruluşları ise sonbaharla birlikte çakıldı; Ekim ayında yeni açılan şirket sayısı geçen yıla göre yüzde 13,8 azaldı, kurulanların sermayesi bir ayda yüzde 28 eridi.\n\nPiyasadaki ticari güven tamamen çökmüş durumda. Bankalar Birliği Risk Merkezi’nin verileri ortada: Bu yılın ilk 10 ayında tam 290 bin 32 adet çek karşılıksız çıktı. \n\nKarşılıksız çıkan çeklerin tutarı yüzde 49 artarak 308 milyar lirayı aştı! \n\nSadece Ekim ayında karşılıksız çek oranı yüzde 4,2’ye fırlayarak son 8 yılın rekorunu kırdı.\n\n#reelsinstagram #reels #haber #ekonomi",
-            "like_count": 1912,
+            "like_count": 1917,
             "comments_count": 152,
             "media_type": "IMAGE",
             "permalink": "https://www.instagram.com/p/DgItzmgI8ur/"
           },
           {
             "caption": "SEMUA DIPAJAKIN! 💸\n\nGaji dipajaki. Belanja dikenai pajak. Punya rumah ada pajaknya. Bahkan berbagai aktivitas ekonomi berkaitan dengan kewajiban perpajakan.\n\nPertanyaannya: apakah negara memang harus bergantung pada pajak untuk membiayai pengeluarannya?\n\nDalam sistem fiskal modern, pajak menjadi salah satu sumber utama penerimaan negara. Namun, Taqiyuddin An-Nabhani menawarkan perspektif berbeda dalam memandang sumber pendapatan, tanggung jawab negara, dan batas pemungutan harta masyarakat.\n\n📚 Melalui telaah dua kitab:\n\nAn-Nizham al-Iqtishadi fi al-Islam (النظام الاقتصادي في الإسلام)\n\nAs-Siyasah al-Iqtishadiyyah al-Mutsla (السياسة الاقتصادية المثلى)\n\nKita menemukan beberapa pokok pemikiran penting:\n\n🔴 Pertama, negara memiliki sumber penerimaan selain pajak. Dalam kerangka ekonomi Islam yang dijelaskan An-Nabhani, Baitulmal memiliki sumber pendapatan dengan ketentuan tersendiri, termasuk kharaj, fai', jizyah, dan pengelolaan kepemilikan umum.\n\n🔴 Kedua, pajak tidak sepenuhnya dilarang. An-Nabhani menjelaskan konsep dharibah, yakni pungutan dengan persyaratan ketat ketika dana Baitulmal tidak mencukupi pengeluaran wajib tertentu.\n\n🔴 Ketiga, pemungutan harus memperhatikan kemampuan masyarakat. Dalam kerangka tersebut, dharibah dibebankan kepada Muslim yang memiliki kelebihan harta setelah kebutuhan hidup yang diakui terpenuhi.\n\n🔴 Keempat, ekonomi bukan sekadar mengumpulkan pendapatan negara. Kebijakan ekonomi juga menyangkut produksi, distribusi kekayaan, pengembangan kegiatan ekonomi, dan pemenuhan kebutuhan dasar manusia.\n\nDengan demikian, kritik terhadap sistem perpajakan tidak cukup berhenti pada besarnya tarif.\n\nKita juga perlu bertanya:\n\nDari mana negara memperoleh kekayaannya? Siapa yang menanggung beban pembiayaan? Dan sejauh mana kebijakan ekonomi benar-benar memenuhi kebutuhan masyarakat?\n\n💬 MENURUT ANDA:\n\nApakah ketergantungan negara pada pajak merupakan keniscayaan dalam ekonomi modern, atau perlu dikaji kembali melalui paradigma ekonomi yang berbeda?\n\n#ekonomi #pajak #ekonomiislam #kebijakan #politik",
-            "like_count": 1093,
+            "like_count": 1094,
             "comments_count": 30,
             "media_type": "CAROUSEL_ALBUM",
             "permalink": "https://www.instagram.com/p/DfVlbuAn5tE/"
+          },
+          {
+            "caption": "Dünyaya tekstil makineleri ihraç eden SER Mekatronik iflas etti. Mahkeme, iflasın 20 Ekim 2026’da açılmasına karar verdi.\n\n👆 Haberin tamamı profilimizdeki linkte.",
+            "like_count": 738,
+            "comments_count": 77,
+            "media_type": "IMAGE",
+            "permalink": "https://www.instagram.com/p/Dfblg56CpHG/"
           },
           {
             "caption": "Hampir 600 ribu pekerja di Prancis menggelar demonstrasi pada Kamis (5/11). Aksi tersebut dilakukan untuk memprotes upah rendah, meningkatnya biaya hidup, serta ketimpangan ekonomi.\n\nKementerian Dalam Negeri Prancis mencatat 575 ribu orang mengikuti demonstrasi, sementara serikat pekerja CGT mengklaim jumlah peserta mencapai 1,6 juta orang. Para demonstran juga mendesak pemerintah mengalihkan anggaran militer dan penegakan hukum untuk meningkatkan pendanaan layanan sosial. Aksi lanjutan dijadwalkan berlangsung pada Sabtu (7/11).\n\nBaca selengkapnya di cnnindonesia.com\n-\n(📷 oleh Tim CNN Indonesia)\n#cnnindonesia #cnnindonesiacom #Prancis #Demonstrasi #Ekonomi",
@@ -884,11 +820,11 @@
             "permalink": "https://www.instagram.com/p/Dfa0Be_DPVr/"
           },
           {
-            "caption": "Ekonominin de siyasetin de yeniden Doğru Yol’a ihtiyacı var!\n\nTürkiye zaten ağır ekonomik sorunlarla mücadele ederken, fon vurgunu ekonomideki güven sorununu daha da derinleştirmiştir.\n\nEmekli geçinemiyor, çalışan ay sonunu getiremiyor, çiftçi ürettiğinin karşılığını alamıyor. Artık esnafımız, tüccarımız ve sanayicimiz de ayakta kalma mücadelesi veriyor.\n\nSatışlar azalıyor, üretim yavaşlıyor, finansmana erişim zorlaşıyor. Sanayicinin yarınını göremediği, esnafın borcunu borçla kapattığı bir ekonomik düzen sürdürülebilir değildir.\n\nUygulanan ekonomi programının en büyük açmazı, enflasyonla mücadelenin bedelini vatandaşın alım gücüne yüklemesidir.\n\nMilleti yoksullaştırarak enflasyonla mücadele edilemez!Üretimi daraltarak ekonomi büyütülmez!\n\nFon vurgununa karışanlar, sorumluları ve ihmali bulunanlar kamuoyuna şeffaf bir şekilde açıklanmalıdır!\n\nİktidar sorunların üzerini örtmek yerine çözüm üretmeli, muhalefet ise siyasi polemikler yerine ekonomideki büyük resmi görmelidir.\n\nTürkiye’nin ihtiyacı; üreteni cezalandıran değil destekleyen, vatandaşını yoksullaştıran değil refaha kavuşturan, güven veren, liyakatli ve adaletli bir ekonomi yönetimidir.\n\nEkonominin de siyasetin de yeniden Doğru Yol’a ihtiyacı vardır…\n#doğruyolpartisi #ekonomi #genişmerkez",
-            "like_count": 1064,
-            "comments_count": 2,
-            "media_type": "IMAGE",
-            "permalink": "https://www.instagram.com/p/DgMx_dgh0JY/"
+            "caption": "ABD Dışişleri Bakanı Marco Rubio’nun Özbekistan’ın Semerkant kentine gerçekleştirdiği ziyaret kapsamında, yaklaşık 300 Amerikan şirketinin temsil edildiği heyetin katılımıyla önemli ekonomik anlaşmalar gündeme geldi. İki ülke arasında toplam değeri 12 milyar dolara ulaşması öngörülen 54 anlaşma ve yatırım girişimi açıklandı. Projeler; havacılık, demir yolu, enerji, madencilik, yapay zekâ, uydu teknolojileri, sağlık, tarım ve finans sektörlerini kapsıyor.\n\n✈️ GE Aerospace: Özbekistan Hava Yolları için uçak motorları tedariki.\n\n🚆 Wabtec: Lokomotif ve demir yolu ekipmanlarının üretimi ve modernizasyonu.\n\n💰 BlackRock, Citigroup, Franklin Templeton: Büyük yatırımların finansmanı ve uluslararası sermaye piyasalarına erişim.\n\n⛏️ ReElement Technologies, Traxys, Trafigura: Kritik minerallerin çıkarılması, işlenmesi ve ticareti.\n\n🛰️ Amazon Leo: Uydu interneti ve dijital iletişim altyapısı.\n\n🏥 GE HealthCare: Modern tıbbi cihazlar ve sağlık teknolojileri.\n\n🌾 Valmont Industries: Tarımsal sulama ve modern tarım teknolojileri.\n\n🇺🇿🇺🇸 Özbek şirketleri de ABD’ye yatırım yapıyor. Özbekistan merkezli AKFA Group, ABD’nin Kentucky eyaletinde 80 milyon dolarlık alüminyum üretim tesisi kuruyor. Mayıs 2026’da temeli atılan fabrikada 331 kişiye istihdam sağlanması hedefleniyor.\n\nÖzbekistan Cumhurbaşkanı Şevket Mirziyoyev, ABD ile ticaret hacminin yıl başından bu yana yüzde 35 arttığını açıkladı. Taraflar, 2035 yılına kadar ekonomik iş birliğini genişletmeyi, Özbekistan’ı Amerikan yatırımları ve ileri teknoloji üretimi açısından Orta Asya’nın önemli merkezlerinden birine dönüştürmeyi hedefliyor.\n\n#Özbekistan #ABD #Semerkant #MarcoRubio #ŞevketMirziyoyev #OrtaAsya #Ekonomi #Yatırım #12MilyarDolar #Ticaret #AmerikanŞirketleri #AKFA #Teknoloji #Sanayi #TürkDünyası #UluslararasıTicaret #Uzbekistan #USA #Investment #businessmind",
+            "like_count": 1891,
+            "comments_count": 865,
+            "media_type": "CAROUSEL_ALBUM",
+            "permalink": "https://www.instagram.com/p/Dev50q3lzHx/"
           }
         ]
       },
@@ -932,7 +868,7 @@
           },
           {
             "caption": "fiat fastback 1.499.000 TL'den başlıyor 👀 icon'da bile kablosuz carplay, 10,25\" ekran ve 608 L bagaj var.\n\nsen hangisini seçerdin: icon mu, la prima mı? yorumlara yaz, fastback düşünen arkadaşına gönder. yeni araba videoları için takipte kal.\n\nfiyat ve kampanyalar fiat koyuncu otomotiv'e aittir; bayi ile bağlantım/anlaşmam yoktur.\n\n#fiatfastback #fiat #konya #yeniaraba #otomobil",
-            "like_count": 471,
+            "like_count": 472,
             "comments_count": 74,
             "media_type": "CAROUSEL_ALBUM",
             "permalink": "https://www.instagram.com/p/DgGMbmKDkrQ/"
@@ -972,7 +908,7 @@
           },
           {
             "caption": "23 yaşında. 1 yılda 10 milyar dolar. 🚀\n\nNoah Shinn'in kurduğu yapay zekâ asistanı Instinct, Ekim 2025'te kuruldu. Değeri 2026 baharında yaklaşık 50 milyon dolardı; Eylül'de 10 milyar dolara ulaştı. Şirkette sadece 14 kişi çalışıyor.\n\nMesajla ya da telefonla ulaşılan bir asistan: seyahat planlıyor, bilet alıyor, abonelik iptal ediyor.\n\n14 kişilik şirket 10 milyar dolar eder mi? 👇\n\n#yapayzeka #girişimcilik #startup #tedleynmedya #genckurucular",
-            "like_count": 721,
+            "like_count": 722,
             "comments_count": 28,
             "media_type": "CAROUSEL_ALBUM",
             "permalink": "https://www.instagram.com/p/DfXP_GNAW52/"
@@ -993,14 +929,14 @@
           },
           {
             "caption": "Kime göndereceğini biliyorsun 🫵🏻🏹\n\n#girişimyazarı #başarı #motivasyon #ilham #girişimcilik",
-            "like_count": 16541,
+            "like_count": 16540,
             "comments_count": 41,
             "media_type": "IMAGE",
             "permalink": "https://www.instagram.com/p/DT5sgpFDEou/"
           },
           {
             "caption": "⏳ Sizce hedeflediğiniz kariyere ya da kârlara ulaşmanın kısa bir yolu var mıdır?\n\nKüçük bir tabela. Dar bir dükkân. Birkaç makine. Az insan, çok iş.\nBugün dev mağazalar, fabrikalar ve güçlü marka hikâyeleri olarak gördüğümüz şeylerin çoğu, böyle mütevazı başlangıçlardan çıktı.\n\nAma hiçbir marka ilk gün “dev” değildi. Büyümek; iyi fikir kadar disiplin, nakit yönetimi, doğru zamanlama, müşteri güveni, üretim kalitesi ve yıllarca aynı ciddiyetle ve kararlılıkla devam edebilme meselesiydi.\n\nBu fotoğrafların güzel tarafı da burada. Sadece nostalji vermiyor; markaların arkasındaki emeği görünür kılıyor. Birinci gün ile “elbet bir gün” arasındaki yolun romantik değil, çoğu zaman çok zorlu olduğunu hatırlatıyor.\n\n📷 Bazı fotoğraflar bize sadece geçmişi değil, başarılı olmak için geçen zamanın aslında sürecin doğal bir parçası olduğunu gösterir.\n\n#AdPorn #reklam #MarkaHikayesi #Girişimcilik #TürkMarkaları",
-            "like_count": 22545,
+            "like_count": 22546,
             "comments_count": 73,
             "media_type": "CAROUSEL_ALBUM",
             "permalink": "https://www.instagram.com/p/DaVI3UoCNXO/"
@@ -1016,5 +952,5 @@
       }
     ]
   },
-  "web_notlari": "**Türkiye'de maliyet ve karşılaştırma nişi: güncel gündem, formatlar ve kitlenin soruları (27 Kasım 2026)**\n\nÇoğu rakam haber sitelerinden geldi ve bir kısmı tahmin. Paylaşmadan önce resmi kaynaktan teyit edin.\n\n**Gündem ve veriler**\n\n1. **2027 asgari ücret zammı, Aralık'ın en büyük konusu.** Bugünkü net asgari ücret 28.075,50 TL. Haberlerde %28,4, %29,5, %30, %33,7 ve %35 senaryoları hesaplanıyor. %30 zamda net 36.498 TL, %35'te 37.902 TL çıkıyor. Komisyonun Aralık başında toplanması, kararın ay sonunda çıkması ve 1 Ocak'ta yürürlüğe girmesi bekleniyor. \"4 yapay zekâ tahmin etti\" türü haberler de yayılıyor.\n   İçerik fikri: \"%30 zamda maaşınız kira ve market sepetinin yüzde kaçına yetiyor?\" hesabı.\n   Kaynaklar: https://www.takvim.com.tr/ekonomi/2026/11/26/2027-asgari-ucret-zam-formulleri-35-bin-ve-40-bin-tl-hesabi , https://www.finansopia.com/ekonomi/asgari-ucret-zammi-icin-4-farkli-hesap-2027-yilinda-asgari-ucret-ne-kadar-olacak/ , https://www.cnbce.com/haberler/asgari-ucret-2027de-ne-olacak-iste-4-yapay-zekanin-tahmininden-ortak-nokta-g42590\n\n2. **Açlık ve yoksulluk sınırı ile asgari ücret arasındaki fark.** Türk-İş'in Ekim 2026 verisinde 4 kişilik ailenin açlık sınırı 38.024 TL, yoksulluk sınırı 123.856 TL. Bekâr bir çalışanın aylık yaşam maliyeti 49.124 TL. Bu rakamlar Ankara için hesaplanıyor. Kasım verisi birkaç gün içinde gelir.\n   İçerik fikri: \"Bekâr birinin ayda 49 bin TL'si nereye gidiyor?\" kalem kalem dökümü.\n   Kaynaklar: https://www.tv5.com.tr/turk-is-aclik-siniri-38-bin-24-liraya-yoksulluk-siniri-ise-123-bin-856-liraya-yukseldi , https://www.dunya.com/ekonomik-veriler/turk-is-acikladi-aclik-siniri-38-bin-yoksulluk-siniri-123-bin-lirayi-asti-haberi-845815\n\n3. **2027 yeniden değerleme oranı %27,83 (Resmî Gazete, 24 Kasım).** Haberlerdeki tahminlere göre 10 yıllık pasaport 13.410 TL'den yaklaşık 17.142 TL'ye, B sınıfı ehliyet 8.634,5 TL'ye, yurt dışı çıkış harcı 1.250 TL'den 1.590 TL'ye çıkıyor. IMEI kaydı 54.258 TL'den 69.358 TL'ye, kırmızı ışık cezası 6.391 TL'ye yükseliyor. Bu oranın MTV'ye aynen uygulanıp uygulanmayacağı henüz kesin değil.\n   İçerik fikri: \"Ocak'ta cebinizden çıkacak 2027 zam tablosu\" carousel'i.\n   Kaynaklar: https://www.sozcu.com.tr/2027-yili-yeniden-degerleme-orani-belli-oldu-iste-vergi-pasaport-harc-ve-cezalara-gelecek-zamlar-p375499 , https://finans.mynet.com/haber/detay/ekonomi/mtv-trafik-cezasi-muayene-ucreti-pasaport-yurt-disi-cikis-harci-2027-yeniden-degerleme-orani-belli-oldu/582841/\n\n4. **Yurt dışından telefon getirmek hâlâ mantıklı mı?** IMEI harcı yaklaşık 69 bin TL olunca soru şu: Türkiye fiyatı mı, yurt dışı fiyatı artı harç mı? Teknoloji karşılaştırması için hazır ve viral olmaya yatkın bir konu. Kaynak: 3. maddedeki linkler.\n\n5. **Kira artış tavanı Kasım'da %31,23.** Ekim'de %31,49'du. Kiracılar ve ev sahipleri her ay \"bu ay kiram ne kadar olur?\" diye arıyor.\n   İçerik fikri: her ayın 3'ünde, TÜFE açıklanınca \"kira zammı hesaplama\" postu.\n   Kaynaklar: https://www.birgun.net/haber/kasim-2026-kira-artis-orani-belli-oldu-kira-zammi-yuzde-kac-744183 , https://www.emlakjet.com/blog/kasim-2026-kira-artis-orani-belli-oldu\n\n6. **Konut kredisi faizleri ve \"kira mı kredi mi\" sorusu.** TCMB'nin ölçtüğü ortalama yıllık konut kredisi faizi %41,35, aylık yaklaşık %3,45. Kampanyalı en düşük aylık oranlar %2,87–2,89 civarında (KuveytTürk, Ziraat). 1 milyon TL ve 120 ay vadede oranlar %2,87 ile %3,83 arasında değişiyor. Bir kaynak, bir özel bankanın oranı %2,85'e indirdiğini yazıyor; bu tek bir bankanın oranı.\n   İçerik fikri: \"2 milyon TL kredi: aylık taksit, ödenen toplam faiz ve aynı evin kirası\" karşılaştırması.\n   Kaynaklar: https://www.emlakmanset.com/konut-kredisi-faizi-yuzde-4135te-yatay-stok-859-milyar-tl.html , https://www.emlakhaberajansi.com/konut-kredisi-faizleri-kasim-2026-en-dusuk-oran-yuzde-287.html , https://www.politikam.com/konut-kredisi-faizleri-dustu-120-ay-vadeli-kredi-taksitleri-kasim-2026\n\n7. **Enflasyon ve faiz takvimi (Aralık başı için hazırlık).** Kasım TÜFE verisi 3 Aralık'ta açıklanacak. Aylık beklenti %1,1, yıllık beklenti yaklaşık %30. TCMB 2026 yıl sonu tahminini %29,5'e yükseltti. Yılın son faiz kararı 10 Aralık'ta ve indirim bekleniyor (%35 beklentisi, HSBC'ye göre 100 baz puan). Kaynaklar şu anki politika faizi konusunda çelişiyor (%36 mı %37 mi), resmi TCMB duyurusuna bakılmalı.\n   Kaynaklar: https://tr.investing.com/news/economy-news/kasm-tufe-beklentisi-yllk-oran-yuzde-24e-yakn-4173981 , https://www.haberler.com/haber/merkez-bankasi-faiz-karari-ne-zaman-aralik-ppk-20461547-haberi/ , https://www.cnbce.com/haberler/hsbcden-tcmbnin-faiz-karari-icin-iki-senaryo-doviz-talebi-belirleyici-olacak-h42745\n\n8. **ÖTV muafiyetli (engelli) araç fiyatları çok aranıyor.** Örnekler: Fiat Egea 1.6 dizel 1.499.900 TL yerine 820.500 TL, Toyota Corolla 1.965.000 TL yerine 1.097.006 TL, Hyundai i20 1.575.000 TL yerine 1.012.500 TL. Muafiyet üst limiti için kaynaklar farklı rakam veriyor: güncel limit 2.873.900 TL olarak geçiyor, %27,83 ile yaklaşık 3.673.706 TL'ye çıkacağı tahmin ediliyor.\n   Kaynaklar: https://www.webtekno.com/otv-muafiyetli-araclar-fiyat-listesi-h220364.html , https://www.yenisafak.com/galeri/ekonomi/820-bin-tl-veren-sifir-arac-sahibi-olacak-otvsiz-alinacak-arac-modelleri-ve-fiyatlari-guncellendi-iste-kasim-2026-otv-muafiyetli-otomobil-fiyatlari-4869831 , https://www.posta.com.tr/galeri/otvsiz-arac-modelleri-ve-fiyatlari-otvsiz-arac-fiyatlari-ne-kadar-kasim-2026-otv-muafiyetli-arac-modelleri-3064483\n\n9. **Yıl sonu sıfır araç kampanyaları: \"Ocak zammından önce alınır mı?\"** Sıfır araç fiyatları 465 bin TL (Citroën Ami) ile 15 milyon TL arasında, ortalama yaklaşık 2,88 milyon TL. Kampanya örnekleri: Hyundai Bayon'da 240 bin TL indirim ya da 150 bin TL için 12 ay %0 faiz, BYD Seal'de 305 bin TL ve Kia Seltos'ta 300 bin TL indirim.\n   İçerik fikri: \"Bir arabanın yıllık gerçek maliyeti\" dökümü: MTV (2027 artışıyla), sigorta, kasko, yakıt, bakım, değer kaybı. Kasko zamlarına dair güncel veri bulamadım, ayrıca araştırmak gerekiyor.\n   Kaynaklar: https://www.araclo.com/sifir-arac-fiyatlari/kasim-2026-sifir-arac-fiyatlari , https://arabakarsilastirma.com.tr/blog/kasim-2026-sifir-araba-kampanyalari , https://onedio.com/haber/turkiye-de-2026-yilinda-satilan-en-ucuz-sifir-otomobiller-1395571\n\n10. **Netflix zammı abonelikleri yeniden gündeme taşıdı.** Ekim 2026'dan itibaren Temel 259,99 TL, Standart 389,99 TL, Premium 499,99 TL oldu. Artış %31,6–36,8 arasında. Mevcut üyelerin faturasına yenileme tarihinde yansıyor.\n    İçerik fikri: \"Aylık dijital abonelik faturanız\" ve \"hangisini iptal etmeli?\" karşılaştırması. Spotify ve YouTube Premium için 2026 zam haberi bulamadım; eldeki rakamlar (59,99 / 79,99 TL) eski olabilir, resmi sayfalardan kontrol edin.\n    Kaynaklar: https://egirisim.com/2026/10/09/netflix-turkiye-abonelik-ucretlerine-zam-yapti-premium-paket-49999-tl-oldu/ , https://www.webtekno.com/netflix-zam-yeni-fiyatlar-h226303.html , https://kepyo.com/blog/2026-dijital-abonelik-maliyetleri-netflix-spotify-rehberi.html\n\n**Formatlar ve içerik stratejisi**\n\n11. **Kaydedilen carousel'ler.** Kalem kalem maliyet tabloları, adım adım hesaplar ve \"hesap makinesi\" slaytları en çok kaydedilen ve paylaşılan içerikler. Instagram carousel'lerde slayt başına izlenme süresini ölçüyor; her slayt bir sonrakine geçirtmeli. Reels takipçi olmayanlara daha fazla ulaşıyor, carousel ise kaydedilmede ve etkileşimde öne çıkıyor. Kaynaklar bu konuda çelişiyor ve çoğu satıcı blogu.\n    Kaynaklar: https://metricool.com/instagram-trends/ , https://www.emarketer.com/content/carousels-questions-drive-instagram-engagement , https://dev.to/fermainpariz/how-to-create-instagram-carousel-posts-that-get-saved-and-shared-2026-guide-1jjm\n\n12. **Soru-cevap Reels.** Takipçinin sorusunu (\"40 bin maaşla araba alınır mı?\") 30 saniyede rakamla cevaplayan videolar, finansta en çok dönüşüm getiren formatlardan sayılıyor. Uzun anlatımlar ve tek görsellik statik infografikler artık yeterli bulunmuyor.\n    Kaynaklar: https://fluxnote.io/blog/instagram-reels-strategy-for-finance-creators-in-2026 , https://contentworks.agency/?p=15303\n\n13. **Rekabet arttı.** Metricool'a göre markalar 2025'e göre %24 daha fazla carousel ve %35 daha fazla Reels paylaşıyor. Organik erişim için güncel veriye ilk tepki veren olmak (TÜFE, asgari ücret ve faiz günlerinde) avantaj sağlıyor. Bir kaynağa göre finans içeriklerinde sponsorluk ücretleri lifestyle içeriklerin 2–3 katı; bu tek bir satıcının iddiası.\n    Kaynaklar: https://metricool.com/instagram-trends/ , https://fluxnote.io/guides/instagram-reels-finance-niche-2026\n\n**Kitlenin şu an en çok sorduğu sorular**\n\n14. Aramalara ve başlıklara bakarak çıkardığım sorular:\n    - \"2027'de maaşım kaç TL olacak, kira ve fatura sonrası elimde ne kalır?\"\n    - \"Ocak zammından önce araba almalı mıyım?\"\n    - \"Kira mı, %2,9 faizli kredi mi?\"\n    - \"Kiram yasal olarak en fazla ne kadar artabilir?\"\n    - \"Pasaport, ehliyet ve MTV'ye 2027'de ne kadar ödeyeceğim?\"\n    - \"Abonelik faturam ne kadar?\"\n    - \"Bekâr biri bir şehirde ayda kaça yaşar?\"\n\n15. **Önümüzdeki iki haftanın içerik takvimi:**\n    - 3 Aralık: Kasım enflasyonu açıklanır; aynı gün Aralık kira artış oranı postu.\n    - Aralık başı: Türk-İş Kasım açlık sınırı verisi.\n    - 10 Aralık: Faiz kararı; ardından \"kredi taksitim ne olur?\" içeriği.\n    - Aralık ortası ve sonu: asgari ücret görüşmeleri ve kesinleşen 2027 MTV tarifesi.\n\n**Eksikler:** Kasko zamları, İstanbul'a özel yaşam maliyeti ve Spotify/YouTube'un güncel Türkiye fiyatları için güvenilir veri bulamadım. Bunlar ayrıca araştırılmalı."
+  "web_notlari": "27 Kasım 2026 itibarıyla Türkiye gündemi, Resmi Gazete'de yayımlanan yüzde 27,83'lük yeni yeniden değerleme oranı, akaryakıt ve su zamları, yeni otomobil lansman fiyatları ile altın ve döviz piyasasındaki hareketlilikle şekilleniyor. Bu dönemde artan maliyetler ve vergi güncellemeleri vatandaşların bütçe hesaplarını doğrudan etkiliyor.\n- Yeniden Değerleme Oranı ile Vergi, Harç ve Cezaların Artması (2027 yılında uygulanacak yeniden değerleme oranının yüzde 27,83 olarak Resmi Gazete'de yayımlanması.) [Dünya Gazetesi - https://www.dunya.com/foto-galeri/ekonomi/yeniden-degerleme-orani-resmi-gazetede-2027de-vergi-harc-ve-cezalar-ne-kadar-olacak-galeri-848647]\n- Akaryakıt Fiyatlarındaki Güncel Değişimler ve Maliyeti (Kasım ayı boyunca benzin ve motorine gelen vergi kaynaklı zamlar ve yeni fiyat beklentileri.) [Cumhuriyet - https://www.cumhuriyet.com.tr/ekonomi/akaryakitta-once-indirim-son-zam-yolda-benzin-ve-motorin-fiyatlari-yeniden-degisiyor-2558996]\n- Yeni Çıkan Fiat Fastback ve Grizzly Modellerinin Lansman Fiyatı (Fiat'ın yeni SUV ve crossover modelleri Grizzly ve Fastback'in Türkiye fiyatlarının açıklanması.) [Webtekno - https://www.webtekno.com/yeni-fiat-grizzly-ve-fastback-turkiye-fiyatlari-h229315.html]\n- Kocaeli Su Zamlı Tarifesi ve Şehirlerde Su Maliyeti (Kocaeli'de konut su tarifesine yüzde 25 zam yapılarak metreküp fiyatının 48,11 TL'ye yükselmesi.) [Kocaeli Fikir - https://www.facebook.com/kocaelifikirhaber/posts/-kocaelide-suya-y%C3%BCzde-25-zam-geldiisu-genel-kurulunda-kabul-edilen-yeni-tarifeyl/1635223121952347]\n- ÖTV Muafiyetli Araç Limiti ve Alınabilecek Modeller (2027 yılı ÖTV'siz araç üst limitinin değişmesiyle 2 milyon TL altındaki araçların listelenmesi.) [Yeni Şafak - https://www.yenisafak.com/galeri/ekonomi/otvsiz-araclarda-2027-limiti-degisti-hangi-araclar-alinabilecek-2-milyon-tl-altinda-ve-ustunde-araclarin-listesi-4877125]\n- Yılbaşı Ağacı ve Süsleme Maliyeti (Yıl yaklaşırken yılbaşı ağacı ve süsleme malzemelerine gelen zamların haber olması.) [X (Zam Haber) - https://x.com/ZamHaberAjans/status/2124403395251319172]\n- Gram Altın ve Çeyrek Altın Düşüş Dönemi Maliyeti (Altın fiyatlarında son günlerde yaşanan sert düşüşler ve piyasadaki son durum.) [Bloomberg HT - https://www.bloomberght.com/altin]\n- Bitcoin ve Kripto Piyasasındaki Düşüşün Maliyeti (Bitcoin'in son bir ayda yüzde 29 değer kaybederek 2026'nın dibini kırması.) [YouTube - https://www.youtube.com/watch?v=jujSdA59ACY]\n- Dolar Kuru ve Serbest Piyasa Karşılaştırması (Dolar kurunun serbest piyasada 50,68 TL seviyelerinde işlem görmesi.) [Canlı Döviz - https://canlidoviz.com/doviz-kurlari/dolar]"
 }

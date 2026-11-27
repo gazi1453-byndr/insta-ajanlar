@@ -2,6 +2,114 @@
   "tarih": "2026-11-27T13:43:44.842271+03:00",
   "hooklar": [
     {
+      "soru": "Yeniden Değerleme Oranı ile Vergi, Harç ve Cezaların Artması",
+      "hook": "2027'de pasaport, IMEI ve trafik cezaları kaça mal olacak?",
+      "platform_kaniti": "Dünya Gazetesi - https://www.dunya.com/foto-galeri/ekonomi/yeniden-degerleme-orani-resmi-gazetede-2027de-vergi-harc-ve-cezalar-ne-kadar-olacak-galeri-848647",
+      "veri_ihtiyaci": "10 yıllık pasaport harcı, IMEI kayıt ücreti, trafik cezaları ve yurt dışı çıkış harcının 2027 yılı tahmini zamlı tutarları.",
+      "format": "reel",
+      "kullanildi": true,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016176+03:00",
+      "guncellik": 10,
+      "neden_simdi": "2027 yılında uygulanacak yeniden değerleme oranının yüzde 27,83 olarak Resmi Gazete'de yayımlanması."
+    },
+    {
+      "soru": "Akaryakıt Fiyatlarındaki Güncel Değişimler ve Maliyeti",
+      "hook": "İstanbul'da benzin 68 TL'yi aştı, aylık depo doldurmak ne kadar?",
+      "platform_kaniti": "Cumhuriyet - https://www.cumhuriyet.com.tr/ekonomi/akaryakitta-once-indirim-son-zam-yolda-benzin-ve-motorin-fiyatlari-yeniden-degisiyor-2558996",
+      "veri_ihtiyaci": "Güncel benzin (68,40 TL), motorin (88,90 TL) fiyatları ve ortalama bir aracın aylık yakıt maliyeti.",
+      "format": "reel",
+      "kullanildi": true,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016185+03:00",
+      "guncellik": 9,
+      "neden_simdi": "Kasım ayı boyunca benzin ve motorine gelen vergi kaynaklı zamlar ve yeni fiyat beklentileri."
+    },
+    {
+      "soru": "Yeni Çıkan Fiat Fastback ve Grizzly Modellerinin Lansman Fiyatı",
+      "hook": "Fiat'ın yeni modeli Fastback cebe tam olarak kaça mal oluyor?",
+      "platform_kaniti": "Webtekno - https://www.webtekno.com/yeni-fiat-grizzly-ve-fastback-turkiye-fiyatlari-h229315.html",
+      "veri_ihtiyaci": "Lansmana özel 1 milyon 499 bin TL başlangıç fiyatı ve donanım seçenekleri maliyeti.",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016189+03:00",
+      "guncellik": 9,
+      "neden_simdi": "Fiat'ın yeni SUV ve crossover modelleri Grizzly ve Fastback'in Türkiye fiyatlarının açıklanması."
+    },
+    {
+      "soru": "Kocaeli Su Zamlı Tarifesi ve Şehirlerde Su Maliyeti",
+      "hook": "Musluktan akan suyun metrekaresi artık 48 TL oldu!",
+      "platform_kaniti": "Kocaeli Fikir - https://www.facebook.com/kocaelifikirhaber/posts/-kocaelide-suya-y%C3%BCzde-25-zam-geldiisu-genel-kurulunda-kabul-edilen-yeni-tarifeyl/1635223121952347",
+      "veri_ihtiyaci": "Birinci kademe suyun metreküp fiyatı (48,11 TL) ve 4 kişilik bir ailenin aylık ortalama su faturası.",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016191+03:00",
+      "guncellik": 8,
+      "neden_simdi": "Kocaeli'de konut su tarifesine yüzde 25 zam yapılarak metreküp fiyatının 48,11 TL'ye yükselmesi."
+    },
+    {
+      "soru": "ÖTV Muafiyetli Araç Limiti ve Alınabilecek Modeller",
+      "hook": "2027'de ÖTV muafiyetiyle hangi arabaları alabileceksin?",
+      "platform_kaniti": "Yeni Şafak - https://www.yenisafak.com/galeri/ekonomi/otvsiz-araclarda-2027-limiti-degisti-hangi-araclar-alinabilecek-2-milyon-tl-altinda-ve-ustunde-araclarin-listesi-4877125",
+      "veri_ihtiyaci": "ÖTV'siz araç limitleri ve Toyota Corolla gibi popüler modellerin muafiyetli satış fiyatları (örn. 1.965.000 TL).",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016193+03:00",
+      "guncellik": 8,
+      "neden_simdi": "2027 yılı ÖTV'siz araç üst limitinin değişmesiyle 2 milyon TL altındaki araçların listelenmesi."
+    },
+    {
+      "soru": "Gram Altın ve Çeyrek Altın Düşüş Dönemi Maliyeti",
+      "hook": "Altındaki son sert düşüş yatırımcıya ne kaybettirdi?",
+      "platform_kaniti": "Bloomberg HT - https://www.bloomberght.com/altin",
+      "veri_ihtiyaci": "Gram altın (5.991 TL) ve çeyrek altın (9.585 TL) güncel serbest piyasa alış fiyatları.",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016197+03:00",
+      "guncellik": 8,
+      "neden_simdi": "Altın fiyatlarında son günlerde yaşanan sert düşüşler ve piyasadaki son durum."
+    },
+    {
+      "soru": "Dolar Kuru ve Serbest Piyasa Karşılaştırması",
+      "hook": "Dolar 50 TL sınırını geçti, ithal ürünlerin maliyeti nasıl değişti?",
+      "platform_kaniti": "Canlı Döviz - https://canlidoviz.com/doviz-kurlari/dolar",
+      "veri_ihtiyaci": "Dolar kuru serbest piyasa satış fiyatı (50,68 TL) ve bankalar arası makas aralıkları.",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016201+03:00",
+      "guncellik": 8,
+      "neden_simdi": "Dolar kurunun serbest piyasada 50,68 TL seviyelerinde işlem görmesi."
+    },
+    {
+      "soru": "Yılbaşı Ağacı ve Süsleme Maliyeti",
+      "hook": "Bu yıl evde yılbaşı ağacı kurmanın faturası ne kadar?",
+      "platform_kaniti": "X (Zam Haber) - https://x.com/ZamHaberAjans/status/2124403395251319172",
+      "veri_ihtiyaci": "150 cm'lik ağaç fiyatları (300 TL - 90.000 TL arası) ve ortalama süsleme maliyeti (2.500 TL - 7.500 TL).",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016195+03:00",
+      "guncellik": 7,
+      "neden_simdi": "Yıl yaklaşırken yılbaşı ağacı ve süsleme malzemelerine gelen zamların haber olması."
+    },
+    {
+      "soru": "Bitcoin ve Kripto Piyasasındaki Düşüşün Maliyeti",
+      "hook": "Bitcoin son bir ayda yatırımcısının cebinden ne kadar eritti?",
+      "platform_kaniti": "YouTube - https://www.youtube.com/watch?v=jujSdA59ACY",
+      "veri_ihtiyaci": "Bitcoin'in aylık yüzde 29'luk değer kaybı ve kritik destek seviyeleri (49k-55k dolar aralığı).",
+      "format": "reel",
+      "kullanildi": false,
+      "kaynak": "gundem",
+      "tarih": "2026-11-27T15:52:39.016199+03:00",
+      "guncellik": 7,
+      "neden_simdi": "Bitcoin'in son bir ayda yüzde 29 değer kaybederek 2026'nın dibini kırması."
+    },
+    {
       "soru": "2027 asgari ücret kaç TL olacak, zam senaryolarına göre net maaş ne olur?",
       "hook": "%25, %30, %35 zam: Net maaşın her senaryoda kaç TL?",
       "platform_kaniti": "Haber siteleri (Google Trends verisi yok): Milli Gazete %28,4-35 tablosu, RayHaber %25-30 senaryoları (Kasım 2026), Paratic 40 bin TL senaryosu, Türkgün 25.11.2026",
@@ -55,7 +163,7 @@
       "platform_kaniti": "Politikam '120 ay vadeli kredi taksitleri Kasım 2026', Emlakmanşet ve Emlak Haber Ajansı (en düşük oran %2,87), Ekonomipolitikasi haftalık oran tabloları",
       "veri_ihtiyaci": "Aylık %2,87 faizle 1.000.000 TL, 120 ay için yaklaşık hesap: taksit ≈ 29.695 TL, toplam geri ödeme ≈ 3,56 milyon TL. Bunu bankanın kredi hesaplayıcısında doğrula, %2,85 ve %3,83 oranlarıyla da hesapla. Masraf, sigorta ve vergi istisnalarını ekle. Kasım 2026 oranları olduğunu yaz.",
       "format": "reel",
-      "kullanildi": false
+      "kullanildi": true
     },
     {
       "soru": "Bu ay kiraya en fazla yüzde kaç zam yapılabilir?",
