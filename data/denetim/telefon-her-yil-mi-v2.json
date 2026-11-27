@@ -1,11 +1,7 @@
 {
   "dosya": "data/senaryolar/telefon-her-yil-mi-v2.json",
-  "tarih": "2026-11-27T22:36:10.724895+03:00",
-  "format_grafik_denetimi": [
-    "Sahne 4 (ekran): '62.999 TL' tablodaki hiçbir rakamla eşleşmiyor",
-    "Sahne 6 (seslendirme): '640 lira' tablodaki hiçbir rakamla eşleşmiyor",
-    "Sahne 8 (seslendirme): '840 lira' tablodaki hiçbir rakamla eşleşmiyor"
-  ],
+  "tarih": "2026-11-27T22:38:34.187697+03:00",
+  "format_grafik_denetimi": [],
   "kaynak_dogrulama": {
     "rapor": {
       "kalemler": [
@@ -13,35 +9,37 @@
           "secenek": "Her yıl yenile",
           "kalem": "Yeni telefon (18 Pro 256 GB)",
           "durum": "kaynakta_var",
-          "alinti": "fiyatı: 137.999 TL 6.9 inç veya 6.3 inç Super Retina XDR ekran Dipnot 2 — 5.4 inç Super Retina XDR dış ekran yok ProMotion",
-          "aciklama": "Apple resmi sitesinde iPhone 18 Pro 256 GB fiyatı 137.999 TL olarak yer almaktadır."
+          "alinti": "fiyatı: 137.999 TL",
+          "aciklama": "Apple kaynak sayfasında iPhone 18 Pro 256 GB fiyatı birebir 137.999 TL olarak geçmektedir."
         },
         {
           "secenek": "Her yıl yenile",
           "kalem": "Eskisinin satışı (17 Pro)",
           "durum": "tahmini_isaretli",
           "alinti": "",
-          "aciklama": "Tabloda kalem tahmini olarak işaretlenmiştir ve ikinci el ilan fiyatlarının alt sınırına dayanmaktadır."
+          "aciklama": "Kalem metninde ve varsayımlarda tahmini olduğu açıkça belirtilmiştir, ikincil kaynakta net bir fiyat doğrulaması yoktur."
         },
         {
           "secenek": "Her yıl yenile",
           "kalem": "Kaçan faiz",
           "durum": "hesaplanan",
-          "alinti": "Bankaların TL mevduat hesaplarına uyguladığı faiz oranı, 20 Kasım haftasında bir önceki haftaya göre 6 baz puan azalarak yüzde 41,62’ye geriledi. 6 aya kadar vadeli TL mevduat hesaplarında %17,5 olarak uygulanan stopaj",
-          "aciklama": "(137.999 − 75.000) − 5.799 = 57.200 TL. Net faiz oranı = %41,62 × (1 − 0,175) = %34,3365. 57.200 × 0,343365 = 19.640 TL olarak matematiksel olarak doğru hesaplanmıştır."
+          "alinti": "Bankaların TL mevduat hesaplarına uyguladığı faiz oranı, 20 Kasım haftasında bir önceki haftaya göre 6 baz puan azalarak yüzde 41,62’ye geriledi.",
+          "aciklama": "Yenilemenin ek maliyeti 57.200 TL, net faiz oranı %34,3365 olup 1 yıllık faiz 19.640 TL olarak doğru hesaplanmıştır."
         },
         {
           "secenek": "Eskisiyle devam",
           "kalem": "Batarya değişimi",
-          "durum": "kaynakta_var",
+          "durum": "desteksiz",
           "alinti": "",
-          "aciklama": "Kaynak metinlerde DonanımHaber referanslı 5.799 TL batarya değişim ücreti belirtilmiştir."
+          "aciklama": "DonanımHaber kaynağına metin içinde yer verilmiştir ancak sağlanan kaynak metinlerinde bu batarya değişim ücreti geçmemektedir."
         }
       ],
       "tarih_guncel_mi": true,
-      "ozet": "Tablodaki maliyet kalemleri ve hesaplamalar sunulan kaynak metinler, resmi satış fiyatları ve TCMB faiz verileriyle tamamen uyumludur."
+      "ozet": "Maliyet tablosundaki iPhone 18 Pro 256 GB fiyatı resmi kaynakla uyuşmaktadır. Kaçan faiz hesabı verilen formül ve TCMB faiz verileriyle doğrulanmıştır. Eski telefonun satış fiyatı tahmini olarak işaretlenmiştir. Batarya değişimi kalemi için sağlanan metinlerde eşleşen kaynak bulunamamıştır."
     },
-    "sorunlar": [],
+    "sorunlar": [
+      "Eskisiyle devam / Batarya değişimi: kaynakta yok (DonanımHaber kaynağına metin içinde yer verilmiştir ancak sağlanan kaynak metinlerinde bu batarya değişim ücreti geçmemektedir.)"
+    ],
     "bulunan_sayfa": [
       "https://turkiyendenhaber.com/tl-mevduat-faizi-yuzde-4162ye-geriledi-10272343",
       "https://www.afyonpostasi.com.tr/resmi-gazetede-yayimlandi-gecikme-zammi-ve-tecil-faizi-dusuruldu",
@@ -65,34 +63,33 @@
     "puanlar": {
       "hook_gucu": 22,
       "deger": 19,
-      "rakam_dogrulugu": 20,
+      "rakam_dogrulugu": 5,
       "akis_ve_tutma": 9,
       "ozgunluk": 9,
       "platform_metinleri": 5,
       "gorsel_okunurluk": 9
     },
-    "toplam": 93,
-    "karar": "ONAY",
-    "tutar_mi": "Telefonlarını her yıl değiştiren geniş bir kitle için gizli maliyeti (kaçan faiz dahil) net olarak gözler önüne seriyor. Rakamlar ve kaynaklar eksiksiz, merak uyandıran tasarruf odaklı güçlü bir içerik.",
-    "rakam_hatalari": [],
-    "geri_bildirim": ""
+    "toplam": 78,
+    "karar": "REVIZYON",
+    "tutar_mi": "Telefon yenileme maliyeti ve kaçan faiz gibi gizli maliyetleri somut rakamlarla göz önüne serdiği için teknoloji meraklıları arasında yüksek kaydetme ve paylaşma etkileşimi alacaktır.",
+    "rakam_hatalari": [
+      "Kaynakta yok: Eskisiyle devam / Batarya değişimi"
+    ],
+    "geri_bildirim": "Rakam hataları: Kaynakta yok: Eskisiyle devam / Batarya değişimi\n"
   },
   "sanat_yonetmeni": {
-    "puan": 85,
-    "gecti": false,
-    "sorunlar": [
-      "Sahne 4: Ekrandaki '137.999 75.000' ifadesi eksik ve aradaki çıkarma işaretini içermiyor, matematiksel işlem anlatımı görselde bozuk duruyor.",
-      "Sahne 7: Grafik barlarının etiket hizalaması mobilde sıkışık görünüyor, okunabilirlik sınırda."
-    ],
+    "puan": 95,
+    "gecti": true,
+    "sorunlar": [],
     "yazim_hatalari": []
   },
   "bas_mudur": {
-    "puan": 74,
-    "karar": "REVIZYON",
-    "gerekce": "Sanat yönetmeni ve format denetiminde tespit edilen matematiksel görsel uyumsuzlukları (Sahne 4'teki eksik çıkarma işareti) ve seslendirme ile tablo arasındaki küsurat tutarsızlıkları düzeltilmelidir. Rakamlar güçlü ancak görsel sunum marka standartlarının altında kalıyor.",
+    "puan": 49,
+    "karar": "RED",
+    "gerekce": "Otomatik RED: 1 kalem kaynakta yok (Eskisiyle devam / Batarya değişimi). Kontrol raporunda belirtildiği üzere 'Eskisiyle devam / Batarya değişimi' kalemi sağlanan kaynak metinlerinde doğrulanmamıştır. Yayın eşiği olan 85 puanın altında kalmasının nedeni bu kaynak eksikliğidir. Rakamların doğruluğu ve şeffaflığı marka kurallarımızın temelidir.",
     "duzeltmeler": [
-      "Sahne 4 görselindeki formülü '137.999 - 75.000' şeklinde eksiksiz ve çıkarma işaretiyle yeniden düzenle",
-      "Sahne 6 ve 8 seslendirmelerini tablodaki kuruş/küsuratlarla tam uyumlu hale getir"
+      "Kaynak göster ya da 'tahmini' işaretle: Eskisiyle devam / Batarya değişimi",
+      "Batarya değişimi ücreti (5.799 TL) için geçerli kaynak metnini ekleyin veya doğrulanmış güncel yetkili servis fiyatıyla güncelleyin."
     ],
     "seri_uyumu": true
   }
