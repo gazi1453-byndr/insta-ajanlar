@@ -161,6 +161,8 @@ def _rows_breakdown(sheet: DataSheet, limit: int = 6) -> list[dict]:
     o = sheet.secenekler[0]
     total = o.toplam_tl or 1
     items = sorted(o.kalemler, key=lambda i: i.tutar_tl, reverse=True)
+    if len(items) == limit + 1:  # tek kalem artıyorsa 'Diğer' yerine kendi adıyla göster
+        limit += 1
     rows = [{"label": _short(i.kalem, 24), "value": round(i.tutar_tl, 2), "pct": round(100 * i.tutar_tl / total),
              "est": i.tahmini} for i in items[:limit]]
     if len(items) > limit:

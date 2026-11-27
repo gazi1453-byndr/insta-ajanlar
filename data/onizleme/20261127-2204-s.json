@@ -1,0 +1,219 @@
+{
+  "id": "20261127-2204-s",
+  "olusturma": "2026-11-27T22:07:27.570906+03:00",
+  "kaynak": "senaryo",
+  "fikir": {
+    "konu": "250 kişilik düğünün gerçek maliyeti ve takının kendini çıkarması için gereken çeyrek sayısı (Kasım 2026)",
+    "alt_seri": "DÜĞÜN"
+  },
+  "veri": {
+    "baslik": "250 kişilik düğünün gerçek maliyeti (İstanbul, Kasım 2026)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {
+        "ad": "Düğün",
+        "kalemler": [
+          {
+            "kalem": "Düğün salonu (yemekli)",
+            "tutar_tl": 225000.0,
+            "aciklama": "250 kişi × 900 TL (İstanbul yemekli salonlarda güncel kampanya bandı 900-1.520 TL'nin alt ucu)",
+            "kaynak": "İstanbul düğün salonu fiyat rehberleri 2026 (dugunbuketi.com, anitopla.com, karekod.org)",
+            "tahmini": false
+          },
+          {
+            "kalem": "Kına + nişan",
+            "tutar_tl": 120000.0,
+            "aciklama": "İki küçük davet (~100'er kişi × 600 TL)",
+            "kaynak": "Tahmini",
+            "tahmini": true
+          },
+          {
+            "kalem": "Gelinlik + damatlık",
+            "tutar_tl": 55000.0,
+            "aciklama": "Hazır gelinlik 40.000 TL + damatlık ~15.000 TL (tahmini)",
+            "kaynak": "dugun.com 2026 düğün masrafları; damatlık tahmini",
+            "tahmini": true
+          },
+          {
+            "kalem": "Fotoğraf, DJ ve diğer",
+            "tutar_tl": 75000.0,
+            "aciklama": "Fotoğraf ~20.000 (piyasa 10-40 bin), DJ 15.000 (2026 başlangıç), kuaför, davetiye, çiçek, gelin arabası ~40.000",
+            "kaynak": "armut.com, zurnadavul.com, dugunbuketi.com 2026 fiyatları; diğerleri tahmini",
+            "tahmini": true
+          },
+          {
+            "kalem": "Kaçan faiz",
+            "tutar_tl": 163098.0,
+            "aciklama": "475.000 TL düğün harcaması mevduatta dursa: × net %34,34 (brüt %41,62, stopaj %17,5)",
+            "kaynak": "EKOTÜRK / Hibya: TL mevduat faizi %41,62 (TCMB, 20.11.2026 haftası)",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 638098.0
+      }
+    ],
+    "varsayimlar": [
+      "İstanbul, 250 kişilik orta segment yemekli düğün",
+      "Takı nakde çevrilirken çeyrek altın alış fiyatı 9.628 TL (Kapalıçarşı, 27.11.2026); 638.098 / 9.628 = 66,3 → en az 67 çeyrek; faizsiz 475.000 / 9.628 = 49,3 → 50 çeyrek",
+      "Takı altın olarak saklanırsa altının değer değişimi hesaba katılmadı"
+    ],
+    "kaynaklar": [
+      "Düğün salonu fiyatları 2026 https://www.karekod.org/blog/dugun-salonu-fiyatlari/",
+      "İstanbul düğün fiyatları 2026 https://anitopla.com/blog/istanbul-dugun-fiyatlari-2026",
+      "2026 düğün masrafları https://dugun.com/planlama-rehberi/a-dan-z-ye-dugun-masraflari-1704",
+      "Düğün fotoğrafçısı fiyatları https://armut.com/fiyatlari/dugun-fotografcisi_194",
+      "Çeyrek altın 27.11.2026 https://finans.mynet.com/haber/detay/altin/bugun-ceyrek-altin-kac-tl-27-kasim-cuma-2026-gram-tam-cumhuriyet-kapalicarsi-anlik-fiyatlar/585280/",
+      "Hibya TL mevduat faizi %41,62 https://hibya.com/tl-mevduat-faizi-yuzde-4162ye-geriledi-1107822"
+    ],
+    "sonuc": "250 kişilik bir düğün 475.000 TL harcama ve 163.098 TL kaçan faizle 638.098 TL'ye mal oluyor; takının bunu karşılaması için en az 67 çeyrek gerekiyor.",
+    "guven": "orta"
+  },
+  "taslak": {
+    "hook": "Düğünün gerçek maliyeti: 638.098 TL",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Düğünün gerçek maliyeti: 638.098 TL",
+        "metin": "250 kişi · İstanbul · kaçan faiz dahil",
+        "seslendirme": "250 kişilik bir düğünün gerçek maliyetini hesapladık.",
+        "gorsel": "yuzuk",
+        "efekt": "subbass",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Düğün salonu: 225.000 TL",
+        "metin": "250 kişi × 900 · İstanbul yemekli kampanya fiyatı",
+        "seslendirme": "Yemekli salon, kişi başı 900'den 225 bin.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kına + nişan: 120.000 TL",
+        "metin": "İki küçük davet · tahmini",
+        "seslendirme": "Kına ve nişan 120 bin.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Gelinlik + damatlık: 55.000 TL",
+        "metin": "Hazır gelinlik 40.000 + damatlık",
+        "seslendirme": "Gelinlik ve damatlık 55 bin.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Fotoğraf, DJ ve gerisi: 75.000 TL",
+        "metin": "Kuaför, davetiye, çiçek, gelin arabası dahil",
+        "seslendirme": "Fotoğraf, DJ, kuaför ve gerisi 75 bin.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kaçan faiz: 163.098 TL",
+        "metin": "Bu para mevduatta dursa · net %34,3",
+        "seslendirme": "Bu para bir yıl mevduatta dursa 163 bin faiz getirirdi.",
+        "gorsel": "",
+        "efekt": "darbe",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Düğünün faturası",
+        "metin": "",
+        "seslendirme": "Kalem kalem bakınca en büyük pay salonun.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "",
+        "seslendirme": "Toplam gerçek maliyet 638 bin lira.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "kirmizi",
+        "etiket": "DÜĞÜNÜN GERÇEK MALİYETİ",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Takı en az 67 çeyrek olmalı",
+        "metin": "Çeyrek alış 9.628 · faizsiz bile 50 çeyrek",
+        "seslendirme": "Takı bunu kapatmak için en az 67 çeyrek olmalı.",
+        "gorsel": "yok",
+        "efekt": "onay",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Düğün mü yaparsın, parayı ev peşinatına mı koyarsın?",
+        "metin": "Tarafını yorumda seç",
+        "seslendirme": "Sen hangisini seçerdin?",
+        "gorsel": "",
+        "efekt": "kart",
+        "ton": "",
+        "etiket": "",
+        "sure": 3.0
+      }
+    ],
+    "caption": "250 kişilik bir düğün gerçekte kaça mal oluyor? İstanbul, Kasım 2026:\n\n💒 Yemekli salon (250 × 900): 225.000 TL\n💍 Kına + nişan: 120.000 TL (tahmini)\n👰 Gelinlik + damatlık: 55.000 TL\n📸 Fotoğraf, DJ, kuaför, davetiye: 75.000 TL\n📉 Bu para mevduatta dursa kaçan faiz: 163.098 TL\n= 638.098 TL\n\nTakının bunu karşılaması için en az 67 çeyrek gerekiyor (alış 9.628 TL). Faizi saymasan bile 50 çeyrek.\n\nKaynaklar: İstanbul düğün salonu ve organizasyon fiyat rehberleri (2026), Kapalıçarşı çeyrek altın (27.11.2026), TCMB mevduat faizi (%41,62). Kına/nişan, damatlık ve küçük kalemler tahminidir.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "dugun",
+      "dugunmasrafi",
+      "takı",
+      "ceyrekaltin",
+      "evlilik",
+      "kisiselfinans",
+      "birikim"
+    ],
+    "tiktok_aciklama": "",
+    "tiktok_hashtagler": [],
+    "youtube_baslik": "",
+    "youtube_aciklama": "",
+    "youtube_etiketler": [],
+    "yorum_sorusu": "Düğün mü yaparsın, parayı ev peşinatına mı koyarsın?",
+    "alt_text": "250 kişilik düğünün gerçek maliyeti (İstanbul, Kasım 2026)"
+  },
+  "seri_no": 5,
+  "alt_seri": "DÜĞÜN",
+  "senaryo_denetimi": {
+    "format": [],
+    "rakam": [],
+    "senkron": [
+      "Süre hedef dışında: 32.1 sn (hedef 35-42 sn)"
+    ]
+  },
+  "video": "media/generated/20261127-2204-s/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-2204-s/sahne1.jpg"
+  ],
+  "durum": "onizleme"
+}
