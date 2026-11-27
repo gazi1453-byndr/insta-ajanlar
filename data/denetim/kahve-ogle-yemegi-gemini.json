@@ -1,0 +1,119 @@
+{
+  "dosya": "data/senaryolar/kahve-ogle-yemegi-gemini.json",
+  "tarih": "2026-11-27T20:33:15.136891+03:00",
+  "format_grafik_denetimi": [
+    "Tam olarak 1 'grafik' sahnesi olmalı (şu an 0)",
+    "Sahne sayısı 7-11 arası olmalı (şu an 6)",
+    "Toplam seslendirme 56-92 kelime olmalı (~40 sn); şu an 49",
+    "Sahne 1 (ekran): '450 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 1 (ekran): '118.800 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 1 (seslendirme): '118.800 lira' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 2 (ekran): '135 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 3 (ekran): '315 TL' tablodaki hiçbir rakamla eşleşmiyor"
+  ],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Dışarıda",
+          "kalem": "Zincir kahve",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde 35,640.00 TL tutarını veya TÜİK Lokanta Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır."
+        },
+        {
+          "secenek": "Dışarıda",
+          "kalem": "Öğle yemeği",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde 83,160.00 TL tutarını veya öğle yemeği maliyetini doğrulayan herhangi bir bilgi bulunmamaktadır."
+        },
+        {
+          "secenek": "Dışarıda",
+          "kalem": "Kaçan yatırım getirisi",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde 17,480.00 TL tutarını veya TCMB Mevduat Verilerini doğrulayan herhangi bir bilgi bulunmamaktadır."
+        },
+        {
+          "secenek": "Evden getirme",
+          "kalem": "Evde yemek + termos kahve",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "Kaynak metinlerde 25,080.00 TL tutarını veya TÜİK Gıda Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır."
+        }
+      ],
+      "tarih_guncel_mi": false,
+      "ozet": "Tabloda yer alan maliyet kalemleri, verilen kaynak metinlerde geçmemekte ve hesaplanamamaktadır; bu nedenle tüm kalemler desteksizdir."
+    },
+    "sorunlar": [
+      "Dışarıda / Zincir kahve: kaynakta yok (Kaynak metinlerde 35,640.00 TL tutarını veya TÜİK Lokanta Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
+      "Dışarıda / Öğle yemeği: kaynakta yok (Kaynak metinlerde 83,160.00 TL tutarını veya öğle yemeği maliyetini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
+      "Dışarıda / Kaçan yatırım getirisi: kaynakta yok (Kaynak metinlerde 17,480.00 TL tutarını veya TCMB Mevduat Verilerini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
+      "Evden getirme / Evde yemek + termos kahve: kaynakta yok (Kaynak metinlerde 25,080.00 TL tutarını veya TÜİK Gıda Endeksi verisini doğrulayan herhangi bir bilgi bulunmamaktadır.)",
+      "Kaynakların tarihi güncel değil: Tabloda yer alan maliyet kalemleri, verilen kaynak metinlerde geçmemekte ve hesaplanamamaktadır; bu nedenle tüm kalemler desteksizdir."
+    ],
+    "bulunan_sayfa": [
+      "https://www.instagram.com/reel/DfSqlGrIeHh",
+      "https://www.instagram.com/reel/DgKw3mQogmk",
+      "https://www.instagram.com/reel/DffJ56hMy8s",
+      "https://www.instagram.com/reel/DfkuebrKuqN",
+      "https://www.yemeksepeti.com/restaurant/x3rc/starbucks-coffee-x3rc",
+      "https://www.tiktok.com/@efe.denl/video/7704731427614493970",
+      "https://www.trendyol.com/starbucks-soguk-kahve-x-b107775-c105446",
+      "https://tavily.com/knowledge/company/9MLvTfmtZdS4",
+      "https://mudavim.net/gideni-buyuleyen-20-istanbul-mekani",
+      "https://www.oggusto.com/gastronomi/istanbul/istanbulun-en-romantik-restoranlari",
+      "https://immigrantinvest.com/tr/blog/italy-cost-of-living",
+      "https://www.instagram.com/reel/Df64HPWKU8O",
+      "https://celikelcpa.com/tr/blog/personel-yemek-karti-ve-ulasim-istisnasi-2026",
+      "https://uzmanpara.milliyet.com.tr/uzmanpara/gunluk-yemek-ucreti-2027-yeniden-degerlendirme-oranina-gore-2027-yemek-karti-gunluk-bedeli-ne-kadar-oldu-7693363",
+      "https://www.instagram.com/p/DgIfl8xOx72",
+      "https://www.gulbenkmusavirlik.com/vergiden-mustesna-yemek-bedeli-181.html",
+      "https://yatirim.akbank.com/_layouts/15/AkbankYatirimciPortali/Rapor/Download.aspx?ID=11421",
+      "https://www.tcmb.gov.tr/wps/wcm/connect/15fe8641-cdde-4e1e-846a-446eed1d9447/afiyatekim26.pdf?MOD=AJPERES"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 61.4,
+    "ikincil": 28.2,
+    "vurgu": 6.6,
+    "yazi": 3.8
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 18,
+      "rakam_dogrulugu": 15,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 8,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 86,
+    "karar": "REVIZYON",
+    "tutar_mi": "Günlük küçük harcamaların yıllık devasa toplamını ve fırsat maliyetini (kaçan mevduat getirisi) net rakamlarla yüzüne vurduğu için çalışan kitlenin kafasında 'vay be' etkisi yaratıp yüksek oranda kaydetme ve paylaşma alır.",
+    "rakam_hatalari": [
+      "İlk slayttaki 118.800 TL ham harcama toplamıdır (35.640 + 83.160), ancak tablo başlığındaki net dışarıda maliyeti yatırım getirisiyle beraber 136.280 TL'dir. Taslak slaytlarında 118.800 TL ile 136.280 TL arasındaki geçiş seslendirmede hızlı verilmiş, izleyicinin kafası karışabilir."
+    ],
+    "geri_bildirim": "Rakam hataları: İlk slayttaki 118.800 TL ham harcama toplamıdır (35.640 + 83.160), ancak tablo başlığındaki net dışarıda maliyeti yatırım getirisiyle beraber 136.280 TL'dir. Taslak slaytlarında 118.800 TL ile 136.280 TL arasındaki geçiş seslendirmede hızlı verilmiş, izleyicinin kafası karışabilir.\nSlaytlardaki ham harcama (118.800 TL) ile yatırım getirisi dahil toplam maliyet (136.280 TL) arasındaki farkın seslendirmede ve görselde daha net ayrıştırılması iyi olurdu. Ancak tablo matematiği ve kaynaklar kuralına uyduğu için onaylıdır."
+  },
+  "sanat_yonetmeni": {
+    "puan": 85,
+    "gecti": false,
+    "sorunlar": [
+      "Sahne 1: Tablodaki toplam dışarı maaliyet kalemi (136.280 TL) ile ilk sahnede verilen yıllık rakam (118.800 TL) ve günlük çarpanlar çelişiyor. 135 TL x 264 = 35.640 TL ve 315 TL x 264 = 83.160 TL toplandığında toplam 118.800 TL eder; ancak tablodaki 17.480 TL'lik yatırım getirisi eklenerek son sahnede toplam dışarı maliyeti 136.280 TL olarak gösterilmiştir. Sahne 1'de yatırım getirisi dahil edilmemiş veya eksik lanse edilmiştir."
+    ],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 78,
+    "karar": "REVIZYON",
+    "gerekce": "Tablodaki ham harcama toplamı (118.800 TL) ile yatırım getirisi dahil toplam maliyet (136.280 TL) arasında sahneler arası geçişte çelişki bulunuyor. İzleyicinin kafasını karıştırmamak için rakamların tüm slaytlarda ve tablolarda tam uyumlu hale getirilmesi gerekiyor.",
+    "duzeltmeler": [
+      "İlk slayttaki yıllık harcama rakamını tablodaki net toplam ve yatırım getirisi ile tutarlı olacak şekilde revize et.",
+      "Günlük çarpanlar ve ara toplamların tablodaki ana toplamla birebir uyuşmasını sağla."
+    ],
+    "seri_uyumu": true
+  }
+}
