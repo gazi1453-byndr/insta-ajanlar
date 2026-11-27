@@ -88,7 +88,8 @@ _MONEY = re.compile(r"(~|yaklaşık|civarı|neredeyse)?\s*(\d{1,3}(?:\.\d{3})+|\
 def money_check(draft: Draft, sheet: DataSheet) -> list[str]:
     """Ekranda ve seslendirmede RAKAMLA yazılmış her TL tutarı tablodaki bir değerle eşleşmeli.
     '~' / 'yaklaşık' ile yazılanlarda %3 tolerans; diğerlerinde 1 TL."""
-    vals = sorted(_expected_numbers(sheet))
+    # negatif kalemler (ör. değer artışı düşülür) ekranda pozitif yazılır: mutlak değerleri de geçerli
+    vals = sorted({abs(v) for v in _expected_numbers(sheet)} | set(_expected_numbers(sheet)))
     # tablodan türetilebilen makul değerler: aylık↔yıllık
     derived = set(vals) | {round(v / 12, 2) for v in vals} | {round(v * 12, 2) for v in vals}
     issues = []
