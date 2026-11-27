@@ -31,6 +31,32 @@ def durum() -> None:
             print(f"  [{r['durum']}] {r['puan']}/100  {r['konu']}")
 
 
+def kontrol() -> None:
+    """Claude kullanmadan bağlantıları ve izinleri test eder."""
+    import os
+    from agents import instagram as ig
+    ok = True
+    print("ANTHROPIC_API_KEY:", "tanımlı" if os.environ.get("ANTHROPIC_API_KEY") else "EKSİK")
+    try:
+        ids = ig._discover()
+        print(f"✓ Instagram hesabı: @{ids['username']} (IG {ids['ig']}, sayfa {ids['page']})")
+        info = ig.account_info()
+        print(f"✓ Hesap bilgisi: {info.get('followers_count')} takipçi, {info.get('media_count')} gönderi")
+        print(f"✓ Son medya okunabiliyor: {len(ig.recent_media(3))} adet")
+    except Exception as e:
+        ok = False
+        print("✗ Instagram:", e)
+    for label, fn in [("Büyük sayfa inceleme (business_discovery)", lambda: ig.business_discovery("instagram", 1)),
+                      ("Hashtag araması", lambda: ig.hashtag_top_media("ekonomi"))]:
+        try:
+            fn()
+            print(f"✓ {label}")
+        except Exception as e:
+            print(f"✗ {label}: {e}")
+    if not ok:
+        raise SystemExit(1)
+
+
 def main() -> None:
     cmd = sys.argv[1] if len(sys.argv) > 1 else "durum"
     if cmd == "arastir":
@@ -52,6 +78,8 @@ def main() -> None:
         analyst.run()
     elif cmd == "durum":
         durum()
+    elif cmd == "kontrol":
+        kontrol()
     else:
         print(__doc__)
         sys.exit(1)
