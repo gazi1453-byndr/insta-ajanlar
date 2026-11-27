@@ -1,0 +1,280 @@
+{
+  "id": "20261127-1752-2",
+  "olusturma": "2026-11-27T17:52:33.512583+03:00",
+  "fikir": {
+    "konu": "Kocaeli Su Zammı ve Güncel Şehir Su Maliyetleri",
+    "aci": "Musluktan akan suyun metreküpü 48 TL'yi aştı; 4 kişilik bir ailenin aylık faturası ne kadar artacak?",
+    "format": "reel",
+    "veri_ihtiyaci": "Kocaeli'de yüzde 25 zamla 48,11 TL'ye yükselen birinci kademe su birim fiyatı ve 4 kişilik hanenin ortalama aylık tüketim verisi (Kocaeli Fikir kaynaklı).",
+    "hedef_duygu": "şaşkınlık",
+    "neden_simdi": "Kocaeli konut su tarifesine yapılan yüzde 25'lik zammın yürürlüğe girmesi.",
+    "beklenen_etki": "yorum",
+    "hook_bankasi_index": 3,
+    "alt_seri": "",
+    "izleyici": "",
+    "puan": 92
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 62",
+        "Sahne 4 (ekran): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 4 (seslendirme): '79 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 70",
+        "Sahne 4 (ekran): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 4 (seslendirme): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 5 (ekran): '23 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 5 (seslendirme): '23 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 70",
+        "Sahne 4 (ekran): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 4 (seslendirme): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 5 (ekran): '23 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 5 (seslendirme): '23 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 70",
+        "Sahne 4 (ekran): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 4 (seslendirme): '79 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 5 (ekran): '23 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 5 (seslendirme): '23 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    }
+  ],
+  "veri": {
+    "baslik": "Kocaeli Su Tarifesi Kademeleri",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 metreküp",
+    "secenekler": [
+      {
+        "ad": "Yeni Tarife (%25 Zam)",
+        "kalemler": [
+          {
+            "kalem": "1. Kademe Su (1 m³)",
+            "tutar_tl": 48.11,
+            "aciklama": "Yüzde 25 zam sonrası güncel birinci kademe birim fiyatı",
+            "kaynak": "Kocaeli Fikir - https://www.kocaelifikir.com/haber/29230545/kocaelide-suya-yuzde-25-zam-iste-yeni-fiyatlar",
+            "tahmini": false
+          },
+          {
+            "kalem": "2. Kademe Su (1 m³)",
+            "tutar_tl": 87.79,
+            "aciklama": "İkinci kademe güncel su birim fiyatı",
+            "kaynak": "Instagram - https://www.instagram.com/p/DgNQulYRRGY",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 135.9
+      },
+      {
+        "ad": "Eski Tarife",
+        "kalemler": [
+          {
+            "kalem": "1. Kademe Su (1 m³)",
+            "tutar_tl": 38.49,
+            "aciklama": "Zam öncesi birinci kademe su birim fiyatı",
+            "kaynak": "Kocaeli Fikir - https://www.kocaelifikir.com/haber/29230545/kocaelide-suya-yuzde-25-zam-iste-yeni-fiyatlar",
+            "tahmini": false
+          },
+          {
+            "kalem": "2. Kademe Su (1 m³ tahmini)",
+            "tutar_tl": 70.23,
+            "aciklama": "Yeni fiyat üzerinden yüzde 25'lik önceki dönemi bulmak için geri hesaplama yapılmıştır",
+            "kaynak": "Kocaeli Fikir - https://www.kocaelifikir.com/haber/29230545/kocaelide-suya-yuzde-25-zam-iste-yeni-fiyatlar",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 108.72
+      }
+    ],
+    "varsayimlar": [
+      "Hane halkının toplam aylık tüketim miktarı kaynaklarda yer almadığı için hesaplama metreküp birim fiyatları üzerinden yapılmıştır.",
+      "Eski ikinci kademe fiyatı, yeni fiyattaki %25 oranından geriye dönük tahmini olarak hesaplanmıştır."
+    ],
+    "kaynaklar": [
+      "Kocaeli Fikir - https://www.kocaelifikir.com/haber/29230545/kocaelide-suya-yuzde-25-zam-iste-yeni-fiyatlar",
+      "Instagram - https://www.instagram.com/p/DgNQulYRRGY",
+      "Instagram - https://www.instagram.com/reel/DgNUqZzRb8A"
+    ],
+    "sonuc": "Kocaeli'de yapılan yüzde 25 zamla birlikte birinci kademe suyun metreküp fiyatı 48,11 TL'ye yükselmiştir.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Mevcut Tarif (Eski)",
+          "kalem": "1. Kademe Su (1 m³): 38.49 TL",
+          "durum": "kaynakta_var",
+          "alinti": "Konutlarda birinci kademe suyun metreküp fiyatı 38,49 TL'den 48,11 TL'ye yükseldi.",
+          "aciklama": "Eski tarife fiyatı kaynak metinlerde birebir yer almaktadır."
+        },
+        {
+          "secenek": "Yeni Tarife (%25 Zam)",
+          "kalem": "1. Kademe Su (1 m³): 48.11 TL",
+          "durum": "kaynakta_var",
+          "alinti": "Konutlarda birinci kademe suyun metreküp fiyatı 38,49 TL'den 48,11 TL'ye yükseldi.",
+          "aciklama": "Yeni tarife fiyatı kaynak metinlerde birebir yer almaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan 1. kademe su fiyatları eski ve yeni tarifeler için kaynak metinlerdeki verilerle birebir uyuşturulmuştur."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "Kasım 2026 fiyatlarıyla Kocaeli'de suyun metreküpü 48,11 TL oldu 📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 90,
+        "gerekce": "Güncel birim fiyatı net ve net bir şekilde rakamla vererek dikkat çekiyor."
+      },
+      {
+        "metin": "Musluktan akan suyun metreküpüne gelen zam cebini nasıl etkiliyor? 💸",
+        "teknik": "gizli maliyet",
+        "puan": 82,
+        "gerekce": "Su zammının bütçeye etkisini merak uyandırarak soruyor."
+      },
+      {
+        "metin": "Eski tarife 38,49 TL iken, yeni tarife neden 48,11 TL oldu?",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 85,
+        "gerekce": "Eski ve yeni fiyatı karşılaştırarak aradaki farkı sorgulatıyor."
+      },
+      {
+        "metin": "Suya gelen yüzde 25 zam gerçeği: Metreküpü artık 48,11 TL 📊",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 88,
+        "gerekce": "Doğrudan zam oranını ve yeni birim fiyatı netleştiriyor."
+      },
+      {
+        "metin": "Kocaeli'de yüzde 25 zamlı su faturası bütçeni ne kadar sarsacak?",
+        "teknik": "doğrudan soru",
+        "puan": 86,
+        "gerekce": "İzleyiciye doğrudan soru yönelterek etkileşimi artırıyor."
+      },
+      {
+        "metin": "Maaşımdan artanla Kocaeli'de kaç metreküp su alabilirim?",
+        "teknik": "kişisel hesap",
+        "puan": 80,
+        "gerekce": "Bireysel bütçe perspektifinden konuya yaklaşıyor."
+      },
+      {
+        "metin": "Kocaeli su zammı: 2 kademe fiyatı ve fatura analizi 📊",
+        "teknik": "liste vaadi",
+        "puan": 83,
+        "gerekce": "Kademeli tarife analizi sunacağını vadediyor."
+      },
+      {
+        "metin": "Kasım 2026 tarifesi yürürlüğe girdi: Su zammı cebine ne yazdı?",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 92,
+        "gerekce": "Güncel tarih ve zam gündemini doğrudan yakalayarak en yüksek merak unsurunu yaratıyor."
+      }
+    ],
+    "secilen_index": 7
+  },
+  "seri_no": 1,
+  "taslak": {
+    "hook": "Kasım 2026 tarifesi yürürlüğe girdi: Su zammı cebine ne yazdı?",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Kocaeli Su Zammı",
+        "metin": "Bunun gerçek maliyetini hesapladık.",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Eski Tarife",
+        "metin": "1. kademe su metreküp fiyatı 38.49 TL idi.",
+        "seslendirme": "1. kademe su metreküp fiyatı 38.49 TL idi."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Yeni Tarife",
+        "metin": "Yüzde 25 zamla 48.11 TL'ye yükseldi.",
+        "seslendirme": "Yüzde 25 zamla 48.11 TL'ye yükseldi."
+      },
+      {
+        "tur": "metin",
+        "baslik": "İkinci Kademe",
+        "metin": "İkinci kademe su metreküp fiyatı 87.79 TL oldu.",
+        "seslendirme": "İkinci kademe su metreküp fiyatı 87.79 TL oldu."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Eski İkinci Kademe",
+        "metin": "Eski ikinci kademe fiyatı tahmini 70.23 TL idi.",
+        "seslendirme": "Eski ikinci kademe fiyatı tahmini 70.23 TL idi."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Kocaeli Su Tarifesi Kademeleri",
+        "metin": "Kasım 2026 fiyatlarıyla kademeli su maliyeti.",
+        "seslendirme": "Kademeli su tarifesi tablosu netleşti."
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Asgari ücretle yaklaşık 1 saat çalışma.",
+        "seslendirme": "Yani asgari ücretle yaklaşık 1 saat çalışma."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tasarruf İpucu",
+        "metin": "Kademeyi aşmamak için tüketimine dikkat et.",
+        "seslendirme": "Kademeyi aşmamak için tüketimine dikkat et."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Su zammı bütçeni ne kadar zorlayacak?",
+        "metin": "Bu tabloyu kaydet, lazım olacak.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Su zammı bütçeni ne kadar zorlayacak? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım."
+      }
+    ],
+    "caption": "Kocaeli'de suya gelen yüzde 25 zam sonrası yeni tarifeler cebe ne yazıyor? Kasım 2026 fiyatlarıyla 1. kademe su metreküp fiyatı 48.11 TL, 2. kademe ise 87.79 TL oldu.\n\nSu faturandaki bu artış seni ne kadar zorlayacak?\n\nKaynaklar:\nKocaeli Fikir - https://www.kocaelifikir.com/haber/29230545/kocaelide-suya-yuzde-25-zam-iste-yeni-fiyatlar\nInstagram - https://www.instagram.com/p/DgNQulYRRGY\nInstagram - https://www.instagram.com/reel/DgNUqZzRb8A\n\nFiyat Tarihi: Kasım 2026",
+    "hashtagler": [
+      "gercekmaliyet",
+      "kocaeli",
+      "su",
+      "zam",
+      "ekonomi"
+    ],
+    "tiktok_aciklama": "Kocaeli'de suya yüzde 25 zam geldi! 1 metreküp suyun gerçek maliyetini hesapladık. Faturanı nasıl etkiler?",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "kocaeli",
+      "su",
+      "zam",
+      "fatura"
+    ],
+    "youtube_baslik": "Kocaeli Su Zammı: 1 Metreküp Suyun Gerçek Maliyeti #1",
+    "youtube_aciklama": "Kocaeli'de konut su tarifesine yapılan yüzde 25 zam sonrasında güncel fiyatları hesapladık. Kasım 2026 tarifesiyle 1. kademe 48.11 TL ve 2. kademe 87.79 TL oldu. Kaynak: Kocaeli Fikir.",
+    "youtube_etiketler": [
+      "kocaeli su zammı",
+      "su fiyatları",
+      "kocaeli su tarifesi",
+      "gerçek maliyet",
+      "su faturası"
+    ],
+    "yorum_sorusu": "Kocaeli'deki su zammı aylık faturanı yüzde kaç etkiler?",
+    "alt_text": "Kocaeli su zammı ve güncel su tarifesi maliyet analizi"
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}

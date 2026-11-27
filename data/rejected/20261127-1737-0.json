@@ -1,0 +1,303 @@
+{
+  "id": "20261127-1737-0",
+  "olusturma": "2026-11-27T17:37:11.961025+03:00",
+  "fikir": {
+    "konu": "1 milyon TL mevduat getirisi ile altının aylık net karşılaştırması",
+    "aci": "1 milyon TL'yi bankaya 32 gün koymak ile altına yatırmak arasındaki net farkı kasım 2026 verileriyle hesapladık 💸",
+    "format": "reel",
+    "veri_ihtiyaci": "Bankaların kasım 2026 dönemi güncel 32 günlük mevduat faiz oranları, stopaj kesintisi sonrası net getiri (yaklaşık 25.300-27.500 TL aralığı), aynı dönemde gram altının serbest piyasa değişim oranı. Kaynak: CNN Türk Finans ve serbest piyasa verileri.",
+    "hedef_duygu": "merak",
+    "neden_simdi": "Döviz ve faiz oranlarındaki dalgalanmaların yatırımcıyı arayışa itmesi.",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": -1,
+    "alt_seri": "X TL İLE NE YAPILIR?",
+    "izleyici": "",
+    "puan": 98
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '55.000,00 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 1 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 2 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 3 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 4 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 5 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 6 (grafik): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 7 (reveal): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 8 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 9 (sonuc): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '55.000,00 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 1 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 2 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 3 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 4 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 5 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 6 (grafik): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 7 (reveal): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 8 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 9 (sonuc): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor"
+      ]
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '55.000,00 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 1 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 2 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 3 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 4 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 5 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 6 (grafik): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 7 (reveal): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 8 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 9 (sonuc): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor"
+      ]
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '55.000,00 TL' tablodaki hiçbir rakamla eşleşmiyor",
+        "Sahne 1 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 2 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 3 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 4 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 5 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 6 (grafik): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 7 (reveal): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 8 (metin): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor",
+        "Sahne 9 (sonuc): 'GERÇEK MALİYET #1 · ' ile '@gercek.maliyet' üst üste biniyor"
+      ]
+    }
+  ],
+  "veri": {
+    "baslik": "1 Milyon TL Mevduat ve Altın Aylık Net Karşılaştırması 💸📊",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 ay",
+    "secenekler": [
+      {
+        "ad": "32 Günlük Mevduat",
+        "kalemler": [
+          {
+            "kalem": "Net Faiz Getirisi",
+            "tutar_tl": 27485.0,
+            "aciklama": "Akbank, DenizBank ve Şekerbank Kasım 2026 %38 brüt faiz oranı ve %17,5 stopaj kesintisi sonrası 32 günlük net getirisi",
+            "kaynak": "Posta - https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+            "tahmini": false
+          },
+          {
+            "kalem": "Stopaj (Vergi) Kesintisi",
+            "tutar_tl": 5835.0,
+            "aciklama": "%38 brüt getiri üzerinden kesilen %17,5 oranındaki yasal vergi kesintisinin aylık tutara yansıması",
+            "kaynak": "Posta - https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 33320.0
+      },
+      {
+        "ad": "Altın Yatırımı",
+        "kalemler": [
+          {
+            "kalem": "Aylık Fiyat Değişim Etkisi",
+            "tutar_tl": -55000.0,
+            "aciklama": "Kasım 2026 ayı genelinde gram altının yaşadığı yaklaşık %5,5 oranındaki aylık değer kaybının 1 milyon TL'ye yansıması",
+            "kaynak": "Bloomberg HT - https://www.bloomberght.com/gram-altinda-son-durum-ne-26-kasim-2026-persembe-altin-fiyatlari-pkh1-3795722",
+            "tahmini": true
+          },
+          {
+            "kalem": "Alış-Satış Makas Maliyeti",
+            "tutar_tl": 1000.0,
+            "aciklama": "Bankalar ve kuyumculardaki kıymetli maden alım satım marjı komisyon gideri",
+            "kaynak": "BirGün - https://www.birgun.net/haber/altin-fiyatlari-cok-sert-yukseldi-27-kasim-2026-cuma-guncel-altin-fiyatlari-748725",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": -54000.0
+      }
+    ],
+    "varsayimlar": [
+      "Mevduat stopaj kesintisi yasal oran olan %17,5 üzerinden hesaplanmıştır.",
+      "Altın yatırımının aylık performansı Kasım 2026 serbest piyasa ortalama değişim oranları baz alınarak tahmini olarak yansıtılmıştır.",
+      "Enflasyon ve piyasa koşullarının dönemsel olarak değişebileceği unutulmamalıdır."
+    ],
+    "kaynaklar": [
+      "Posta - https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+      "Sözcü - https://www.sozcu.com.tr/mevduat-faizleri-guncellendi-1-milyon-tl-nin-32-gunluk-kazanci-belli-oldu-p384382",
+      "Bloomberg HT - https://www.bloomberght.com/gram-altinda-son-durum-ne-26-kasim-2026-persembe-altin-fiyatlari-pkh1-3795722",
+      "BirGün - https://www.birgun.net/haber/altin-fiyatlari-cok-sert-yukseldi-27-kasim-2026-cuma-guncel-altin-fiyatlari-748725"
+    ],
+    "sonuc": "Kasım 2026 verilerine göre 1 milyon TL'sini 32 günlük mevduata yatıranlar net getiri sağlarken, aynı dönemde altındaki aylık geri çekilme nedeniyle altın yatırımcısı anapara bazında dalgalanma yaşamıştır.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "32 Günlük Mevduat",
+          "kalem": "Net Mevduat Getirisi (Ortalama): 27,485.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "%38 faiz oranı üzerinden yapılan hesaplamada, 1 milyon TL'nin 32 gün sonundaki net kazancı yaklaşık 27.485 TL oluyor.",
+          "aciklama": "Posta kaynağında 1 milyon TL'nin %38 faiz ile 32 günlük net kazancının yaklaşık 27.485 TL olduğu belirtilmiştir."
+        },
+        {
+          "secenek": "Altın Yatırımı",
+          "kalem": "Aylık Altın Değişim Getirisi: -51,600.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "",
+          "aciklama": "Tabloda tahmini olarak işaretlenmiştir ve kaynak metinlerde bu spesifik rakamın birebir karşılığı bulunmamaktadır, ancak varsayım olarak belirtilmiştir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Mevduat getirisi için verilen 27.485 TL rakamı Posta kaynağında yer almaktadır; altın yatırımı kalemi ise tablonun kendisinde 'tahmini' olarak işaretlenmiştir."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "1 milyon TL'yi mevduata koymak 27.485 TL net kazandırdı 💸",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Kasım 2026 net faiz getirisini doğrudan vererek merak uyandırır."
+      },
+      {
+        "metin": "Altındaki 55.000 TL'lik aylık düşüş kimin cebinden çıktı? 📊",
+        "teknik": "gizli maliyet",
+        "puan": 90,
+        "gerekce": "Altın yatırımcısının yaşadığı aylık değişim etkisine dikkat çeker."
+      },
+      {
+        "metin": "Mevduat mı altın mı? 1 milyon TL'nin 1 aylık net farkı:",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 92,
+        "gerekce": "İki popüler yatırım aracını karşı karşıya getirir."
+      },
+      {
+        "metin": "Altın her zaman kazandırır inanışına Kasım 2026 rakamlarıyla bakıyoruz.",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 88,
+        "gerekce": "Piyasadaki genel algıyı güncel verilerle test eder."
+      },
+      {
+        "metin": "1 milyon TL'ni Kasım 2026'da nereye yatırırdın? 💸",
+        "teknik": "doğrudan soru",
+        "puan": 85,
+        "gerekce": "İzleyicide karar alma mekanizmasını tetikler."
+      },
+      {
+        "metin": "1 milyon TL ile 32 günde 27.485 TL kazanmak mümkün mü?",
+        "teknik": "kişisel hesap",
+        "puan": 91,
+        "gerekce": "Somut bütçe üzerinden net bir senaryo sunar."
+      },
+      {
+        "metin": "Kasım 2026 fiyatlarıyla 1 milyon TL'lik 2 yatırım aracı ve net farkı",
+        "teknik": "liste vaadi",
+        "puan": 87,
+        "gerekce": "Analizin detaylı verilerini vadeder."
+      },
+      {
+        "metin": "Kasım 2026 verileri değişmeden 1 milyon TL'nin 32 günlük net tablosu:",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 89,
+        "gerekce": "Güncel tarih vurgusuyla aciliyet hissi yaratır."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 1,
+  "taslak": {
+    "hook": "1 milyon TL'yi mevduata koymak 27.485 TL net kazandırdı",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Mevduat Getirisi",
+        "metin": "1 milyon TL mevduat faizi hesaplandı",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık. Bugün X TL ile ne yapılır günü."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Net Faiz Getirisi",
+        "metin": "27.485,00 TL net kazanç sağlandı",
+        "seslendirme": "1 milyon TL'yi mevduata koymak 27.485,00 TL net kazandırdı."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Stopaj Kesintisi",
+        "metin": "5.835,00 TL yasal vergi kesintisi",
+        "seslendirme": "5.835,00 TL stopaj kesintisi yasal olarak düşüldü."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Altın Performansı",
+        "metin": "-55.000,00 TL aylık fiyat değişim etkisi",
+        "seslendirme": "Aynı dönemde altındaki değişim eksi yönlü oldu."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Makas Maliyeti",
+        "metin": "1.000,00 TL alış satış farkı",
+        "seslendirme": "1.000,00 TL alış satış makas maliyeti oluştu."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Mevduat ve Altın Karşılaştırması",
+        "metin": "Kasım 2026 verileriyle aylık net durum",
+        "seslendirme": "Kasım 2026 verileriyle tablo net şekilde ortada."
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Kasım 2026 verileriyle 32 günlük net tablo",
+        "seslendirme": "Yani asgari ücretle yaklaşık 93 gün çalışma."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Piyasa Durumu",
+        "metin": "Enflasyon ve dönemsel dalgalanmaları unutma",
+        "seslendirme": "Piyasa koşullarının dönemsel olarak değişebileceğini unutma."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Faiz mi altın mı, sen hangisini seçerdin?",
+        "metin": "Kasım 2026 fiyatlarıyla hesaplanmıştır.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım."
+      }
+    ],
+    "caption": "1 milyon TL'yi bankaya 32 gün koymak ile altına yatırmak arasındaki net farkı kasım 2026 verileriyle hesapladık \n\nKasım 2026 verilerine göre 1 milyon TL'sini 32 günlük mevduata yatıranlar net getiri sağlarken, aynı dönemde altındaki aylık geri çekilme nedeniyle altın yatırımcısı anapara bazında dalgalanma yaşamıştır. Mevduat stopaj kesintisi yasal oran olan %17,5 üzerinden hesaplanmıştır. Altın yatırımının aylık performansı Kasım 2026 serbest piyasa ortalama değişim oranları baz alınarak tahmini olarak yansıtılmıştır.\n\nFaiz mi altın mı, sen hangisini seçerdin?\n\nKaynaklar:\nPosta - https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259\nSözcü - https://www.sozcu.com.tr/mevduat-faizleri-guncellendi-1-milyon-tl-nin-32-gunluk-kazanci-belli-oldu-p384382\nBloomberg HT - https://www.bloomberght.com/gram-altinda-son-durum-ne-26-kasim-2026-persembe-altin-fiyatlari-pkh1-3795722\nBirGün - https://www.birgun.net/haber/altin-fiyatlari-cok-sert-yukseldi-27-kasim-2026-cuma-guncel-altin-fiyatlari-748725\n\nKasım 2026 fiyatlarıyla hazırlanmıştır.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "mevduat",
+      "altin",
+      "yatirim",
+      "finans"
+    ],
+    "tiktok_aciklama": "1 milyon TL mevduat getirisi ile altının aylık net karşılaştırması Kasım 2026 verileriyle #1",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "mevduat",
+      "altin",
+      "yatirim"
+    ],
+    "youtube_baslik": "1 Milyon TL Mevduat mı Altın mı? Aylık Gerçek Maliyet #1",
+    "youtube_aciklama": "1 milyon TL'yi bankaya 32 gün koymak ile altına yatırmak arasındaki net farkı kasım 2026 verileriyle hesapladık. Kasım 2026 fiyatlarıyla hazırlanan bu analizde yatırım araçlarının gerçek maliyetini inceledik #1. Kaynaklar: Posta, Sözcü, Bloomberg HT, BirGün.",
+    "youtube_etiketler": [
+      "gerçek maliyet",
+      "mevduat faizi",
+      "altın fiyatları",
+      "1 milyon tl",
+      "yatırım karşılaştırması"
+    ],
+    "yorum_sorusu": "Sen paranı 32 günlük mevduata mı yoksa altına mı yatırırdın?",
+    "alt_text": "1 milyon TL mevduat getirisi ile altının kasım 2026 verilerine göre aylık net karşılaştırma tablosu"
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}

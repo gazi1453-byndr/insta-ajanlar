@@ -1,0 +1,333 @@
+{
+  "id": "20261127-1738-1",
+  "olusturma": "2026-11-27T17:38:23.398132+03:00",
+  "fikir": {
+    "konu": "Fiat Fastback ve Grizzly Lansman Fiyatı ve Sahip Olma Maliyeti",
+    "aci": "Fiat'ın yeni SUV modelleri lansman fiyatıyla cazip duruyor ama cebe gerçekte kaça mal oluyor?",
+    "format": "reel",
+    "veri_ihtiyaci": "Lansmana özel 1 milyon 499 bin TL başlangıç fiyatı, donanım paketleri ve Kasım 2026 anahtar teslim ek maliyetleri (Webtekno kaynaklı).",
+    "hedef_duygu": "şaşkınlık",
+    "neden_simdi": "Fiat'ın yeni Grizzly ve Fastback modellerinin Türkiye fiyatlarının yeni açıklanmış olması.",
+    "beklenen_etki": "paylaşma",
+    "hook_bankasi_index": 2,
+    "alt_seri": "",
+    "izleyici": "",
+    "puan": 95
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.0,
+        "ikincil": 29.6,
+        "vurgu": 7.0,
+        "yazi": 3.4
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 19,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 91,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel ve çok konuşulan iki yeni SUV modelinin lansman fiyatı ile gerçek anahtar teslim maliyetini karşılaştırması, otomobil almayı düşünen kitlede yüksek merak uyandırır. Kalem kalem gösterilen ek masraflar ve net kaynak belirtilmesi güven sağladığı için içerik yüksek etkileşim alır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [
+        "Sahne 7 çok uzun (6.8 sn > 4.0 sn): seslendirmeyi kısalt ya da sahneyi ikiye böl"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 64"
+      ]
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 70"
+      ]
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [
+        "Toplam seslendirme 72-108 kelime olmalı (~40 sn); şu an 71"
+      ]
+    }
+  ],
+  "veri": {
+    "baslik": "Fiat Fastback ve Grizzly Lansman Fiyatları",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "Lansman Fiyatı",
+    "secenekler": [
+      {
+        "ad": "Fastback Icon Manuel",
+        "kalemler": [
+          {
+            "kalem": "Lansman Liste Fiyatı",
+            "tutar_tl": 1499000.0,
+            "aciklama": "200.000 TL indirim dahil Kasım 2026 başlangıç fiyatı",
+            "kaynak": "Webtekno - Instagram Tuğberk Aras",
+            "tahmini": false
+          },
+          {
+            "kalem": "Tahmini Ek Masraflar",
+            "tutar_tl": 50000.0,
+            "aciklama": "Trafik sigortası, kasko ve tescil masrafları için ortalama tahmini tutar",
+            "kaynak": "Tahmini varsayım",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 1549000.0
+      },
+      {
+        "ad": "Grizzly La Prima Hibrit",
+        "kalemler": [
+          {
+            "kalem": "Lansman Liste Fiyatı",
+            "tutar_tl": 1999000.0,
+            "aciklama": "200.000 TL indirim dahil Kasım 2026 en üst donanım fiyatı",
+            "kaynak": "Webtekno - DonanımHaber",
+            "tahmini": false
+          },
+          {
+            "kalem": "Tahmini Ek Masraflar",
+            "tutar_tl": 65000.0,
+            "aciklama": "Üst donanım için tahmini sigorta, kasko ve tescil masrafları",
+            "kaynak": "Tahmini varsayım",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 2064000.0
+      }
+    ],
+    "varsayimlar": [
+      "Fiyatlar Kasım 2026 lansman dönemine aittir ve 200.000 TL indirim dahildir.",
+      "Enflasyon nedeniyle fiyatlar ve ek masraflar değişiklik gösterebilir.",
+      "Trafik sigortası ve kasko gibi ek maliyetler net kaynaklarda yer almadığı için tahmini olarak eklenmiştir."
+    ],
+    "kaynaklar": [
+      "Webtekno https://www.webtekno.com/yeni-fiat-grizzly-alinir-mi-h229366.html",
+      "DonanımHaber https://www.donanimhaber.com/fiat-grizzly-ve-fastback-in-turkiye-fiyatlari-belli-oldu--213247",
+      "Tuğberk Aras Instagram https://www.instagram.com/reel/DgFQ6cfohb6?hl=en"
+    ],
+    "sonuc": "Fiat'ın yeni SUV modelleri lansmanda 1.499.000 TL'den başlayan etiketlerle sunuluyor ancak anahtar teslim ek masraflarla bütçeyi yeniden gözden geçirmek gerekiyor 📊💸",
+    "guven": "orta"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Fastback 1.2 Manuel Icon",
+          "kalem": "TOPLAM",
+          "durum": "kaynakta_var",
+          "alinti": "Fastback Icon 1.2 Turbo MT (100 HP) | 1.699.000 TL | 1.499.000 TL",
+          "aciklama": "Lansman fiyatı kaynak tabloda 1.499.000 TL olarak geçmektedir."
+        },
+        {
+          "secenek": "Fastback 1.2 Manuel Icon",
+          "kalem": "Lansman Fiyatı",
+          "durum": "kaynakta_var",
+          "alinti": "Fastback Icon 1.2 Turbo MT (100 HP) | 1.699.000 TL | 1.499.000 TL",
+          "aciklama": "Lansman fiyatı kaynak metinde birebir yer almaktadır."
+        },
+        {
+          "secenek": "Fastback 1.2 Hibrit La Prima",
+          "kalem": "TOPLAM",
+          "durum": "kaynakta_var",
+          "alinti": "Fastback La Prima 1.2 MHEV eDCT (145 HP) | 2.099.000 TL | 1.899.000 TL",
+          "aciklama": "Lansman fiyatı kaynak tabloda 1.899.000 TL olarak yer almaktadır."
+        },
+        {
+          "secenek": "Fastback 1.2 Hibrit La Prima",
+          "kalem": "Lansman Fiyatı",
+          "durum": "kaynakta_var",
+          "alinti": "Fastback La Prima 1.2 MHEV eDCT (145 HP) | 2.099.000 TL | 1.899.000 TL",
+          "aciklama": "Lansman fiyatı kaynak metinde doğrulanmaktadır."
+        },
+        {
+          "secenek": "Grizzly 1.2 Manuel Icon",
+          "kalem": "TOPLAM",
+          "durum": "kaynakta_var",
+          "alinti": "Grizzly Icon 1.2 Turbo MT (100 HP) | 1.799.000 TL | 1.599.000 TL",
+          "aciklama": "Lansman fiyatı kaynak tabloda 1.599.000 TL olarak geçmektedir."
+        },
+        {
+          "secenek": "Grizzly 1.2 Manuel Icon",
+          "kalem": "Lansman Fiyatı",
+          "durum": "kaynakta_var",
+          "alinti": "Grizzly Icon 1.2 Turbo MT (100 HP) | 1.799.000 TL | 1.599.000 TL",
+          "aciklama": "Lansman fiyatı kaynak metinde mevcuttur."
+        },
+        {
+          "secenek": "Grizzly 1.2 Hibrit La Prima",
+          "kalem": "TOPLAM",
+          "durum": "kaynakta_var",
+          "alinti": "Grizzly La Prima 1.2 MHEV eDCT (145 HP) | 2.199.000 TL | 1.999.000 TL",
+          "aciklama": "Lansman fiyatı kaynak tabloda 1.999.000 TL olarak yer almaktadır."
+        },
+        {
+          "secenek": "Grizzly 1.2 Hibrit La Prima",
+          "kalem": "Lansman Fiyatı",
+          "durum": "kaynakta_var",
+          "alinti": "Grizzly La Prima 1.2 MHEV eDCT (145 HP) | 2.199.000 TL | 1.999.000 TL",
+          "aciklama": "Lansman fiyatı kaynak metinde birebir geçmektedir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan tüm Fiat Fastback ve Grizzly lansman fiyatları, DonanımHaber ve Webtekno kaynaklarındaki resmi lansman fiyatı verileriyle birebir uyuşmaktadır."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "Fiat Fastback anahtar teslim gerçekte 1.549.000 TL mi 📊💸",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Kasım 2026 Webtekno verilerine dayanan toplam rakamı doğrudan vererek merak uyandırıyor."
+      },
+      {
+        "metin": "Lansman fiyatına eklenen 50.000 TL'lik o gizli kalem…",
+        "teknik": "gizli maliyet",
+        "puan": 90,
+        "gerekce": "Etiket fiyatının dışındaki tahmini ek masraflara dikkat çekerek izleyiciyi tutuyor."
+      },
+      {
+        "metin": "Fastback mi Grizzly mi? Aradaki 515.000 TL farka değer mi?",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 88,
+        "gerekce": "İki yeni modeli karşılaştırarak doğru kitleyi yakalıyor."
+      },
+      {
+        "metin": "Lansman fiyatı seni aldatmasın: Gerçek anahtar teslim maliyet bu 📊",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 85,
+        "gerekce": "İlanlardaki başlangıç fiyatı algısını sorgulatıyor."
+      },
+      {
+        "metin": "Kasım 2026'da 1.500.000 TL ile bu arabayı almak mantıklı mı?",
+        "teknik": "doğrudan soru",
+        "puan": 87,
+        "gerekce": "Bütçe planlayan çalışan nişine doğrudan hitap ediyor."
+      },
+      {
+        "metin": "Kasım 2026 maaşımla bu SUV'u almak için kaç ay çalışmam gerekir?",
+        "teknik": "kişisel hesap",
+        "puan": 86,
+        "gerekce": "Hedef kitlenin ekonomik gerçekliğiyle bağlantı kuruyor."
+      },
+      {
+        "metin": "Yeni Fiat SUV'lar: 2 lansman fiyatı, 2 gizli anahtar teslim masraf 💸",
+        "teknik": "liste vaadi",
+        "puan": 84,
+        "gerekce": "İçeriğin yapısını net şekilde vadediyor."
+      },
+      {
+        "metin": "Lansman bitti mi? Kasım 2026 güncel Fiat fiyatları cebinden ne götürür?",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 89,
+        "gerekce": "Güncel tarih vurgusuyla aciliyet hissi yaratıyor."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 1,
+  "taslak": {
+    "hook": "Fiat Fastback anahtar teslim gerçekte 1.549.000,00 TL mi",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Gerçek Maliyet #1",
+        "metin": "Fiat Fastback anahtar teslim gerçekte 1.549.000,00 TL mi",
+        "seslendirme": "Bunun gerçek maliyetini detaylıca hesapladık."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Lansman Liste Fiyatı",
+        "metin": "Fastback Icon Manuel liste fiyatı 1.499.000,00 TL",
+        "seslendirme": "Lansman liste fiyatı 1.499.000,00 TL olarak açıklandı."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tahmini Ek Masraflar",
+        "metin": "Tahmini ek masraflar 50.000,00 TL olarak hesaplandı",
+        "seslendirme": "Tahmini ek masraflar ise 50.000,00 TL tutuyor."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Grizzly Hibrit Fiyatı",
+        "metin": "Grizzly La Prima liste fiyatı 1.999.000,00 TL",
+        "seslendirme": "Grizzly Hibrit liste fiyatı 1.999.000,00 TL."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Grizzly Ek Masraf",
+        "metin": "Grizzly tahmini ek masraflar 65.000,00 TL",
+        "seslendirme": "Grizzly modelinde ek masraflar 65.000,00 TL'yi buluyor."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Fiat Lansman Maliyetleri",
+        "metin": "Kasım 2026 fiyatları ve ek masraflar tablosu",
+        "seslendirme": "Kasım 2026 dönemi maliyet tablosu böyle."
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Fastback toplam 1.549.000,00 TL yani asgari ücretle yaklaşık 550 gün çalışma",
+        "seslendirme": "Fastback toplam 1.549.000,00 TL, yani asgari ücretle yaklaşık 550 gün çalışma."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Bütçe Planlaması",
+        "metin": "Lansman fiyatına ek masrafları mutlaka dahil et",
+        "seslendirme": "Lansman fiyatına ek masrafları mutlaka dahil etmelisin."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Fastback mi yoksa Grizzly mi tercih ederdin?",
+        "metin": "Bu tabloyu kaydet, lazım olacak.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Fastback mi yoksa Grizzly mi? Yorumlara yaz, seçtiğini biz hesaplayalım."
+      }
+    ],
+    "caption": "Fiat'ın yeni SUV modelleri lansman fiyatıyla cazip duruyor ama cebe gerçekte kaça mal oluyor? Kasım 2026 fiyatlarıyla hesapladık 📊💸\n\nKasım 2026 lansman döneminde Fiat Fastback Icon Manuel toplam 1.549.000,00 TL, Grizzly La Prima Hibrit ise toplam 2.064.000,00 TL tutuyor. Fiyatlar 200.000 TL indirim dahil hazırlandı ve ek masraflar tahmini olarak eklendi.\n\nSence bu lansman fiyatları piyasa şartlarına göre alınır mı?\n\nKaynaklar:\nWebtekno (https://www.webtekno.com/yeni-fiat-grizzly-alinir-mi-h229366.html)\nDonanımHaber (https://www.donanimhaber.com/fiat-grizzly-ve-fastback-in-turkiye-fiyatlari-belli-oldu--213247)\nTuğberk Aras Instagram (https://www.instagram.com/reel/DgFQ6cfohb6?hl=en)\n\nKasım 2026 fiyatlarıyla hazırlanmıştır.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "fiatfastback",
+      "fiatgrizzly",
+      "araba",
+      "otomotiv"
+    ],
+    "tiktok_aciklama": "Fiat Fastback lansman fiyatıyla cazip ama gerçek maliyeti ne kadar? Kasım 2026 fiyatlarıyla hesapladık 📊 Sence bu fiyata alınır mı?",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "fiat",
+      "fastback",
+      "araba",
+      "maliyet"
+    ],
+    "youtube_baslik": "Fiat Fastback ve Grizzly Gerçek Maliyeti #1",
+    "youtube_aciklama": "Fiat'ın yeni SUV modelleri lansman fiyatıyla cazip duruyor ancak anahtar teslim gerçek maliyeti ne kadar? Kasım 2026 fiyatlarıyla kalem kalem hesapladık. Kaynaklar: Webtekno, DonanımHaber ve Tuğberk Aras Instagram.",
+    "youtube_etiketler": [
+      "gerçek maliyet",
+      "fiat fastback",
+      "fiat grizzly",
+      "araba fiyatları",
+      "lansman fiyatı",
+      "fiat suv"
+    ],
+    "yorum_sorusu": "Sence bu lansman fiyatlarıyla yeni Fiat SUV modelleri alınır mı?",
+    "alt_text": "Fiat Fastback ve Grizzly Kasım 2026 lansman fiyatları ve gerçek sahip olma maliyeti tablosu"
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}
