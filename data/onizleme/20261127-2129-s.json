@@ -1,0 +1,226 @@
+{
+  "id": "20261127-2129-s",
+  "olusturma": "2026-11-27T21:33:18.170163+03:00",
+  "kaynak": "senaryo",
+  "fikir": {
+    "konu": "4,5 milyon TL'lik ev: krediyle almak mı, kirada oturmak mı? (1 yıl, Kasım 2026)",
+    "alt_seri": "A MI B Mİ?"
+  },
+  "veri": {
+    "baslik": "Ev sahibi mi, kiracı mı? 4,5 milyon TL'lik ev (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {
+        "ad": "Ev sahibi",
+        "kalemler": [
+          {
+            "kalem": "Kredi faizi (1. yıl)",
+            "tutar_tl": 924269.0,
+            "aciklama": "2.700.000 TL kredi, aylık %2,87, 120 ay: taksit 80.177,85 TL; ilk 12 taksitteki faiz 924.269 TL (anapara 37.865 TL maliyet sayılmadı)",
+            "kaynak": "Hesapkurdu 7-8 Kasım 2026 (Kuveyt Türk %2,87, en düşük oran); TCMB ağırlıklı ortalama %41,33-41,35",
+            "tahmini": false
+          },
+          {
+            "kalem": "Peşinatın kaçan faizi",
+            "tutar_tl": 618057.0,
+            "aciklama": "1.800.000 TL × net %34,34 (brüt %41,62, stopaj %17,5)",
+            "kaynak": "EKOTÜRK / Hibya: 'TL mevduat faizi yüzde 41,62'ye geriledi' (TCMB, 20.11.2026 haftası); stopaj 6 aya kadar vade %17,5",
+            "tahmini": false
+          },
+          {
+            "kalem": "Tapu harcı + kredi masrafı",
+            "tutar_tl": 103500.0,
+            "aciklama": "Alıcı payı tapu harcı %2 × 4.500.000 = 90.000 TL; kredi tahsis ücreti binde 5 × 2.700.000 = 13.500 TL",
+            "kaynak": "Harçlar Kanunu (tapu harcı %4, alıcı-satıcı %2'şer); BDDK ücret yönetmeliği",
+            "tahmini": false
+          },
+          {
+            "kalem": "Değer artışı",
+            "tutar_tl": -949500.0,
+            "aciklama": "4.500.000 TL × %21,1 (TCMB Konut Fiyat Endeksi, Ekim 2026 yıllık; İstanbul %24,8)",
+            "kaynak": "TCMB KFE Ekim 2026",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 696326.0
+      },
+      {
+        "ad": "Kiracı",
+        "kalemler": [
+          {
+            "kalem": "Yıllık kira",
+            "tutar_tl": 361800.0,
+            "aciklama": "4.500.000 TL × brüt kira getirisi %8,04 = 361.800 TL (aylık 30.150 TL)",
+            "kaynak": "Endeksa Eylül 2026 konut kira getirisi (ticarigm360.com)",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 361800.0
+      }
+    ],
+    "varsayimlar": [
+      "4,5 milyon TL ev; %40 peşinat (1,8 milyon TL), %60 kredi (2,7 milyon TL)",
+      "Kredi faizi piyasadaki en düşük ilan oranı (%2,87); ortalama oranla ev sahibinin maliyeti daha yüksek çıkar",
+      "Evin değeri son 12 aydaki hızla (%21,1) artar",
+      "Taksidin anapara kısmı maliyet sayılmadı (ev sahibinin servetine eklenir)",
+      "Ev sahibi lehine tutucu hesap: emlak vergisi, aidat farkı, DASK, bakım ve taksit farkının kaçan faizi dahil değil"
+    ],
+    "kaynaklar": [
+      "TCMB konut kredisi ortalama faiz https://www.emlakmanset.com/konut-kredisi-faizi-yuzde-4135te-yatay-stok-859-milyar-tl.html",
+      "TCMB KFE Ekim 2026 https://www.tv5.com.tr/konut-fiyat-endeksi-ekim-2026da-aylik-07-yillik-yuzde-211-artti",
+      "Endeksa kira getirisi https://www.ticarigm360.com/konut-yatiriminda-en-cok-kazandiran-iller-aciklandi/",
+      "EKOTÜRK mevduat faizi https://www.ekoturk.com/ekoturk-ozel/yeni-tl-mevduatta-ortalama-faiz-yilin-en-dusuk-seviyesinde",
+      "Yapı Kredi stopaj https://www.yapikredi.com.tr/bireysel-bankacilik/mevduat-urunleri/mevduat-stopaj-oranlari",
+      "Hesapkurdu konut kredisi Kasım 2026 https://www.hesapkurdu.com/konut-kredisi",
+      "Hibya TL mevduat faizi %41,62 https://hibya.com/tl-mevduat-faizi-yuzde-4162ye-geriledi-1107822"
+    ],
+    "sonuc": "4,5 milyon TL'lik evde ilk yıl ev sahibinin net maliyeti 696.326 TL, kiracınınki 361.800 TL: kiracı 334.526 TL önde. Ev ancak yılda %28,5 değer kazanırsa başa baş.",
+    "guven": "yuksek"
+  },
+  "taslak": {
+    "hook": "4,5 milyon TL'lik ev: kredi mi, kira mı?",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "4,5 milyon TL'lik ev: kredi mi, kira mı?",
+        "metin": "1 yılın gerçek hesabı · Kasım 2026 verileri",
+        "seslendirme": "Dört buçuk milyonluk evi krediyle almak mı, kirada oturmak mı?",
+        "gorsel": "konut",
+        "efekt": "subbass",
+        "ton": "",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kredi faizi: 924.269 TL",
+        "metin": "2,7 milyon kredi · aylık %2,87 · 120 ay · ilk yıl",
+        "seslendirme": "İlk yıl sadece kredi faizi 924 bin lira.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Anaparayı saymadık",
+        "metin": "Taksidin anapara kısmı zaten senin servetin",
+        "seslendirme": "Anaparayı saymadık, o zaten senin.",
+        "gorsel": "yok",
+        "efekt": "",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Peşinatın kaçan faizi: 618.057 TL",
+        "metin": "1,8 milyon mevduatta kalsa · net %34,3",
+        "seslendirme": "Peşinat mevduatta kalsa 618 bin getirirdi.",
+        "gorsel": "",
+        "efekt": "tik",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tapu harcı + kredi masrafı: 103.500 TL",
+        "metin": "Alıcı payı %2 tapu harcı + binde 5 tahsis ücreti",
+        "seslendirme": "Tapu harcı ve kredi masrafı 103 bin.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Değer artışı: 949.500 TL",
+        "metin": "Konut fiyatları son 12 ayda %21,1 arttı (TCMB)",
+        "seslendirme": "Ev bir yılda 949 bin lira değer kazanıyor.",
+        "gorsel": "",
+        "efekt": "onay",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Ev sahibi mi, kiracı mı?",
+        "metin": "",
+        "seslendirme": "Hepsini düşünce ev sahibi 696 bin, kiracı 361 bin ödüyor.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "",
+        "seslendirme": "Kiracı yılda 334 bin lira önde.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "KİRACI ÖNDE",
+        "sure": 0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Başa baş için %28,5 değer artışı",
+        "metin": "Son 12 ay: %21,1 · İstanbul: %24,8",
+        "seslendirme": "Ev ancak yılda yüzde 28,5 değer kazanırsa yetişir.",
+        "gorsel": "yok",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Krediye girip ev mi alırsın, kirada mı kalırsın?",
+        "metin": "Tarafını yorumda seç",
+        "seslendirme": "Sen hangisini seçerdin?",
+        "gorsel": "",
+        "efekt": "kart",
+        "ton": "",
+        "etiket": "",
+        "sure": 3.0
+      }
+    ],
+    "caption": "4,5 milyon TL'lik ev: krediyle almak mı, kirada oturmak mı? Kasım 2026 verileriyle ilk yılın gerçek hesabı:\n\n🏠 Ev sahibi: kredi faizi 924.269 + peşinatın kaçan faizi 618.057 + tapu/kredi masrafı 103.500 − değer artışı 949.500 = 696.326 TL\n🔑 Kiracı: yıllık kira 361.800 TL\n\nKiracı 334.526 TL önde. Ev ancak yılda %28,5 değer kazanırsa başa baş (son 12 ay %21,1, İstanbul %24,8).\n\nNot: Taksidin anapara kısmı maliyet sayılmadı. Hesap ev sahibinin lehine tutucu: en düşük kredi faizi (%2,87) kullanıldı; emlak vergisi, DASK, bakım dahil değil.\n\nKaynaklar: TCMB Konut Fiyat Endeksi ve faiz istatistikleri, Hangikredi (27.11.2026), Endeksa kira getirisi (Eylül 2026), Harçlar Kanunu.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "konut",
+      "kira",
+      "konutkredisi",
+      "evalmak",
+      "kisiselfinans",
+      "emlak",
+      "mevduat"
+    ],
+    "tiktok_aciklama": "",
+    "tiktok_hashtagler": [],
+    "youtube_baslik": "",
+    "youtube_aciklama": "",
+    "youtube_etiketler": [],
+    "yorum_sorusu": "Krediye girip ev mi alırsın, kirada mı kalırsın?",
+    "alt_text": "Ev sahibi mi, kiracı mı? 4,5 milyon TL'lik ev (1 yıl)"
+  },
+  "seri_no": 3,
+  "alt_seri": "A MI B Mİ?",
+  "senaryo_denetimi": {
+    "format": [],
+    "rakam": [],
+    "senkron": []
+  },
+  "video": "media/generated/20261127-2129-s/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-2129-s/sahne1.jpg"
+  ],
+  "durum": "onizleme"
+}
