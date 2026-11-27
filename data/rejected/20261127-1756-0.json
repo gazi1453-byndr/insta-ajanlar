@@ -1,0 +1,280 @@
+{
+  "id": "20261127-1756-0",
+  "olusturma": "2026-11-27T17:56:33.074274+03:00",
+  "fikir": {
+    "konu": "1 milyon TL mevduat vs altın: 32 günde ne kazandırır?",
+    "aci": "Bankaya koyulan paranın net getirisi ile altın piyasasındaki değişimin 32 günlük net karşılaştırması",
+    "format": "reel",
+    "veri_ihtiyaci": "Kasım 2026 banka 32 günlük net faiz oranları ve stopaj sonrası net getiri, aynı dönemde gram altın (5.991 TL) fiyat değişimi",
+    "hedef_duygu": "merak",
+    "neden_simdi": "Dolar kurunun ve altın piyasasının hareketli olduğu Kasım 2026 dönemi",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": 5,
+    "alt_seri": "X TL İLE NE YAPILIR?",
+    "izleyici": "",
+    "puan": 95
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '42.100,00 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '42.100,00 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '42.100,00 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [
+        "Sahne 4 (ekran): '42.100,00 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    }
+  ],
+  "veri": {
+    "baslik": "1 Milyon TL Mevduat vs Altın: 32 Günde Ne Kazandırır?",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "32 gün",
+    "secenekler": [
+      {
+        "ad": "32 Günlük Mevduat",
+        "kalemler": [
+          {
+            "kalem": "Ana Para",
+            "tutar_tl": 1000000.0,
+            "aciklama": "Yatırıma konu olan ana bakiye",
+            "kaynak": "https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu",
+            "tahmini": false
+          },
+          {
+            "kalem": "Net Faiz Getirisi (En Yüksek)",
+            "tutar_tl": 29510.0,
+            "aciklama": "%44 brüt oran ile stopaj düşüldükten sonra 32 günlük net getiri (Türkiye Finans)",
+            "kaynak": "https://www.sozcu.com.tr/bankalardan-kasim-surprizi-1-milyon-tl-nin-aylik-getirisi-30-bin-tl-ye-yaklasti-p377103",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 1029510.0
+      },
+      {
+        "ad": "Altın Yatırımı",
+        "kalemler": [
+          {
+            "kalem": "Ana Para",
+            "tutar_tl": 1000000.0,
+            "aciklama": "Yatırıma konu olan başlangıç tutarı",
+            "kaynak": "https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu",
+            "tahmini": false
+          },
+          {
+            "kalem": "Altın Değer Değişimi",
+            "tutar_tl": -42100.0,
+            "aciklama": "Kasım ayındaki %-4,21'lik aylık değer kaybının 1 milyon TL'ye yansıması",
+            "kaynak": "https://www.bloomberght.com/altin-fiyatlari-27-kasim-2026-cuma-gram-altin-ne-kadar-oldu-ceyrek-altin-kac-tlden-satiliyor-pkh1-3795901",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 957900.0
+      }
+    ],
+    "varsayimlar": [
+      "Mevduat getirisi için en yüksek kampanya oranı olan %44 brüt (Türkiye Finans) baz alınmıştır.",
+      "Altın yatırımının getirisi, Kasım 2026 dönemindeki %-4,21'lik piyasa değer kaybı oranı üzerinden hesaplanmıştır.",
+      "Enflasyon ve piyasa koşullarına göre oranlar değişiklik gösterebilir, kesin yatırım tavsiyesi değildir."
+    ],
+    "kaynaklar": [
+      "Takvim - https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu",
+      "Posta - https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+      "CNN Türk - https://www.cnnturk.com/video/ekonomi/bankalarin-faiz-hesabinda-kritik-ayrinti-1-milyon-tlnin-tamamina-faiz-yok-3489332",
+      "Sözcü - https://www.sozcu.com.tr/bankalardan-kasim-surprizi-1-milyon-tl-nin-aylik-getirisi-30-bin-tl-ye-yaklasti-p377103",
+      "BirGün - https://www.birgun.net/haber/altinda-son-durum-26-kasim-2026-persembe-guncel-altin-fiyatlari-748541",
+      "Bloomberg HT - https://www.bloomberght.com/altin-fiyatlari-27-kasim-2026-cuma-gram-altin-ne-kadar-oldu-ceyrek-altin-kac-tlden-satiliyor-pkh1-3795901",
+      "Vatan Gazetesi - https://www.gazetevatan.com/galeri/27-kasim-2026-guncel-altin-fiyatlari-gram-altin-ve-ceyrek-altin-ne-kadar-oldu-iste-canli-altin-alis-satis-tablosu-2469227",
+      "Kamu1 - https://www.kamu1.net/mevduat-faiz-oranlari-kasim-2026-en-yuksek-faiz-ve-32-gunluk-getiri"
+    ],
+    "sonuc": "Kasım 2026 döneminde 32 günlük süreçte 1 milyon TL mevduat net yaklaşık 29.510 TL kazandırırken, altın piyasasındaki düşüş nedeniyle altın yatırımı değer kaybetti.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "32 Günlük Mevduat",
+          "kalem": "Ana Para: 1,000,000.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "1 milyon TL'nin 32 günlük yaklaşık net faizi 23.145,21 TL ile 28.208,22 TL bandında hesaplanıyor.",
+          "aciklama": "Ana para tutarı kaynak metinlerde doğrudan geçmektedir."
+        },
+        {
+          "secenek": "32 Günlük Mevduat",
+          "kalem": "Net Faiz Getirisi (En Yüksek): 29,510.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "Türkiye Finans – Günlük Hesap - Kâr payı: %44 - Net kazanç: 29.510 TL - Vade sonu tutar: 1.029.510 TL",
+          "aciklama": "En yüksek net faiz getirisi Sozcu.com.tr kaynak metninde Türkiye Finans için birebir yer almaktadır."
+        },
+        {
+          "secenek": "Altın Yatırımı",
+          "kalem": "Ana Para: 1,000,000.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "1 milyon TL'nin 32 günlük yaklaşık net faizi",
+          "aciklama": "Yatırım için baz alınan başlangıç ana para tutarı metinlerde belirtilmiştir."
+        },
+        {
+          "secenek": "Altın Yatırımı",
+          "kalem": "Altın Değer Değişimi: -42,100.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "Kasım ayının ilk gününe göre gram altın -262,04 TL düşerek yüzde -4,21 değer kaybetti.",
+          "aciklama": "Değer değişimi kalemi 'tahmini' olarak işaretlenmiş olup, 1.000.000 TL üzerinden yüzde -4,21'lik oranla mantıksal hesaplamaya dayanmaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan mevduat ve altın yatırımı kalemleri kaynak metinlerdeki verilerle ve oranlarla uyumludur; tahmini işaretli kalem mantıksal formüle dayanmaktadır."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "1 milyon TL'yi faize mi yatırdın, altına mı? 32 günlük net tablo",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 92,
+        "gerekce": "İki popüler yatırım aracını 32 günlük net rakamlarla karşılaştırarak hedef kitlenin merakını doğrudan tetikler."
+      },
+      {
+        "metin": "1 milyon TL mevduat 32 günde tam 29.510 TL net kazandırdı 📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Kasım 2026 verilerine dayanan net ve somut kazanç rakamıyla kaydırmayı durdurur."
+      },
+      {
+        "metin": "Altın bu ay kaybettirdi mi? 1 milyon TL'nin 32 günlük gerçek maliyeti 💸",
+        "teknik": "gizli maliyet",
+        "puan": 88,
+        "gerekce": "Altındaki değer kaybına odaklanarak yatırımcının görmezden geldiği riski göz önüne serer."
+      },
+      {
+        "metin": "Altın her zaman kazandırır inanışına Kasım 2026 verileriyle bakıyoruz",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 85,
+        "gerekce": "Genel kanının aksine yaşanan düşüşü rakamlarla sorgulatır."
+      },
+      {
+        "metin": "1 milyon TL ile Kasım 2026'da mevduat mı, altın mı kazandırdı?",
+        "teknik": "doğrudan soru",
+        "puan": 90,
+        "gerekce": "Net bir soru sorarak izleyicinin kendi tercihini sorgulamasını sağlar."
+      },
+      {
+        "metin": "Elimde 1 milyon TL olsa Kasım 2026'da nereye koyardım?",
+        "teknik": "kişisel hesap",
+        "puan": 86,
+        "gerekce": "İzleyicide samimi bir merak uyandırır ve tabloyu incelemeye yönlendirir."
+      },
+      {
+        "metin": "Kasım 2026 fiyatlarıyla 32 günlük 1 milyon TL mevduat ve altın analizi",
+        "teknik": "liste vaadi",
+        "puan": 82,
+        "gerekce": "Analiz ve net tarih vererek bilgilendirici bir içerik vadeder."
+      },
+      {
+        "metin": "Kasım 2026 enflasyon döneminde 32 günde 1 milyon TL ne yaptı?",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 89,
+        "gerekce": "Güncel dönemin ekonomik koşullarına vurgu yaparak aciliyet hissi yaratır."
+      }
+    ],
+    "secilen_index": 1
+  },
+  "seri_no": 1,
+  "taslak": {
+    "hook": "1 milyon TL mevduat 32 günde tam 29.510 TL net kazandırdı",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Gerçek Maliyet #1",
+        "metin": "Bugün X TL ile ne yapılır günü.",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık. Bugün X TL ile ne yapılır günü."
+      },
+      {
+        "tur": "metin",
+        "baslik": "1 Milyon TL Mevduat",
+        "metin": "Ana Para: 1.000.000,00 TL",
+        "seslendirme": "1 milyon lira ana parayı bankaya yatırdık."
+      },
+      {
+        "tur": "metin",
+        "baslik": "32 Günlük Net Faiz",
+        "metin": "Net Faiz Getirisi: 29.510,00 TL",
+        "seslendirme": "32 günde 29.510 lira net faiz getirisi aldık."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Altın Yatırımı",
+        "metin": "Piyasa Değişimi: -42.100,00 TL (tahmini)",
+        "seslendirme": "Aynı dönemde altın yatırımı değer kaybetti."
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Mevduat vs Altın",
+        "metin": "Kasım 2026 32 günlük karşılaştırma",
+        "seslendirme": "Mevduat ve altın yatırımı arasındaki fark netleşti."
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Mevduat 1.029.510,00 TL olurken, altın 957.900,00 TL seviyesinde kaldı",
+        "seslendirme": "Yatırımın net sonucu bu, yani asgari ücretle yaklaşık 77 gün çalışma."
+      },
+      {
+        "tur": "metin",
+        "baslik": "Karar Zamanı",
+        "metin": "Piyasa koşullarına göre tercih senin",
+        "seslendirme": "Kararı vermeden önce güncel oranları mutlaka incele."
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "1 milyon TL'ni nereye yatırırdın?",
+        "metin": "Kasım 2026 verileriyle hazırlandı.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. 1 milyon TL'ni nereye yatırırdın? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım."
+      }
+    ],
+    "caption": "1 milyon TL mevduat mi yoksa altın mi daha çok kazandırdı? Kasım 2026 verileriyle 32 günlük net getirileri karşılaştırdık.\n\nBankaya yatırılan 1 milyon TL, %44 brüt oranla 32 günde 29.510,00 TL net faiz getirisi sağlarken toplam 1.029.510,00 TL oldu. Aynı dönemde altın yatırımı ise piyasadaki %-4,21'lik piyasa değer kaybı oranı üzerinden hesaplanarak 957.900,00 TL seviyesine geriledi.\n\nEnflasyon ve piyasa koşullarına göre oranlar değişiklik gösterebilir, kesin yatırım tavsiyesi değildir.\n\n1 milyon TL'ni nereye yatırırdın?\n\nKaynaklar:\nTakvim - https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu\nSözcü - https://www.sozcu.com.tr/bankalardan-kasim-surprizi-1-milyon-tl-nin-aylik-getirisi-30-bin-tl-ye-yaklasti-p377103\nBloomberg HT - https://www.bloomberght.com/altin-fiyatlari-27-kasim-2026-cuma-gram-altin-ne-kadar-oldu-ceyrek-altin-kac-tlden-satiliyor-pkh1-3795901\n\nKasım 2026 fiyatlarıyla hazırlanmıştır.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "yatirim",
+      "mevduat",
+      "altin",
+      "ekonomi"
+    ],
+    "tiktok_aciklama": "1 milyon TL mevduat vs altın: 32 günde hangisi kazandırdı? Kasım 2026 verileriyle hesapladık.",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "yatirim",
+      "mevduat",
+      "altin"
+    ],
+    "youtube_baslik": "1 Milyon TL Mevduat vs Altın: 32 Günde Ne Kazandırır? #1",
+    "youtube_aciklama": "1 milyon TL mevduat ile altın yatırımı Kasım 2026 döneminde 32 günde ne kadar kazandırdı? Banka faiz getirisi ve altın piyasasındaki değişimi kalem kalem inceledik. Kesin yatırım tavsiyesi değildir.\n\nKaynaklar:\nTakvim - https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu\nSözcü - https://www.sozcu.com.tr/bankalardan-kasim-surprizi-1-milyon-tl-nin-aylik-getirisi-30-bin-tl-ye-yaklasti-p377103\nBloomberg HT - https://www.bloomberght.com/altin-fiyatlari-27-kasim-2026-cuma-gram-altin-ne-kadar-oldu-ceyrek-altin-kac-tlden-satiliyor-pkh1-3795901",
+    "youtube_etiketler": [
+      "gerçek maliyet",
+      "mevduat faizi",
+      "altın fiyatları",
+      "1 milyon tl",
+      "yatırım karşılaştırma",
+      "kasım 2026"
+    ],
+    "yorum_sorusu": "1 milyon TL'n olsa 32 gün için faize mi yoksa altına mı yatırırdın?",
+    "alt_text": "1 milyon TL mevduat ve altın yatırımının 32 günlük Kasım 2026 karşılaştırma tablosu"
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}
