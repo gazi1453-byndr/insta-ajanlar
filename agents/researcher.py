@@ -192,7 +192,7 @@ def run() -> ResearchReport:
         content=(
             "Aşağıdaki verileri analiz et ve araştırma raporu çıkar.\n\n"
             f"## Büyük sayfaların en iyi gönderileri ve hashtag verileri\n"
-            f"{json.dumps(ig_data, ensure_ascii=False)[:60000]}\n\n"
+            f"{json.dumps(ig_data, ensure_ascii=False)[:18000]}\n\n"
             f"## Web trend notları\n{web}"
         ),
         schema=ResearchReport,

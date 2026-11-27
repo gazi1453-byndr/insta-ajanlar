@@ -60,7 +60,13 @@ gorsel:
   boyut: [1080, 1350]          # Carousel: Instagram 4:5 dikey
   video_boyut: [1080, 1920]    # Reels: 9:16
 
-modeller:
-  # Varsayılan: Claude Opus 5.5. Maliyeti düşürmek istersen sadece burayı değiştir.
-  varsayilan: "claude-opus-5-5"
-  topluluk: "claude-opus-5-5"
+yapay_zeka:
+  # KURAL: soldan sağa denenir. Gemini'nin günlük limiti dolarsa ya da hata verirse
+  # sistem durmaz, otomatik olarak Groq'a geçer. (İkisi de ücretsiz katman.)
+  # İsteğe bağlı ek sağlayıcılar: "claude_abonelik", "claude_api"
+  sira: ["gemini", "groq"]
+  # Model listeleri: ilk model kapanmış/bulunamamışsa sıradaki denenir.
+  gemini_model: ["gemini-flash-latest", "gemini-2.5-flash"]
+  groq_model: ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"]
+  groq_gorsel_model: ["meta-llama/llama-4-scout-17b-16e-instruct"]
+  groq_arastirma_model: ["groq/compound", "groq/compound-mini"]

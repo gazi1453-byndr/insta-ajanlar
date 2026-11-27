@@ -41,8 +41,6 @@ def _decide(items: list[dict], kind: str) -> list[Reply]:
         ),
         content=f"Şu {kind} için karar ver:\n{json.dumps(items, ensure_ascii=False)}",
         schema=ReplyBatch,
-        effort="low",
-        role="topluluk",
     ).yanitlar
 
 
@@ -62,7 +60,7 @@ def run() -> dict:
                 pending.append({"id": c["id"], "kullanici": c.get("username"), "yorum": c.get("text"),
                                 "gonderi": (m.get("caption") or "")[:200]})
         if pending:
-            for r in _decide(pending[:40], "yorumlar"):
+            for r in _decide(pending[:25], "yorumlar"):
                 if r.eylem == "yanitla" and r.yanit:
                     ig.reply_comment(r.id, r.yanit)
                     summary["yorum_yaniti"] += 1

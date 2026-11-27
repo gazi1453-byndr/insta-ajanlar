@@ -1,4 +1,4 @@
-anthropic>=2.14.0
+anthropic>=2.14.0  # sadece claude_api kullanılırsa gerekir
 pydantic>=2.7
 pyyaml>=6.0
 requests>=2.31

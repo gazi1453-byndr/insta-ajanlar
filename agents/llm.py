@@ -1,13 +1,17 @@
-"""Claude bağlantısı. Tüm ajanlar Claude'a buradan ulaşır.
+"""Yapay zeka bağlantısı. Tüm ajanlar modellere buradan ulaşır.
 
-İki çalışma şekli var (otomatik seçilir):
-1) ABONELİK (varsayılan): Claude Code komut satırı + CLAUDE_CODE_OAUTH_TOKEN.
-   Claude Pro/Max aboneliğinle çalışır, ayrıca API faturası çıkmaz.
-   Token: bilgisayarda `claude setup-token` komutuyla alınır.
-2) API: ANTHROPIC_API_KEY tanımlıysa Claude API kullanılır (kullandıkça ödenir).
+KURAL: Sağlayıcılar config.yaml'daki `yapay_zeka.sira` listesindeki sırayla denenir.
+Varsayılan sıra: önce Google Gemini (ücretsiz), Gemini'nin günlük limiti dolarsa ya da
+hata verirse sistem DURMAZ, otomatik olarak Groq'a (ücretsiz) geçip devam eder.
+Günlük limiti dolan sağlayıcı o çalışma boyunca bir daha denenmez (boşa istek atılmaz).
 
-- ask():       Pydantic şemasına uyan yapılandırılmış yanıt döndürür.
-- research():  Web araması yaparak serbest metin araştırma notu döndürür.
+Gerekli ortam değişkenleri (GitHub Secrets):
+  GEMINI_API_KEY   → https://aistudio.google.com/apikey
+  GROQ_API_KEY     → https://console.groq.com/keys
+İsteğe bağlı sağlayıcılar: "claude_abonelik" (CLAUDE_CODE_OAUTH_TOKEN), "claude_api" (ANTHROPIC_API_KEY)
+
+- ask():       Pydantic şemasına uyan yapılandırılmış (JSON) yanıt döndürür.
+- research():  Web'de arama yaparak kaynaklı serbest metin araştırma notu döndürür.
 İçerikte görsel göndermek için {"type": "image_path", "path": "..."} blokları kullanılır.
 """
 from __future__ import annotations
@@ -15,32 +19,57 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import shutil
 import subprocess
+import time
 from pathlib import Path
 from typing import Any, TypeVar
 
+import requests
 from pydantic import BaseModel, ValidationError
 
 from .common import ROOT, config, log
 
 T = TypeVar("T", bound=BaseModel)
 
+DEFAULTS = {
+    "sira": ["gemini", "groq"],
+    "gemini_model": ["gemini-flash-latest", "gemini-2.5-flash"],
+    "groq_model": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"],
+    "groq_gorsel_model": ["meta-llama/llama-4-scout-17b-16e-instruct"],
+    "groq_arastirma_model": ["groq/compound", "groq/compound-mini"],
+}
+
 
 class LLMError(RuntimeError):
     pass
 
 
+class QuotaExhausted(LLMError):
+    """Sağlayıcının günlük/aylık limiti doldu: bu çalışmada bir daha denenmez."""
+
+
+_down: set[str] = set()          # limiti dolan sağlayıcılar
+_last_call: dict[str, float] = {}
+
+
+def _cfg(key: str):
+    v = (config().get("yapay_zeka") or {}).get(key, DEFAULTS.get(key))
+    return v if isinstance(v, list) else [v]
+
+
+def providers() -> list[str]:
+    forced = os.environ.get("LLM_SIRA")
+    order = forced.split(",") if forced else _cfg("sira")
+    env = {"gemini": "GEMINI_API_KEY", "groq": "GROQ_API_KEY",
+           "claude_abonelik": "CLAUDE_CODE_OAUTH_TOKEN", "claude_api": "ANTHROPIC_API_KEY"}
+    return [p.strip() for p in order if os.environ.get(env.get(p.strip(), "_"))]
+
+
 def backend() -> str:
-    forced = os.environ.get("LLM_BACKEND")
-    if forced:
-        return forced
-    return "api" if os.environ.get("ANTHROPIC_API_KEY") else "abonelik"
-
-
-def model(role: str = "varsayilan") -> str:
-    m = config().get("modeller", {})
-    return m.get(role) or m.get("varsayilan") or "claude-opus-5-5"
+    """Kullanılabilir sağlayıcı zinciri (ör. 'gemini → groq')."""
+    return " → ".join(providers()) or "YOK (GEMINI_API_KEY / GROQ_API_KEY tanımlı değil)"
 
 
 def _split(content: str | list[dict]) -> tuple[str, list[Path]]:
@@ -55,151 +84,238 @@ def _split(content: str | list[dict]) -> tuple[str, list[Path]]:
     return "\n\n".join(texts), images
 
 
-# ------------------------------------------------------------------ ABONELİK (Claude Code)
+def _b64(p: Path) -> str:
+    return base64.standard_b64encode(p.read_bytes()).decode()
 
-def _claude_bin() -> str:
+
+def _throttle(name: str, gap: float) -> None:
+    """Ücretsiz katmanların dakika başı sınırına takılmamak için istekler arası bekleme."""
+    wait = gap - (time.time() - _last_call.get(name, 0))
+    if wait > 0:
+        time.sleep(wait)
+    _last_call[name] = time.time()
+
+
+def _schema_prompt(schema: type[BaseModel]) -> str:
+    return ("\n\n---\nYANIT BİÇİMİ: Yanıtını SADECE aşağıdaki JSON Şemasına birebir uyan tek bir JSON "
+            "nesnesi olarak ver. Açıklama, markdown ya da kod bloğu ekleme. Zorunlu alanların hepsini doldur.\n"
+            + json.dumps(schema.model_json_schema(), ensure_ascii=False))
+
+
+def _parse_json(text: str) -> Any:
+    text = text.strip()
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        a, b = text.find("{"), text.rfind("}")
+        if a >= 0 and b > a:
+            return json.loads(text[a:b + 1])
+        raise
+
+
+# ================================================================== GEMINI
+
+def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+    key = os.environ["GEMINI_API_KEY"]
+    parts: list[dict] = [{"inline_data": {"mime_type": "image/jpeg", "data": _b64(p)}} for p in images]
+    parts.append({"text": prompt})
+    body: dict[str, Any] = {
+        "system_instruction": {"parts": [{"text": system}]},
+        "contents": [{"role": "user", "parts": parts}],
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 16384},
+    }
+    if json_mode:
+        body["generationConfig"]["responseMimeType"] = "application/json"
+    if search:
+        body["tools"] = [{"google_search": {}}]
+    last_err = None
+    for model in _cfg("gemini_model"):
+        for attempt in range(2):
+            _throttle("gemini", 6.5)
+            r = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                json=body, timeout=300)
+            if r.status_code == 200:
+                data = r.json()
+                cands = data.get("candidates") or []
+                if not cands:
+                    raise LLMError(f"Gemini yanıt vermedi: {str(data.get('promptFeedback', data))[:300]}")
+                text = "".join(p.get("text", "") for p in cands[0].get("content", {}).get("parts", []))
+                if search:  # kaynak linklerini metne ekle
+                    chunks = cands[0].get("groundingMetadata", {}).get("groundingChunks", [])
+                    links = [f"- {c['web'].get('title', '')}: {c['web'].get('uri', '')}" for c in chunks if c.get("web")]
+                    if links:
+                        text += "\n\nKaynaklar (Google arama):\n" + "\n".join(links)
+                if not text.strip():
+                    raise LLMError(f"Gemini boş yanıt döndü (finishReason: {cands[0].get('finishReason')})")
+                return text
+            msg = r.text[:600]
+            if r.status_code == 429:
+                low = msg.lower()
+                if "perday" in low or "per day" in low or ("quota" in low and "minute" not in low):
+                    raise QuotaExhausted(f"Gemini günlük limiti doldu: {msg[:200]}")
+                if attempt == 0:
+                    log("gemini", "Dakika başı sınır, 30 sn bekleniyor")
+                    time.sleep(30)
+                    continue
+                raise QuotaExhausted(f"Gemini sınırı aşıldı: {msg[:200]}")
+            if r.status_code == 404 or "not found" in msg.lower():
+                last_err = f"{model} bulunamadı"
+                break  # sıradaki modeli dene
+            if r.status_code >= 500 and attempt == 0:
+                time.sleep(10)
+                continue
+            raise LLMError(f"Gemini hata {r.status_code}: {msg[:300]}")
+    raise LLMError(f"Gemini: kullanılabilir model yok ({last_err})")
+
+
+# ================================================================== GROQ
+
+def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+    key = os.environ["GROQ_API_KEY"]
+    if search:
+        models = _cfg("groq_arastirma_model")
+    elif images:
+        models = _cfg("groq_gorsel_model")
+    else:
+        models = _cfg("groq_model")
+    if images:
+        user: Any = [{"type": "text", "text": prompt}] + [
+            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{_b64(p)}"}} for p in images[:5]]
+    else:
+        user = prompt
+    last_err = None
+    for model in models:
+        body: dict[str, Any] = {"model": model, "temperature": 0.6, "max_completion_tokens": 8192,
+                                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
+        if json_mode:
+            body["response_format"] = {"type": "json_object"}
+        for attempt in range(2):
+            _throttle("groq", 2.5)
+            r = requests.post("https://api.groq.com/openai/v1/chat/completions",
+                              headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+                              json=body, timeout=300)
+            if r.status_code == 200:
+                text = r.json()["choices"][0]["message"].get("content") or ""
+                if not text.strip():
+                    raise LLMError("Groq boş yanıt döndü")
+                return text
+            msg = r.text[:600]
+            if r.status_code == 429:
+                if "per day" in msg.lower() or "TPD" in msg or "RPD" in msg:
+                    raise QuotaExhausted(f"Groq günlük limiti doldu: {msg[:200]}")
+                wait = min(float(r.headers.get("retry-after", 20) or 20), 60)
+                if attempt == 0:
+                    log("groq", f"Dakika başı sınır, {wait:.0f} sn bekleniyor")
+                    time.sleep(wait)
+                    continue
+            if r.status_code == 413 or "too large" in msg.lower():
+                if isinstance(user, str) and len(user) > 12000:  # istemi kısaltıp tekrar dene
+                    user = user[:9000] + "\n…(kısaltıldı)…\n" + user[-3000:]
+                    body["messages"][1]["content"] = user
+                    continue
+            if r.status_code in (400, 404) and ("model" in msg.lower() or "decommission" in msg.lower()):
+                last_err = f"{model}: {msg[:120]}"
+                break
+            if r.status_code >= 500 and attempt == 0:
+                time.sleep(10)
+                continue
+            raise LLMError(f"Groq hata {r.status_code}: {msg[:300]}")
+    raise LLMError(f"Groq: kullanılabilir model yok ({last_err})")
+
+
+# ================================================================== CLAUDE (isteğe bağlı)
+
+def _claude_cli_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
     exe = os.environ.get("CLAUDE_BIN") or shutil.which("claude")
     if not exe:
-        raise LLMError("Claude Code bulunamadı (GitHub'da 'npm i -g @anthropic-ai/claude-code' ile kurulur)")
-    return exe
-
-
-def _cli(agent: str, system: str, prompt: str, *, role: str, tools: str = "",
-         schema: dict | None = None, timeout: int = 1500) -> dict:
-    cmd = [_claude_bin(), "-p", "--output-format", "json", "--no-session-persistence",
-           "--model", model(role), "--system-prompt", system, "--tools", tools]
-    if tools:
-        cmd += ["--allowedTools", tools]
-    if schema:
-        cmd += ["--json-schema", json.dumps(schema, ensure_ascii=False)]
-    for attempt in range(3):
-        try:
-            p = subprocess.run(cmd, input=prompt, capture_output=True, text=True, encoding="utf-8",
-                               cwd=str(ROOT), timeout=timeout)
-        except subprocess.TimeoutExpired:
-            log(agent, "Claude Code zaman aşımı, tekrar deneniyor")
-            continue
-        try:
-            data = json.loads(p.stdout)
-        except json.JSONDecodeError:
-            raise LLMError(f"{agent}: Claude Code çıktısı okunamadı: {(p.stdout or p.stderr)[-500:]}")
-        if data.get("is_error"):
-            msg = str(data.get("result", ""))
-            mi = cmd.index("--model") + 1
-            if "model" in msg.lower() and "sonnet" not in cmd[mi] and attempt < 2:
-                log(agent, f"{cmd[mi]} kullanılamadı ({msg[:100]}), Sonnet ile deneniyor")
-                cmd[mi] = "claude-sonnet-5-5"
-                continue
-            if any(k in msg.lower() for k in ("overloaded", "rate", "529", "timeout")) and attempt < 2:
-                log(agent, f"Geçici hata, tekrar deneniyor: {msg[:120]}")
-                continue
-            raise LLMError(f"{agent}: {msg[:400]}")
-        return data
-    raise LLMError(f"{agent}: Claude Code 3 denemede yanıt vermedi")
-
-
-def _ask_cli(agent: str, system: str, content, schema: type[T], role: str) -> T:
-    text, images = _split(content)
-    tools = ""
+        raise LLMError("Claude Code kurulu değil")
+    tools = "WebSearch,WebFetch" if search else ("Read" if images else "")
     if images:
-        tools = "Read"
-        text = ("Önce şu görselleri Read aracıyla aç ve incele:\n"
-                + "\n".join(str(p.resolve()) for p in images) + "\n\n" + text)
-    data = _cli(agent, system, text, role=role, tools=tools, schema=schema.model_json_schema())
-    raw: Any = data.get("structured_output")
-    if raw is None:
-        res = data.get("result", "")
-        try:
-            raw = json.loads(res[res.find("{"): res.rfind("}") + 1]) if isinstance(res, str) else res
-        except json.JSONDecodeError:
-            raise LLMError(f"{agent}: yapılandırılmış yanıt alınamadı")
-    try:
-        out = schema.model_validate(raw)
-    except ValidationError as e:
-        raise LLMError(f"{agent}: yanıt şemaya uymadı: {e}")
-    log(agent, f"Claude yanıtı alındı (abonelik, {data.get('num_turns', 1)} adım)")
-    return out
+        prompt = "Önce şu görselleri Read aracıyla aç:\n" + "\n".join(str(p.resolve()) for p in images) + "\n\n" + prompt
+    cmd = [exe, "-p", "--output-format", "json", "--no-session-persistence",
+           "--system-prompt", system, "--tools", tools] + (["--allowedTools", tools] if tools else [])
+    p = subprocess.run(cmd, input=prompt, capture_output=True, text=True, encoding="utf-8", cwd=str(ROOT), timeout=1500)
+    data = json.loads(p.stdout or "{}")
+    if data.get("is_error"):
+        msg = str(data.get("result", ""))
+        raise (QuotaExhausted if "limit" in msg.lower() else LLMError)(f"Claude: {msg[:300]}")
+    return str(data.get("result", ""))
 
 
-# ------------------------------------------------------------------ API
-
-_FALLBACK = {"betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default"}
-_client = None
-
-
-def _api():
-    global _client
-    if _client is None:
-        import anthropic
-        _client = anthropic.Anthropic(max_retries=4)
-    return _client
-
-
-def _check(resp: Any, agent: str) -> None:
-    if resp.stop_reason == "refusal":
-        cat = getattr(resp.stop_details, "category", None) if resp.stop_details else None
-        raise LLMError(f"{agent}: model isteği reddetti (kategori: {cat})")
-    if resp.stop_reason == "max_tokens":
-        raise LLMError(f"{agent}: yanıt token sınırına takıldı")
+def _claude_api_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+    import anthropic
+    content: Any = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": _b64(p)}}
+                    for p in images] + [{"type": "text", "text": prompt}]
+    kw: dict[str, Any] = {}
+    if search:
+        kw["tools"] = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 8}]
+    resp = anthropic.Anthropic(max_retries=3).messages.create(
+        model="claude-opus-5-5", max_tokens=16000, system=system,
+        messages=[{"role": "user", "content": content}], **kw)
+    return "\n".join(b.text for b in resp.content if b.type == "text")
 
 
-def _api_content(content) -> str | list[dict]:
-    if isinstance(content, str):
-        return content
-    out = []
-    for b in content:
-        if b.get("type") == "image_path":
-            out.append({"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
-                        "data": base64.standard_b64encode(Path(b["path"]).read_bytes()).decode()}})
-        else:
-            out.append(b)
-    return out
+_CALLS = {"gemini": _gemini_call, "groq": _groq_call,
+          "claude_abonelik": _claude_cli_call, "claude_api": _claude_api_call}
 
 
-def _ask_api(agent, system, content, schema: type[T], effort, role, max_tokens) -> T:
-    resp = _api().beta.messages.parse(
-        model=model(role), max_tokens=max_tokens, system=system,
-        messages=[{"role": "user", "content": _api_content(content)}],
-        output_format=schema, output_config={"effort": effort}, **_FALLBACK,
-    )
-    _check(resp, agent)
-    if resp.parsed_output is None:
-        raise LLMError(f"{agent}: yapılandırılmış yanıt alınamadı")
-    log(agent, f"Claude yanıtı alındı (API, {resp.usage.input_tokens} girdi / {resp.usage.output_tokens} çıktı token)")
-    return resp.parsed_output
+# ================================================================== ORTAK ARAYÜZ
 
-
-def _research_api(agent, system, prompt, max_searches) -> str:
-    messages: list[dict] = [{"role": "user", "content": prompt}]
-    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": max_searches}]
-    for _ in range(5):
-        resp = _api().beta.messages.create(
-            model=model(), max_tokens=16000, system=system, messages=messages, tools=tools,
-            output_config={"effort": "medium"}, **_FALLBACK,
-        )
-        if resp.stop_reason == "pause_turn":
-            messages.append({"role": "assistant", "content": resp.content})
+def _run_chain(agent: str, fn_name: str, attempt_fn) -> Any:
+    chain = providers()
+    if not chain:
+        raise LLMError(f"{agent}: hiçbir yapay zeka anahtarı tanımlı değil (GEMINI_API_KEY / GROQ_API_KEY)")
+    errors = []
+    for prov in chain:
+        if prov in _down:
             continue
-        _check(resp, agent)
-        return "\n".join(b.text for b in resp.content if b.type == "text").strip()
-    raise LLMError(f"{agent}: araştırma bitmedi")
+        try:
+            out = attempt_fn(prov)
+            log(agent, f"{fn_name} yanıtı alındı ({prov})")
+            return out
+        except QuotaExhausted as e:
+            _down.add(prov)
+            errors.append(f"{prov}: {e}")
+            log(agent, f"⚠ {prov} limiti doldu → sıradaki sağlayıcıya geçiliyor")
+        except (LLMError, requests.RequestException, ValueError, KeyError) as e:
+            errors.append(f"{prov}: {e}")
+            log(agent, f"⚠ {prov} hata verdi ({str(e)[:120]}) → sıradaki sağlayıcıya geçiliyor")
+    raise LLMError(f"{agent}: tüm sağlayıcılar başarısız → " + " | ".join(errors))
 
-
-# ------------------------------------------------------------------ Ortak arayüz
 
 def ask(agent: str, system: str, content: str | list[dict], schema: type[T], effort: str = "high",
         role: str = "varsayilan", max_tokens: int = 16000) -> T:
-    if backend() == "api":
-        return _ask_api(agent, system, content, schema, effort, role, max_tokens)
-    return _ask_cli(agent, system, content, schema, role)
+    """Yapılandırılmış yanıt. Şemaya uymayan yanıtı bir kez hatayla birlikte geri gönderip düzelttirir."""
+    text, images = _split(content)
+    prompt = text + _schema_prompt(schema)
+
+    def attempt(prov: str) -> T:
+        call = _CALLS[prov]
+        p = prompt
+        for i in range(2):
+            raw = call(p, system, images, json_mode=True, search=False)
+            try:
+                return schema.model_validate(_parse_json(raw))
+            except (ValidationError, json.JSONDecodeError) as e:
+                if i == 1:
+                    raise LLMError(f"yanıt şemaya uymadı: {str(e)[:200]}")
+                p = prompt + f"\n\nÖNCEKİ YANITIN ŞEMAYA UYMADI, düzelt:\n{str(e)[:1500]}"
+        raise LLMError("ulaşılamaz")
+
+    return _run_chain(agent, "Yapay zeka", attempt)
 
 
 def research(agent: str, system: str, prompt: str, max_searches: int = 8) -> str:
-    if backend() == "api":
-        text = _research_api(agent, system, prompt, max_searches)
-    else:
-        prompt += (f"\n\nWebSearch aracıyla en fazla {max_searches} arama yap, gerekirse WebFetch ile "
-                   "sayfaları aç. Sonunda bulgularını kaynak linkleriyle birlikte düz metin olarak yaz.")
-        text = str(_cli(agent, system, prompt, role="varsayilan", tools="WebSearch,WebFetch").get("result", ""))
-    log(agent, "Web araştırması tamamlandı")
-    return text
+    prompt = (prompt + f"\n\nGüncel bilgi için web'de ara (en fazla {max_searches} arama). Her bulgunun yanına "
+              "kaynak site adını ve linkini yaz. Bulamadığın bilgiyi uydurma.")
+
+    def attempt(prov: str) -> str:
+        out = _CALLS[prov](prompt, system, [], json_mode=False, search=True)
+        if len(out.strip()) < 40:
+            raise LLMError("araştırma sonucu boş")
+        return out
+
+    return _run_chain(agent, "Web araştırması", attempt)

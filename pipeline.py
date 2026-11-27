@@ -55,7 +55,7 @@ def yeniden_ciz() -> None:
 
 
 def kontrol() -> None:
-    """Claude kullanmadan bağlantıları ve izinleri test eder."""
+    """Yapay zeka sağlayıcılarını, web aramasını ve Instagram bağlantısını test eder."""
     import os
     from agents import instagram as ig
     ok = True
@@ -65,15 +65,24 @@ def kontrol() -> None:
     class Ping(BaseModel):
         cevap: str
 
-    print("Claude bağlantı şekli:", llm.backend())
+    print("Yapay zeka sırası:", llm.backend())
+    import os as _os
+    for prov in llm.providers():  # her sağlayıcıyı tek tek dene
+        _os.environ["LLM_SIRA"] = prov
+        try:
+            r1 = llm.ask("kontrol", "Kısa yanıt ver.", "cevap alanına sadece 'hazır' yaz.", Ping)
+            print(f"✓ {prov} çalışıyor: {r1.cevap}")
+        except Exception as e:
+            print(f"✗ {prov}: {str(e)[:200]}")
+    _os.environ.pop("LLM_SIRA", None)
     try:
-        r = llm.ask("kontrol", "Kısa yanıt ver.", "Sadece 'hazır' kelimesini döndür.", Ping, role="topluluk")
-        print(f"✓ Claude yanıt verdi: {r.cevap}")
+        r = llm.ask("kontrol", "Kısa yanıt ver.", "cevap alanına sadece 'hazır' yaz.", Ping)
+        print(f"✓ Zincir yanıt verdi: {r.cevap}")
         notes = llm.research("kontrol", "Kısa yanıt ver.", "Bugün Türkiye'de 1 litre benzinin fiyatı kaç TL? Kaynağıyla tek cümle.", 1)
         print(f"✓ Web araması çalışıyor: {notes[:160]}")
     except Exception as e:
         ok = False
-        print("✗ Claude:", e)
+        print("✗ Yapay zeka:", e)
     try:
         ids = ig._discover()
         print(f"✓ Instagram hesabı: @{ids['username']} (IG {ids['ig']}, sayfa {ids['page']})")

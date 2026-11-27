@@ -1,7 +1,7 @@
 # Gerçek Maliyet: Instagram Ajan Sistemi
 
 "Bu kaça mal oluyor?" sorusunu güncel Türkiye fiyatlarıyla, kalem kalem ve kaynaklı yanıtlayan
-45 saniyelik Reels ve carousel içerikleri üreten, Claude ile çalışan otomatik bir ekip.
+45 saniyelik Reels ve carousel içerikleri üreten, ücretsiz yapay zeka (Google Gemini + Groq) ile çalışan otomatik bir ekip.
 GitHub Actions üzerinde kendi kendine çalışır; sunucu gerekmez; resmi Instagram API'sini kullanır.
 
 Yapay zeka arka planda gizli bir araştırma ekibi gibi çalışır. İzleyici sadece net rakamları,
@@ -40,7 +40,8 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
 | Instagram hesabı + Facebook sayfası + bağlantı | ✅ |
 | Meta uygulaması (YZ Pratik Ajan) + izinler | ✅ |
 | Süresiz sistem kullanıcısı tokeni → `IG_ACCESS_TOKEN` | ✅ |
-| `CLAUDE_CODE_OAUTH_TOKEN` (Claude aboneliğin) | Senin eklemen gerekiyor: bilgisayarda `claude setup-token` |
+| `GEMINI_API_KEY` (ücretsiz) | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| `GROQ_API_KEY` (ücretsiz, yedek) | [console.groq.com/keys](https://console.groq.com/keys) |
 | Instagram kullanıcı adını `gercekmaliyet` yapmak | Senin yapman gerekiyor (Instagram → Profili düzenle) |
 | Ses klonu (isteğe bağlı) | Aşağıya bak |
 
@@ -81,10 +82,14 @@ duruyor. Telefondan bir dakikada paylaşılıyor. Denetim onaylanınca otomatik 
 
 ## Bilmen gerekenler
 
-- **Claude maliyeti:** Sistem varsayılan olarak **Claude Pro/Max aboneliğinle** (Claude Code üzerinden)
-  çalışır; ayrıca fatura çıkmaz, kullanım aboneliğinin limitinden düşer. Aboneliğin Opus'a izin
-  vermezse otomatik olarak Sonnet kullanılır. İstersen `ANTHROPIC_API_KEY` secret'ı ekleyerek
-  kullandıkça ödenen API'ye geçebilirsin (günde 1 içerik ≈ ayda 30-50 $ Opus ile).
+- **Yapay zeka maliyeti: 0 TL.** Sistem Google Gemini'nin ve Groq'un ücretsiz katmanlarını kullanır.
+  KURAL: önce Gemini denenir; Gemini'nin günlük limiti dolarsa ya da hata verirse sistem durmaz,
+  otomatik olarak Groq'a geçer. Limiti dolan sağlayıcı o çalışmada bir daha denenmez. Sıra ve
+  modeller `config.yaml` → `yapay_zeka` bölümünden değiştirilebilir. İkisi de dolarsa o günkü
+  üretim hata verir ve ertesi gün kaldığı yerden devam eder; para kesilmez.
+- **Ücretsiz katman gizliliği:** Google, ücretsiz Gemini katmanında gönderilen verileri ürünlerini
+  geliştirmek için kullanabiliyor. Buraya giden veriler zaten herkese açık paylaşılacak içerikler
+  olduğu için sorun değil, ama kişisel bilgi girmemeye dikkat et.
 - **Medya barındırma:** Instagram videoyu herkese açık bir adresten çekiyor. Varsayılan olarak bu
   public reponun raw adresi kullanılıyor. Repo şişmesin diye 3 haftadan eski videolar silinir.
 - **Rakam güvenliği:** Veri güveni "düşük" çıkan konular hiç üretilmez. Tahmini kalemler grafikte

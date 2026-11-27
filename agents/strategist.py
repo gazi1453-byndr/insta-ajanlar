@@ -55,7 +55,7 @@ def run(count: int) -> list[Idea]:
         content=(
             f"## Haftalık hook bankası (son 7 günün gerçek arama ilgisi; öncelik bunlarda)\n"
             f"{json.dumps([{'index': i, **h} for i, h in unused], ensure_ascii=False)}\n\n"
-            f"## Araştırma raporu\n{json.dumps(research, ensure_ascii=False)[:30000]}\n\n"
+            f"## Araştırma raporu\n{json.dumps(research, ensure_ascii=False)[:9000]}\n\n"
             f"## Geçmiş verilerden öğrenilenler\n{learnings()}\n\n"
             f"## Son paylaşılan/planlanan konular (TEKRARLAMA)\n{json.dumps(_recent_topics(), ensure_ascii=False)}\n\n"
             f"{count * 3} farklı fikir üret ve puana göre sırala. Format dağılımı yaklaşık: "
