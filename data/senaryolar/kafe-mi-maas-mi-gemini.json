@@ -1,0 +1,48 @@
+{
+  "konu": "1,5 milyon TL ile küçük kafe açmak mı, maaşlı çalışmak mı? (1 yıl)",
+  "aci": "Kafenin görünmeyen sabit giderleri vs maaş + sermayenin mevduat getirisi",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "KÜÇÜK KAFE AÇMAK MI, MAAŞLI ÇALIŞMAK MI?",
+  "not": "Gemini senaryosu BİREBİR (rakamlar ve kaynak adları değiştirilmedi); ajan denetimi için.",
+  "denetim_sorgulari": [
+    "küçük kafe açma maliyeti 2026 kira personel",
+    "asgari ücret 2026 işverene maliyeti",
+    "mevduat faizi Kasım 2026",
+    "kafe net kâr marjı ciro 2026",
+    "işyeri kira stopajı yüzde 20",
+    "TÜİK kira endeksi 2026"
+  ],
+  "veri": {
+    "baslik": "Kafe açmak mı, maaşlı çalışmak mı? 1,5 milyon TL (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {"ad": "Kafe sahibi", "toplam_tl": 918000, "kalemler": [
+        {"kalem": "Net kâr (ciro 4,5 milyon − tüm giderler)", "tutar_tl": 918000, "aciklama": "Ciro 4.500.000 TL; kira+stopaj 504.000; personel+sigorta 558.000; hammadde ve vergi", "kaynak": "GİB Sektör Verileri (Kasım 2026)", "tahmini": false}
+      ]},
+      {"ad": "Maaşlı çalışan", "toplam_tl": 1292500, "kalemler": [
+        {"kalem": "Yıllık maaş", "tutar_tl": 715000, "aciklama": "55.000 TL net maaş", "kaynak": "SGK (Kasım 2026)", "tahmini": false},
+        {"kalem": "Sermayenin mevduat getirisi", "tutar_tl": 577500, "aciklama": "1.500.000 TL mevduatta", "kaynak": "TCMB Mevduat Verileri (Kasım 2026)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": ["1,5 milyon TL sermaye", "Yıllık ciro 4,5 milyon TL"],
+    "kaynaklar": ["TCMB", "TÜİK", "SGK", "GİB"],
+    "sonuc": "Maaşlı senaryo ilk yıl 374.500 TL önde.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "KÜÇÜK KAFE AÇMAK MI, MAAŞLI ÇALIŞMAK MI?", "metin": "1.5 milyon TL sermaye ile 1 yıllık gerçek hesap",
+     "seslendirme": "İstifa edip bir buçuk milyon liraya küçük bir kafe açmak mı, yoksa maaşlı çalışmaya devam etmek mi daha kârlı?", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Dükkan kirası + stopaj: yılda 504.000 TL", "metin": "1 personel + sigorta gideri: yılda 558.000 TL",
+     "seslendirme": "Kafe açtığında yıllık kira ve personel gideri bir milyon altmış bin lirayı buluyor;", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "İşletmeciye kalan net kâr: 918.000 TL", "metin": "Yıllık ciro (4.5 milyon TL) - tüm giderler",
+     "seslendirme": "tüm masraflar çıkınca sana dokuz yüz on sekiz bin lira net kâr kalıyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "İlk yılda maaşlı senaryo farkı: +374.500 TL", "metin": "Yıllık maaş (715.000 TL) + mevduat (577.500 TL)",
+     "seslendirme": "Maaşlı kalıp sermayeni yatırımda tuttuğunda ise ilk yıl üç yüz yetmiş dört bin lira öne geçiyorsun.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "Risk alıp kendi işini mi kurarsın, maaşlı mı kalırsın?", "metin": "Tarafını yorumda seç 👇",
+     "seslendirme": "Sen hangisini seçerdin?", "sure": 3.0}
+  ],
+  "caption": "Kafe açmak mı, maaşlı çalışmak mı? 1,5 milyon TL sermaye ile 1 yıllık gerçek hesap.",
+  "hashtagler": ["gercekmaliyet", "girisimcilik", "kafe", "maas", "kisiselfinans"],
+  "yorum_sorusu": "Risk alıp kendi işini mi kurarsın, maaşlı mı kalırsın?"
+}
