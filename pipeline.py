@@ -36,7 +36,21 @@ def kontrol() -> None:
     import os
     from agents import instagram as ig
     ok = True
-    print("ANTHROPIC_API_KEY:", "tanımlı" if os.environ.get("ANTHROPIC_API_KEY") else "EKSİK")
+    from agents import llm
+    from pydantic import BaseModel
+
+    class Ping(BaseModel):
+        cevap: str
+
+    print("Claude bağlantı şekli:", llm.backend())
+    try:
+        r = llm.ask("kontrol", "Kısa yanıt ver.", "Sadece 'hazır' kelimesini döndür.", Ping, role="topluluk")
+        print(f"✓ Claude yanıt verdi: {r.cevap}")
+        notes = llm.research("kontrol", "Kısa yanıt ver.", "Bugün Türkiye'de 1 litre benzinin fiyatı kaç TL? Kaynağıyla tek cümle.", 1)
+        print(f"✓ Web araması çalışıyor: {notes[:160]}")
+    except Exception as e:
+        ok = False
+        print("✗ Claude:", e)
     try:
         ids = ig._discover()
         print(f"✓ Instagram hesabı: @{ids['username']} (IG {ids['ig']}, sayfa {ids['page']})")

@@ -6,7 +6,6 @@ karşılaştırır. Kaynaksız ya da tabloyla uyuşmayan rakam = onay yok.
 """
 from __future__ import annotations
 
-import base64
 from pathlib import Path
 from typing import Literal
 
@@ -41,8 +40,7 @@ class Verdict(BaseModel):
 
 
 def _img(path: Path) -> dict:
-    return {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
-                                        "data": base64.standard_b64encode(path.read_bytes()).decode()}}
+    return {"type": "image_path", "path": str(path)}
 
 
 def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt: int) -> Verdict:

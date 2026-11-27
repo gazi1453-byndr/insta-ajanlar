@@ -40,7 +40,7 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
 | Instagram hesabı + Facebook sayfası + bağlantı | ✅ |
 | Meta uygulaması (YZ Pratik Ajan) + izinler | ✅ |
 | Süresiz sistem kullanıcısı tokeni → `IG_ACCESS_TOKEN` | ✅ |
-| `ANTHROPIC_API_KEY` | Senin eklemen gerekiyor ([console.anthropic.com](https://console.anthropic.com)) |
+| `CLAUDE_CODE_OAUTH_TOKEN` (Claude aboneliğin) | Senin eklemen gerekiyor: bilgisayarda `claude setup-token` |
 | Instagram kullanıcı adını `gercekmaliyet` yapmak | Senin yapman gerekiyor (Instagram → Profili düzenle) |
 | Ses klonu (isteğe bağlı) | Aşağıya bak |
 
@@ -81,8 +81,10 @@ duruyor. Telefondan bir dakikada paylaşılıyor. Denetim onaylanınca otomatik 
 
 ## Bilmen gerekenler
 
-- **Tahmini Claude maliyeti:** Opus 5.5 ile günde 1 içerik için ayda yaklaşık 30-50 $. Web
-  araştırmaları bu tutara dahil. `modeller.varsayilan: "claude-sonnet-5-5"` yaparsan kabaca yarıya iner.
+- **Claude maliyeti:** Sistem varsayılan olarak **Claude Pro/Max aboneliğinle** (Claude Code üzerinden)
+  çalışır; ayrıca fatura çıkmaz, kullanım aboneliğinin limitinden düşer. Aboneliğin Opus'a izin
+  vermezse otomatik olarak Sonnet kullanılır. İstersen `ANTHROPIC_API_KEY` secret'ı ekleyerek
+  kullandıkça ödenen API'ye geçebilirsin (günde 1 içerik ≈ ayda 30-50 $ Opus ile).
 - **Medya barındırma:** Instagram videoyu herkese açık bir adresten çekiyor. Varsayılan olarak bu
   public reponun raw adresi kullanılıyor. Repo şişmesin diye 3 haftadan eski videolar silinir.
 - **Rakam güvenliği:** Veri güveni "düşük" çıkan konular hiç üretilmez. Tahmini kalemler grafikte
