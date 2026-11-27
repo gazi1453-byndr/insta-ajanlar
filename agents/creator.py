@@ -69,7 +69,7 @@ def run(idea: Idea, hook: str, sheet: DataSheet, series_no: int,
     seri = cfg.get("seri", {})
     fmt = FORMAT.format(acilis=seri.get("acilis", "Bunun gerçek maliyetini hesapladık."),
                         kapanis=seri.get("kapanis_ses", "Gerçek rakamlar için takipte kal."),
-                        kelime=int(sure * 2.35), sure=sure)
+                        kelime=int(sure * 2.0), sure=sure)
     task = (
         f"## Fikir\n{idea.model_dump_json()}\n\n## Seçilen hook\n{hook}\n\n"
         f"## Maliyet tablosu (TEK RAKAM KAYNAĞIN BU)\n{as_text(sheet)}\n\n"

@@ -48,7 +48,7 @@ def structure_check(draft: Draft) -> list[str]:
     if not lo <= len(s) <= hi:
         issues.append(f"Sahne sayısı {lo}-{hi} arası olmalı (şu an {len(s)})")
     words = sum(len(x.seslendirme.split()) for x in s)
-    wlo, whi = int(target * 1.9), int(target * 2.8)
+    wlo, whi = int(target * 1.6), int(target * 2.4)   # rakamlar yazıya çevrilince konuşma uzar
     if not wlo <= words <= whi:
         issues.append(f"Toplam seslendirme {wlo}-{whi} kelime olmalı (~{target} sn); şu an {words}")
     for i, x in enumerate(s, 1):
@@ -144,6 +144,44 @@ def layout_audit(draft: Draft, sheet: DataSheet, series_no: int = 0,
     return sorted(set(issues))
 
 
+# ------------------------------------------------------------------ 2b) RENK DENETÇİSİ (60-30-10)
+
+def _hex(h: str) -> tuple:
+    h = h.lstrip("#")
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def color_balance(images: list) -> dict:
+    """Karelerdeki piksel payları: baskın (arka plan), ikincil (panel), vurgu, yazı/diğer.
+    images: PIL Image ya da dosya yolu listesi."""
+    from PIL import Image
+    g = config()["gorsel"]
+    pal = {"baskin": _hex(g["arka_plan"]), "ikincil": _hex(g.get("panel", "#18233A")), "vurgu": _hex(g["vurgu"])}
+    accents = [_hex(x) for x in ("#86EFAC", "#15803D", "#BBF7D0")]  # vurgu tonları
+    counts = {"baskin": 0, "ikincil": 0, "vurgu": 0, "yazi": 0}
+    for im in images:
+        im = (Image.open(im) if not hasattr(im, "resize") else im).convert("RGB").resize((108, 192))
+        for px in im.getdata():
+            dist = {k: sum((a - b) ** 2 for a, b in zip(px, v)) for k, v in pal.items()}
+            dist["vurgu"] = min([dist["vurgu"]] + [sum((a - b) ** 2 for a, b in zip(px, v)) for v in accents])
+            k = min(dist, key=dist.get)
+            counts[k if dist[k] < 2500 else "yazi"] += 1
+    tot = sum(counts.values()) or 1
+    return {k: round(v / tot * 100, 1) for k, v in counts.items()}
+
+
+def color_check(images: list) -> list[str]:
+    b = color_balance(images)
+    issues = []
+    if not 50 <= b["baskin"] <= 72:
+        issues.append(f"Baskın renk payı %{b['baskin']} (hedef ~%60)")
+    if not 20 <= b["ikincil"] <= 40:
+        issues.append(f"İkincil renk payı %{b['ikincil']} (hedef ~%30)")
+    if not 5 <= b["vurgu"] <= 15:
+        issues.append(f"Vurgu rengi payı %{b['vurgu']} (hedef ~%10)")
+    return issues
+
+
 # ------------------------------------------------------------------ 3) SENKRON KONTROLCÜSÜ
 
 def _stream_seconds(path: Path, sel: str) -> float:
@@ -180,6 +218,58 @@ def av_sync(video: Path) -> list[str]:
     target = config()["uretim"]["video_suresi_sn"]
     if not (target * 0.75 <= v <= min(target * 1.35, 90)):
         issues.append(f"Süre hedef dışında: {v:.1f} sn (hedef ~{target} sn, Reels en fazla 90 sn)")
+    return issues
+
+
+# ------------------------------------------------------------------ 3b) SES DENETÇİSİ
+
+def _norm_words(text: str) -> list[str]:
+    tr = str.maketrans("ÇĞİIÖŞÜçğıöşü", "cgiiosucgiosu")
+    text = text.replace("İ", "i").replace("I", "ı").lower().translate(tr)
+    return re.findall(r"[a-z0-9]+", text)
+
+
+def voice_check(video: Path, draft: Draft, transcribe: bool = True) -> list[str]:
+    """Sesi DİNLER gibi kontrol eder: ses seviyesi, bozulma (clipping), konuşma hızı ve
+    sesi yazıya döküp senaryoyla karşılaştırma (yanlış/eksik okunan kelimeler)."""
+    import difflib
+
+    from . import llm, voice
+    from .video import FF
+    issues = []
+    plan = json.loads((video.parent / "timing.json").read_text(encoding="utf-8"))
+    if not any(plan.get("seslendirme_sn", [])):
+        return []  # sessiz video: kontrol edilecek ses yok
+    p = subprocess.run([FF, "-i", str(video), "-map", "0:a:0", "-af", "volumedetect", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    mean = re.search(r"mean_volume: (-?[\d.]+) dB", p.stderr)
+    peak = re.search(r"max_volume: (-?[\d.]+) dB", p.stderr)
+    if mean and not -26 <= float(mean[1]) <= -10:
+        issues.append(f"Ses seviyesi uygun değil: ortalama {mean[1]} dB (hedef -26 ile -10 dB arası)")
+    if peak and float(peak[1]) > -0.3:
+        issues.append(f"Ses patlıyor (clipping): tepe {peak[1]} dB")
+    for i, (s, sec) in enumerate(zip(draft.slaytlar, plan["seslendirme_sn"]), 1):
+        if sec:
+            wps = len(voice.speakable(s.seslendirme).split()) / sec
+            if not 1.4 <= wps <= 3.8:
+                issues.append(f"Sahne {i}: konuşma hızı anormal ({wps:.1f} kelime/sn)")
+    if transcribe:
+        mp3 = video.parent / "ses_kontrol.mp3"
+        subprocess.run([FF, "-loglevel", "error", "-y", "-i", str(video), "-map", "0:a:0", "-ac", "1",
+                        "-ar", "16000", "-b:a", "48k", str(mp3)], check=True)
+        try:
+            heard = llm.transcribe("Ses Denetçisi", mp3)
+            expected = _norm_words(" ".join(voice.speakable(s.seslendirme) for s in draft.slaytlar))
+            got = _norm_words(heard)
+            ratio = difflib.SequenceMatcher(None, expected, got).ratio()
+            if ratio < 0.80:
+                issues.append(f"Ses senaryoyla uyuşmuyor: benzerlik %{ratio * 100:.0f} (en az %80). "
+                              f"Duyulan: '{' '.join(got[:25])}…'")
+        except llm.LLMError as e:
+            from .common import log
+            log("Ses Denetçisi", f"Ses yazıya dökülemedi, sadece ölçüm kontrolleri yapıldı: {str(e)[:120]}")
+        finally:
+            mp3.unlink(missing_ok=True)
     return issues
 
 

@@ -25,7 +25,7 @@ from . import voice
 from .common import MEDIA_GENERATED, ROOT, config, log
 from .creator import Draft
 from .data_researcher import DataSheet
-from .designer import Canvas, render_slide
+from .designer import Canvas, card_for, render_slide
 
 AGENT = "Video Kurgucu"
 FPS = 30
@@ -106,7 +106,10 @@ def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0) -> 
     accent = config()["gorsel"]["vurgu"]
 
     audio = [voice.synthesize(s.seslendirme, folder / f"ses{i + 1}.mp3") for i, s in enumerate(draft.slaytlar)]
-    log(AGENT, "Seslendirme: " + ("ElevenLabs" if any(audio) else "yok (ekranda yazı)"))
+    import os
+    prov = ("ElevenLabs" if os.environ.get("ELEVENLABS_API_KEY") else
+            f"Edge ({config().get('ses', {}).get('edge_ses', 'tr-TR-AhmetNeural')})")
+    log(AGENT, "Seslendirme: " + (prov if any(audio) else "yok (ekranda yazı)"))
     seconds = _scene_seconds(draft, audio)
     frames = frame_plan(seconds)
     total_frames = sum(frames)
@@ -129,10 +132,11 @@ def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0) -> 
     frame_no = 0
     n = len(draft.slaytlar)
     for i, (s, nf) in enumerate(zip(draft.slaytlar, frames)):
-        static = None if s.tur in ANIMATED else render_slide(c, s, sheet, i, n)
+        box = card_for(c, s, sheet, i, n)
+        static = None if s.tur in ANIMATED else render_slide(c, s, sheet, i, n, card_box=box)
         for f in range(nf):
             t = f / FPS
-            img = render_slide(c, s, sheet, i, n, t=min(1.0, t / 1.8)) if static is None else static
+            img = render_slide(c, s, sheet, i, n, t=min(1.0, t / 1.8), card_box=box) if static is None else static
             if t < 0.25 and i > 0:  # kısa giriş yakınlaşması
                 z = 1.04 - 0.16 * t
                 zw, zh = int(W / z), int(H / z)

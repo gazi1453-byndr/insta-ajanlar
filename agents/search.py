@@ -14,6 +14,8 @@ import requests
 
 from .common import log
 
+URL = "https://api.tavily.com/search"
+
 
 class SearchError(RuntimeError):
     pass
@@ -23,28 +25,27 @@ def enabled() -> bool:
     return bool(os.environ.get("TAVILY_API_KEY"))
 
 
-def search(query: str, max_results: int = 5, days: int | None = None) -> list[dict]:
-    """[{title, url, content}] döndürür. days: sadece son N günün haberleri (gündem aramaları için)."""
-    body: dict = {
-        "query": query,
-        "max_results": max_results,
-        "search_depth": "basic",
-        "include_raw_content": "text",
-        "country": "turkey",
-    }
+def search(query: str, max_results: int = 5, days: int | None = None,
+           domains: list[str] | None = None) -> list[dict]:
+    """[{title, url, content}] döndürür.
+    days: sadece son N günün haberleri (gündem). domains: sadece bu sitelerde ara (ör. reddit.com)."""
+    key = os.environ["TAVILY_API_KEY"]
+    body: dict = {"query": query, "max_results": max_results, "search_depth": "basic",
+                  "include_raw_content": "text"}
     if days:
         body.update(topic="news", days=days)
     else:
-        body["time_range"] = "month"  # fiyatlar için sadece son bir ayın sayfaları
-    r = requests.post("https://api.tavily.com/search",
-                      headers={"Authorization": f"Bearer {os.environ['TAVILY_API_KEY']}"},
-                      json=body, timeout=60)
+        body["time_range"] = "week" if domains else "month"   # sosyal medya: son hafta; fiyatlar: son ay
+    if domains:
+        body["include_domains"] = domains
+    r = requests.post(URL, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=60)
     if r.status_code in (400, 401, 422):  # sade gövdeyle (eski API biçimi) bir kez daha dene
-        simple = {"api_key": os.environ["TAVILY_API_KEY"], "query": query, "max_results": max_results,
-                  "include_raw_content": True}
+        simple = {"api_key": key, "query": query, "max_results": max_results, "include_raw_content": True}
         if days:
             simple.update(topic="news", days=days)
-        r = requests.post("https://api.tavily.com/search", json=simple, timeout=60)
+        if domains:
+            simple["include_domains"] = domains
+        r = requests.post(URL, json=simple, timeout=60)
     if r.status_code != 200:
         raise SearchError(f"Tavily {r.status_code}: {r.text[:200]}")
     out = []

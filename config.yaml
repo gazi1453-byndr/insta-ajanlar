@@ -61,12 +61,20 @@ topluluk:
     - "kişiye özel yatırım tavsiyesi isteyen sorular -> genel bilgi ver, tavsiye verme"
 
 gorsel:
-  arka_plan: "#0E1116"         # koyu antrasit
-  vurgu: "#22C55E"             # para yeşili
-  uyari: "#F43F5E"             # pahalı/olumsuz kalemler için kırmızı
+  # 60-30-10 renk kuralı (Renk Denetçisi her videoda ölçer)
+  arka_plan: "#0B1220"         # %60 baskın: gece laciverti (güven, ciddiyet)
+  panel: "#18233A"             # %30 ikincil: arduvaz kart (içerik alanı)
+  vurgu: "#22C55E"             # %10 vurgu: para yeşili (rakamlar, rozet, çubuklar)
+  uyari: "#F43F5E"             # nadiren: olumsuz/pahalı vurgusu
   yazi: "#F8FAFC"
+  yazi_ikincil: "#94A3B8"
   boyut: [1080, 1350]          # Carousel: Instagram 4:5 dikey
   video_boyut: [1080, 1920]    # Reels: 9:16
+
+ses:
+  saglayici: "edge"            # edge (ücretsiz Microsoft nöral ses) | yok
+  edge_ses: "tr-TR-AhmetNeural"  # alternatif: tr-TR-EmelNeural (kadın)
+  hiz: "+8%"
 
 yapay_zeka:
   # KURAL: soldan sağa denenir. Gemini'nin günlük limiti dolarsa ya da hata verirse

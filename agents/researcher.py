@@ -168,20 +168,14 @@ def weekly_hook_bank() -> list[dict]:
 
 
 def run() -> ResearchReport:
+    from . import trend_scanner
     cfg = config()
-    weekly_hook_bank()
+    # Her gün: Google Trends + haberler + Reddit/Ekşi/YouTube taraması → güncel fikirler (hook bankası)
+    agenda = trend_scanner.run()
+    if agenda is None:          # tarama hiç sonuç vermezse haftalık yedek yöntem
+        weekly_hook_bank()
     ig_data = collect_instagram()
-
-    web = research(
-        AGENT,
-        system="Sen bir sosyal medya trend araştırmacısısın. Kısa, maddeli ve kaynaklı notlar çıkar.",
-        prompt=(
-            f"Niş: {cfg['hesap']['nis']}. Hedef kitle: {cfg['hesap']['hedef_kitle']}.\n"
-            f"Bugün {now():%d %B %Y}. Bu niş için Türkiye'de ve dünyada şu an Instagram'da "
-            "konuşulan güncel konuları, gündem olaylarını, yükselen içerik formatlarını ve "
-            "kitlenin şu an en çok merak ettiği soruları araştır. En fazla 15 madde."
-        ),
-    )
+    web = trend_scanner.summary_text()
 
     report = ask(
         AGENT,

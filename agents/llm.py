@@ -390,3 +390,46 @@ def research(agent: str, system: str, prompt: str, max_searches: int = 8, recent
         return out
 
     return _run_chain(agent, "Web araştırması", attempt)
+
+
+# ================================================================== SES → YAZI (Ses Denetçisi için)
+
+def transcribe(agent: str, audio: Path) -> str:
+    """Sesi yazıya döker: önce Gemini (ses girişi), olmazsa Groq Whisper."""
+    data = _b64(audio)
+
+    def attempt(prov: str) -> str:
+        if prov == "gemini":
+            key = os.environ["GEMINI_API_KEY"]
+            body = {"contents": [{"role": "user", "parts": [
+                {"inline_data": {"mime_type": "audio/mp3", "data": data}},
+                {"text": "Bu Türkçe sesi kelimesi kelimesine yazıya dök. Rakamları da yazıyla yaz. "
+                         "Sadece dökümü ver, yorum ekleme."}]}],
+                "generationConfig": {"temperature": 0}}
+            for model in _cfg("gemini_model"):
+                if _busy_until.get(model, 0) > time.time() or f"gemini:{model}:normal" in _down_models:
+                    continue
+                _throttle("gemini", 6.5)
+                r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                                  headers={"x-goog-api-key": key}, json=body, timeout=300)
+                if r.status_code == 200:
+                    c = (r.json().get("candidates") or [{}])[0]
+                    text = "".join(p.get("text", "") for p in c.get("content", {}).get("parts", []))
+                    if text.strip():
+                        return text
+                if r.status_code == 429:
+                    _down_models.add(f"gemini:{model}:normal")
+            raise LLMError("Gemini sesi yazıya dökemedi")
+        if prov == "groq":
+            _throttle("groq", 2.5)
+            r = requests.post("https://api.groq.com/openai/v1/audio/transcriptions",
+                              headers={"Authorization": f"Bearer {os.environ['GROQ_API_KEY']}"},
+                              files={"file": (audio.name, audio.read_bytes(), "audio/mpeg")},
+                              data={"model": "whisper-large-v3-turbo", "language": "tr", "response_format": "text"},
+                              timeout=300)
+            if r.status_code == 200 and r.text.strip():
+                return r.text
+            raise LLMError(f"Groq Whisper hata {r.status_code}: {r.text[:150]}")
+        raise LLMError(f"{prov} sesi yazıya dökemez")
+
+    return _run_chain(agent, "Ses dökümü", attempt)

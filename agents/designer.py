@@ -28,8 +28,9 @@ _FONTS = {
             "C:/Windows/Fonts/arial.ttf", "/System/Library/Fonts/Supplemental/Arial.ttf"],
 }
 _font_cache: dict = {}
-OPT_COLORS = ["#22C55E", "#60A5FA", "#F59E0B", "#A78BFA"]
-ITEM_COLORS = ["#22C55E", "#60A5FA", "#F59E0B", "#A78BFA", "#F43F5E", "#14B8A6", "#EAB308", "#64748B"]
+# 60-30-10: grafikte de vurgu rengi (yeşil) tonları + nötr griler; başka renk yok
+OPT_COLORS = ["#22C55E", "#E2E8F0", "#94A3B8", "#86EFAC"]
+ITEM_COLORS = ["#22C55E", "#86EFAC", "#15803D", "#94A3B8", "#CBD5E1", "#64748B", "#BBF7D0", "#475569"]
 
 
 def font(size: int, bold: bool = True) -> ImageFont.FreeTypeFont:
@@ -93,6 +94,7 @@ class Canvas:
         self.bottom = self.H - (330 if self.vertical else 120)
         self.series_no = series_no
         self.audit: list[dict] = []                   # çizilen her yazının kutusu
+        self.card_box: tuple | None = None            # %30 ikincil renk paneli
 
     # --- güvenli alan: Reels arayüzünün (üst bar, alt açıklama, sağ butonlar) altında kalmayan bölge
     @property
@@ -103,7 +105,12 @@ class Canvas:
 
     def base(self) -> tuple[Image.Image, ImageDraw.ImageDraw]:
         img = Image.new("RGB", (self.W, self.H), self.g["arka_plan"])
-        return img, ImageDraw.Draw(img)
+        d = ImageDraw.Draw(img)
+        if self.card_box:  # %30: içerik kartı + vurgu rengi kenar şeridi
+            x0, y0, x1, y1 = self.card_box
+            d.rounded_rectangle([x0, y0, x1, y1], radius=40, fill=self.g.get("panel", "#18233A"))
+            d.rounded_rectangle([x0, y0 + 40, x0 + 10, y1 - 40], radius=5, fill=self.g["vurgu"])
+        return img, d
 
     def text(self, d, xy, s: str, f, fill, role: str = "metin") -> None:
         d.text(xy, s, font=f, fill=fill)
@@ -112,18 +119,23 @@ class Canvas:
     def badge(self, d) -> None:
         name = self.seri.get("ad", "GERÇEK MALİYET")
         label = f"{name} #{self.series_no}" if self.series_no else name
-        f = font(28)
-        y = self.top - 105 if self.vertical else 40
-        w = d.textlength(label, font=f)
-        d.rounded_rectangle([self.pad, y, self.pad + w + 36, y + 46], radius=23, fill=self.g["vurgu"])
-        self.text(d, (self.pad + 18, y + 8), label, f, self.g["arka_plan"], "rozet")
+        # Seri şeridi: tam genişlik vurgu rengi bant (%10 vurgunun ana taşıyıcısı + serinin imzası)
+        f = font(34)
+        y0, y1 = (self.top - 125, self.top - 45) if self.vertical else (20, 84)
+        d.rectangle([0, y0, self.W, y1], fill=self.g["vurgu"])
+        h = d.textbbox((0, 0), label, font=f)
+        ty = y0 + ((y1 - y0) - (h[3] - h[1])) // 2 - h[1]
+        self.text(d, (self.pad, ty), label, f, self.g["arka_plan"], "rozet")
+        tag = "@" + config()["hesap"]["kullanici_adi"]
+        tw = d.textlength(tag, font=font(28, False))
+        self.text(d, (self.W - self.pad - tw, ty + 4), tag, font(28, False), self.g["arka_plan"], "rozet")
 
     def footer(self, d, text: str = "") -> None:
         handle = "@" + config()["hesap"]["kullanici_adi"]
         self.text(d, (self.pad, self.bottom + 30), handle, font(34), self.g["vurgu"], "imza")
         if text:
             for i, line in enumerate(wrap(d, text, font(24, False), self.W - 2 * self.pad)[:2]):
-                self.text(d, (self.pad, self.bottom + 80 + i * 32), line, font(24, False), "#94A3B8", "kaynak")
+                self.text(d, (self.pad, self.bottom + 80 + i * 32), line, font(24, False), self.g.get("yazi_ikincil", "#94A3B8"), "kaynak")
 
 
 def _fit(d, text: str, size: int, max_w: int, bold: bool = True, max_lines: int = 2):
@@ -337,9 +349,50 @@ def clean(text: str) -> str:
     return re.sub(r"\s{2,}", " ", out).strip()
 
 
-def render_slide(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total: int, t: float = 1.0) -> Image.Image:
+def _dispatch(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total: int, t: float) -> Image.Image:
     c.audit = []
+    if s.tur == "grafik":
+        return render_chart(c, s, sheet, t)
+    if s.tur == "reveal":
+        return render_reveal(c, s, sheet, t)
+    if s.tur == "sonuc":
+        return render_outro(c, s)
+    return render_text(c, s, idx, total, first=(idx == 0))
+
+
+def card_for(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total: int) -> tuple:
+    """İçeriğin kapladığı alanı ölçüp %30 kartın sınırlarını hesaplar (en az tuvalin ~%30'u)."""
     s = s.model_copy(update={"baslik": clean(s.baslik), "metin": clean(s.metin)})
+    c.card_box = None
+    _dispatch(c, s, sheet, idx, total, 1.0)
+    boxes = [b["box"] for b in c.audit if b["role"] not in ("rozet", "imza", "kaynak", "sayac")]
+    x0, x1 = c.pad - 45, c.W - c.pad + 45
+    if not boxes:
+        return (x0, c.top, x1, c.bottom - 20)
+    y0, y1 = min(b[1] for b in boxes) - 70, max(b[3] for b in boxes) + 70
+    if s.tur == "grafik":
+        y1 += 150  # grafik çubukları yazı kutularının altında kalır
+    min_h = int(0.30 * c.W * c.H / (x1 - x0))
+    if y1 - y0 < min_h:
+        grow = (min_h - (y1 - y0)) // 2
+        y0, y1 = y0 - grow, y1 + grow
+    lo, hi = c.top - 40, c.bottom + 10
+    if y0 < lo:
+        y1, y0 = min(hi, y1 + (lo - y0)), lo
+    if y1 > hi:
+        y0, y1 = max(lo, y0 - (y1 - hi)), hi
+    return (x0, int(y0), x1, int(y1))
+
+
+def render_slide(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total: int, t: float = 1.0,
+                 card_box: tuple | None = None) -> Image.Image:
+    c.card_box = card_box or card_for(c, s, sheet, idx, total)
+    s = s.model_copy(update={"baslik": clean(s.baslik), "metin": clean(s.metin)})
+    return _dispatch(c, s, sheet, idx, total, t)
+
+
+def _unused_render_slide(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total: int, t: float = 1.0) -> Image.Image:
+    c.audit = []
     if s.tur == "grafik":
         return render_chart(c, s, sheet, t)
     if s.tur == "reveal":

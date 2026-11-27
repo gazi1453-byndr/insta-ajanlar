@@ -65,7 +65,7 @@ def _reject(post: dict, reason: str, folder=None) -> dict:
     return post
 
 
-def produce_one(idea: strategist.Idea, idx: int) -> dict:
+def produce_one(idea: strategist.Idea, idx: int, preview: bool = False) -> dict:
     post_id = f"{now():%Y%m%d-%H%M}-{idx}"
     folder = None
     log(AGENT, f"Fikir: {idea.konu}")
@@ -101,6 +101,7 @@ def produce_one(idea: strategist.Idea, idx: int) -> dict:
         # 2) Müdür
         stills = designer.stills_vertical(draft, sheet, post_id, series)
         folder = stills[0].parent
+        step["renk_dengesi"] = qa.color_balance(stills)          # 60-30-10 ölçümü (rapor)
         verdict = manager.run(idea, draft, sheet, stills, attempt)
         step["mudur"] = verdict.model_dump()
         log(AGENT, f"Müdür (deneme {attempt}): {verdict.karar} {verdict.toplam}/100")
@@ -126,6 +127,15 @@ def produce_one(idea: strategist.Idea, idx: int) -> dict:
             feedback = "Senkron Kontrolcüsü:\n- " + "\n- ".join(sync) + "\n" + hint
             continue
 
+        # 3b) Ses Denetçisi (sesi yazıya döküp senaryoyla karşılaştırır, seviye/hız ölçer)
+        vcheck = qa.voice_check(vid, draft)
+        step["ses_denetimi"] = vcheck
+        if vcheck:
+            log(AGENT, f"Ses Denetçisi: {vcheck}")
+            feedback = ("Ses Denetçisi:\n- " + "\n- ".join(vcheck) +
+                        "\nSeslendirmeyi sade, kısa cümlelerle yaz; kısaltma ve özel sembol kullanma.")
+            continue
+
         # 4) Sanat Yönetmeni (bitmiş videonun kareleri)
         frames = qa.keyframes(vid, folder / "kontrol")
         art = art_director.run(draft, sheet, frames)
@@ -136,7 +146,8 @@ def produce_one(idea: strategist.Idea, idx: int) -> dict:
             continue
 
         # 5) Baş Müdür (son kapı)
-        reports = {"kaynak_dogrulama": fc_report, "mudur": verdict.model_dump(),
+        reports = {"kaynak_dogrulama": fc_report, "mudur": verdict.model_dump(), "ses_denetimi": "sorunsuz",
+                   "renk_dengesi_60_30_10": step["renk_dengesi"],
                    "senkron": "sorunsuz", "grafik_denetimi": "sorunsuz", "sanat_yonetmeni": art.model_dump()}
         top = chief.run(idea, draft, sheet, reports, frames)
         step["bas_mudur"] = top.model_dump()
@@ -152,8 +163,13 @@ def produce_one(idea: strategist.Idea, idx: int) -> dict:
         for p in stills[1:]:
             p.unlink(missing_ok=True)
         post.update(taslak=draft.model_dump(), mudur=verdict.model_dump(), bas_mudur=top.model_dump(),
-                    video=_rel(vid), gorseller=[_rel(stills[0])], durum="kuyrukta",
-                    planlanan_zaman=next_slot())
+                    video=_rel(vid), gorseller=[_rel(stills[0])])
+        if preview:  # önizleme: yayın kuyruğuna GİRMEZ, kullanıcı onayını bekler
+            post["durum"] = "onizleme"
+            write_json(DATA / "onizleme" / f"{post_id}.json", post)
+            log(AGENT, f"✓ Önizleme hazır (yayınlanmayacak): {post['video']}")
+            return post
+        post.update(durum="kuyrukta", planlanan_zaman=next_slot())
         write_json(QUEUE / f"{post_id}.json", post)
         log(AGENT, f"✓ Kuyruğa eklendi → {post['planlanan_zaman']}")
         return post
@@ -162,17 +178,29 @@ def produce_one(idea: strategist.Idea, idx: int) -> dict:
                    f"{rounds} denemede tüm kontrollerden geçemedi", folder)
 
 
-def run() -> list[dict]:
-    target = config()["uretim"]["gunluk_gonderi"]
+def approve_previews() -> list[str]:
+    """Önizlemedeki videoları yayın kuyruğuna alır (kullanıcı izleyip onayladıktan sonra)."""
+    done = []
+    for f in sorted((DATA / "onizleme").glob("*.json")):
+        post = read_json(f)
+        post.update(durum="kuyrukta", planlanan_zaman=next_slot(), onaylayan="kullanici")
+        write_json(QUEUE / f.name, post)
+        f.unlink()
+        done.append(f"{post['fikir']['konu']} → {post['planlanan_zaman']}")
+    return done
+
+
+def run(preview: bool = False) -> list[dict]:
+    target = 1 if preview else config()["uretim"]["gunluk_gonderi"]
     ideas = strategist.run(target + 2)   # yedek fikirler: reddedilen olursa sıradaki denenir
     results, approved = [], 0
     for i, idea in enumerate(ideas):
         if approved >= target:
             break
         try:
-            r = produce_one(idea, i)
+            r = produce_one(idea, i, preview)
             results.append(r)
-            approved += r["durum"] == "kuyrukta"
+            approved += r["durum"] in ("kuyrukta", "onizleme")
         except Exception as e:  # bir içerik bozulursa diğerleri devam etsin
             log(AGENT, f"HATA ({idea.konu}): {e}")
     log(AGENT, f"Günün sonucu: {approved}/{target} video onaylandı")

@@ -126,6 +126,16 @@ def main() -> None:
         analyst.run()
     elif cmd == "durum":
         durum()
+    elif cmd == "onizleme":
+        from agents import producer, researcher
+        from agents.common import DATA as _D, now as _now
+        if not (_D / "trends" / f"{_now():%Y-%m-%d}.json").exists():
+            researcher.run()                 # önce günün gündemini tara (güncel fikir için)
+        producer.run(preview=True)
+    elif cmd == "onayla":
+        from agents import producer
+        for line in producer.approve_previews() or ["Önizlemede onay bekleyen video yok"]:
+            print("Onaylandı:", line)
     elif cmd == "yeniden_ciz":
         yeniden_ciz()
     elif cmd == "kontrol":

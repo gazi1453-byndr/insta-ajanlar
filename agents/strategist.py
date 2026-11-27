@@ -53,7 +53,9 @@ def run(count: int) -> list[Idea]:
             "Konu rakamla doğrulanamıyorsa seçmezsin.\n\n" + brand_brief()
         ),
         content=(
-            f"## Haftalık hook bankası (son 7 günün gerçek arama ilgisi; öncelik bunlarda)\n"
+            f"## Güncel fikir bankası (kaynak='gundem' olanlar BUGÜN taranan internet ve sosyal medya "
+            f"gündeminden; 'guncellik' puanı yüksek olanlar ÖNCELİKLİ. Fikirlerin en az 2/3'ü bugünün "
+            f"gündeminden gelsin: güncellik izlenmeyi katlar)\n"
             f"{json.dumps([{'index': i, **h} for i, h in unused], ensure_ascii=False)}\n\n"
             f"## Araştırma raporu\n{json.dumps(research, ensure_ascii=False)[:9000]}\n\n"
             f"## Geçmiş verilerden öğrenilenler\n{learnings()}\n\n"

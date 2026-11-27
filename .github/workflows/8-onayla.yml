@@ -1,0 +1,10 @@
+name: "8 · Önizlemeyi onayla (yayın kuyruğuna al)"
+on:
+  workflow_dispatch:
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: onayla
+    secrets: inherit
