@@ -132,14 +132,22 @@ class Canvas:
         if self.label:
             label += f" · {self.label}"
         # Seri şeridi: tam genişlik vurgu rengi bant (%10 vurgunun ana taşıyıcısı + serinin imzası)
-        f = font(34)
         y0, y1 = (self.top - 125, self.top - 45) if self.vertical else (20, 84)
         d.rectangle([0, y0, self.W, y1], fill=self.g["vurgu"])
+        tag = "@" + config()["hesap"]["kullanici_adi"]
+        tw = d.textlength(tag, font=font(28, False))
+        room = self.W - 2 * self.pad - tw - 30          # etiket @kullanıcı adına asla değmesin
+        size = 34
+        while size > 20 and d.textlength(label, font=font(size)) > room:
+            size -= 1
+        f = font(size)
+        if d.textlength(label, font=f) > room:          # hâlâ sığmıyorsa alt seriyi kısalt
+            while len(label) > 8 and d.textlength(label + "…", font=f) > room:
+                label = label[:-1]
+            label = label.rstrip(" ·") + "…"
         h = d.textbbox((0, 0), label, font=f)
         ty = y0 + ((y1 - y0) - (h[3] - h[1])) // 2 - h[1]
         self.text(d, (self.pad, ty), label, f, self.g["arka_plan"], "rozet")
-        tag = "@" + config()["hesap"]["kullanici_adi"]
-        tw = d.textlength(tag, font=font(28, False))
         self.text(d, (self.W - self.pad - tw, ty + 4), tag, font(28, False), self.g["arka_plan"], "rozet")
 
     def footer(self, d, text: str = "") -> None:

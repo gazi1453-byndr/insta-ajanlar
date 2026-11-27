@@ -48,7 +48,7 @@ def structure_check(draft: Draft) -> list[str]:
     if not lo <= len(s) <= hi:
         issues.append(f"Sahne sayısı {lo}-{hi} arası olmalı (şu an {len(s)})")
     words = sum(len(x.seslendirme.split()) for x in s)
-    wlo, whi = int(target * 1.8), int(target * 2.7)   # +%18 hız; rakamlar yazıya çevrilince konuşma uzar
+    wlo, whi = int(target * 1.4), int(target * 2.3)   # gerçek ölçüm: +%18 seste ~71 kelime ≈ 41 sn (rakamlar okununca uzar)
     if not wlo <= words <= whi:
         issues.append(f"Toplam seslendirme {wlo}-{whi} kelime olmalı (~{target} sn); şu an {words}")
     for i, x in enumerate(s, 1):
@@ -245,9 +245,12 @@ def av_sync(video: Path) -> list[str]:
         issues.append(f"Süre hedef dışında: {v:.1f} sn (hedef {lo}-{hi} sn)")
     longest = u.get("sahne_en_uzun_sn", 4.0)
     n = len(plan["sahne_kareleri"])
+    turler = plan.get("turler") or []
     for i, nf in enumerate(plan["sahne_kareleri"], 1):
-        if 1 < i < n and nf / fps > longest + 0.3:
-            issues.append(f"Sahne {i} çok uzun ({nf / fps:.1f} sn > {longest} sn): seslendirmeyi kısalt ya da sahneyi ikiye böl")
+        animated = i <= len(turler) and turler[i - 1] in ("grafik", "reveal")  # sayaç/bar: sahne durağan değil
+        limit = longest + (3.0 if animated else 0.3)
+        if 1 < i < n and nf / fps > limit:
+            issues.append(f"Sahne {i} çok uzun ({nf / fps:.1f} sn > {limit:.1f} sn): seslendirmesini kısalt (rakamları yuvarla, dolguyu at)")
     return issues
 
 

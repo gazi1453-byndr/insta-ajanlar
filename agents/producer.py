@@ -115,7 +115,7 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False, when: st
         # 3) Video + Senkron Kontrolcüsü (gerekirse bir kez yeniden kurgu)
         vid = video.render(draft, sheet, post_id, series, label)
         sync = qa.av_sync(vid)
-        if sync:
+        if any("KAYMASI" in x or "Görüntü süresi" in x for x in sync):  # yalnızca kurgu kaynaklı sorunda yeniden kurgula
             log(AGENT, f"Senkron sorunu, yeniden kurgulanıyor: {sync}")
             vid = video.render(draft, sheet, post_id, series, label)
             sync = qa.av_sync(vid)

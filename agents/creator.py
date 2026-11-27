@@ -71,7 +71,7 @@ def run(idea: Idea, hook: str, sheet: DataSheet, series_no: int,
     seri = cfg.get("seri", {})
     fmt = FORMAT.format(acilis=seri.get("acilis", "Bunun gerçek maliyetini hesapladık."),
                         kapanis=seri.get("kapanis_ses", "Gerçek rakamlar için takipte kal."),
-                        kelime=int(sure * 2.2), sure=sure)
+                        kelime=int(sure * 1.8), sure=sure)
     opts = sheet.secenekler
     headline = (opts[0].toplam_tl if len(opts) == 1 else
                 max(o.toplam_tl for o in opts) - min(o.toplam_tl for o in opts))
