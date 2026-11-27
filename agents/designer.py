@@ -8,6 +8,7 @@ kabul ettiği için görseller JPEG'dir.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -41,8 +42,13 @@ def font(size: int, bold: bool = True) -> ImageFont.FreeTypeFont:
     return _font_cache[key]
 
 
-def tl(x: float) -> str:
-    return f"{x:,.0f}".replace(",", ".") + " TL"
+def tl(x: float, exact: bool = True) -> str:
+    """Türkçe para biçimi. Kuruş varsa tam yazılır (421.132,50 TL); animasyon sırasında tam sayı."""
+    if exact and abs(x - round(x)) >= 0.005:
+        s = f"{x:,.2f}"
+    else:
+        s = f"{round(x):,.0f}"
+    return s.replace(",", "#").replace(".", ",").replace("#", ".") + " TL"
 
 
 def wrap(d: ImageDraw.ImageDraw, text: str, f, max_w: int) -> list[str]:
@@ -122,79 +128,136 @@ def render_text(c: Canvas, s: Slide, idx: int, total: int, first: bool) -> Image
     return img
 
 
+OPT_COLORS = ["#22C55E", "#60A5FA", "#F59E0B", "#A78BFA"]
+ITEM_COLORS = ["#22C55E", "#60A5FA", "#F59E0B", "#A78BFA", "#F43F5E", "#14B8A6", "#EAB308", "#64748B"]
+
+
+def _sources(sheet: DataSheet) -> str:
+    names = []
+    for k in sheet.kaynaklar:
+        m = re.search(r"https?://(?:www\.)?([^/\s]+)", k)
+        name = m.group(1) if m else k.split(":")[0].strip()
+        if name and name not in names:
+            names.append(name)
+    return "Kaynak: " + ", ".join(names[:4])
+
+
+def _short(name: str, limit: int = 26) -> str:
+    """Parantezden önceki kısmı al; hâlâ uzunsa kelime sınırında kısalt."""
+    base = name.split(" (")[0].strip()
+    if len(base) <= limit:
+        return base
+    out = ""
+    for w in base.split():
+        if len(out) + len(w) + 1 > limit:
+            break
+        out = f"{out} {w}".strip()
+    return out or base[:limit]
+
+
+def _fit(d, text: str, size: int, max_w: int, bold: bool = True):
+    """Metni kesmeden sığdır: önce küçült, olmazsa iki satıra böl."""
+    while size > 24 and d.textlength(text, font=font(size, bold)) > max_w:
+        size -= 2
+    f = font(size, bold)
+    return f, wrap(d, text, f, max_w)[:2], size
+
+
+def _row_head(c: Canvas, d, y: int, label: str, amount: str, color: str) -> int:
+    """Sol: etiket, sağ: tutar (sağa hizalı, asla taşmaz). Kullanılan yüksekliği döndürür."""
+    af = font(34)
+    aw = d.textlength(amount, font=af)
+    room = c.W - 2 * c.pad - aw - 30
+    if len(wrap(d, label, font(26), room)) > 2:
+        label = _short(label)
+    lf, lines, size = _fit(d, label, 32, room)
+    for i, line in enumerate(lines):
+        d.text((c.pad, y + i * (size + 6)), line, font=lf, fill=c.g["yazi"])
+    d.text((c.W - c.pad - aw, y), amount, font=af, fill=color)
+    return max(len(lines) * (size + 6), 40)
+
+
 def render_chart(c: Canvas, s: Slide, sheet: DataSheet, t: float = 1.0) -> Image.Image:
-    """t: 0→1 animasyon ilerlemesi (çubuklar büyür, rakamlar sayar)."""
+    """t: 0->1 animasyon ilerlemesi. t=1'de her rakam tablodakiyle birebir aynıdır."""
     img, d = c.base()
     max_w = c.W - 2 * c.pad
     y = c.top
-    for line in wrap(d, s.baslik, font(64), max_w)[:2]:
-        d.text((c.pad, y), line, font=font(64), fill=c.g["yazi"])
-        y += 76
+    tf, lines, ts = _fit(d, s.baslik, 64, max_w)
+    for line in lines:
+        d.text((c.pad, y), line, font=tf, fill=c.g["yazi"])
+        y += ts + 12
     d.text((c.pad, y + 6), f"{sheet.hesap_donemi} · {sheet.fiyat_tarihi} fiyatları", font=font(30, False), fill="#94A3B8")
-    y += 80
-
+    y += 70
+    exact = t >= 1.0
     opts = sheet.secenekler
+    star_used = False
+
     if len(opts) == 1:
         items = sorted(opts[0].kalemler, key=lambda i: i.tutar_tl, reverse=True)
         rows = [(i.kalem + (" *" if i.tahmini else ""), i.tutar_tl) for i in items[:7]]
+        star_used = any(i.tahmini for i in items[:7])
         if len(items) > 7:
             rows.append(("Diğer", sum(i.tutar_tl for i in items[7:])))
-        total_label, total_val = "TOPLAM", opts[0].toplam_tl
+        vmax = max(v for _, v in rows) or 1
+        row_h = min(170 if c.vertical else 118, ((c.bottom - 260) - y) // max(len(rows), 1))
+        for n, (label, val) in enumerate(rows):
+            local = _stage(t, n * 0.06)
+            hh = _row_head(c, d, y, label, tl(val * local, exact), c.g["yazi"])
+            by = y + hh + 4
+            w = int(max_w * (val / vmax) * local)
+            bh = 34 if c.vertical else 22
+            d.rounded_rectangle([c.pad, by, c.pad + max(w, 6), by + bh], radius=bh // 2, fill=c.g["vurgu"])
+            y += max(row_h, hh + bh + 18)
+        box_label, box_val = "TOPLAM", opts[0].toplam_tl
     else:
-        rows = [(o.ad, o.toplam_tl) for o in opts]
-        diff = max(o.toplam_tl for o in opts) - min(o.toplam_tl for o in opts)
-        total_label, total_val = "FARK", diff
-    vmax = max(v for _, v in rows) or 1
-    avail = (c.bottom - 220) - y
-    row_h = min(150 if len(opts) > 1 else 120, avail // max(len(rows), 1))
-    bar_h = int(row_h * 0.38)
-    for n, (label, val) in enumerate(rows):
-        local = _stage(t, n * 0.06)                # çubuklar sırayla büyür
-        d.text((c.pad, y), label[:40], font=font(36 if len(opts) > 1 else 32, len(opts) > 1), fill=c.g["yazi"])
-        by = y + int(row_h * 0.38)
-        full = max_w - 230
-        w = int(full * (val / vmax) * local)
-        color = c.g["uyari"] if (len(opts) > 1 and val == vmax) else c.g["vurgu"]
-        d.rounded_rectangle([c.pad, by, c.pad + max(w, 6), by + bar_h], radius=bar_h // 2, fill=color)
-        d.text((c.pad + max(w, 6) + 18, by + (bar_h - 34) // 2), tl(val * local), font=font(34), fill=c.g["yazi"])
-        y += row_h
+        # Yığılmış çubuk: aynı kalem her seçenekte aynı renkte; seçenek rengi soldaki işarette ve tutarda
+        order = []
+        for o in opts:
+            for i in sorted(o.kalemler, key=lambda i: i.tutar_tl, reverse=True):
+                if i.kalem not in order:
+                    order.append(i.kalem)
+        shown = order[:7]
+        icolor = {k: ITEM_COLORS[n % len(ITEM_COLORS)] for n, k in enumerate(shown)}
+        est = {i.kalem for o in opts for i in o.kalemler if i.tahmini}
+        lx, ly = c.pad, y
+        for k in shown + (["Diğer"] if len(order) > 7 else []):
+            label = k + (" *" if k in est else "")
+            star_used = star_used or k in est
+            lw = d.textlength(label, font=font(26, False)) + 60
+            if lx + lw > c.W - c.pad:
+                lx, ly = c.pad, ly + 40
+            d.rounded_rectangle([lx, ly + 6, lx + 24, ly + 30], radius=6, fill=icolor.get(k, "#64748B"))
+            d.text((lx + 34, ly), label, font=font(26, False), fill="#CBD5E1")
+            lx += lw
+        y = ly + 64
+        vmax = max(o.toplam_tl for o in opts) or 1
+        for n, o in enumerate(opts):
+            local = _stage(t, n * 0.08)
+            hh = _row_head(c, d, y, o.ad, tl(o.toplam_tl * local, exact), OPT_COLORS[n % 4])
+            by = y + hh + 6
+            bh = 52 if c.vertical else 34
+            x = float(c.pad)
+            for i in sorted(o.kalemler, key=lambda i: order.index(i.kalem)):
+                w = max_w * (i.tutar_tl / vmax) * local
+                if w >= 1:
+                    d.rectangle([int(x), by, int(x + w), by + bh], fill=icolor.get(i.kalem, "#64748B"))
+                x += w
+            d.rectangle([c.pad - 14, by, c.pad - 6, by + bh], fill=OPT_COLORS[n % 4])
+            y += hh + bh + (110 if c.vertical else 30)
+        hi = max(opts, key=lambda o: o.toplam_tl)
+        lo = min(opts, key=lambda o: o.toplam_tl)
+        box_label = f"FARK: {_short(hi.ad)} − {_short(lo.ad)} ({_short(sheet.hesap_donemi, 30)})"
+        box_val = hi.toplam_tl - lo.toplam_tl
     tt = _stage(t, 0.3)
-    d.rounded_rectangle([c.pad, y + 20, c.W - c.pad, y + 170], radius=28, outline=c.g["vurgu"], width=4)
-    d.text((c.pad + 36, y + 42), total_label, font=font(36), fill="#94A3B8")
-    d.text((c.pad + 36, y + 88), tl(total_val * tt), font=font(64), fill=c.g["vurgu"])
-    y += 210
-
-    if len(opts) > 1:  # kalem kalem karşılaştırma (gizli maliyetler burada görünür)
-        colors = [c.g["vurgu"], c.g["uyari"], "#60A5FA"]
-        names = [i.kalem for i in sorted(opts[0].kalemler, key=lambda i: i.tutar_tl, reverse=True)]
-        lookup = [{i.kalem: i for i in o.kalemler} for o in opts]
-        item_h = 44 + 30 * len(opts)
-        n_items = max(0, min(len(names), (c.bottom - 40 - y - 50) // item_h))
-        if n_items:
-            d.text((c.pad, y), "Kalem kalem", font=font(34), fill="#94A3B8")
-            for k, o in enumerate(opts):  # açıklama (legend)
-                lx = c.W - c.pad - (len(opts) - k) * 230
-                d.rounded_rectangle([lx, y + 8, lx + 26, y + 30], radius=6, fill=colors[k % 3])
-                d.text((lx + 36, y + 2), o.ad[:12], font=font(26, False), fill="#CBD5E1")
-            y += 56
-            imax = max((i.tutar_tl for o in opts for i in o.kalemler), default=1) or 1
-            for n, name in enumerate(names[:n_items]):
-                local = _stage(t, 0.45 + n * 0.05)
-                item0 = lookup[0][name]
-                d.text((c.pad, y), name[:34] + (" *" if item0.tahmini else ""), font=font(30), fill=c.g["yazi"])
-                yy = y + 42
-                for k, lk in enumerate(lookup):
-                    it = lk.get(name)
-                    val = it.tutar_tl if it else 0
-                    w = int((max_w - 260) * (val / imax) * local)
-                    d.rounded_rectangle([c.pad, yy, c.pad + max(w, 4), yy + 20], radius=10, fill=colors[k % 3])
-                    d.text((c.pad + max(w, 4) + 14, yy - 6), tl(val * local) if it else "—", font=font(26, False), fill="#E2E8F0")
-                    yy += 30
-                y += item_h
-    src = "Kaynak: " + ", ".join(k.split(" ")[0] for k in sheet.kaynaklar[:3])
-    if any(i.tahmini for o in opts for i in o.kalemler):
-        src += " · * tahmini"
-    c.footer(d, src)
+    y += 10
+    bf, blines, bs = _fit(d, box_label, 32, max_w - 72)
+    blines = wrap(d, box_label, bf, max_w - 72)[:3]
+    box_h = 28 + len(blines) * (bs + 6) + 96
+    d.rounded_rectangle([c.pad, y, c.W - c.pad, y + box_h], radius=28, outline=c.g["vurgu"], width=4)
+    for i, line in enumerate(blines):
+        d.text((c.pad + 36, y + 20 + i * (bs + 6)), line, font=bf, fill="#94A3B8")
+    d.text((c.pad + 36, y + 28 + len(blines) * (bs + 6)), tl(box_val * tt, exact), font=font(60), fill=c.g["vurgu"])
+    c.footer(d, _sources(sheet) + (" · * tahmini" if star_used else ""))
     return img
 
 

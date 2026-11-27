@@ -28,7 +28,7 @@ class Slide(BaseModel):
 
 class Draft(BaseModel):
     hook: str
-    slaytlar: list[Slide] = Field(description="İlk sahne hook; en az bir 'grafik' sahnesi; son sahne 'sonuc'")
+    slaytlar: list[Slide] = Field(description="İlk sahne hook; TAM OLARAK BİR 'grafik' sahnesi (maliyet tablosunu çizer); son sahne 'sonuc'")
     caption: str = Field(description="Instagram Reels/gönderi açıklaması: ilk satır merak, kısa paragraflar, "
                                      "sonda tartışma başlatan soru, en altta 'Kaynaklar:' ve fiyat tarihi")
     hashtagler: list[str] = Field(description="Instagram için 3-5 hashtag, # işaretsiz")
@@ -55,7 +55,10 @@ def run(idea: Idea, hook: str, sheet: DataSheet, series_no: int,
         f"## Kaynaklar\n" + "\n".join(sheet.kaynaklar) + "\n\n"
         f"## Öğrenilenler\n{learnings()}\n\n"
         f"{shape}\nBu içerik serinin #{series_no}. bölümü; YouTube başlığı ve açıklamasında seri numarasını kullan.\n"
-        "Ekrandaki ve seslendirmedeki her rakam tablodakiyle birebir aynı olmalı (yuvarlama yapacaksan '~' kullan)."
+        "Ekrandaki ve seslendirmedeki her rakam tablodakiyle birebir aynı olmalı; kuruşlu rakamları kuruşuyla "
+        "yaz (ör. 421.132,50 TL), yuvarlayacaksan '~' kullan. Sadece BİR 'grafik' sahnesi kullan: o sahne "
+        "tablodaki seçenekleri ve kalemleri otomatik çizer; başlığını buna göre yaz. Tabloda olmayan bir "
+        "karşılaştırmayı grafik olarak vaat etme, metin sahnesinde kaynağıyla ver."
     )
     if previous and feedback:
         task += (f"\n\n## Önceki taslak\n{previous.model_dump_json()}\n\n"

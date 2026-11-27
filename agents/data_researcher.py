@@ -25,7 +25,7 @@ class CostItem(BaseModel):
 
 
 class Option(BaseModel):
-    ad: str = Field(description="Seçeneğin adı, ör. 'Renault Clio 1.0 TCe'")
+    ad: str = Field(description="Seçeneğin KISA adı, en fazla 22 karakter, ör. 'Renault Clio', '%30 zam'; detaylar kalem açıklamalarına")
     kalemler: list[CostItem]
     toplam_tl: float = Field(description="Kalemlerin toplamı (sistem yeniden hesaplar)")
 

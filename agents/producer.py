@@ -69,6 +69,12 @@ def produce_one(idea: strategist.Idea, idx: int) -> dict:
     for attempt in range(1, 2 + config()["uretim"]["revizyon_hakki"]):
         draft = creator.run(idea, best.metin, sheet, series, previous=draft,
                             feedback=verdict.geri_bildirim if verdict else None)
+        seen_chart = False
+        for sl in draft.slaytlar:  # tek grafik kuralı: fazlası metin sahnesine dönüşür
+            if sl.tur == "grafik":
+                if seen_chart:
+                    sl.tur = "metin"
+                seen_chart = True
         images = (designer.stills_vertical(draft, sheet, post_id) if idea.format == "reel"
                   else designer.carousel(draft, sheet, post_id))
         verdict = manager.run(idea, draft, sheet, images, attempt)
