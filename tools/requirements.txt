@@ -1,0 +1,4 @@
+# Yerel araçlar (tools/) için ek paketler — CI gerekmez
+yt-dlp
+python-dotenv
+numpy  # sadece tools/ses_uret.py

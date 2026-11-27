@@ -12,7 +12,7 @@ from datetime import datetime
 
 from . import instagram as ig
 from . import qa
-from .common import DATA, PUBLISHED, QUEUE, REJECTED, ROOT, dry_run, log, now, read_json, write_json
+from .common import DATA, PUBLISHED, QUEUE, REJECTED, ROOT, config, dry_run, log, now, read_json, write_json
 
 AGENT = "Yayıncı"
 CROSSPOST = DATA / "crosspost" / "pending"
@@ -34,8 +34,12 @@ def _tags(tags: list[str]) -> str:
 
 
 def caption_of(post: dict) -> str:
+    from . import site
     t = post["taslak"]
-    return f"{t['caption'].strip()}\n\n{_tags(t.get('hashtagler', []))}".strip()[:2200]
+    calc = ""
+    if (config().get("site") or {}).get("aktif", True):
+        calc = "\n\nKendi rakamlarınla hesapla: profildeki linkte bu videonun hesaplayıcısı var."
+    return f"{t['caption'].strip()}{calc}\n\n{_tags(t.get('hashtagler', []))}".strip()[:2200]
 
 
 def crosspost_bundle(post: dict, video_link: str, ig_link: str) -> str:
@@ -99,6 +103,13 @@ def run() -> int:
                     encoding="utf-8")
             write_json(PUBLISHED / f.name, post)
             f.unlink()
+            try:  # hesaplayıcı siteyi güncelle (GitHub Pages)
+                from . import site
+                site.build()
+                post["hesaplayici"] = site.link_for(post)
+                write_json(PUBLISHED / f.name, post)
+            except Exception as e:
+                log(AGENT, f"Site güncellenemedi: {e}")
             done += 1
             log(AGENT, f"Yayınlandı: {post['fikir']['konu']} ({link or media_id})")
         except Exception as e:

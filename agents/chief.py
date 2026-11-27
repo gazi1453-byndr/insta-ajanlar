@@ -37,11 +37,11 @@ def run(idea: Idea, draft: Draft, sheet: DataSheet, reports: dict, frames: list[
         f"## Öğrenilenler\n{learnings()}\n\n"
         f"Yayın eşiğin {esik}/100. Hesap günde 3 video yayınlıyor: vasat bir video bile serinin güvenini "
         "zedeler. Rakam şüphesi, okunurluk sorunu, sıkıcı açılış ya da format dışı akış varsa YAYINLAMA. "
-        "Düzeltilebilirse REVIZYON, fikir zayıfsa RED.")}]
+        "Düzeltilebilirse REVIZYON, fikir zayıfsa RED. BAŞLIĞIN/HOOK'UN VERDİĞİ SÖZ: Başlık ya da hook bir soru soruyor ya da bir hesap vaat ediyorsa (ör. 'aylık depo maliyeti ne?'), video bunu RAKAMLA cevaplamıyorsa en fazla 55 puan ver. Tablo tek bir etiket fiyatından ibaretse 'gerçek maliyet' değildir: en fazla 50 puan. ")}]
     v = ask(AGENT,
             system=("Sen bir finans/medya kuruluşunun genel yayın yönetmenisin; müdürlerin onayını da denetlersin. "
                     "Senden geçen her video markanın imzasını taşır.\n\n" + brand_brief()),
-            content=content, schema=ChiefVerdict)
+            content=content, role="denetci", schema=ChiefVerdict)
     if v.karar == "YAYINLA" and (v.puan < esik or not v.seri_uyumu):
         v.karar = "REVIZYON"
     return v

@@ -1,0 +1,38 @@
+name: "10 · Video analiz (Gemini)"
+on:
+  workflow_dispatch:
+    inputs:
+      kaynak:
+        description: "Video linki (YouTube/Instagram/TikTok) ya da repodaki dosya yolu (ör. media/generated/.../video.mp4). Boşsa en son önizleme."
+        required: false
+        default: ""
+permissions: { contents: read }
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests imageio-ffmpeg yt-dlp python-dotenv
+      - name: Analiz et
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          KAYNAK: ${{ inputs.kaynak }}
+        run: |
+          if [ -z "$KAYNAK" ]; then
+            KAYNAK=$(ls -t media/generated/*/video.mp4 2>/dev/null | head -1)
+            for f in data/onizleme/*.json; do
+              v=$(python -c "import json,sys;d=json.load(open(sys.argv[1],encoding='utf-8'));print(d.get('video') or '')" "$f")
+              [ -n "$v" ] && [ -f "$v" ] && KAYNAK="$v"
+            done
+          fi
+          echo "Kaynak: $KAYNAK"
+          python tools/video_analiz.py "$KAYNAK" | tee analiz.md
+          cat analiz.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: video-analiz
+          path: analiz.md

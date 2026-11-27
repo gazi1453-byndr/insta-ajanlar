@@ -83,46 +83,112 @@ def enabled() -> bool:
     return _cfg().get("saglayici", "edge") != "yok"
 
 
-def _elevenlabs(text: str, out: Path) -> Path | None:
+def _elevenlabs(text: str, out: Path) -> tuple[Path | None, list[dict]]:
+    """ElevenLabs (eleven_multilingual_v2, stability 0.45, similarity 0.80) + karakter zamanlamaları."""
+    import base64
     voice = os.environ["ELEVENLABS_VOICE_ID"]
     r = requests.post(
-        f"https://api.elevenlabs.io/v1/text-to-speech/{voice}",
+        f"https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps",
         params={"output_format": "mp3_44100_128"},
         headers={"xi-api-key": os.environ["ELEVENLABS_API_KEY"], "Content-Type": "application/json"},
         json={"text": text, "model_id": os.environ.get("ELEVENLABS_MODEL", "eleven_multilingual_v2"),
-              "voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.25}},
+              "voice_settings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": True}},
         timeout=120)
     if r.status_code != 200:
         log(AGENT, f"ElevenLabs hata ({r.status_code}) → ücretsiz sese geçiliyor")
-        return None
-    out.write_bytes(r.content)
-    return out
+        return None, []
+    js = r.json()
+    out.write_bytes(base64.b64decode(js["audio_base64"]))
+    al = js.get("alignment") or {}
+    words, cur = [], None
+    for ch, s, e in zip(al.get("characters", []), al.get("character_start_times_seconds", []),
+                        al.get("character_end_times_seconds", [])):
+        if ch.isspace():
+            cur = None
+            continue
+        if cur is None:
+            cur = {"t": "", "s": s, "e": e}
+            words.append(cur)
+        cur["t"] += ch
+        cur["e"] = e
+    return out, words
 
 
-def _edge(text: str, out: Path) -> Path | None:
+def _edge(text: str, out: Path) -> tuple[Path | None, list[dict]]:
+    """Edge nöral ses + kelime sınırları (karaoke altyazı için)."""
     import edge_tts
     cfg = _cfg()
-    voice, rate = cfg.get("edge_ses", "tr-TR-AhmetNeural"), cfg.get("hiz", "+8%")
+    voice, rate = cfg.get("edge_ses", "tr-TR-AhmetNeural"), cfg.get("hiz", "+18%")
+
+    async def go() -> list[dict]:
+        comm = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary")
+        words = []
+        with open(out, "wb") as fh:
+            async for ch in comm.stream():
+                if ch["type"] == "audio":
+                    fh.write(ch["data"])
+                elif ch["type"] == "WordBoundary":
+                    words.append({"t": ch["text"], "s": ch["offset"] / 1e7, "e": (ch["offset"] + ch["duration"]) / 1e7})
+        return words
+
     for attempt in range(4):
         try:
-            asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(out)))
+            words = asyncio.run(go())
             if out.exists() and out.stat().st_size > 1000:
-                return out
+                return out, words
         except Exception as e:  # ağ hatası: bekle, tekrar dene
             log(AGENT, f"Edge ses hatası (deneme {attempt + 1}): {str(e)[:120]}")
         time.sleep(3 * (attempt + 1))
-    return None
+    return None, []
+
+
+def synthesize_timed(text: str, out: Path) -> tuple[Path | None, list[dict]]:
+    """(ses dosyası, konuşulan kelimelerin zamanları [{t, s, e}] saniye)."""
+    if not enabled() or not text.strip():
+        return None, []
+    spoken = speakable(text)
+    if os.environ.get("ELEVENLABS_API_KEY") and os.environ.get("ELEVENLABS_VOICE_ID"):
+        r, words = _elevenlabs(spoken, out)
+        if r:
+            return r, words
+    r, words = _edge(spoken, out)
+    if r is None:
+        raise RuntimeError("Seslendirme üretilemedi (Edge TTS 4 denemede yanıt vermedi)")
+    return r, words
 
 
 def synthesize(text: str, out: Path) -> Path | None:
-    if not enabled() or not text.strip():
-        return None
-    spoken = speakable(text)
-    if os.environ.get("ELEVENLABS_API_KEY") and os.environ.get("ELEVENLABS_VOICE_ID"):
-        r = _elevenlabs(spoken, out)
-        if r:
-            return r
-    r = _edge(spoken, out)
-    if r is None:
-        raise RuntimeError("Seslendirme üretilemedi (Edge TTS 4 denemede yanıt vermedi)")
-    return r
+    return synthesize_timed(text, out)[0]
+
+
+def display_tokens(text: str) -> list[str]:
+    """Ekranda gösterilecek altyazı birimleri: '29.923,30 TL' tek parça kalır."""
+    t = re.sub(r"(\d)\s+(TL|lira)\b", "\\1\u00a0\\2", text.replace("₺", " TL"))
+    t = re.sub(r"[ \t\r\n]+", " ", t)  # nbsp'ye dokunma: '61.438,50 TL' bölünmesin
+    return [w for w in t.split(" ") if w.strip("\"'“”‘’()[]")]
+
+
+def align(text: str, words: list[dict], duration: float) -> list[dict]:
+    """Konuşulan kelime zamanlarını EKRAN kelimelerine eşler ('29.923 TL' → 'yirmi dokuz bin ... lira').
+    Sayılar tutmazsa süreyi konuşulan kelime sayısına göre orantılı dağıtır."""
+    toks = display_tokens(text)
+    counts = [len(speakable(t.replace("\u00a0", " ")).split()) for t in toks]
+    out, j = [], 0
+    if words and sum(counts) == len(words):
+        for tok, k in zip(toks, counts):
+            if k == 0:
+                if out:
+                    out[-1]["t"] += " " + tok
+                continue
+            out.append({"t": tok.replace("\u00a0", " "), "s": words[j]["s"], "e": words[j + k - 1]["e"]})
+            j += k
+        return out
+    s0 = words[0]["s"] if words else 0.0
+    e0 = words[-1]["e"] if words else duration
+    total = max(1, sum(max(1, k) for k in counts))
+    cur = s0
+    for tok, k in zip(toks, counts):
+        d = (e0 - s0) * max(1, k) / total
+        out.append({"t": tok.replace("\u00a0", " "), "s": round(cur, 3), "e": round(cur + d, 3)})
+        cur += d
+    return out

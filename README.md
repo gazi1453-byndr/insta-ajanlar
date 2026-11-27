@@ -25,7 +25,7 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
            │       │ REVİZYON
          MÜDÜR ───┴────────── 100 puan: hook, değer, RAKAM DOĞRULUĞU, akış, özgünlük...
            │                   tabloyla uyuşmayan tek rakam bile varsa onay yok
-         VİDEO KURGUCU ────── 1080x1920, 45 sn Reels (+ ses klonu ve müzik varsa onlar da)
+         VİDEO KURGUCU ────── 1080x1920, 60 fps, 35-42 sn Reels (Remotion; müzik, efekt, karaoke altyazı)
            ▼
  */30dk  YAYINCI ──────────── Instagram'a yükler, ilk yorumu (tartışma sorusu) yazar,
                                TikTok + YouTube Shorts paketini GitHub bildirimi olarak gönderir
@@ -38,7 +38,7 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
 | Kontrol | Türü | Ne yapar |
 |---|---|---|
 | Kaynak Doğrulayıcı | Yapay zeka | Tablodaki her rakamı kaynak sayfa metniyle karşılaştırır |
-| Format Denetçisi | Ölçüm (kod) | Seri formatı, sahne sırası, ~60 sn seslendirme |
+| Format Denetçisi | Ölçüm (kod) | Seri formatı, sahne sırası, 35-42 sn, sahne başına en fazla 4 sn |
 | Rakam Denetçisi | Ölçüm (kod) | Ekrandaki ve seslendirmedeki her TL rakamı tabloyla eşleşmeli |
 | Grafik Denetçisi | Ölçüm (kod) | Taşan / üst üste binen yazı, güvenli alan, grafikteki her rakam |
 | Müdür | Yapay zeka | İçerik değeri, hook, rakam doğruluğu |
@@ -49,6 +49,42 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
 
 Ses kayması tasarım gereği olamaz: sahne sınırları kare cinsinden hesaplanır ve her sahnenin sesi
 tam o sahnenin kare süresine göre kesilir. Senkron Kontrolcüsü yine de her videoyu ölçer.
+
+## Büyüme özellikleri
+
+| Özellik | Ne yapar | Ayar |
+|---|---|---|
+| Kaç gün çalışman gerekir? | Her büyük rakam "asgari ücretle ≈ N gün çalışma" olarak da gösterilir | `maas_cevirisi` (asgari ücret değişince güncelle) |
+| Zam alarmı | Gündem 05:00, 11:00, 16:00'da taranır; büyük zam haberi varsa ~75 dk içinde ekstra video | `zam_alarmi` |
+| İzleyici sorusu | Yorumlardaki "şunu da hesaplayın" istekleri toplanır, en çok isteneni videoya dönüşür ve takipçi anılır | otomatik |
+| Kaydetmelik son kare | Videonun son karesi ekran görüntüsü alınacak özet tablodur | otomatik |
+| Haftalık sabit günler | Her günün 1 videosu günün alt serisinden (Pazartesi ZAM TAKİBİ, Çarşamba A MI B Mİ? …) | `haftalik_program` |
+| Hesaplayıcı site | Her video için etkileşimli hesaplayıcı: gazi1453-byndr.github.io/insta-ajanlar | `site` |
+
+**Yapman gereken tek şey:** Instagram biyografine site adresini ekle:
+`https://gazi1453-byndr.github.io/insta-ajanlar/`
+
+## Video motoru (Remotion, 60 fps)
+
+Tasarım kuralları [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) dosyasındadır.
+
+| Özellik | Nasıl |
+|---|---|
+| Süre | 35-42 sn (Senkron Kontrolcüsü aralık dışını geri çevirir); ara sahne en fazla 4 sn |
+| Ses | Edge `tr-TR-AhmetNeural +%18` (ElevenLabs anahtarı varsa o); baş/son sessizlik kırpılır |
+| Müzik + efekt | Telifsiz sentez müzik %9 seste (`tools/ses_uret.py`), geçişte whoosh, rakam damgasında pop |
+| Geçiş | Yaylı dikey itme (damping 14, stiffness 180) + hıza bağlı hareket bulanıklığı |
+| Arka plan | Kayan ızgara, nefes alan ışık noktaları, süzülen ışık hüzmesi |
+| Rakamlar | 0'dan hedefe sayaç; kalem kırılımı yüzdeli yatay barlarla |
+| Altyazı | Konuşmayla kelime kelime senkron karaoke (okunan kelime yeşil) |
+| Yedek | Node yoksa aynı zamanlamayla Pillow motoru |
+
+Yerelde önizleme: `cd video && npm install && npm run studio`
+
+## Araçlar
+
+- `python tools/video_analiz.py <dosya|link>`: ses, konuşma, görsel akış, hook ve tempo analizi (Gemini, ücretsiz). Claude Code içinde `video-analiz` MCP aracı olarak da çalışır.
+- `python tools/anahtar_kaydet.py`: `GEMINI_API_KEY` değerini gizli girişle yerel `.env` dosyasına kaydeder.
 
 ## Kurulum durumu
 

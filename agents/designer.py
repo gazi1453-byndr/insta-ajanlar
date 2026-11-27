@@ -15,7 +15,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-from .common import MEDIA_GENERATED, config, log
+from .common import MEDIA_GENERATED, config, log, maas_cevir
 from .creator import Draft, Slide
 from .data_researcher import DataSheet
 
@@ -34,10 +34,12 @@ ITEM_COLORS = ["#22C55E", "#86EFAC", "#15803D", "#94A3B8", "#CBD5E1", "#64748B",
 
 
 def font(size: int, bold: bool = True) -> ImageFont.FreeTypeFont:
+    """DESIGN_SYSTEM.md tipografisi: Inter (≥72 px kalın başlık/rakam = Inter Display Black)."""
     key = (size, bold)
     if key not in _font_cache:
         root = Path(__file__).resolve().parent.parent
-        for cand in _FONTS[bold]:
+        cands = (["assets/fonts/display.ttf"] if bold and size >= 72 else []) + _FONTS[bold]
+        for cand in cands:
             p = Path(cand) if Path(cand).is_absolute() else root / cand
             if p.exists():
                 _font_cache[key] = ImageFont.truetype(str(p), size)
@@ -84,7 +86,7 @@ def _stage(t: float, start: float, length: float = 0.4) -> float:
 
 
 class Canvas:
-    def __init__(self, size: tuple[int, int], series_no: int = 0):
+    def __init__(self, size: tuple[int, int], series_no: int = 0, label: str = ""):
         self.g = config()["gorsel"]
         self.seri = config().get("seri", {})
         self.W, self.H = size
@@ -93,6 +95,7 @@ class Canvas:
         self.top = 260 if self.vertical else 130      # Reels arayüzü üstte/altta yer kaplar
         self.bottom = self.H - (330 if self.vertical else 120)
         self.series_no = series_no
+        self.label = label                            # günün alt serisi (ör. ZAM TAKİBİ)
         self.audit: list[dict] = []                   # çizilen her yazının kutusu
         self.card_box: tuple | None = None            # %30 ikincil renk paneli
 
@@ -104,13 +107,20 @@ class Canvas:
         return (30, 25, self.W - 30, self.H - 25)
 
     def base(self) -> tuple[Image.Image, ImageDraw.ImageDraw]:
-        img = Image.new("RGB", (self.W, self.H), self.g["arka_plan"])
-        d = ImageDraw.Draw(img)
-        if self.card_box:  # %30: içerik kartı + vurgu rengi kenar şeridi
-            x0, y0, x1, y1 = self.card_box
-            d.rounded_rectangle([x0, y0, x1, y1], radius=40, fill=self.g.get("panel", "#18233A"))
-            d.rounded_rectangle([x0, y0 + 40, x0 + 10, y1 - 40], radius=5, fill=self.g["vurgu"])
-        return img, d
+        # %30: cam içerik kartı (DESIGN_SYSTEM.md §4) + vurgu rengi kenar şeridi; kare başına tekrar
+        # hesaplanmasın diye kutu başına önbellek
+        key = tuple(self.card_box) if self.card_box else None
+        cache = self.__dict__.setdefault("_base_cache", {})
+        if key not in cache:
+            img = Image.new("RGB", (self.W, self.H), self.g["arka_plan"])
+            if key:
+                from .motion import glass_card
+                x0, y0, x1, y1 = key
+                img = glass_card(img, key, radius=40, tint=self.g.get("panel", "#18233A"))
+                ImageDraw.Draw(img).rounded_rectangle([x0, y0 + 40, x0 + 10, y1 - 40], radius=5, fill=self.g["vurgu"])
+            cache[key] = img
+        img = cache[key].copy()
+        return img, ImageDraw.Draw(img)
 
     def text(self, d, xy, s: str, f, fill, role: str = "metin") -> None:
         d.text(xy, s, font=f, fill=fill)
@@ -119,6 +129,8 @@ class Canvas:
     def badge(self, d) -> None:
         name = self.seri.get("ad", "GERÇEK MALİYET")
         label = f"{name} #{self.series_no}" if self.series_no else name
+        if self.label:
+            label += f" · {self.label}"
         # Seri şeridi: tam genişlik vurgu rengi bant (%10 vurgunun ana taşıyıcısı + serinin imzası)
         f = font(34)
         y0, y1 = (self.top - 125, self.top - 45) if self.vertical else (20, 84)
@@ -225,6 +237,13 @@ def render_reveal(c: Canvas, s: Slide, sheet: DataSheet, t: float = 1.0) -> Imag
     y += int(ns * 1.35) + 30
     d.rectangle([c.pad, y, c.pad + int(max_w * k), y + 10], fill=c.g["vurgu"])
     y += 50
+    mc = maas_cevir(value)
+    if mc:  # "Kaç gün çalışman gerekir?" — serinin imza satırı
+        mf, ml, ms = _fit(d, "= " + mc["metin"], 46, max_w)
+        for line in ml:
+            c.text(d, (c.pad, y), line, mf, c.g["yazi"], "maas")
+            y += int(ms * 1.3)
+        y += 30
     sub = s.metin or f"{sheet.hesap_donemi} · {sheet.fiyat_tarihi} fiyatları"
     sf, sl, ss = _fit(d, sub, 40, max_w, bold=False, max_lines=3)
     for line in sl:
@@ -329,16 +348,80 @@ def render_chart(c: Canvas, s: Slide, sheet: DataSheet, t: float = 1.0) -> Image
     return img
 
 
-def render_outro(c: Canvas, s: Slide) -> Image.Image:
-    img = render_text(c, s, 0, 1, first=False, text_bottom=c.bottom - 120)
-    d = ImageDraw.Draw(img)
-    sig = c.seri.get("kapanis", "Her gün gerçek rakamlar · Takip et")
-    f = font(30)
-    w = d.textlength(sig, font=f)
-    y = c.bottom - 70
-    d.rounded_rectangle([c.pad, y - 12, c.pad + w + 40, y + 46], radius=29, outline=c.g["vurgu"], width=3)
-    c.text(d, (c.pad + 20, y), sig, f, c.g["vurgu"], "imza")
+def render_summary(c: Canvas, s: Slide, sheet: DataSheet) -> Image.Image:
+    """Son kare: ekran görüntüsü alınacak/kaydedilecek temiz özet tablo + soru + kaydet çağrısı.
+    Blok önce ölçülür, sonra dikeyde ortalanarak çizilir."""
+    img, d = c.base()
+    c.badge(d)
+    saved = list(c.audit)
+    scratch = ImageDraw.Draw(Image.new("RGB", (c.W, c.H)))
+    end = _summary_block(c, scratch, s, sheet, c.top)        # ölçüm turu
+    c.audit = saved
+    room = (c.bottom - 130) - c.top
+    _summary_block(c, d, s, sheet, c.top + max(0, (room - (end - c.top)) // 2))
+    g = c.g
+    sig = c.seri.get("kapanis", "Hangisini hesaplayalım? Yorumlara yaz")
+    f2 = font(30)
+    w = d.textlength(sig, font=f2)
+    yy = c.bottom - 70
+    d.rounded_rectangle([c.pad, yy - 12, c.pad + w + 40, yy + 46], radius=29, outline=g["vurgu"], width=3)
+    c.text(d, (c.pad + 20, yy), sig, f2, g["vurgu"], "imza")
+    c.footer(d, _sources(sheet))
     return img
+
+
+def _summary_block(c: Canvas, d, s: Slide, sheet: DataSheet, y: int) -> int:
+    g = c.g
+    sec = g.get("yazi_ikincil", "#94A3B8")
+    max_w = c.W - 2 * c.pad
+    c.text(d, (c.pad, y), "ÖZET · KAYDET, LAZIM OLACAK", font(30), g["vurgu"], "etiket")
+    y += 58
+    tf, tlines, ts = _fit(d, sheet.baslik, 54, max_w)
+    for line in tlines:
+        c.text(d, (c.pad, y), line, tf, g["yazi"], "baslik")
+        y += ts + 10
+    c.text(d, (c.pad, y + 4), f"{_short(sheet.hesap_donemi, 30)} · {sheet.fiyat_tarihi} fiyatları",
+           font(28, False), sec, "alt")
+    y += 66
+    opts = sheet.secenekler
+    if len(opts) > 1:
+        rows = [(_short(o.ad), o.toplam_tl, OPT_COLORS[i % 4]) for i, o in enumerate(opts)]
+        label, val = headline_value(sheet)
+        rows.append(("Fark", val, g["vurgu"]))
+    else:
+        items = sorted(opts[0].kalemler, key=lambda i: i.tutar_tl, reverse=True)[:5]
+        rows = [(i.kalem + (" *" if i.tahmini else ""), i.tutar_tl, g["yazi"]) for i in items]
+        rows.append(("TOPLAM", opts[0].toplam_tl, g["vurgu"]))
+    for n, (lab, v, color) in enumerate(rows):
+        last = n == len(rows) - 1
+        af = font(40 if last else 34)
+        amt = tl(v)
+        aw = d.textlength(amt, font=af)
+        lf, ll, lsz = _fit(d, lab, 40 if last else 32, max_w - aw - 30, max_lines=1)
+        c.text(d, (c.pad, y), ll[0], lf, color if last else g["yazi"], "etiket")
+        c.text(d, (c.W - c.pad - aw, y), amt, af, color, "rakam")
+        y += (60 if last else 52)
+        if not last:
+            d.line([c.pad, y - 10, c.W - c.pad, y - 10], fill=sec, width=1)
+    _, hv = headline_value(sheet)
+    mc = maas_cevir(hv)
+    if mc:
+        y += 8
+        mf, ml, ms = _fit(d, "= " + mc["metin"], 36, max_w)
+        for line in ml:
+            c.text(d, (c.pad, y), line, mf, g["vurgu"], "maas")
+            y += int(ms * 1.3)
+    y += 40
+    qf, ql, qs = _fit(d, s.baslik, 50, max_w, max_lines=2)
+    for line in ql:
+        c.text(d, (c.pad, y), line, qf, g["yazi"], "baslik")
+        y += int(qs * 1.2)
+    if s.metin:
+        mf2, ml2, ms2 = _fit(d, s.metin, 34, max_w, bold=False, max_lines=2)
+        for line in ml2:
+            c.text(d, (c.pad, y + 6), line, mf2, "#CBD5E1")
+            y += int(ms2 * 1.35)
+    return y
 
 
 def clean(text: str) -> str:
@@ -356,7 +439,7 @@ def _dispatch(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total: int, t: fl
     if s.tur == "reveal":
         return render_reveal(c, s, sheet, t)
     if s.tur == "sonuc":
-        return render_outro(c, s)
+        return render_summary(c, s, sheet)
     return render_text(c, s, idx, total, first=(idx == 0))
 
 
@@ -398,14 +481,14 @@ def _unused_render_slide(c: Canvas, s: Slide, sheet: DataSheet, idx: int, total:
     if s.tur == "reveal":
         return render_reveal(c, s, sheet, t)
     if s.tur == "sonuc":
-        return render_outro(c, s)
+        return render_summary(c, s, sheet)
     return render_text(c, s, idx, total, first=(idx == 0))
 
 
-def carousel(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0) -> list[Path]:
+def carousel(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, label: str = "") -> list[Path]:
     folder = MEDIA_GENERATED / post_id
     folder.mkdir(parents=True, exist_ok=True)
-    c = Canvas(tuple(config()["gorsel"]["boyut"]), series_no)
+    c = Canvas(tuple(config()["gorsel"]["boyut"]), series_no, label)
     slides = draft.slaytlar[:10]
     paths = []
     for i, s in enumerate(slides):
@@ -416,11 +499,11 @@ def carousel(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0) -
     return paths
 
 
-def stills_vertical(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0) -> list[Path]:
+def stills_vertical(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, label: str = "") -> list[Path]:
     """Video sahnelerinin son halleri (müdürün incelemesi ve kapak için)."""
     folder = MEDIA_GENERATED / post_id
     folder.mkdir(parents=True, exist_ok=True)
-    c = Canvas(tuple(config()["gorsel"]["video_boyut"]), series_no)
+    c = Canvas(tuple(config()["gorsel"]["video_boyut"]), series_no, label)
     paths = []
     for i, s in enumerate(draft.slaytlar):
         p = folder / f"sahne{i + 1}.jpg"

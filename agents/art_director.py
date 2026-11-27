@@ -37,7 +37,7 @@ def run(draft: Draft, sheet: DataSheet, frames: list[Path]) -> ArtReview:
     v = ask(AGENT,
             system=("Sen kısa video ve infografik konusunda deneyimli bir sanat yönetmenisin. Telefonda izlenen "
                     "videolarda okunurluk ve tutarlılık konusunda acımasızsın.\n\n" + brand_brief()),
-            content=content, schema=ArtReview)
+            content=content, role="denetci", schema=ArtReview)
     if v.sorunlar or v.yazim_hatalari or v.puan < 85:
         v.gecti = False
     return v

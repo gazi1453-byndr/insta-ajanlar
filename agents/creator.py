@@ -18,7 +18,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from .common import brand_brief, config, learnings
+from .common import brand_brief, config, learnings, maas_cevir
 from .data_researcher import DataSheet, as_text
 from .llm import ask
 from .strategist import Idea
@@ -32,7 +32,7 @@ class Slide(BaseModel):
                     "reveal: GERÇEK MALİYET büyük rakam sahnesi; sonuc: kapanış sorusu")
     baslik: str = Field(description="Ekrandaki büyük yazı, en fazla 8 kelime")
     metin: str = Field(description="Ekrandaki küçük yazı, en fazla 22 kelime; boş olabilir")
-    seslendirme: str = Field(description="Bu sahnede söylenecek doğal konuşma metni, 8-30 kelime")
+    seslendirme: str = Field(description="Bu sahnede söylenecek doğal, enerjik konuşma metni, 5-11 kelime; dolgu yok")
 
 
 class Draft(BaseModel):
@@ -58,8 +58,10 @@ FORMAT = """SERİ FORMATI (her videoda AYNI, sırayı bozma):
 7. [grafik] Kalem kalem grafik. Başlığı tablonun içeriğini anlatsın (grafik tablodan otomatik çizilir)
 8. [reveal] Başlık 'GERÇEK MALİYET'. Büyük rakam tablodan otomatik konur, sen yazma. metin alanına tek cümle bağlam yaz
 9. [metin] Çıkarım: izleyici bu bilgiyle ne yapmalı / nasıl tasarruf eder (tarafsız, tavsiye değil ipucu)
-10. [sonuc] Tartışma sorusu. Seslendirme seri kapanışıyla bitsin: "{kapanis}"
-Toplam 8-10 sahne, toplam seslendirme ~{kelime} kelime (~{sure} saniye)."""
+10. [sonuc] ÖZET KARESİ: ekranda tablo özeti otomatik çizilir (kaydetmelik son kare). baslik alanına tartışma sorusunu yaz.
+    Seslendirme: "Bu tabloyu kaydet, lazım olacak." + soru + seri kapanışı: "{kapanis}"
+Toplam 9-10 sahne, toplam seslendirme ~{kelime} kelime (~{sure} saniye, 35-42 sn aralığı ZORUNLU).
+TEMPO: Ara sahnelerin her biri EN FAZLA 11 kelime (ekranda 4 saniyeden uzun kalmasın). Dolgu cümlesi, tekrar, 'merhaba', 'bugün size' gibi girişler YOK. Kısa, vurgulu, konuşur gibi cümleler."""
 
 
 def run(idea: Idea, hook: str, sheet: DataSheet, series_no: int,
@@ -69,9 +71,23 @@ def run(idea: Idea, hook: str, sheet: DataSheet, series_no: int,
     seri = cfg.get("seri", {})
     fmt = FORMAT.format(acilis=seri.get("acilis", "Bunun gerçek maliyetini hesapladık."),
                         kapanis=seri.get("kapanis_ses", "Gerçek rakamlar için takipte kal."),
-                        kelime=int(sure * 2.0), sure=sure)
+                        kelime=int(sure * 2.2), sure=sure)
+    opts = sheet.secenekler
+    headline = (opts[0].toplam_tl if len(opts) == 1 else
+                max(o.toplam_tl for o in opts) - min(o.toplam_tl for o in opts))
+    mc = maas_cevir(headline)
+    extra = ""
+    if mc:
+        extra += (f"\nMAAŞ ÇEVİRİSİ (serinin imzası): {mc['metin']}. 'reveal' sahnesinin seslendirmesinde bunu söyle "
+                  f"(ör. '...yani asgari ücretle yaklaşık {mc['deger']} {mc['birim']} çalışma'). Bu sayıyı değiştirme.")
+    if idea.alt_seri:
+        extra += (f"\nALT SERİ: Bu video '{idea.alt_seri}' serisinden. Hook sahnesinin seslendirmesi seri açılışından "
+                  "sonra alt seri adını ansın (ör. 'Bugün A mı B mi günü.').")
+    if idea.izleyici:
+        extra += (f"\nİZLEYİCİ SORUSU: Bu konuyu takipçimiz @{idea.izleyici} sordu. Hook sahnesinin metin alanında "
+                  f"'@{idea.izleyici} sordu' yaz, seslendirmede de 'Bunu bir takipçimiz sordu' de; caption'da ona teşekkür et.")
     task = (
-        f"## Fikir\n{idea.model_dump_json()}\n\n## Seçilen hook\n{hook}\n\n"
+        f"## Fikir\n{idea.model_dump_json()}\n\n## Seçilen hook\n{hook}\n{extra}\n\n"
         f"## Maliyet tablosu (TEK RAKAM KAYNAĞIN BU)\n{as_text(sheet)}\n\n"
         f"## Kaynaklar\n" + "\n".join(sheet.kaynaklar) + "\n\n"
         f"## Öğrenilenler\n{learnings()}\n\n{fmt}\n\n"
@@ -88,7 +104,7 @@ def run(idea: Idea, hook: str, sheet: DataSheet, series_no: int,
     return ask(
         AGENT,
         system=(
-            "Sen 'Gerçek Maliyet' serisi için 1 dakikalık dikey videolar yazan bir senaristsin. Format her "
+            "Sen 'Gerçek Maliyet' serisi için 35-42 saniyelik, yüksek tempolu dikey videolar yazan bir senaristsin. Format her "
             "bölümde aynıdır; bu, serinin akılda kalmasını sağlar. İzleyiciyi ilk 3 saniyede yakalar, rakamlarla "
             "akıcı bir hikaye anlatır, sonunda yorum yazdıracak bir soru sorarsın. Seslendirme doğal, konuşma "
             "dilinde ve robotik olmayan cümlelerle yazılır.\n\n" + brand_brief()

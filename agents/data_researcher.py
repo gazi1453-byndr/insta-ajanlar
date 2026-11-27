@@ -93,6 +93,14 @@ def run(idea: Idea) -> tuple[DataSheet, dict]:
         sheet = _build(idea, notes, probs)
         fc = fact_checker.run(sheet, pages)
         probs = fact_checker.problems(fc)
+    from . import qa
+    depth = qa.depth_check(sheet)
+    if depth and not probs:
+        log(AGENT, f"Derinlik denetçisi: {depth} → tablo genişletiliyor")
+        sheet = _build(idea, notes, depth + ["Konunun gerçek maliyetini kalem kalem hesapla: aylık/yıllık kullanım, "
+                                            "vergi, sigorta, bakım, komisyon gibi gizli kalemleri notlardan bul."])
+        depth = qa.depth_check(sheet)
+    probs = probs + depth
     if probs:
         sheet.guven = "dusuk"
         log(AGENT, f"Tablo doğrulamadan geçemedi: {probs[:3]}")

@@ -51,7 +51,7 @@ def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt:
         f"## Taslak\n{draft.model_dump_json()}\n\n"
         f"## Geçmiş verilerden öğrenilenler\n{learnings()}\n\n"
         f"Bu {attempt}. deneme. Onay eşiği {cfg['onay_esigi']}/100. Eşik altındaysa ve düzeltilebilirse "
-        "REVIZYON, fikir temelden zayıfsa ya da veri güveni düşükse RED ver. İlk sahnelerin görselleri ektedir."
+        "REVIZYON, fikir temelden zayıfsa ya da veri güveni düşükse RED ver. BAŞLIĞIN/HOOK'UN VERDİĞİ SÖZ: Başlık ya da hook bir soru soruyor ya da bir hesap vaat ediyorsa (ör. 'aylık depo maliyeti ne?'), video bunu RAKAMLA cevaplamıyorsa en fazla 55 puan ver. Tablo tek bir etiket fiyatından ibaretse 'gerçek maliyet' değildir: en fazla 50 puan. İlk sahnelerin görselleri ektedir."
     )
     content = [*[_img(p) for p in images[:4]], {"type": "text", "text": text}]
     v = ask(
@@ -62,7 +62,7 @@ def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt:
             "ve izleyici güveni doğruluğa bağlı.\n\n" + brand_brief()
         ),
         content=content,
-        schema=Verdict,
+        role="denetci", schema=Verdict,
     )
     v.toplam = sum(v.puanlar.model_dump().values())
     if v.karar == "ONAY" and (v.toplam < cfg["onay_esigi"] or v.rakam_hatalari):

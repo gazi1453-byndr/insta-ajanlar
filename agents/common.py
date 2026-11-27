@@ -82,3 +82,29 @@ def brand_brief() -> str:
 def learnings() -> str:
     """Analistin yazdığı 'neyin işe yaradığı' notları."""
     return read_text(DATA / "learnings.md", "Henüz veri yok: hesap yeni, ilk haftalar deneme dönemi.")
+
+
+GUNLER = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"]
+
+
+def gunun_serisi(when=None) -> str:
+    """Haftalık programa göre günün alt serisi (ör. Pazartesi → 'ZAM TAKİBİ')."""
+    prog = config().get("haftalik_program") or {}
+    return prog.get(GUNLER[(when or now()).weekday()], "")
+
+
+def maas_cevir(tutar: float) -> dict:
+    """Bir tutarı asgari ücretle kaç gün/saat çalışmaya denk geldiğine çevirir.
+    {'deger': 32, 'birim': 'gün', 'metin': 'Asgari ücretle ≈ 32 gün çalışma'}"""
+    m = config().get("maas_cevirisi") or {}
+    net = float(m.get("asgari_ucret_net") or 0)
+    if net <= 0 or tutar <= 0:
+        return {}
+    gunluk = net / float(m.get("aylik_calisma_gunu", 30))
+    saatlik = net / float(m.get("aylik_calisma_saati", 225))
+    if tutar >= gunluk:
+        deger, birim = round(tutar / gunluk), "gün"
+    else:
+        deger, birim = max(1, round(tutar / saatlik)), "saat"
+    return {"deger": deger, "birim": birim, "metin": f"Asgari ücretle ≈ {deger} {birim} çalışma",
+            "kaynak": m.get("kaynak", "")}

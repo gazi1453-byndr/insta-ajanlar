@@ -3,3 +3,8 @@ __pycache__/
 .venv/
 venv/
 .env
+
+# Video motoru
+video/node_modules/
+video/out/
+.env.local

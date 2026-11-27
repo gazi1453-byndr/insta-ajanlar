@@ -1,0 +1,20 @@
+{
+  "name": "gercek-maliyet-video",
+  "private": true,
+  "description": "GERÇEK MALİYET serisi için Remotion video motoru (DESIGN_SYSTEM.md)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts --public-dir=../assets",
+    "render": "remotion render src/index.ts GercekMaliyet out/video.mp4 --public-dir=../assets"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.547",
+    "@remotion/fonts": "4.0.547",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.547"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,13 @@
+name: "9 · Gündem + zam alarmı (gün içi)"
+on:
+  schedule:
+    - cron: "0 8 * * *"     # 11:00 (TR)
+    - cron: "0 13 * * *"    # 16:00 (TR)
+  workflow_dispatch:
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: gundem
+    secrets: inherit

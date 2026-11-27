@@ -35,9 +35,42 @@ hashtagler:
 seri:
   # Her videoda AYNI kimlik: izleyicinin aklında kalması için değiştirme.
   ad: "GERÇEK MALİYET"
-  acilis: "Bunun gerçek maliyetini hesapladık."        # her videonun ilk cümlesi bununla başlar
-  kapanis_ses: "Gerçek rakamlar için takipte kal."     # her videonun son cümlesi
-  kapanis: "Her gün gerçek rakamlar · Takip et"         # son sahnedeki imza yazısı
+  acilis: "Bunun gerçek maliyetini hesapladık."          # her videonun ilk cümlesi
+  kapanis_ses: "Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım."
+  kapanis: "Hangisini hesaplayalım? Yorumlara yaz"        # son sahnedeki imza yazısı
+
+# 1) "Kaç gün çalışman gerekir?" çevirisi: her büyük rakam asgari ücretle kaç günlük emek?
+#    Asgari ücret değişince (genelde Ocak / Temmuz) SADECE bu iki satırı güncelle.
+maas_cevirisi:
+  asgari_ucret_net: 28075.50     # aylık net asgari ücret (TL)
+  kaynak: "2026 asgari ücreti, Resmî Gazete 26.12.2025"
+  aylik_calisma_gunu: 30
+  aylik_calisma_saati: 225
+
+# 5) Haftalık sabit günler: her gün 1 video (18:30) günün alt serisinden olur
+haftalik_program:
+  Pazartesi: "ZAM TAKİBİ"
+  Salı: "GİZLİ MASRAFLAR"
+  Çarşamba: "A MI B Mİ?"
+  Perşembe: "ŞEHİR ŞEHİR"
+  Cuma: "X TL İLE NE YAPILIR?"
+  Cumartesi: "İZLEYİCİ SORUSU"
+  Pazar: "HAFTANIN GERÇEK MALİYETİ"
+
+# 2) Zam alarmı: gündem günde 3 kez taranır; büyük bir zam/fiyat haberi düşerse
+#    1-2 saat içinde ekstra "SON DAKİKA" videosu üretilir (günde en fazla 1).
+zam_alarmi:
+  aktif: true
+  gunluk_en_fazla: 1
+  yayin_gecikmesi_dk: 75        # üretimden kaç dakika sonra paylaşılsın
+
+# 6) Hesaplayıcı site (GitHub Pages): her videonun etkileşimli hesaplayıcısı
+site:
+  aktif: true
+  adres: "https://gazi1453-byndr.github.io/insta-ajanlar/"
+  # Satış ortaklığı linkleri: bir programa katılınca buraya ekle (boşsa gösterilmez)
+  ortaklik_linkleri: {}
+  # ör. kasko: {metin: "Kasko tekliflerini karşılaştır", url: "https://..."}
 
 uretim:
   gunluk_gonderi: 3            # Günde 3 video
@@ -46,7 +79,9 @@ uretim:
     reel: 1.0                  # Hepsi video
     carousel: 0.0
   carousel_slayt_sayisi: 7
-  video_suresi_sn: 60          # ~1 dakika
+  video_suresi_sn: 40          # hedef; yüksek tempo
+  video_sure_araligi: [35, 42]  # Senkron Kontrolcüsü bu aralığın dışını geri çevirir
+  sahne_en_uzun_sn: 4.0        # hiçbir ara sahne 4 sn'den uzun kalmaz
   revizyon_hakki: 3            # Kontrollerden geçemeyen içerik en fazla kaç kez düzeltilsin
   onay_esigi: 80               # Müdürün eşiği (100 üzerinden)
   bas_mudur_esigi: 85          # Baş Müdürün eşiği (daha yüksek, veto yetkili)
@@ -74,7 +109,7 @@ gorsel:
 ses:
   saglayici: "edge"            # edge (ücretsiz Microsoft nöral ses) | yok
   edge_ses: "tr-TR-AhmetNeural"  # alternatif: tr-TR-EmelNeural (kadın)
-  hiz: "+8%"
+  hiz: "+18%"                  # enerjik tempo; baş/son sessizlikler ayrıca kırpılır
 
 yapay_zeka:
   # KURAL: soldan sağa denenir. Gemini'nin günlük limiti dolarsa ya da hata verirse

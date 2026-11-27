@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "video-analiz": {
+      "type": "stdio",
+      "command": "C:\\Users\\Gazi\\.venvs\\insta-ajanlar\\Scripts\\python.exe",
+      "args": ["tools/video_mcp.py"]
+    },
+    "elevenlabs": {
+      "type": "http",
+      "url": "https://api.elevenlabs.io/v1/mcp"
+    }
+  }
+}

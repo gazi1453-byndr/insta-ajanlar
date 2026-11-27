@@ -108,8 +108,9 @@ def kontrol() -> None:
 def main() -> None:
     cmd = sys.argv[1] if len(sys.argv) > 1 else "durum"
     if cmd == "arastir":
-        from agents import researcher
+        from agents import producer, researcher
         researcher.run()
+        producer.check_alarm()
     elif cmd == "uret":
         from agents import producer
         producer.run()
@@ -132,6 +133,13 @@ def main() -> None:
         if not (_D / "trends" / f"{_now():%Y-%m-%d}.json").exists():
             researcher.run()                 # önce günün gündemini tara (güncel fikir için)
         producer.run(preview=True)
+    elif cmd == "site":
+        from agents import site
+        site.build()
+    elif cmd == "gundem":
+        from agents import producer, trend_scanner
+        trend_scanner.run(light=True)            # gün içi hızlı tarama
+        producer.check_alarm()                   # büyük zam haberi varsa acil video
     elif cmd == "onayla":
         from agents import producer
         for line in producer.approve_previews() or ["Önizlemede onay bekleyen video yok"]:

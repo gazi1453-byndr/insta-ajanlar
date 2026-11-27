@@ -35,6 +35,9 @@ class AgendaItem(BaseModel):
     hook: str = Field(description="İlk 3 saniye kancası, en fazla 12 kelime")
     veri_ihtiyaci: str = Field(description="Araştırılacak fiyatlar/rakamlar")
     guncellik: int = Field(description="1-10: ne kadar güncel/sıcak (10 = bugün herkes konuşuyor)")
+    son_dakika: bool = Field(default=False, description="Son 12 saat içinde AÇIKLANAN, herkesi etkileyen bir zam/fiyat/"
+                                                        "vergi değişikliği mi? (akaryakıt, doğalgaz, elektrik, köprü, sigara, "
+                                                        "abonelik zammı gibi). Emin değilsen false.")
 
 
 class Agenda(BaseModel):
@@ -62,18 +65,18 @@ def google_trends_tr() -> list[dict]:
         return []
 
 
-def _scan_web() -> list[dict]:
+def _scan_web(light: bool = False) -> list[dict]:
     items = []
     if not web.enabled():
         log(AGENT, "TAVILY_API_KEY yok: haber/sosyal medya taraması atlandı")
         return items
-    for q in NEWS_QUERIES:
+    for q in (NEWS_QUERIES[:3] if light else NEWS_QUERIES):
         try:
-            for it in web.search(q, 4, days=2):
+            for it in web.search(q, 4, days=1 if light else 2):
                 items.append({"tur": "haber", "baslik": it["title"], "url": it["url"], "ozet": it["content"][:500]})
         except Exception as e:
             log(AGENT, f"Haber araması başarısız ({q}): {str(e)[:100]}")
-    for domain, q in SOCIAL:
+    for domain, q in ([] if light else SOCIAL):
         try:
             for it in web.search(q, 4, days=None, domains=[domain]):
                 items.append({"tur": domain, "baslik": it["title"], "url": it["url"], "ozet": it["content"][:500]})
@@ -83,14 +86,15 @@ def _scan_web() -> list[dict]:
     return items
 
 
-def run() -> Agenda | None:
+def run(light: bool = False) -> Agenda | None:
+    """light=True: gün içi hızlı tarama (Google Trends + 3 haber sorgusu, son 24 saat) — zam alarmı için."""
     stamp = f"{now():%Y-%m-%d}"
-    out_file = DATA / "trends" / f"{stamp}.json"
-    if out_file.exists():
-        log(AGENT, "Bugünün gündemi zaten tarandı")
+    out_file = DATA / "trends" / (f"{stamp}.json" if not light else f"{stamp}-{now():%H%M}.json")
+    if not light and out_file.exists():
+        log(AGENT, "Bugünün tam gündem taraması zaten yapıldı")
         return Agenda(**read_json(out_file)["gundem"])
     trends = google_trends_tr()
-    found = _scan_web()
+    found = _scan_web(light)
     if not trends and not found:
         return None
     cfg = config()["hesap"]
@@ -121,7 +125,8 @@ def run() -> Agenda | None:
         keep.append(h)
     new = [{"soru": m.konu, "hook": m.hook, "platform_kaniti": m.kanit, "veri_ihtiyaci": m.veri_ihtiyaci,
             "format": "reel", "kullanildi": False, "kaynak": "gundem", "tarih": now().isoformat(),
-            "guncellik": m.guncellik, "neden_simdi": m.neden_simdi} for m in agenda.maddeler]
+            "guncellik": m.guncellik, "neden_simdi": m.neden_simdi, "son_dakika": m.son_dakika}
+           for m in agenda.maddeler if m.konu not in {h.get("soru") for h in keep}]
     bank["hooklar"] = sorted(new, key=lambda x: -x["guncellik"]) + keep
     bank.setdefault("tarih", now().isoformat())
     write_json(DATA / "hook_bank.json", bank)

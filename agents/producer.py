@@ -65,7 +65,7 @@ def _reject(post: dict, reason: str, folder=None) -> dict:
     return post
 
 
-def produce_one(idea: strategist.Idea, idx: int, preview: bool = False) -> dict:
+def produce_one(idea: strategist.Idea, idx: int, preview: bool = False, when: str | None = None) -> dict:
     post_id = f"{now():%Y%m%d-%H%M}-{idx}"
     folder = None
     log(AGENT, f"Fikir: {idea.konu}")
@@ -91,7 +91,8 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False) -> dict:
         draft = creator.run(idea, best.metin, sheet, series, previous=draft, feedback=feedback)
 
         # 1) Format + Grafik Denetçisi (ölçüm)
-        issues = qa.structure_check(draft) + qa.money_check(draft, sheet) + qa.layout_audit(draft, sheet, series)
+        label = idea.alt_seri.strip().upper()
+        issues = qa.structure_check(draft) + qa.money_check(draft, sheet) + qa.layout_audit(draft, sheet, series, label=label)
         step["format_grafik_denetimi"] = issues
         if issues:
             log(AGENT, f"Denetim (deneme {attempt}): {len(issues)} sorun → senaryo düzeltiliyor")
@@ -99,7 +100,7 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False) -> dict:
             continue
 
         # 2) Müdür
-        stills = designer.stills_vertical(draft, sheet, post_id, series)
+        stills = designer.stills_vertical(draft, sheet, post_id, series, label)
         folder = stills[0].parent
         step["renk_dengesi"] = qa.color_balance(stills)          # 60-30-10 ölçümü (rapor)
         verdict = manager.run(idea, draft, sheet, stills, attempt)
@@ -112,11 +113,11 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False) -> dict:
             continue
 
         # 3) Video + Senkron Kontrolcüsü (gerekirse bir kez yeniden kurgu)
-        vid = video.render(draft, sheet, post_id, series)
+        vid = video.render(draft, sheet, post_id, series, label)
         sync = qa.av_sync(vid)
         if sync:
             log(AGENT, f"Senkron sorunu, yeniden kurgulanıyor: {sync}")
-            vid = video.render(draft, sheet, post_id, series)
+            vid = video.render(draft, sheet, post_id, series, label)
             sync = qa.av_sync(vid)
         step["senkron_kontrolu"] = sync
         if sync:
@@ -169,13 +170,53 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False) -> dict:
             write_json(DATA / "onizleme" / f"{post_id}.json", post)
             log(AGENT, f"✓ Önizleme hazır (yayınlanmayacak): {post['video']}")
             return post
-        post.update(durum="kuyrukta", planlanan_zaman=next_slot())
+        post.update(durum="kuyrukta", planlanan_zaman=when or next_slot(), alt_seri=label)
         write_json(QUEUE / f"{post_id}.json", post)
         log(AGENT, f"✓ Kuyruğa eklendi → {post['planlanan_zaman']}")
         return post
 
     return _reject(post | {"taslak": draft.model_dump() if draft else None},
                    f"{rounds} denemede tüm kontrollerden geçemedi", folder)
+
+
+def run_breaking(item: dict) -> dict | None:
+    """ZAM ALARMI: son dakika gelişmesi için hemen video üretir, ~75 dk sonra yayınlanır (günde en fazla N)."""
+    cfg = config().get("zam_alarmi") or {}
+    if not cfg.get("aktif", True):
+        return None
+    state_file = DATA / "zam_alarmi.json"
+    state = read_json(state_file, {})
+    today = f"{now():%Y-%m-%d}"
+    if state.get(today, 0) >= cfg.get("gunluk_en_fazla", 1):
+        log(AGENT, "Zam alarmı: bugünün son dakika hakkı kullanıldı")
+        return None
+    idea = strategist.Idea(
+        konu=item["soru"], aci="Son dakika: " + item.get("neden_simdi", ""), format="reel",
+        veri_ihtiyaci=item.get("veri_ihtiyaci", ""), hedef_duygu="şaşkınlık",
+        neden_simdi=item.get("neden_simdi", "bugün açıklandı"), beklenen_etki="paylaşma",
+        hook_bankasi_index=-1, alt_seri="SON DAKİKA", puan=95)
+    when = (now() + timedelta(minutes=int(cfg.get("yayin_gecikmesi_dk", 75)))).isoformat()
+    log(AGENT, f"🚨 Zam alarmı: {idea.konu}")
+    post = produce_one(idea, 9, when=when)
+    state[today] = state.get(today, 0) + (post["durum"] == "kuyrukta")
+    write_json(state_file, state)
+    bank = read_json(DATA / "hook_bank.json", {"hooklar": []})
+    for h in bank["hooklar"]:
+        if h.get("soru") == item["soru"]:
+            h["kullanildi"] = True
+    write_json(DATA / "hook_bank.json", bank)
+    return post
+
+
+def check_alarm() -> dict | None:
+    """Hook bankasında kullanılmamış, son dakika + çok güncel (≥9) madde varsa acil video üretir."""
+    bank = read_json(DATA / "hook_bank.json", {"hooklar": []})
+    hot = [h for h in bank["hooklar"] if h.get("son_dakika") and h.get("guncellik", 0) >= 9
+           and not h.get("kullanildi") and h.get("kaynak") == "gundem"]
+    if not hot:
+        log(AGENT, "Zam alarmı: son dakika gelişmesi yok")
+        return None
+    return run_breaking(sorted(hot, key=lambda h: -h["guncellik"])[0])
 
 
 def approve_previews() -> list[str]:

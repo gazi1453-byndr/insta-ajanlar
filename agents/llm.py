@@ -35,6 +35,7 @@ T = TypeVar("T", bound=BaseModel)
 
 DEFAULTS = {
     "sira": ["gemini", "groq"],
+    "denetci_gemini_model": ["gemini-pro-latest", "gemini-2.5-pro"],
     "gemini_model": ["gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"],
     "groq_model": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"],
     "groq_gorsel_model": ["meta-llama/llama-4-scout-17b-16e-instruct"],
@@ -119,7 +120,8 @@ def _parse_json(text: str) -> Any:
 
 # ================================================================== GEMINI
 
-def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool,
+                 models: list[str] | None = None) -> str:
     key = os.environ["GEMINI_API_KEY"]
     parts: list[dict] = [{"inline_data": {"mime_type": "image/jpeg", "data": _b64(p)}} for p in images]
     parts.append({"text": prompt})
@@ -133,7 +135,7 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
     if search:
         body["tools"] = [{"google_search": {}}]
     last_err = None
-    models = _cfg("gemini_model")
+    models = models or _cfg("gemini_model")
     for model in models:
         mkey = f"gemini:{model}:{'arama' if search else 'normal'}"
         if mkey in _down_models:  # bu modelin limiti bu çalışmada dolmuştu
@@ -197,7 +199,7 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
 
 # ================================================================== GROQ
 
-def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool, **_) -> str:
     key = os.environ["GROQ_API_KEY"]
     if search:
         models = _cfg("groq_arastirma_model")
@@ -260,7 +262,7 @@ def _groq_call(prompt: str, system: str, images: list[Path], *, json_mode: bool,
 
 # ================================================================== CLAUDE (isteğe bağlı)
 
-def _claude_cli_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+def _claude_cli_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool, **_) -> str:
     exe = os.environ.get("CLAUDE_BIN") or shutil.which("claude")
     if not exe:
         raise LLMError("Claude Code kurulu değil")
@@ -277,7 +279,7 @@ def _claude_cli_call(prompt: str, system: str, images: list[Path], *, json_mode:
     return str(data.get("result", ""))
 
 
-def _claude_api_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool) -> str:
+def _claude_api_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool, **_) -> str:
     import anthropic
     content: Any = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": _b64(p)}}
                     for p in images] + [{"type": "text", "text": prompt}]
@@ -324,11 +326,15 @@ def ask(agent: str, system: str, content: str | list[dict], schema: type[T], eff
     text, images = _split(content)
     prompt = text + _schema_prompt(schema)
 
+    kw = {}
+    if role == "denetci":  # Müdür, Sanat Yönetmeni, Baş Müdür: önce daha güçlü (Pro) modeller
+        kw["models"] = _cfg("denetci_gemini_model") + _cfg("gemini_model")
+
     def attempt(prov: str) -> T:
         call = _CALLS[prov]
         p = prompt
         for i in range(2):
-            raw = call(p, system, images, json_mode=True, search=False)
+            raw = call(p, system, images, json_mode=True, search=False, **kw)
             try:
                 return schema.model_validate(_parse_json(raw))
             except (ValidationError, json.JSONDecodeError) as e:

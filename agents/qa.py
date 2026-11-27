@@ -18,7 +18,7 @@ from pathlib import Path
 import requests
 
 from . import designer
-from .common import ROOT, config
+from .common import ROOT, config, maas_cevir
 from .creator import Draft
 from .data_researcher import DataSheet
 
@@ -44,11 +44,11 @@ def structure_check(draft: Draft) -> list[str]:
         issues.append("Son sahne 'sonuc' olmalı")
     if "grafik" in turs and "reveal" in turs and turs.index("reveal") < turs.index("grafik"):
         issues.append("'reveal' sahnesi grafikten SONRA gelmeli")
-    lo, hi = (7, 11) if target >= 50 else (5, 9)
+    lo, hi = 7, 11
     if not lo <= len(s) <= hi:
         issues.append(f"Sahne sayısı {lo}-{hi} arası olmalı (şu an {len(s)})")
     words = sum(len(x.seslendirme.split()) for x in s)
-    wlo, whi = int(target * 1.6), int(target * 2.4)   # rakamlar yazıya çevrilince konuşma uzar
+    wlo, whi = int(target * 1.8), int(target * 2.7)   # +%18 hız; rakamlar yazıya çevrilince konuşma uzar
     if not wlo <= words <= whi:
         issues.append(f"Toplam seslendirme {wlo}-{whi} kelime olmalı (~{target} sn); şu an {words}")
     for i, x in enumerate(s, 1):
@@ -58,6 +58,24 @@ def structure_check(draft: Draft) -> list[str]:
             issues.append(f"Sahne {i}: seslendirme çok uzun ({len(x.seslendirme.split())} kelime, en fazla 40)")
         if len(x.baslik.split()) > 9:
             issues.append(f"Sahne {i}: başlık çok uzun ({len(x.baslik.split())} kelime, en fazla 8)")
+    return issues
+
+
+# ------------------------------------------------------------------ 1a) DERİNLİK DENETÇİSİ
+
+def depth_check(sheet: DataSheet) -> list[str]:
+    """'Gerçek maliyet' vaadi: tek bir etiket fiyatı değil, kalem kalem hesap olmalı."""
+    issues = []
+    n_items = sum(len(o.kalemler) for o in sheet.secenekler)
+    if len(sheet.secenekler) == 1 and n_items < 4:
+        issues.append(f"Tablo çok sığ: {n_items} kalem var. Gerçek maliyet için en az 4 kalem gerekli "
+                      "(etiket fiyatının yanında vergi, sigorta, bakım, komisyon, yıllık/aylık toplam gibi gizli kalemler)")
+    if len(sheet.secenekler) > 1 and any(len(o.kalemler) < 2 for o in sheet.secenekler):
+        issues.append("Karşılaştırmada her seçeneğin en az 2 kalemi olmalı")
+    domains = {re.sub(r"^www\.", "", m.group(1)) for k in sheet.kaynaklar
+               for m in [re.search(r"https?://([^/\s]+)", k)] if m}
+    if len(domains) < 2:
+        issues.append(f"En az 2 farklı kaynak site gerekli (şu an {len(domains)})")
     return issues
 
 
@@ -87,6 +105,11 @@ def money_check(draft: Draft, sheet: DataSheet) -> list[str]:
                     ok = any(abs(num * 1000 - v) <= abs(v) * 0.03 for v in derived)
                 if not ok:
                     issues.append(f"Sahne {i} ({field}): '{m.group(0).strip()}' tablodaki hiçbir rakamla eşleşmiyor")
+            for m in re.finditer(r"(\d+)\s*(gün|saat)(?:lük)?\s*(?:çalış|emek|mesai|maaş)", text, re.IGNORECASE):
+                n, unit = int(m.group(1)), m.group(2).lower()
+                valid = {mc["deger"] for mc in (maas_cevir(v) for v in vals) if mc and mc["birim"] == unit}
+                if valid and not any(abs(n - x) <= 1 for x in valid):
+                    issues.append(f"Sahne {i} ({field}): '{m.group(0)}' maaş çevirisiyle uyuşmuyor (doğru: {sorted(valid)[:3]})")
     return issues
 
 
@@ -108,7 +131,7 @@ def _expected_numbers(sheet: DataSheet) -> set[float]:
 
 
 def layout_audit(draft: Draft, sheet: DataSheet, series_no: int = 0,
-                 sizes: tuple = ((1080, 1920),)) -> list[str]:
+                 sizes: tuple = ((1080, 1920),), label: str = "") -> list[str]:
     issues = []
     expected = _expected_numbers(sheet)
     shown: list[float] = []
@@ -121,7 +144,7 @@ def layout_audit(draft: Draft, sheet: DataSheet, series_no: int = 0,
     designer.tl = spy
     try:
         for size in sizes:
-            c = designer.Canvas(size, series_no)
+            c = designer.Canvas(size, series_no, label)
             x0, y0, x1, y1 = c.safe
             for i, s in enumerate(draft.slaytlar, 1):
                 shown.clear()
@@ -215,9 +238,16 @@ def av_sync(video: Path) -> list[str]:
     for i, (nf, vd) in enumerate(zip(plan["sahne_kareleri"], plan["seslendirme_sn"]), 1):
         if vd and vd > nf / fps - 0.15:
             issues.append(f"Sahne {i}: seslendirme ({vd:.2f} sn) sahneye sığmıyor ({nf / fps:.2f} sn), ses kesilir")
-    target = config()["uretim"]["video_suresi_sn"]
-    if not (target * 0.75 <= v <= min(target * 1.35, 90)):
-        issues.append(f"Süre hedef dışında: {v:.1f} sn (hedef ~{target} sn, Reels en fazla 90 sn)")
+    u = config()["uretim"]
+    target = u["video_suresi_sn"]
+    lo, hi = u.get("video_sure_araligi") or [target * 0.85, target * 1.1]
+    if not (lo - 0.5 <= v <= hi + 0.5):
+        issues.append(f"Süre hedef dışında: {v:.1f} sn (hedef {lo}-{hi} sn)")
+    longest = u.get("sahne_en_uzun_sn", 4.0)
+    n = len(plan["sahne_kareleri"])
+    for i, nf in enumerate(plan["sahne_kareleri"], 1):
+        if 1 < i < n and nf / fps > longest + 0.3:
+            issues.append(f"Sahne {i} çok uzun ({nf / fps:.1f} sn > {longest} sn): seslendirmeyi kısalt ya da sahneyi ikiye böl")
     return issues
 
 
@@ -251,7 +281,7 @@ def voice_check(video: Path, draft: Draft, transcribe: bool = True) -> list[str]
     for i, (s, sec) in enumerate(zip(draft.slaytlar, plan["seslendirme_sn"]), 1):
         if sec:
             wps = len(voice.speakable(s.seslendirme).split()) / sec
-            if not 1.4 <= wps <= 3.8:
+            if not 1.4 <= wps <= 4.4:
                 issues.append(f"Sahne {i}: konuşma hızı anormal ({wps:.1f} kelime/sn)")
     if transcribe:
         mp3 = video.parent / "ses_kontrol.mp3"
@@ -259,6 +289,10 @@ def voice_check(video: Path, draft: Draft, transcribe: bool = True) -> list[str]
                         "-ar", "16000", "-b:a", "48k", str(mp3)], check=True)
         try:
             heard = llm.transcribe("Ses Denetçisi", mp3)
+            # döküm rakamla yazılmış olabilir ("135 319 lira"): grupları birleştir, sonra yazıya çevir
+            heard = re.sub(r"\b(\d{1,3})((?:[ .]\d{3})+)\b",
+                           lambda m: m[1] + m[2].replace(" ", "").replace(".", ""), heard)
+            heard = voice.speakable(heard)
             expected = _norm_words(" ".join(voice.speakable(s.seslendirme) for s in draft.slaytlar))
             got = _norm_words(heard)
             ratio = difflib.SequenceMatcher(None, expected, got).ratio()
