@@ -219,7 +219,7 @@ def _stream_seconds(path: Path, sel: str) -> float:
     return int(h) * 3600 + int(m) * 60 + float(s)
 
 
-def av_sync(video: Path) -> list[str]:
+def av_sync(video: Path, check_length: bool = True) -> list[str]:
     issues = []
     tf = video.parent / "timing.json"
     if not video.exists():
@@ -241,7 +241,7 @@ def av_sync(video: Path) -> list[str]:
     u = config()["uretim"]
     target = u["video_suresi_sn"]
     lo, hi = u.get("video_sure_araligi") or [target * 0.85, target * 1.1]
-    if not (lo - 0.5 <= v <= hi + 0.5):
+    if check_length and not (lo - 0.5 <= v <= hi + 0.5):
         issues.append(f"Süre hedef dışında: {v:.1f} sn (hedef {lo}-{hi} sn)")
     longest = u.get("sahne_en_uzun_sn", 4.0)
     n = len(plan["sahne_kareleri"])
@@ -332,7 +332,8 @@ def preflight(post: dict, video_url: str | None) -> tuple[list[str], bool]:
     """(sorunlar, adres_hazir). Adres henüz yayında değilse (GitHub Pages derleniyor) hata sayılmaz."""
     issues = []
     if post.get("video"):
-        issues += av_sync(ROOT / post["video"])
+        # senaryo videolarında süreyi kullanıcı belirler; senkron yine denetlenir
+        issues += av_sync(ROOT / post["video"], check_length=post.get("kaynak") != "senaryo")
     for g in post.get("gorseller", []):
         if not (ROOT / g).exists():
             issues.append(f"Görsel yok: {g}")
