@@ -44,4 +44,11 @@ def run(idea: Idea, draft: Draft, sheet: DataSheet, reports: dict, frames: list[
             content=content, role="denetci", schema=ChiefVerdict)
     if v.karar == "YAYINLA" and (v.puan < esik or not v.seri_uyumu):
         v.karar = "REVIZYON"
+    from .fact_checker import unsupported
+    bad = unsupported(reports.get("kaynak_dogrulama"))
+    if bad:  # VETO: kaynaksız rakamla video yayınlanmaz (modelin kararından bağımsız)
+        v.karar = "RED"
+        v.puan = min(v.puan, 49)
+        v.gerekce = f"Otomatik RED: {len(bad)} kalem kaynakta yok ({'; '.join(bad)}). " + v.gerekce
+        v.duzeltmeler = [f"Kaynak göster ya da 'tahmini' işaretle: {b}" for b in bad] + v.duzeltmeler
     return v

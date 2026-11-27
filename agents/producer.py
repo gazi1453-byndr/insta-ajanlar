@@ -106,7 +106,7 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False, when: st
         stills = designer.stills_vertical(draft, sheet, post_id, series, label)
         folder = stills[0].parent
         step["renk_dengesi"] = qa.color_balance(stills)          # 60-30-10 ölçümü (rapor)
-        verdict = manager.run(idea, draft, sheet, stills, attempt)
+        verdict = manager.run(idea, draft, sheet, stills, attempt, fc_report)
         step["mudur"] = verdict.model_dump()
         log(AGENT, f"Müdür (deneme {attempt}): {verdict.karar} {verdict.toplam}/100")
         if verdict.karar == "RED":
@@ -268,7 +268,7 @@ def review_script(spec_path: str) -> dict:
     # 3) Müdür (dikey kareler üzerinden)
     stills = designer.stills_vertical(draft, sheet, f"denetim-{path.stem}", series, label)
     rep["renk_dengesi"] = qa.color_balance(stills)
-    verdict = manager.run(idea, draft, sheet, stills, 1)
+    verdict = manager.run(idea, draft, sheet, stills, 1, rep["kaynak_dogrulama"])
     rep["mudur"] = verdict.model_dump()
     # 4) Sanat Yönetmeni
     art = art_director.run(draft, sheet, stills)

@@ -43,11 +43,20 @@ def _img(path: Path) -> dict:
     return {"type": "image_path", "path": str(path)}
 
 
-def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt: int) -> Verdict:
+def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt: int,
+        fc_report: dict | None = None) -> Verdict:
+    from .fact_checker import unsupported
     cfg = config()["uretim"]
+    bad = unsupported(fc_report)
+    fc_text = ""
+    if fc_report is not None:
+        fc_text = ("## Kaynak Doğrulayıcı raporu\n"
+                   + ("DESTEKSİZ KALEMLER (kaynakta yok, hesaplanamıyor): " + "; ".join(bad) if bad
+                      else "Tüm kalemler kaynakta var, hesaplanabiliyor ya da 'tahmini' işaretli.")
+                   + "\nDesteksiz kalem varsa rakam_dogrulugu en fazla 5 olur ve ONAY veremezsin.\n\n")
     text = (
         f"## Fikir\n{idea.model_dump_json()}\n\n## Maliyet tablosu\n{as_text(sheet)}\n"
-        f"Veri güveni: {sheet.guven}. Kaynaklar: {'; '.join(sheet.kaynaklar)}\n\n"
+        f"Veri güveni: {sheet.guven}. Kaynaklar: {'; '.join(sheet.kaynaklar)}\n\n" + fc_text +
         f"## Taslak\n{draft.model_dump_json()}\n\n"
         f"## Geçmiş verilerden öğrenilenler\n{learnings()}\n\n"
         f"Bu {attempt}. deneme. Onay eşiği {cfg['onay_esigi']}/100. Eşik altındaysa ve düzeltilebilirse "
@@ -64,6 +73,9 @@ def run(idea: Idea, draft: Draft, sheet: DataSheet, images: list[Path], attempt:
         content=content,
         role="denetci", schema=Verdict,
     )
+    if bad:  # kaynak raporu desteksiz diyorsa model ne derse desin rakam doğruluğu düşer, onay çıkmaz
+        v.puanlar.rakam_dogrulugu = min(v.puanlar.rakam_dogrulugu, 5)
+        v.rakam_hatalari = [f"Kaynakta yok: {b}" for b in bad] + [r for r in v.rakam_hatalari if r]
     v.toplam = sum(v.puanlar.model_dump().values())
     if v.karar == "ONAY" and (v.toplam < cfg["onay_esigi"] or v.rakam_hatalari):
         v.karar = "REVIZYON"

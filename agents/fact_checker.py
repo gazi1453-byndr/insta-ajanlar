@@ -47,6 +47,22 @@ def run(sheet: DataSheet, pages: list[dict]) -> FactCheck:
     )
 
 
+def unsupported(report) -> list[str]:
+    """Desteksiz (kaynakta olmayan, hesaplanamayan, 'tahmini' işaretlenmemiş) kalemler.
+    FactCheck nesnesini ya da raporun sözlük hâlini kabul eder:
+    {"kaynak_dogrulama": {...}} (üretim hattı), {"rapor": {...}} (senaryo denetimi) ya da doğrudan {"kalemler": [...]}."""
+    if report is None:
+        return []
+    if isinstance(report, FactCheck):
+        items = [c.model_dump() for c in report.kalemler]
+    else:
+        d = report
+        while isinstance(d, dict) and "kalemler" not in d:
+            d = d.get("kaynak_dogrulama") or d.get("rapor")
+        items = (d or {}).get("kalemler", []) if isinstance(d, dict) else []
+    return [f"{c.get('secenek', '')} / {c.get('kalem', '')}" for c in items if c.get("durum") == "desteksiz"]
+
+
 def problems(fc: FactCheck) -> list[str]:
     out = [f"{c.secenek} / {c.kalem}: kaynakta yok ({c.aciklama})" for c in fc.kalemler if c.durum == "desteksiz"]
     if not fc.tarih_guncel_mi:
