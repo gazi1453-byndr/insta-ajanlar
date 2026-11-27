@@ -121,7 +121,7 @@ def _parse_json(text: str) -> Any:
 # ================================================================== GEMINI
 
 def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: bool, search: bool,
-                 models: list[str] | None = None) -> str:
+                 models: list[str] | None = None, _retry: bool = False) -> str:
     key = os.environ["GEMINI_API_KEY"]
     parts: list[dict] = [{"inline_data": {"mime_type": "image/jpeg", "data": _b64(p)}} for p in images]
     parts.append({"text": prompt})
@@ -144,10 +144,20 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
             continue
         for attempt in range(3):
             _throttle("gemini", 6.5)
-            r = requests.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                headers={"x-goog-api-key": key, "Content-Type": "application/json"},
-                json=body, timeout=300)
+            try:
+                r = requests.post(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                    headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                    json=body, timeout=(15, 180))
+            except requests.RequestException as e:  # zaman aşımı / bağlantı: zincir DURMASIN
+                last_err = f"{model} ağ hatası: {type(e).__name__}"
+                if attempt < 1:
+                    log("gemini", f"{model} yanıt vermedi ({type(e).__name__}), 10 sn sonra tekrar")
+                    time.sleep(10)
+                    continue
+                _busy_until[model] = time.time() + 600
+                log("gemini", f"{model} yanıt vermiyor ({type(e).__name__}) → sıradaki Gemini modeli")
+                break
             if r.status_code == 200:
                 data = r.json()
                 cands = data.get("candidates") or []
@@ -194,6 +204,12 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
             raise LLMError(f"Gemini hata {r.status_code}: {msg[:300]}")
     if all(f"gemini:{m}:{'arama' if search else 'normal'}" in _down_models for m in models):
         raise QuotaExhausted(f"Gemini: bütün modellerin limiti doldu (son: {last_err})")
+    if not _retry:  # hepsi geçici yoğun/ağ hatası: kısa bekle, bir tur daha dene (yoğunluk atlamasını sıfırla)
+        log("gemini", f"Tüm modeller geçici olarak yanıtsız ({last_err}), 45 sn sonra son bir tur")
+        time.sleep(45)
+        for m in models:
+            _busy_until.pop(m, None)
+        return _gemini_call(prompt, system, images, json_mode=json_mode, search=search, models=models, _retry=True)
     raise LLMError(f"Gemini: hiçbir model yanıt vermedi (son: {last_err})")
 
 
