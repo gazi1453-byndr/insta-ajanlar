@@ -97,7 +97,7 @@ Kurallar:
 | Sessizlik | Her sahnenin baş ve son sessizliği kelime zamanlarına göre kırpılır |
 | Müzik | `assets/music`, yaklaşık %9 seste, sonda 1,5 sn kararma |
 | Efekt | **Bağlama göre, her geçişe değil.** Hook'ta konu sesi (araba → `korna`, market/para → `kasa`, ev/telefon → `pop`). Rakam sayacı oturunca `cink`. GERÇEK MALİYET'te `darbe` + `kasa`. `whoosh` yalnızca grafiğe ve reveal'e geçişte. Ek efektler: `subbass` (açılış vuruşu), `tik` (kırmızı maliyet kartı), `onay` (yeşil tasarruf çınlaması), `kart` (final özet kartı). Senaryodaki `efekt` alanı her zaman önceliklidir. |
-| Konu görseli | Hook'ta ve ilk büyük ifade sahnesinde hareketli vektör görsel: `araba` (yolda giden, tekerlekler dönen), `benzin` (litre sayan pompa), `ev`, `telefon`, `market`, `para`, `kahve` (buharı tüten take-away bardak + öğle yemeği tabağı), `konut` (ışıkları yanan apartman silüeti + sallanan anahtar), `dukkan` (açılan çizgili tenteli butik dükkan + düşen evrak çantası). Senaryodaki `gorsel` alanı önceliklidir; `yok` yazılırsa görsel gösterilmez. |
+| Konu görseli | Hook'ta ve ilk büyük ifade sahnesinde hareketli vektör görsel: `araba` (yolda giden, tekerlekler dönen), `benzin` (litre sayan pompa), `ev`, `telefon`, `market`, `para`, `kahve` (buharı tüten take-away bardak + öğle yemeği tabağı), `konut` (ışıkları yanan apartman silüeti + sallanan anahtar), `dukkan` (açılan çizgili tenteli butik dükkan + düşen evrak çantası), `yuzuk` (iç içe geçen iki altın alyans + çizilen yatırım grafiği). Senaryodaki `gorsel` alanı önceliklidir; `yok` yazılırsa görsel gösterilmez. |
 | Süre | 35–42 sn. Ara sahneler en fazla 4 sn. Ses yüksekliği −14 LUFS. |
 
 ## 7. Yapılmayacaklar

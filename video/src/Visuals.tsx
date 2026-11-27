@@ -476,7 +476,61 @@ const Shop: React.FC<V> = ({accent, text, panel, height = 300}) => {
   );
 };
 
+// ---------------------------------------------------------------- iki alyans + yükselen yatırım grafiği
+const Rings: React.FC<V> = ({accent, text, height = 300}) => {
+  const {f, fps, t} = useT();
+  const a = sp(f, fps, 2, {damping: 12, stiffness: 150, mass: 1});
+  const b = sp(f, fps, 8, {damping: 12, stiffness: 150, mass: 1});
+  const draw = sp(f, fps, 16, {damping: 20, stiffness: 90, mass: 1});
+  const sparkle = 0.5 + 0.5 * Math.sin(t * 5);
+  const pts = [[430, 250], [480, 232], [520, 238], [565, 196], [605, 170], [650, 118]];
+  const line = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x} ${y}`).join(' ');
+  const L = 320;
+  const ring = (cx: number, cy: number, k: number, from: number, id: string) => (
+    <g transform={`translate(${(1 - k) * from} ${(1 - k) * -120})`} opacity={Math.min(1, k * 1.5)}>
+      <ellipse cx={cx} cy={cy} rx={78} ry={78} fill="none" stroke={`url(#${id})`} strokeWidth={20} />
+      <ellipse cx={cx} cy={cy} rx={78} ry={78} fill="none" stroke="#FFFBEB" strokeOpacity={0.5} strokeWidth={3}
+        strokeDasharray="60 430" strokeDashoffset={-t * 40} />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 700 300" width="100%" height={height} style={{overflow: 'visible'}}>
+      <defs>
+        <linearGradient id="rg-gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#FDE68A" /><stop offset="0.5" stopColor="#F59E0B" /><stop offset="1" stopColor="#B45309" />
+        </linearGradient>
+        <linearGradient id="rg-gold2" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#FEF3C7" /><stop offset="0.5" stopColor="#FBBF24" /><stop offset="1" stopColor="#92400E" />
+        </linearGradient>
+        <filter id="rg-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" /></filter>
+        <filter id="rg-soft" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="7" /></filter>
+      </defs>
+      <line x1={20} y1={276} x2={680} y2={276} stroke="#ffffff22" strokeWidth={3} />
+      <ellipse cx={210} cy={272} rx={150} ry={8} fill="#000" opacity={0.5} filter="url(#rg-soft)" />
+      {ring(160, 160, a, -200, 'rg-gold')}
+      {ring(262, 160, b, 200, 'rg-gold2')}
+      {/* pırlanta parıltısı */}
+      <g transform={`translate(160 82) scale(${0.6 + 0.4 * sparkle})`} opacity={a}>
+        <path d="M0 -18 L5 -5 L18 0 L5 5 L0 18 L-5 5 L-18 0 L-5 -5 Z" fill="#F8FAFC" />
+      </g>
+      {/* yatırım grafiği: altın çubuklar + çizilen yükselen çizgi */}
+      {[0, 1, 2, 3].map((i) => {
+        const s = sp(f, fps, 12 + i * 4, {damping: 14, stiffness: 160, mass: 1});
+        const h = (40 + i * 34) * s;
+        return <rect key={i} x={444 + i * 54} y={276 - h} width={34} height={h} rx={6} fill="#ffffff14" stroke={text} strokeOpacity={0.15} />;
+      })}
+      <path d={line} fill="none" stroke={accent} strokeWidth={10} opacity={0.4} filter="url(#rg-glow)"
+        strokeDasharray={L} strokeDashoffset={L * (1 - draw)} strokeLinecap="round" strokeLinejoin="round" />
+      <path d={line} fill="none" stroke={accent} strokeWidth={6} strokeDasharray={L} strokeDashoffset={L * (1 - draw)}
+        strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M632 112 L654 114 L648 136" fill="none" stroke={accent} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round"
+        opacity={draw > 0.95 ? 1 : 0} />
+    </svg>
+  );
+};
+
 export const VISUALS: Record<string, React.FC<V>> = {
+  yuzuk: Rings,
   dukkan: Shop,
   konut: Apartment,
   kahve: Coffee,
