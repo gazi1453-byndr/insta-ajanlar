@@ -114,7 +114,8 @@ def as_text(sheet: DataSheet) -> str:
     for o in sheet.secenekler:
         out.append(f"\n## {o.ad} — TOPLAM {o.toplam_tl:,.2f} TL")
         for i in o.kalemler:
-            out.append(f"- {i.kalem}: {i.tutar_tl:,.2f} TL{' (tahmini)' if i.tahmini else ''} — {i.kaynak}")
+            out.append(f"- {i.kalem}: {i.tutar_tl:,.2f} TL{' (tahmini)' if i.tahmini else ''}"
+                       f" — hesap: {i.aciklama or '-'} — kaynak: {i.kaynak}")
     out.append("\nVarsayımlar: " + "; ".join(sheet.varsayimlar))
     out.append("Sonuç: " + sheet.sonuc)
     return "\n".join(out)

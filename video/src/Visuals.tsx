@@ -350,7 +350,71 @@ const Coffee: React.FC<V> = ({accent, text, height = 300}) => {
   );
 };
 
+// ---------------------------------------------------------------- modern apartman silüeti + anahtar
+const Apartment: React.FC<V> = ({accent, text, panel, height = 300}) => {
+  const {f, fps, t} = useT();
+  const rise = sp(f, fps, 0, {damping: 16, stiffness: 120, mass: 1});
+  const key = sp(f, fps, 16, {damping: 10, stiffness: 140, mass: 1});
+  const swing = Math.sin(t * 2.2) * 6 * key;
+  const blocks = [
+    {x: 150, w: 150, top: 46, cols: 4, rows: 10},
+    {x: 300, w: 120, top: 116, cols: 3, rows: 7},
+  ];
+  return (
+    <svg viewBox="0 0 700 300" width="100%" height={height} style={{overflow: 'visible'}}>
+      <defs>
+        <linearGradient id="ap-glass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor={panel} />
+          <stop offset="1" stopColor="#0B1220" />
+        </linearGradient>
+        <clipPath id="ap-rise"><rect x={0} y={276 - 240 * rise} width={700} height={240 * rise} /></clipPath>
+        <filter id="ap-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="5" />
+        </filter>
+        <filter id="ap-soft" x="-20%" y="-200%" width="140%" height="500%">
+          <feGaussianBlur stdDeviation="7" />
+        </filter>
+      </defs>
+      <line x1={40} y1={276} x2={680} y2={276} stroke="#ffffff22" strokeWidth={3} />
+      <ellipse cx={290} cy={276} rx={170} ry={8} fill="#000" opacity={0.5 * rise} filter="url(#ap-soft)" />
+      <g clipPath="url(#ap-rise)">
+        {blocks.map((b, bi) => {
+          const cw = b.w / b.cols;
+          const rh = (276 - b.top - 40) / b.rows;
+          return (
+            <g key={bi}>
+              <rect x={b.x} y={b.top} width={b.w} height={276 - b.top} fill="url(#ap-glass)" stroke={text} strokeOpacity={0.22} strokeWidth={2} />
+              <line x1={b.x} y1={b.top} x2={b.x + b.w} y2={b.top} stroke={accent} strokeWidth={4} />
+              <line x1={b.x} y1={b.top} x2={b.x + b.w} y2={b.top} stroke={accent} strokeWidth={8} opacity={0.45} filter="url(#ap-glow)" />
+              {Array.from({length: b.rows * b.cols}, (_, k) => {
+                const r = Math.floor(k / b.cols);
+                const c = k % b.cols;
+                const on = ((k * 7 + bi * 3) % 5 === 0);
+                const lit = sp(f, fps, 10 + ((k * 3) % 23), {damping: 20, stiffness: 160, mass: 1});
+                return (
+                  <rect key={k} x={b.x + c * cw + cw * 0.22} y={b.top + 14 + r * rh} width={cw * 0.56} height={rh * 0.58} rx={2}
+                    fill={on ? accent : text} opacity={(on ? 0.9 : 0.14) * lit} />
+                );
+              })}
+              {bi === 0 && <rect x={b.x + b.w / 2 - 16} y={250} width={32} height={26} rx={3} fill={accent} opacity={0.85} />}
+            </g>
+          );
+        })}
+      </g>
+      {/* anahtar: yaylı düşer, hafifçe sallanır */}
+      <g transform={`translate(${470 + (1 - key) * 120} ${(1 - key) * -180}) rotate(${-18 + swing} 70 120)`} opacity={Math.min(1, key * 1.5)}>
+        <circle cx={70} cy={120} r={40} fill="none" stroke={accent} strokeWidth={16} opacity={0.4} filter="url(#ap-glow)" />
+        <circle cx={70} cy={120} r={40} fill="none" stroke={accent} strokeWidth={12} />
+        <circle cx={70} cy={120} r={16} fill="none" stroke={text} strokeOpacity={0.35} strokeWidth={3} />
+        <rect x={106} y={113} width={118} height={14} rx={7} fill={accent} />
+        <path d="M184 127 L184 150 L198 150 L198 127 Z M206 127 L206 142 L220 142 L220 127 Z" fill={accent} />
+      </g>
+    </svg>
+  );
+};
+
 export const VISUALS: Record<string, React.FC<V>> = {
+  konut: Apartment,
   kahve: Coffee,
   araba: Car,
   benzin: Pump,

@@ -31,7 +31,7 @@ class FactCheck(BaseModel):
 
 def run(sheet: DataSheet, pages: list[dict]) -> FactCheck:
     if pages:
-        src = "\n\n".join(f"[{i + 1}] {p['title']} — {p['url']}\n{p['content'][:2600]}" for i, p in enumerate(pages[:8]))
+        src = "\n\n".join(f"[{i + 1}] {p['title']} — {p['url']}\n{p['content'][:2000]}" for i, p in enumerate(pages[:14]))
     else:
         src = "(Ham sayfa metni yok; sadece tablodaki kaynak listesine ve açıklamalara bakabilirsin.)"
     return ask(
@@ -42,7 +42,11 @@ def run(sheet: DataSheet, pages: list[dict]) -> FactCheck:
         content=(f"## Maliyet tablosu\n{as_text(sheet)}\nVarsayımlar: {sheet.varsayimlar}\n\n"
                  f"## Kaynak sayfalar\n{src}\n\n"
                  "Tablodaki her seçeneğin her kalemini kontrol et. Kalem 'tahmini' işaretliyse ve varsayımı "
-                 "makulse 'tahmini_isaretli' de. Rakam kaynakta yoksa ve hesaplanamıyorsa 'desteksiz' de."),
+                 "makulse 'tahmini_isaretli' de. Kalemin 'hesap' açıklamasındaki formül, kaynak metinde geçen bir "
+                 "fiyat/oranla (ör. '4.500.000 × %21,1', kaynakta %21,1 var) ya da tablodaki/varsayımlardaki değerlerle "
+                 "kuruluyorsa formülü kendin hesapla: sonuç tutarla 1 TL içinde uyuşuyorsa 'hesaplanan' de ve "
+                 "alıntıya formülü + kaynaktaki oranın geçtiği cümleyi yaz. Rakam kaynakta yoksa ve hesaplanamıyorsa "
+                 "'desteksiz' de."),
         schema=FactCheck,
     )
 
