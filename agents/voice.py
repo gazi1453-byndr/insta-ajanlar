@@ -118,7 +118,7 @@ def _edge(text: str, out: Path) -> tuple[Path | None, list[dict]]:
     """Edge nöral ses + kelime sınırları (karaoke altyazı için)."""
     import edge_tts
     cfg = _cfg()
-    voice, rate = cfg.get("edge_ses", "tr-TR-AhmetNeural"), cfg.get("hiz", "+18%")
+    voice, rate = cfg.get("edge_ses", "tr-TR-AhmetNeural"), os.environ.get("TTS_HIZ") or cfg.get("hiz", "+18%")
 
     async def go() -> list[dict]:
         comm = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary")

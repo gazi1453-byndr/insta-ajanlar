@@ -201,7 +201,9 @@ export const Sonuc: React.FC<P> = ({s, p, period}) => {
     <Zone>
       <div style={{...glass(p.panel), padding: '50px 54px'}}>
         <div style={{fontFamily: 'Inter', fontWeight: 700, fontSize: 28, letterSpacing: 3, color: p.accent}}>ÖZET · KAYDET, LAZIM OLACAK</div>
-        <div lang="tr" style={{fontFamily: 'InterDisplay', fontWeight: 900, fontSize: fitSize(s.baslik, W - 110, 52, 38, 2), lineHeight: 1.1, color: p.text, margin: '16px 0 6px'}}>{s.baslik}</div>
+        {(s.title ?? s.baslik) !== s.question && (
+          <div lang="tr" style={{fontFamily: 'InterDisplay', fontWeight: 900, fontSize: fitSize(s.title ?? s.baslik, W - 110, 52, 38, 2), lineHeight: 1.1, color: p.text, margin: '16px 0 6px'}}>{s.title ?? s.baslik}</div>
+        )}
         <div style={{fontFamily: 'Inter', fontSize: 26, color: p.text2, marginBottom: 22}}>{period}</div>
         {rows.map((r, i) => {
           const last = i === rows.length - 1;

@@ -44,6 +44,8 @@ GAP = 0.2           # sahneler arası nefes (sn)
 TAIL = 0.9          # son karede kapanış/CTA için ek süre
 MUSIC_GAIN = 0.09   # arka plan müziği ~%9
 TRANSITION_FRAMES = 14
+STYLE: dict = {}    # senaryoya özel stil: palet, renkler (seçenek adı → renk), kaynak
+TONES = {"kirmizi": "warn", "yesil": "accent"}
 
 
 def media_duration(path: Path) -> float:
@@ -90,7 +92,11 @@ def _scene_seconds(draft: Draft, audio: list[Path | None]) -> list[float]:
         else:
             words = len((s.baslik + " " + s.metin).split())
             durs.append(max(1.6, min(3.4, words / 2.6)))
-    durs[-1] += TAIL
+    fixed = float(getattr(draft.slaytlar[-1], "sure", 0) or 0)
+    durs[-1] = max(durs[-1], fixed) if fixed else durs[-1] + TAIL
+    for i, s in enumerate(draft.slaytlar[:-1]):  # sabit süre: ses sığıyorsa senaryodaki süre
+        if getattr(s, "sure", 0):
+            durs[i] = max(durs[i], float(s.sure))
     return durs
 
 
@@ -165,11 +171,18 @@ def _rows_breakdown(sheet: DataSheet, limit: int = 6) -> list[dict]:
 
 def _rows_compare(sheet: DataSheet) -> list[dict]:
     colors = ["#22C55E", "#E2E8F0", "#94A3B8", "#86EFAC"]
-    return [{"label": _short(o.ad, 24), "value": round(o.toplam_tl, 2), "color": colors[i % 4]}
+    own = STYLE.get("renkler") or {}
+    return [{"label": _short(o.ad, 24), "value": round(o.toplam_tl, 2), "color": own.get(o.ad, colors[i % 4])}
             for i, o in enumerate(sheet.secenekler)]
 
 
 def scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
+    d = _scene_props(s, sheet, i, n)
+    tone = TONES.get((getattr(s, "ton", "") or "").strip().lower())
+    return {**d, "tone": tone} if tone else d
+
+
+def _scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
     d = {"baslik": clean(s.baslik), "metin": clean(s.metin)}
     single = len(sheet.secenekler) == 1
     if i == 0:
@@ -184,6 +197,7 @@ def scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
         label, val = headline_value(sheet)
         mc = maas_cevir(val)
         rows = _rows_breakdown(sheet, 4) if single else _rows_compare(sheet)
+        label = clean(getattr(s, "etiket", "") or "") or label
         return {**d, "kind": "reveal", "label": label, "value": round(val, 2), "maas": mc.get("metin", ""), "rows": rows}
     if s.tur == "sonuc":
         label, val = headline_value(sheet)
@@ -191,10 +205,12 @@ def scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
             rows = [{"label": r["label"], "value": r["value"], "est": r.get("est")} for r in _rows_breakdown(sheet, 5)]
             rows.append({"label": "TOPLAM", "value": round(sheet.secenekler[0].toplam_tl, 2)})
         else:
-            rows = _rows_compare(sheet) + [{"label": "Fark", "value": round(val, 2)}]
+            rows = _rows_compare(sheet) + [{"label": STYLE.get("fark_etiketi", "Fark"), "value": round(val, 2)}]
         seri = config().get("seri", {})
-        return {**d, "kind": "sonuc", "rows": rows, "maas": maas_cevir(val).get("metin", ""),
-                "question": clean(s.baslik), "cta": seri.get("kapanis", "Hangisini hesaplayalım? Yorumlara yaz")}
+        cta = d["metin"] or seri.get("kapanis", "Hangisini hesaplayalım? Yorumlara yaz")
+        # tek soru + tek CTA: kart başlığı soruyu tekrar etmez, veri başlığını gösterir
+        return {**d, "kind": "sonuc", "rows": rows, "maas": maas_cevir(val).get("metin", ""), "title": clean(sheet.baslik),
+                "question": clean(s.baslik), "cta": "" if cta.lower() == "yok" else cta}
     hit = _money(d["baslik"])
     if hit:
         val, m = hit
@@ -343,7 +359,10 @@ def _render_pillow(draft: Draft, sheet: DataSheet, frames: list[int], series_no:
         raise RuntimeError(f"ffmpeg hatası: {err[-800:]}")
 
 
-def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, label: str = "") -> Path:
+def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, label: str = "",
+           style: dict | None = None) -> Path:
+    STYLE.clear()
+    STYLE.update(style or {})
     folder = MEDIA_GENERATED / post_id
     folder.mkdir(parents=True, exist_ok=True)
     g = config()["gorsel"]
@@ -399,12 +418,13 @@ def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, lab
         seri = config().get("seri", {})
         props = {
             "fps": FPS, "width": W, "height": H, "durationInFrames": total_frames,
-            "palette": {"bg": g["arka_plan"], "panel": g.get("panel", "#18233A"), "accent": g["vurgu"],
-                        "warn": g.get("uyari", "#F43F5E"), "text": g["yazi"], "text2": g.get("yazi_ikincil", "#94A3B8")},
+            "palette": {"bg": g["arka_plan"], "panel": g.get("panel", "#18233A"),
+                        "accent": STYLE.get("vurgu") or g["vurgu"], "warn": STYLE.get("uyari") or g.get("uyari", "#F43F5E"),
+                        "text": g["yazi"], "text2": g.get("yazi_ikincil", "#94A3B8")},
             "brand": {"name": seri.get("ad", "GERÇEK MALİYET"), "no": series_no, "label": label,
                       "handle": config()["hesap"]["kullanici_adi"]},
             "period": f"{_short(sheet.hesap_donemi, 30)} · {sheet.fiyat_tarihi} fiyatları",
-            "sources": _sources(sheet),
+            "sources": STYLE.get("kaynak") or _sources(sheet),
             "scenes": scenes_p,
             "phrases": [p for i, t in enumerate(tokens) for p in phrases_for(t, starts[i] / FPS)],
         }

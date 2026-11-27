@@ -46,7 +46,7 @@ export const Kinetic: React.FC<{text: string; delay?: number; stagger?: number; 
 }) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const tokens = text.replace(/(\d)\s+(TL|lira)\b/g, '$1 $2').split(/\s+/).filter(Boolean);
+  const tokens = text.replace(/(\d)\s+(TL|lira)\b/g, '$1 $2').split(/[ \t\r\n]+/).filter(Boolean); // nbsp'de bölme: "601.317 TL" tek parça
   return (
     <div lang="tr" style={{display: 'flex', flexWrap: 'wrap', columnGap: '0.26em', ...style}}>
       {tokens.map((w, i) => {

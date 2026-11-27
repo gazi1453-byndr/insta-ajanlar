@@ -6,7 +6,10 @@ import {Captions} from './Captions';
 import {sp, SPRING, TRANSITION_FRAMES} from './motion';
 import {PAD} from './parts';
 import {SCENES} from './Scenes';
-import {Scene, VideoProps} from './types';
+import {Palette, Scene, VideoProps} from './types';
+
+/** Sahne tonu: 'warn' maliyet/kayıp sahnelerinde vurgu rengini uyarı rengine çevirir. */
+export const toned = (p: Palette, s?: Scene): Palette => (s?.tone === 'warn' ? {...p, accent: p.warn} : p);
 
 // DESIGN_SYSTEM.md §2 — Inter (metin) + Inter Display (başlık/rakam), yerel dosyalardan
 for (const [family, file, weight] of [
@@ -70,13 +73,13 @@ export const Video: React.FC<VideoProps> = (props) => {
         return (
           <Sequence key={i} from={s.from} durationInFrames={s.frames + (last ? 0 : TRANSITION_FRAMES)} layout="none">
             <SceneWrap i={i} scene={s} last={last}>
-              <C s={s} p={p} period={period} />
+              <C s={s} p={toned(p, s)} period={period} />
             </SceneWrap>
           </Sequence>
         );
       })}
       <Brand {...props} />
-      <Captions phrases={phrases} p={p} />
+      <Captions phrases={phrases} p={p} scenes={scenes} />
       <div lang="tr" style={{position: 'absolute', left: PAD, right: PAD, top: 1520, fontFamily: 'Inter', fontSize: 24, color: p.text2}}>{sources}</div>
     </AbsoluteFill>
   );

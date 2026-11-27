@@ -37,6 +37,9 @@ class Slide(BaseModel):
                                                 "elektrik, dogalgaz, ucak, okul ya da boş (sistem konudan seçer)")
     efekt: str = Field(default="", description="İsteğe bağlı ses efekti: korna, kasa, cink, darbe, whoosh, pop, yok "
                                                "ya da boş (sistem bağlama göre seçer)")
+    ton: str = Field(default="", description="İsteğe bağlı rakam rengi: kirmizi (maliyet/kayıp), yesil (kazanç) ya da boş")
+    etiket: str = Field(default="", description="İsteğe bağlı reveal üst etiketi (boşsa sistem üretir)")
+    sure: float = Field(default=0, description="İsteğe bağlı sabit sahne süresi (sn); 0 ise sese göre")
 
 
 class Draft(BaseModel):

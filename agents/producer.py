@@ -15,6 +15,7 @@ Fikir Ajanı
 from __future__ import annotations
 
 import shutil
+import os
 from pathlib import Path
 from datetime import datetime, timedelta
 
@@ -204,7 +205,17 @@ def produce_script(spec_path: str) -> dict:
     log(AGENT, f"Senaryo modu: {spec.get('konu', sheet.baslik)} ({len(slides)} sahne)")
     report = {"format": qa.structure_check(draft), "rakam": qa.money_check(draft, sheet)}
     stills = designer.stills_vertical(draft, sheet, post_id, series, label)
-    vid = video.render(draft, sheet, post_id, series, label)
+    style = spec.get("stil") or {}
+    old_rate = os.environ.get("TTS_HIZ")
+    if style.get("hiz"):
+        os.environ["TTS_HIZ"] = style["hiz"]
+    try:
+        vid = video.render(draft, sheet, post_id, series, label, style=style)
+    finally:
+        if old_rate is None:
+            os.environ.pop("TTS_HIZ", None)
+        else:
+            os.environ["TTS_HIZ"] = old_rate
     report["senkron"] = qa.av_sync(vid)
     for p in stills[1:]:
         p.unlink(missing_ok=True)

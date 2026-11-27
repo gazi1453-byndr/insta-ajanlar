@@ -12,6 +12,8 @@ export type Scene = {
   from: number; // kare
   frames: number; // kare
   visual?: string; // konu görseli: araba, benzin, ev, telefon, market, para
+  tone?: 'warn' | 'accent'; // rakam rengi: warn = maliyet/kayıp, accent = kazanç
+  title?: string; // sonuc: kart başlığı
   // grafik
   mode?: 'breakdown' | 'compare';
   rows?: Row[];

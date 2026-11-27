@@ -1,13 +1,15 @@
 import React from 'react';
 import {useCurrentFrame, useVideoConfig, spring} from 'remotion';
-import {Palette, Phrase} from './types';
+import {Palette, Phrase, Scene} from './types';
 
 export const CAPTION_Y = 1300; // alt-orta bölge (Instagram arayüzünün üstünde)
 
-/** Karaoke altyazı: konuşmayla kelime kelime senkron; okunan kelime vurgu renginde ve hafif büyür. */
-export const Captions: React.FC<{phrases: Phrase[]; p: Palette}> = ({phrases, p}) => {
+/** Karaoke altyazı: konuşmayla kelime kelime senkron; okunan kelime o sahnenin vurgu renginde ve hafif büyür. */
+export const Captions: React.FC<{phrases: Phrase[]; p: Palette; scenes?: Scene[]}> = ({phrases, p: base, scenes = []}) => {
   const f = useCurrentFrame();
   const {fps, width} = useVideoConfig();
+  const cur = scenes.find((s) => f >= s.from && f < s.from + s.frames);
+  const p = cur?.tone === 'warn' ? {...base, accent: base.warn} : base;
   const t = f / fps;
   const idx = phrases.findIndex((ph, i) => t >= ph.s && t < (phrases[i + 1]?.s ?? ph.e + 0.4) && t < ph.e + 0.4);
   if (idx < 0) return null;
