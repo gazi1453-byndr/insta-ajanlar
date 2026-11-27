@@ -413,7 +413,71 @@ const Apartment: React.FC<V> = ({accent, text, panel, height = 300}) => {
   );
 };
 
+// ---------------------------------------------------------------- butik dükkan tentesi + evrak çantası
+const Shop: React.FC<V> = ({accent, text, panel, height = 300}) => {
+  const {f, fps, t} = useT();
+  const unroll = sp(f, fps, 2, {damping: 14, stiffness: 140, mass: 1});
+  const glow = sp(f, fps, 14, SOFT);
+  const bag = sp(f, fps, 18, {damping: 9, stiffness: 170, mass: 1});
+  const stripes = 7;
+  const sw = 300 / stripes;
+  const scallop = Array.from({length: stripes}, (_, i) => `Q${60 + i * sw + sw / 2} ${118 + 16} ${60 + (i + 1) * sw} 118`).join(' ');
+  return (
+    <svg viewBox="0 0 700 300" width="100%" height={height} style={{overflow: 'visible'}}>
+      <defs>
+        <clipPath id="sh-awn"><rect x={40} y={40} width={340} height={110 * unroll} /></clipPath>
+        <filter id="sh-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" /></filter>
+        <filter id="sh-soft" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="7" /></filter>
+        <linearGradient id="sh-bag" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#475569" /><stop offset="1" stopColor="#1E293B" />
+        </linearGradient>
+      </defs>
+      <line x1={20} y1={276} x2={680} y2={276} stroke="#ffffff22" strokeWidth={3} />
+      <ellipse cx={210} cy={276} rx={170} ry={8} fill="#000" opacity={0.5} filter="url(#sh-soft)" />
+      {/* cephe */}
+      <rect x={70} y={70} width={280} height={206} rx={6} fill={panel} stroke={text} strokeOpacity={0.2} strokeWidth={2} />
+      {/* vitrin: içeride sıcak ışık + fincan */}
+      <rect x={92} y={150} width={150} height={100} rx={6} fill="#0B1220" />
+      <rect x={92} y={150} width={150} height={100} rx={6} fill={accent} opacity={0.18 * glow} />
+      <g opacity={glow}>
+        <path d="M140 196 L190 196 L184 232 Q183 238 177 238 L153 238 Q147 238 146 232 Z" fill={text} opacity={0.85} />
+        <path d="M190 204 Q206 204 204 216 Q202 226 188 226" fill="none" stroke={text} strokeOpacity={0.85} strokeWidth={5} />
+        {[0, 1].map((i) => (
+          <path key={i} d={`M${156 + i * 18} 186 q -8 -10 0 -20 q 8 -10 0 -20`} fill="none" stroke={text} strokeWidth={3}
+            opacity={0.5 * Math.abs(Math.sin(t * 2 + i))} />
+        ))}
+      </g>
+      <rect x={260} y={150} width={70} height={126} rx={4} fill="#0B1220" stroke={text} strokeOpacity={0.25} strokeWidth={2} />
+      <circle cx={318} cy={214} r={4} fill={accent} />
+      {/* tente: çizgili, dalgalı kenar, yukarıdan açılır */}
+      <g clipPath="url(#sh-awn)">
+        {Array.from({length: stripes}, (_, i) => (
+          <path key={i} d={`M${60 + i * sw} 60 L${60 + (i + 1) * sw} 60 L${60 + (i + 1) * sw} 118 L${60 + i * sw} 118 Z`}
+            fill={i % 2 ? '#F8FAFC' : accent} />
+        ))}
+        <path d={`M60 118 ${scallop} L360 118 L360 150 L60 150 Z`} fill="none" />
+        <path d={`M60 118 ${scallop}`} fill="none" stroke="#0B1220" strokeOpacity={0.25} strokeWidth={3} />
+        {Array.from({length: stripes}, (_, i) => (
+          <path key={`s${i}`} d={`M${60 + i * sw} 118 Q${60 + i * sw + sw / 2} 134 ${60 + (i + 1) * sw} 118 Z`}
+            fill={i % 2 ? '#F8FAFC' : accent} />
+        ))}
+        <rect x={56} y={52} width={308} height={10} rx={5} fill="#0B1220" />
+      </g>
+      <path d="M60 60 L360 60" stroke={accent} strokeWidth={6} opacity={0.4 * unroll} filter="url(#sh-glow)" />
+      {/* evrak çantası: yaylı düşer */}
+      <g transform={`translate(0 ${(1 - bag) * -220})`} opacity={Math.min(1, bag * 1.6)}>
+        <path d="M478 150 L478 132 Q478 120 490 120 L550 120 Q562 120 562 132 L562 150" fill="none" stroke={text} strokeWidth={10} />
+        <rect x={430} y={148} width={180} height={128} rx={16} fill="url(#sh-bag)" stroke={text} strokeOpacity={0.3} strokeWidth={2} />
+        <rect x={430} y={196} width={180} height={10} fill={accent} />
+        <rect x={430} y={196} width={180} height={10} fill={accent} opacity={0.5} filter="url(#sh-glow)" />
+        <rect x={506} y={188} width={28} height={26} rx={5} fill="#CBD5E1" stroke="#0B1220" strokeWidth={2} />
+      </g>
+    </svg>
+  );
+};
+
 export const VISUALS: Record<string, React.FC<V>> = {
+  dukkan: Shop,
   konut: Apartment,
   kahve: Coffee,
   araba: Car,
