@@ -1,0 +1,53 @@
+{
+  "konu": "Dışarıda kahve + öğle yemeği mi, evden getirmek mi? (1 yıl, iş günleri)",
+  "aci": "Günlük küçük harcamanın yıllık toplamı ve kaçan mevduat getirisi",
+  "alt_seri": "DIŞARIDA MI EVDE Mİ?",
+  "hook": "GÜNDE 450 TL SANA YILDA 118.800 TL'YE PATLIYOR",
+  "not": "Gemini senaryosu BİREBİR (rakamlar ve kaynak adları değiştirilmedi); ajan denetimi için.",
+  "denetim_sorgulari": [
+    "zincir kahve latte fiyatı Kasım 2026",
+    "Starbucks Türkiye latte fiyatı 2026",
+    "öğle yemeği ortalama fiyat 2026 İstanbul restoran",
+    "yemek kartı günlük vergi istisnası 2026 tutarı",
+    "TÜİK lokanta ve oteller enflasyonu Ekim 2026",
+    "TCMB mevduat faizi Kasım 2026 1 yıllık",
+    "2027 yılı iş günü sayısı Türkiye resmi tatiller"
+  ],
+  "veri": {
+    "baslik": "Dışarıda mı, evden mi? Kahve + öğle yemeği (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl (264 iş günü)",
+    "secenekler": [
+      {"ad": "Dışarıda", "toplam_tl": 136280, "kalemler": [
+        {"kalem": "Zincir kahve", "tutar_tl": 35640, "aciklama": "135 TL × 264 iş günü", "kaynak": "TÜİK Lokanta Endeksi (Kasım 2026)", "tahmini": false},
+        {"kalem": "Öğle yemeği", "tutar_tl": 83160, "aciklama": "315 TL × 264 iş günü", "kaynak": "TÜİK Lokanta Endeksi (Kasım 2026)", "tahmini": false},
+        {"kalem": "Kaçan yatırım getirisi", "tutar_tl": 17480, "aciklama": "118.800 TL yatırımda değerlendirilseydi", "kaynak": "TCMB Mevduat Verileri (Kasım 2026)", "tahmini": false}
+      ]},
+      {"ad": "Evden getirme", "toplam_tl": 25080, "kalemler": [
+        {"kalem": "Evde yemek + termos kahve", "tutar_tl": 25080, "aciklama": "95 TL × 264 iş günü", "kaynak": "TÜİK Gıda Endeksi (Kasım 2026)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": ["Yılda 264 iş günü", "Her iş günü 1 kahve + 1 öğle yemeği"],
+    "kaynaklar": ["TÜİK", "TCMB EVDS"],
+    "sonuc": "Evden getirmek yılda 111.200 TL tasarruf sağlıyor.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "GÜNDE 450 TL SANA YILDA 118.800 TL'YE PATLIYOR", "metin": "1 kahve + 1 öğle yemeği · sadece iş günleri",
+     "seslendirme": "Her iş günü dışarıda içtiğin bir kahve ve yediğin öğle yemeğinin sana yılda 118.800 liraya mal olduğunu biliyor muydun?",
+     "gorsel": "kahve", "efekt": "yok", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "1 zincir kahve: 35.640 TL", "metin": "135 TL × 264 gün",
+     "seslendirme": "Sadece 264 iş gününde kahveye 35 bin,", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "1 öğle yemeği: 83.160 TL", "metin": "315 TL × 264 gün",
+     "seslendirme": "yemeğe 83 bin lira ödüyoruz.", "ton": "kirmizi"},
+    {"tur": "reveal", "baslik": "GERÇEK MALİYET", "metin": "", "etiket": "YATIRIM GETİRİSİ KAYBI DAHİL",
+     "seslendirme": "Paranın kaçan getirisiyle fatura 136 bin liraya çıkıyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Evde yemek + termos kahve: 25.080 TL", "metin": "Cebinde kalan net kazanç: +111.200 TL",
+     "seslendirme": "Evden getirsen 111 bin lira cebinde kalıyor.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "111.200 TL tasarruf için evden taşır mısın?", "metin": "Tarafını yorumda seç 👇",
+     "seslendirme": "Sen hangisini seçerdin?", "sure": 3.0}
+  ],
+  "caption": "Günde 450 TL: 1 kahve + 1 öğle yemeği. Yılda 118.800 TL, kaçan getiriyle 136.280 TL. Evden getirirsen 111.200 TL cebinde kalıyor.",
+  "hashtagler": ["gercekmaliyet", "tasarruf", "kahve", "oglenyemegi", "kisiselfinans", "butce"],
+  "yorum_sorusu": "111.200 TL tasarruf için evden taşır mısın?"
+}

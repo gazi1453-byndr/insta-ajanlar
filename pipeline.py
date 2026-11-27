@@ -128,6 +128,9 @@ def main() -> None:
         analyst.run()
     elif cmd == "durum":
         durum()
+    elif cmd == "denetle":  # python pipeline.py denetle data/senaryolar/<dosya>.json (yalnız rapor)
+        from agents import producer
+        producer.review_script(sys.argv[2])
     elif cmd == "senaryo":  # python pipeline.py senaryo data/senaryolar/<dosya>.json
         from agents import producer
         producer.produce_script(sys.argv[2])

@@ -14,6 +14,7 @@ Fikir Ajanı
 """
 from __future__ import annotations
 
+import json
 import shutil
 import os
 from pathlib import Path
@@ -227,6 +228,69 @@ def produce_script(spec_path: str) -> dict:
     notes = [f"{k}: {v}" for k, v in report.items() if v]
     log(AGENT, f"✓ Senaryo videosu hazır (önizleme): {post['video']}" + (f" · notlar: {notes}" if notes else ""))
     return post
+
+
+def review_script(spec_path: str) -> dict:
+    """SENARYO DENETİMİ: dışarıdan gelen senaryoyu (Gemini vb.) üretmeden, ajan zincirinden geçirir:
+    Format/Grafik Denetçisi → Kaynak Doğrulayıcı (web araması) → Müdür → Sanat Yönetmeni → Baş Müdür.
+    Hiçbir şey yayına/önizlemeye girmez; rapor data/denetim/<ad>.json dosyasına yazılır."""
+    from . import fact_checker, search
+    from .creator import Draft, Slide
+    from .data_researcher import DataSheet
+    path = Path(spec_path)
+    spec = read_json(path)
+    label = (spec.get("alt_seri") or "").strip().upper()
+    sheet = DataSheet(**spec["veri"])
+    slides = [Slide(**s) for s in spec["slaytlar"]]
+    draft = Draft.model_construct(slaytlar=slides, hook=spec.get("hook", slides[0].baslik),
+                                  caption=spec.get("caption", sheet.sonuc), hashtagler=spec.get("hashtagler", []),
+                                  yorum_sorusu=spec.get("yorum_sorusu", slides[-1].baslik), alt_text=sheet.baslik,
+                                  tiktok_aciklama="", youtube_baslik="", youtube_aciklama="",
+                                  youtube_etiketler=[], tiktok_hashtagler=[])
+    series = _series_no()
+    idea = strategist.Idea(konu=spec.get("konu", sheet.baslik), aci=spec.get("aci", ""), format="reel",
+                           veri_ihtiyaci=", ".join(i.kalem for o in sheet.secenekler for i in o.kalemler),
+                           hedef_duygu="şaşkınlık", neden_simdi=sheet.fiyat_tarihi, beklenen_etki="kaydetme",
+                           hook_bankasi_index=-1, alt_seri=label, puan=0)
+    log(AGENT, f"Senaryo denetimi: {idea.konu}")
+    rep: dict = {"dosya": str(path), "tarih": now().isoformat()}
+
+    # 1) Format + Grafik Denetçisi
+    rep["format_grafik_denetimi"] = (qa.structure_check(draft) + qa.money_check(draft, sheet)
+                                     + qa.layout_audit(draft, sheet, series, label=label))
+    # 2) Kaynak Doğrulayıcı: senaryodaki rakamları web kaynaklarıyla karşılaştırır
+    queries = spec.get("denetim_sorgulari") or [f"{i.kalem} fiyatı {sheet.fiyat_tarihi}"
+                                               for o in sheet.secenekler for i in o.kalemler]
+    pages = search.gather(queries) if search.enabled() else []
+    fc = fact_checker.run(sheet, pages)
+    rep["kaynak_dogrulama"] = {"rapor": fc.model_dump(), "sorunlar": fact_checker.problems(fc),
+                               "bulunan_sayfa": [p.get("url", "") for p in pages][:20]}
+    # 3) Müdür (dikey kareler üzerinden)
+    stills = designer.stills_vertical(draft, sheet, f"denetim-{path.stem}", series, label)
+    rep["renk_dengesi"] = qa.color_balance(stills)
+    verdict = manager.run(idea, draft, sheet, stills, 1)
+    rep["mudur"] = verdict.model_dump()
+    # 4) Sanat Yönetmeni
+    art = art_director.run(draft, sheet, stills)
+    rep["sanat_yonetmeni"] = art.model_dump()
+    # 5) Baş Müdür (tüm raporlarla son kapı)
+    reports = {"kaynak_dogrulama": rep["kaynak_dogrulama"], "mudur": rep["mudur"],
+               "format_grafik_denetimi": rep["format_grafik_denetimi"] or "sorunsuz",
+               "renk_dengesi_60_30_10": rep["renk_dengesi"], "sanat_yonetmeni": rep["sanat_yonetmeni"]}
+    top = chief.run(idea, draft, sheet, reports, stills)
+    rep["bas_mudur"] = top.model_dump()
+    shutil.rmtree(stills[0].parent, ignore_errors=True)
+
+    out = DATA / "denetim" / f"{path.stem}.json"
+    write_json(out, rep)
+    log(AGENT, f"Müdür: {verdict.karar} {verdict.toplam}/100 · Sanat Yönetmeni: {art.puan}/100 · "
+               f"Baş Müdür: {top.karar} {top.puan}/100 → {out.name}")
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a", encoding="utf-8") as fh:
+            fh.write(f"## Senaryo denetimi: {idea.konu}\n\n```json\n"
+                     f"{json.dumps(rep, ensure_ascii=False, indent=1)[:60000]}\n```\n")
+    return rep
 
 
 def run_breaking(item: dict) -> dict | None:

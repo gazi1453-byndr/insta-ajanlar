@@ -1,0 +1,14 @@
+name: "11 · Senaryo denetimi (ajan raporu)"
+on:
+  workflow_dispatch:
+    inputs:
+      dosya:
+        description: "Senaryo dosyası (ör. data/senaryolar/kahve-ogle-yemegi-gemini.json)"
+        required: true
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: ${{ format('denetle {0}', inputs.dosya) }}
+    secrets: inherit
