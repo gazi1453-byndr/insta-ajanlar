@@ -199,6 +199,12 @@ def scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
         label = re.sub(r"\s{2,}", " ", (d["baslik"][:m.start()] + d["baslik"][m.end():])).strip(" :–—-")
         if len(label) >= 4:
             return {**d, "kind": "spot", "baslik": label, "spotValue": round(val, 2), "spotSuffix": " TL"}
+    hit = _money(d["metin"])
+    if hit:  # rakam alt metindeyse: başlık etiket olur, rakam dev sayaçla ortaya, kalan metin altına
+        val, m = hit
+        rest = re.sub(r"\s{2,}", " ", (d["metin"][:m.start()] + d["metin"][m.end():])).strip(" :–—-.,")
+        return {**d, "kind": "spot", "spotValue": round(val, 2), "spotSuffix": " TL",
+                "metin": rest[:1].upper() + rest[1:] if rest else ""}
     return {**d, "kind": "card" if i % 2 else "statement"}
 
 
