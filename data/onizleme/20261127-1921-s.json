@@ -1,0 +1,197 @@
+{
+  "id": "20261127-1921-s",
+  "olusturma": "2026-11-27T19:24:40.798009+03:00",
+  "kaynak": "senaryo",
+  "fikir": {
+    "konu": "Her gün taksi mi, sıfır araba mı? (İstanbul, günde 30 km)",
+    "alt_seri": "A MI B Mİ?"
+  },
+  "veri": {
+    "baslik": "Sıfır araba mı, her gün taksi mi? (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {
+        "ad": "Sıfır araba",
+        "kalemler": [
+          {
+            "kalem": "Kaçan net faiz − değer artışı",
+            "tutar_tl": 488457.0,
+            "aciklama": "1.800.000 TL × net %34,34 (brüt %41,62, stopaj %17,5) = 618.057 TL; araç değer artışı %7,2 = 129.600 TL düşüldü",
+            "kaynak": "TCMB/EKOTÜRK 20.11.2026 haftası; Yapı Kredi stopaj tablosu; VavaCars Ekim 2026",
+            "tahmini": false
+          },
+          {
+            "kalem": "Kasko + trafik + MTV",
+            "tutar_tl": 67921.0,
+            "aciklama": "Kasko %2 × 1.800.000 = 36.000 (tahmini, piyasa aralığı %1-4); trafik SBM Kasım 2026 İstanbul 4. basamak azami 19.893; MTV 1301-1600 cm³ 1-3 yaş 12.028",
+            "kaynak": "SBM; GİB MTV tarifesi 2026",
+            "tahmini": true
+          },
+          {
+            "kalem": "Yakıt (10.950 km)",
+            "tutar_tl": 44939.0,
+            "aciklama": "10.950 km × 6 L/100 km × 68,40 TL",
+            "kaynak": "İstanbul Avrupa yakası benzin 27.11.2026",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 601317.0
+      },
+      {
+        "ad": "Her gün taksi",
+        "kalemler": [
+          {
+            "kalem": "Km ücreti (günde 30 km)",
+            "tutar_tl": 524724.0,
+            "aciklama": "30 km × 47,92 TL × 365",
+            "kaynak": "İBB 813 sayılı karar, 20.07.2026 tarifesi",
+            "tahmini": false
+          },
+          {
+            "kalem": "Açılış ücreti (günde 2)",
+            "tutar_tl": 52516.0,
+            "aciklama": "2 × 71,94 TL × 365",
+            "kaynak": "İBB 813 sayılı karar, 20.07.2026 tarifesi",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 577240.0
+      }
+    ],
+    "varsayimlar": [
+      "İstanbul, günde 30 km (yılda 10.950 km), taksiyle günde 2 yolculuk, bekleme ücreti yok",
+      "Araç 1.800.000 TL, 1301-1600 cm³ benzinli C-segment, 6 L/100 km",
+      "Mevduat: brüt %41,62, stopaj %17,5 → net %34,34; araç değer artışı yıllık %7,2 (VavaCars)",
+      "Bakım, lastik, otopark, köprü-otoyol arabanın lehine hesaba katılmadı",
+      "Değer artışı sahibinden/BETAM'daki %20,7 alınırsa araba açık ara kazanır"
+    ],
+    "kaynaklar": [
+      "TCMB EVDS https://evds3.tcmb.gov.tr/",
+      "EKOTÜRK https://www.ekoturk.com/ekoturk-ozel/yeni-tl-mevduatta-ortalama-faiz-yilin-en-dusuk-seviyesinde",
+      "Yapı Kredi stopaj https://www.yapikredi.com.tr/bireysel-bankacilik/mevduat-urunleri/mevduat-stopaj-oranlari",
+      "İBB TÜHİM https://tuhim.ibb.gov.tr/media/27494/taksi-ta%C5%9F%C4%B1mac%C4%B1l%C4%B1%C4%9F%C4%B1-%C3%BCcret-tarifesi.pdf",
+      "VavaCars endeksi https://www.cnnturk.com/otomobil/2-el-arac-fiyatlarindaki-yillik-artis-yuzde-7-2-oldu-3489964",
+      "SBM trafik primi https://www.endeks24.com/kasim-ayi-zorunlu-trafik-sigortasi-primleri",
+      "MTV 2026 https://www.isbank.com.tr/blog/2026-yili-motorlu-tasitlar-vergisi-ne-kadardir"
+    ],
+    "sonuc": "Günde 30 km'de sıfır araba her gün taksiden yılda yalnızca 24.077 TL pahalı; sonucu aracın değer artışı belirliyor.",
+    "guven": "orta"
+  },
+  "taslak": {
+    "hook": "Her gün taksi mi, sıfır araba mı?",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Her gün taksi mi, sıfır araba mı?",
+        "metin": "Fark sandığından çok küçük",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık. Taksi mi, sıfır araba mı?",
+        "gorsel": "araba",
+        "efekt": "korna"
+      },
+      {
+        "tur": "metin",
+        "baslik": "1,8 milyon liralık sıfır araba",
+        "metin": "Günde 30 km, yılda 10.950 km",
+        "seslendirme": "Sıfır bir araba, günde otuz kilometre.",
+        "gorsel": "yok",
+        "efekt": ""
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kasko + trafik + MTV: 67.921 TL",
+        "metin": "Kasko tahmini: araç değerinin %2'si",
+        "seslendirme": "Kasko, trafik ve vergi: 67.921 TL.",
+        "gorsel": "",
+        "efekt": ""
+      },
+      {
+        "tur": "metin",
+        "baslik": "Yakıt: 44.939 TL",
+        "metin": "100 km'de 6 litre, benzin litresi 68,40",
+        "seslendirme": "Yakıt: 44.939 TL.",
+        "gorsel": "",
+        "efekt": ""
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kaçan faiz: 488.457 TL",
+        "metin": "Net %34,3 faiz, araç değer artışı (%7,2) düşüldü",
+        "seslendirme": "Asıl darbe, kaçan faiz: 488.457 TL.",
+        "gorsel": "",
+        "efekt": "darbe"
+      },
+      {
+        "tur": "metin",
+        "baslik": "Her gün taksi: 577.240 TL",
+        "metin": "Günde 2 yolculuk, 30 km, İBB tarifesi",
+        "seslendirme": "Her gün taksi: 577.240 TL.",
+        "gorsel": "",
+        "efekt": ""
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Sıfır araba mı, taksi mi? 1 yıl",
+        "metin": "",
+        "seslendirme": "Yan yana koyalım.",
+        "gorsel": "",
+        "efekt": ""
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Araba, taksiden sadece bu kadar pahalı",
+        "seslendirme": "Fark sadece 24.077 TL. Neredeyse başa baş.",
+        "gorsel": "",
+        "efekt": ""
+      },
+      {
+        "tur": "metin",
+        "baslik": "Kazananı aracın değeri belirliyor",
+        "metin": "Değer artışı %20,7 olursa araba açık ara kazanır",
+        "seslendirme": "Araban daha çok değer kazanırsa hesap tersine döner.",
+        "gorsel": "",
+        "efekt": ""
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Sen hangisini seçerdin?",
+        "metin": "",
+        "seslendirme": "Bu tabloyu kaydet. Sen hangisini seçerdin? Yorumlara yaz.",
+        "gorsel": "",
+        "efekt": ""
+      }
+    ],
+    "caption": "Her gün taksi mi, sıfır araba mı? İstanbul'da günde 30 km için Kasım 2026 verileriyle hesapladık: fark yılda sadece 24.077 TL. Kazananı aracının değer artışı belirliyor.\n\nKaynaklar: TCMB, İBB taksi tarifesi (20.07.2026), SBM, GİB, VavaCars endeksi. Bakım, otopark, köprü-otoyol dahil değil.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "taksi",
+      "araba",
+      "sifirarac",
+      "istanbul",
+      "kasko",
+      "mevduat",
+      "kisiselfinans",
+      "otomobil"
+    ],
+    "tiktok_aciklama": "",
+    "tiktok_hashtagler": [],
+    "youtube_baslik": "",
+    "youtube_aciklama": "",
+    "youtube_etiketler": [],
+    "yorum_sorusu": "Sen hangisini seçerdin: her gün taksi mi, sıfır araba mı?",
+    "alt_text": "Sıfır araba mı, her gün taksi mi? (1 yıl)"
+  },
+  "seri_no": 1,
+  "alt_seri": "A MI B Mİ?",
+  "senaryo_denetimi": {
+    "format": [],
+    "rakam": [],
+    "senkron": []
+  },
+  "video": "media/generated/20261127-1921-s/video.mp4",
+  "gorseller": [
+    "media/generated/20261127-1921-s/sahne1.jpg"
+  ],
+  "durum": "onizleme"
+}
