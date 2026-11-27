@@ -1,0 +1,126 @@
+{
+  "dosya": "data/senaryolar/kafe-mi-maas-mi-v2.json",
+  "tarih": "2026-11-27T21:49:18.010829+03:00",
+  "format_grafik_denetimi": [],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Yıllık ciro",
+          "durum": "tahmini_isaretli",
+          "alinti": "Varsayım: günde 12.500 TL satış × 360 gün (Gemini senaryosundaki ciro) — kaynak: Varsayım",
+          "aciklama": "Tahmini olarak işaretlenmiştir."
+        },
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Hammadde",
+          "durum": "tahmini_isaretli",
+          "alinti": "Cironun %30'u (sektörde ideal gıda maliyeti %28-35) — kaynak: Toast / restaurant365 food cost karşılaştırmaları",
+          "aciklama": "Tahmini olarak işaretlenmiştir."
+        },
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Garson (1 asgari ücretli)",
+          "durum": "hesaplanan",
+          "alinti": "İşverene maliyet indirimsiz 40.874,63 TL, 2 puanlık prim indirimiyle 40.214,03 TL... 40.214,03 × 12 = 482.568,36 TL",
+          "aciklama": "Formül ve kaynak oranıyla hesaplanmıştır."
+        },
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Kira + stopaj",
+          "durum": "hesaplanan",
+          "alinti": "Emlakjet İstanbul ticari kira Temmuz 2026 (482 TL/m²); 50 m² × 482 TL/m² = 24.100 TL net kira; %20 stopajla brüt 30.125 TL × 12 = 361.500 TL",
+          "aciklama": "Formül ve kaynak verileriyle hesaplanmıştır."
+        },
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Bağ-Kur + faturalar + amortisman",
+          "durum": "tahmini_isaretli",
+          "alinti": "Bağ-Kur 10.156,73 × 12 = 121.881; elektrik, su, muhasebe, POS ~15.000/ay = 180.000 (tahmini); 1,5 milyon kurulumun 5 yılda amortismanı 300.000",
+          "aciklama": "Tahmini bileşenler içerdiği için tahmini işaretlenmiştir."
+        },
+        {
+          "secenek": "Kafe sahibi",
+          "kalem": "Gelir vergisi",
+          "durum": "hesaplanan",
+          "alinti": "Vergi öncesi kâr 1.704.051 TL; ücret dışı tarife: 232.500 + (1.704.051 − 1.000.000) × %35 = 478.917,85 TL",
+          "aciklama": "Vergi tarifesi hesaplamasıyla uyuşmaktadır."
+        },
+        {
+          "secenek": "Maaşlı",
+          "kalem": "Net maaş",
+          "durum": "hesaplanan",
+          "alinti": "Ortalama net ücret 48.740 TL × 12 = 584.880 TL",
+          "aciklama": "Formülle hesaplanmıştır."
+        },
+        {
+          "secenek": "Maaşlı",
+          "kalem": "Sermayenin mevduat faizi",
+          "durum": "hesaplanan",
+          "alinti": "1.500.000 TL × net %34,34 = 515.047,50 TL",
+          "aciklama": "Formülle hesaplanmıştır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tablodaki tüm kalemler kurallara uygun olarak taranmış, hesaplanabilenler doğrulanmış, tahmin edilenler ise tahmini olarak işaretlenmiştir."
+    },
+    "sorunlar": [],
+    "bulunan_sayfa": [
+      "https://www.uzmanbordro.com/blog/asgari-ucret-2026-net-ve-isveren-maliyeti",
+      "https://www.instagram.com/p/DfPknG9Mitq",
+      "https://www.hesapkurdu.com/ihtiyac-kredisi/rehber/asgari-ucret-zammi",
+      "https://www.instagram.com/reel/DfxMcYCAw60",
+      "https://www.instagram.com/p/DgO4mhlISIJ",
+      "https://www.instagram.com/p/DfOm1IRip67",
+      "https://www.facebook.com/100064630154352/posts/saadet-partisi-alanya-il%C3%A7e-te%C5%9Fkilati-basin-a%C3%A7iklamasi%C3%A7ift%C3%A7iye-verilmesi-gereken-/1585174256980231",
+      "https://www.isinolsa.com/esnaf-ve-ciftciler-dikkat-yeni-sigorta-modelinde-primler-degisecek-mi",
+      "https://www.ey.com/content/dam/ey-unified-site/ey-com/tr-tr/services/vergide-gundem/documents/dergi/2026/ey-vg-kasim-2026.pdf",
+      "https://www.ifasturk.com.tr/blog-detay-sahis-sirketi-nedir-nasil-kurulur-207",
+      "https://www.instagram.com/p/DfXoHGWDpjS",
+      "https://www.instagram.com/reel/DfKPN-CM-Ik",
+      "https://x.com/diskinsesi/status/2117533891611295850",
+      "https://annualpaycalculator.com/annual-salary-calculator",
+      "https://www.timetrex.com/resources/hourly-to-salary-calculator",
+      "https://yearly.salarycalculator.us.com",
+      "https://www.afyonpostasi.com.tr/resmi-gazetede-yayimlandi-gecikme-zammi-ve-tecil-faizi-dusuruldu",
+      "https://x.com/tcliracom/status/2126202589314220344",
+      "https://kisadalga.net/haber/kisa-dalga-bulten/seffaflik-ve-kararlilik-gelmeden-guven-donmeyecek-141637"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 61.0,
+    "ikincil": 28.8,
+    "vurgu": 6.8,
+    "yazi": 3.3
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 24,
+      "deger": 20,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 10,
+      "ozgunluk": 10,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 10
+    },
+    "toplam": 99,
+    "karar": "ONAY",
+    "tutar_mi": "Girişimcilik ve potansiyel sermaye getirisi ikilemini net rakamlar ve gizli maliyetlerle ele alıyor. Maaşlı vs esnaf kıyaslaması hedef kitlede yüksek oranda kaydetme ve tartışma yaratacaktır.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 99,
+    "karar": "YAYINLA",
+    "gerekce": "İçerik, 1,5 milyon TL'lik sermayenin kafe yatırımı ile maaş/mevduat alternatifi arasındaki gizli maliyetleri eksiksiz ve şeffaf rakamlarla ortaya koyuyor. SGK işveren maliyeti, stopaj, amortisman ve vergi dilimleri gibi detaylar tam doğrulanmış, hedef kitleye net bir karşılaştırma sunulmuştur.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  }
+}
