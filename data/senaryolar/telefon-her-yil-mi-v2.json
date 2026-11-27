@@ -1,0 +1,171 @@
+{
+  "konu": "Telefonu her yıl yenilemek mi, eskisiyle 1 yıl daha devam mı? (Kasım 2026)",
+  "aci": "Takas farkı + o paranın kaçan mevduat faizi; eskisiyle devam edene tek masraf batarya",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "Her yıl yeni telefon: bu yıl 76.840 TL",
+  "stil": {
+    "vurgu": "#00E676",
+    "uyari": "#FF3D00",
+    "hiz": "+8%",
+    "renkler": {
+      "Her yıl yenile": "#FF3D00",
+      "Eskisiyle devam": "#00E676"
+    },
+    "fark_etiketi": "Eskisiyle cebinde kalan",
+    "kaynak": "Kaynak: Apple TR fiyatları, ilan siteleri, TCMB (2026)"
+  },
+  "denetim_sorgulari": [
+    "TL Mevduat Faizi yüzde 41,62'ye geriledi",
+    "mevduat stopaj oranı 6 aya kadar vadede yüzde 17,5 2026",
+    "iPhone 18 Pro Türkiye fiyatı 137.999 TL 256 GB",
+    "iPhone 17 Pro ikinci el fiyatları 75.000 TL'den başlıyor",
+    "iPhone 17 Pro pil değişim ücreti 5.799 TL"
+  ],
+  "veri": {
+    "baslik": "Her yıl yeni telefon mu, eskisiyle devam mı? (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {
+        "ad": "Her yıl yenile",
+        "toplam_tl": 82639,
+        "kalemler": [
+          {
+            "kalem": "Yeni telefon (18 Pro 256 GB)",
+            "tutar_tl": 137999,
+            "aciklama": "iPhone 18 Pro 256 GB Türkiye satış fiyatı 137.999 TL (Eylül 2026 lansman listesi)",
+            "kaynak": "Habertürk, CNBC-e: iPhone 18 Pro Türkiye fiyatları",
+            "tahmini": false
+          },
+          {
+            "kalem": "Eskisinin satışı (17 Pro)",
+            "tutar_tl": -75000,
+            "aciklama": "İkinci el ilan sitelerinde iPhone 17 Pro fiyatları 75.000 TL'den başlıyor (Temmuz 2026)",
+            "kaynak": "tamindir.com: iPhone 17'lerin 2. el fiyatları (28.07.2026)",
+            "tahmini": true
+          },
+          {
+            "kalem": "Kaçan faiz",
+            "tutar_tl": 19640,
+            "aciklama": "Yenilemenin ek maliyeti: (137.999 − 75.000) − 5.799 batarya = 57.200 TL. Net faiz = brüt %41,62 × (1 − 0,175 stopaj) = %34,3365. 1 yıllık faiz = 57.200 × 0,343365 = 19.640 TL",
+            "kaynak": "EKOTÜRK / Hibya: TL mevduat faizi %41,62 (TCMB, 20.11.2026 haftası); stopaj %17,5",
+            "tahmini": false
+          }
+        ]
+      },
+      {
+        "ad": "Eskisiyle devam",
+        "toplam_tl": 5799,
+        "kalemler": [
+          {
+            "kalem": "Batarya değişimi",
+            "tutar_tl": 5799,
+            "aciklama": "iPhone 17 Pro yetkili servis pil değişim ücreti 5.799 TL (garanti dışı)",
+            "kaynak": "DonanımHaber: iPhone 17 serisi Türkiye servis ücretleri",
+            "tahmini": false
+          }
+        ]
+      }
+    ],
+    "varsayimlar": [
+      "Geçen yıl alınmış iPhone 17 Pro 256 GB elde",
+      "Eski telefon ikinci el ilan fiyatının alt sınırından satılıyor",
+      "Eskisiyle devam eden yalnız bataryayı yeniletiyor",
+      "Aradaki para 1 yıl net %34,3 mevduatta (basit faiz)"
+    ],
+    "kaynaklar": [
+      "iPhone 18 Pro Türkiye fiyatı https://www.haberturk.com/iphone-18-pro-pro-max-ve-duo-turkiye-fiyati-ve-ozellikleri-neler-iphone-18-pro-max-on-siparis-ne-zaman-satisa-cikti-mi-3912315",
+      "iPhone 18 Pro fiyatları https://www.cnbce.com/teknoloji/applein-yeni-amiral-gemisi-turkiyede-satisa-cikti-iste-iphone-18-pro-serisinin-fiyatlari-g37545",
+      "iPhone 17 ikinci el fiyatları https://www.tamindir.com/blog/iphone-17-serisi-ikinci-el-fiyatlari-ne-kadar_111083/",
+      "iPhone 17 Pro batarya ücreti https://www.donanimhaber.com/iphone-17-pro-max-ekran-ve-batarya-degisim-ucreti-belli-oldu--196049",
+      "Hibya TL mevduat faizi %41,62 https://hibya.com/tl-mevduat-faizi-yuzde-4162ye-geriledi-1107822"
+    ],
+    "sonuc": "Geçen yılın Pro modelini satıp yenisini almak, eskisine batarya taktırmaya göre 1 yılda 76.840 TL daha pahalı (kaçan faiz dahil).",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {
+      "tur": "metin",
+      "baslik": "Her yıl yeni telefon: bu yıl 76.840 TL",
+      "metin": "Geçen yılın Pro'sunu satıp yenisini almak · 1 yıl",
+      "seslendirme": "Telefonunu her yıl yenilemek, bu yıl sana 76 bin liraya patlıyor.",
+      "gorsel": "telefon",
+      "efekt": "subbass",
+      "ton": "kirmizi"
+    },
+    {
+      "tur": "metin",
+      "baslik": "Yeni Pro: 137.999 TL",
+      "metin": "iPhone 18 Pro 256 GB · Eylül 2026 liste",
+      "seslendirme": "Yeni Pro modelin fiyatı 138 bin.",
+      "efekt": "tik",
+      "ton": "kirmizi"
+    },
+    {
+      "tur": "metin",
+      "baslik": "Eskisini satarsan: 75.000 TL",
+      "metin": "17 Pro · ikinci el ilanların alt sınırı",
+      "seslendirme": "Geçen yılın modelini satarsan, eline 75 bin geçiyor.",
+      "efekt": "onay",
+      "ton": "yesil"
+    },
+    {
+      "tur": "metin",
+      "baslik": "Cebinden çıkan: 62.999 TL",
+      "metin": "137.999 − 75.000",
+      "seslendirme": "Yani her yıl cebinden 63 bin çıkıyor.",
+      "efekt": "tik",
+      "ton": "kirmizi"
+    },
+    {
+      "tur": "metin",
+      "baslik": "Eskisiyle devam: 5.799 TL",
+      "metin": "Yetkili serviste batarya değişimi",
+      "seslendirme": "Eski telefona sadece yeni batarya taktırırsan, 6 bin lira.",
+      "efekt": "onay",
+      "ton": "yesil"
+    },
+    {
+      "tur": "metin",
+      "baslik": "Kaçan faiz: 19.640 TL",
+      "metin": "Aradaki 57.200'ü 1 yıl net %34,3 mevduatta tutsan",
+      "seslendirme": "Aradaki parayı bir yıl mevduatta tutsan, 19 bin 640 lira faiz.",
+      "efekt": "darbe",
+      "ton": "kirmizi"
+    },
+    {
+      "tur": "grafik",
+      "baslik": "Yeni telefon mu, eskisi mi?",
+      "metin": "",
+      "seslendirme": "Yan yana koyunca yenilemek on dört kat pahalı.",
+      "ton": "yesil"
+    },
+    {
+      "tur": "reveal",
+      "baslik": "GERÇEK MALİYET",
+      "metin": "",
+      "etiket": "ESKİSİYLE CEBİNDE KALAN",
+      "seslendirme": "Eski telefonla devam edersen, bir yılda 76 bin 840 lira cebinde kalıyor.",
+      "ton": "yesil"
+    },
+    {
+      "tur": "sonuc",
+      "baslik": "76.840 TL için 1 yıl daha bekler misin?",
+      "metin": "Tarafını yorumda seç",
+      "seslendirme": "76 bin lira için bir yıl daha bekler misin?",
+      "efekt": "kart",
+      "sure": 3.0
+    }
+  ],
+  "caption": "Telefonu her yıl yenilemek mi, eskisiyle 1 yıl daha devam mı? Kasım 2026 fiyatlarıyla:\n\nHer yıl yenile: yeni 18 Pro 137.999 − eski 17 Pro satışı 75.000 = 62.999 TL + aradaki paranın kaçan faizi 19.640 = 82.639 TL\nEskisiyle devam: yetkili serviste batarya 5.799 TL\n\nEskisiyle devam edersen 1 yılda 76.840 TL cebinde kalıyor. İkinci el fiyatı ilanların alt sınırıdır; telefonun durumuna göre değişir.\n\nKaynaklar: Apple Türkiye fiyat listesi (Habertürk, CNBC-e), ikinci el ilan fiyatları (tamindir, Temmuz 2026), yetkili servis pil ücreti (DonanımHaber), TCMB mevduat faizi (%41,62, stopaj %17,5).",
+  "hashtagler": [
+    "gercekmaliyet",
+    "telefon",
+    "iphone",
+    "teknoloji",
+    "kisiselfinans",
+    "birikim",
+    "tasarruf"
+  ],
+  "yorum_sorusu": "76.840 TL için 1 yıl daha bekler misin?"
+}
