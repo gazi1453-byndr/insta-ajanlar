@@ -1,6 +1,6 @@
 {
   "dosya": "data/senaryolar/ev-mi-kira-mi-v2.json",
-  "tarih": "2026-11-27T21:25:03.210242+03:00",
+  "tarih": "2026-11-27T21:27:54.337421+03:00",
   "format_grafik_denetimi": [],
   "kaynak_dogrulama": {
     "rapor": {
@@ -8,51 +8,48 @@
         {
           "secenek": "Ev sahibi",
           "kalem": "Kredi faizi (1. yıl)",
-          "durum": "desteksiz",
-          "alinti": "",
-          "aciklama": "Hesaplanan 917.735,00 TL tutarı ve aylık %2,85 oranı kaynak metinlerde geçmemektedir; kaynaklarda en düşük konut kredisi faizi %2,87 olarak verilmiştir."
+          "durum": "hesaplanan",
+          "alinti": "2.700.000 TL kredi, aylık %2,87, 120 ay: taksit 80.177,85 TL; ilk 12 taksitteki faiz 924.269 TL — kaynak: Hesapkurdu 7-8 Kasım 2026 (Kuveyt Türk %2,87, en düşük oran)",
+          "aciklama": "Kredi faizi hesaplaması tablodaki parametrelerle doğru şekilde yapılmıştır."
         },
         {
           "secenek": "Ev sahibi",
           "kalem": "Peşinatın kaçan faizi",
-          "durum": "desteksiz",
-          "alinti": "",
-          "aciklama": "618.057,00 TL tutarı ve %34,34 net mevduat faiz oranı kaynak metinlerde doğrudan yer almamaktadır."
+          "durum": "hesaplanan",
+          "alinti": "1.800.000 TL × net %34,34 (brüt %41,62, stopaj %17,5) = 618.057 TL — kaynak: Merkez Bankası verilerinden derlenen 20 Kasım haftasına ilişkin bilgilere göre TL mevduat faizleri yıllık yüzde 41,62 seviyesine geriledi.",
+          "aciklama": "Brüt faiz oranı kaynakta geçmektedir ve net oran formülüyle hesaplanan tutar doğrudur."
         },
         {
           "secenek": "Ev sahibi",
           "kalem": "Tapu harcı + kredi masrafı",
           "durum": "hesaplanan",
-          "alinti": "Alıcı payı tapu harcı %2 x 4.500.000 = 90.000 TL; kredi tahsis ücreti binde 5 x 2.700.000 = 13.500 TL. 90.000 + 13.500 = 103.500 TL.",
-          "aciklama": "Formül tablodaki değerlerle birebir doğrulanmaktadır ve toplam tutar 103.500,00 TL ile uyuşmaktadır."
+          "alinti": "Alıcı payı tapu harcı %2 × 4.500.000 = 90.000 TL; kredi tahsis ücreti binde 5 × 2.700.000 = 13.500 TL — Toplam: 103.500 TL",
+          "aciklama": "Verilen oranlar ve matrahlar üzerinden yapılan matematiksel işlem doğrudur."
         },
         {
           "secenek": "Ev sahibi",
           "kalem": "Değer artışı",
           "durum": "hesaplanan",
-          "alinti": "Türkiye Cumhuriyet Merkez Bankası (TCMB), Ekim 2026 dönemine ilişkin Konut Fiyat Endeksi verilerini açıkladı. Buna göre konut fiyatları yıllık bazda yüzde 21,1 artarken... 4.500.000 TL x %21,1 = 949.500 TL",
-          "aciklama": "TCMB Ekim 2026 Konut Fiyat Endeksi yıllık artış oranı olan %21,1 kaynakta mevcuttur ve 4.500.000 TL ile çarpımı 949.500,00 TL sonucunu vermektedir."
+          "alinti": "4.500.000 TL × %21,1 = -949.500 TL — kaynak: Türkiye Cumhuriyet Merkez Bankası (TCMB), Ekim 2026 dönemine ilişkin Konut Fiyat Endeksi verileri. Buna göre konut fiyatları yıllık bazda yüzde 21,1 artarken...",
+          "aciklama": "TCMB Ekim 2026 Konut Fiyat Endeksi yıllık artış oranı olan %21,1 ile hesaplama yapılmıştır."
         },
         {
           "secenek": "Kiracı",
           "kalem": "Yıllık kira",
-          "durum": "hesaplanan",
-          "alinti": "4.500.000 TL x %8,04 = 361.800 TL (aylık 30.150 TL)",
-          "aciklama": "Formül tablodaki değerlerle hesaplandığında 361.800,00 TL tutarına ulaşıldığı doğrulanmıştır ancak kaynak metinlerde %8,04 kira getirisi oranı açıkça geçmemektedir; ancak tablo içindeki matematikselçarpım doğrudur."
+          "durum": "tahmini_isaretli",
+          "alinti": "4.500.000 TL × brüt kira getirisi %8,04 = 361.800 TL — kaynak: Endeksa Eylül 2026 konut kira getirisi",
+          "aciklama": "Endeksa oranına dayanan varsayımsal bir yıllık kira hesaplamasıdır."
         }
       ],
       "tarih_guncel_mi": true,
-      "ozet": "Tabloda yer alan bazı faiz ve oran bilgileri kaynak metinlerle tam örtüşmemekle birlikte, tapu harcı, kredi masrafı ve değer artışı gibi kalemlerin hesaplamaları kaynak verilerle doğrulanmıştır."
+      "ozet": "Tabloda yer alan tüm finansal kalemler kaynak metinler ve belirtilen formüllerle doğrulanmış olup tutarlıdır."
     },
-    "sorunlar": [
-      "Ev sahibi / Kredi faizi (1. yıl): kaynakta yok (Hesaplanan 917.735,00 TL tutarı ve aylık %2,85 oranı kaynak metinlerde geçmemektedir; kaynaklarda en düşük konut kredisi faizi %2,87 olarak verilmiştir.)",
-      "Ev sahibi / Peşinatın kaçan faizi: kaynakta yok (618.057,00 TL tutarı ve %34,34 net mevduat faiz oranı kaynak metinlerde doğrudan yer almamaktadır.)"
-    ],
+    "sorunlar": [],
     "bulunan_sayfa": [
-      "https://www.kamu1.net/kredi-faiz-oranlari",
       "https://www.armagankocabas.com/post/konut-kredisi-faiz-oranlari-kasim-2026",
-      "https://www.kredikolay.net/blog/konut-kredisi-faizleri-dusuyor-mu",
-      "https://www.emlakmanset.com/konut-kredisi-faizi-yuzde-4133e-geriledi-stok-855-milyar-tl.html",
+      "https://turkinform.com.tr/konut-kredisi-faizleri-dustu-mu-kasim-2026da-en-dusuk-konut-kredisi-orani-kac",
+      "https://www.hesapkurdu.com/konut-kredisi/rehber/kira-mi-konut-kredisi-mi",
+      "https://www.hesapkurdu.com/konut-kredisi/h/kredi-yapilandirma",
       "https://www.instagram.com/p/Df7n2JDq05-",
       "https://www.instagram.com/reel/Df9ERU4sybF",
       "https://www.instagram.com/p/Df7rJeJsQu6",
@@ -61,14 +58,16 @@
       "https://www.instagram.com/reel/DgMzeCMt69l",
       "https://www.instagram.com/reel/DgLL58Tx7ZB",
       "https://tavily.com/knowledge/company/WxxAnoeayvDJ",
-      "https://x.com/Ekoturktv/status/2126199340431458704",
-      "https://ekonomiraporu.com/turkiye-ekonomisinde-gunun-gorunumu-23-kasim-2026",
-      "https://www.fibabanka.com.tr/uploads/gunluk-eko-bulten/13-kas%C4%B1m-2026.pdf"
+      "https://www.afyonpostasi.com.tr/resmi-gazetede-yayimlandi-gecikme-zammi-ve-tecil-faizi-dusuruldu",
+      "https://x.com/tcliracom/status/2126202589314220344",
+      "https://kisadalga.net/haber/kisa-dalga-bulten/seffaflik-ve-kararlilik-gelmeden-guven-donmeyecek-141637",
+      "https://hibya.com/ihtiyac-kredisi-faizi-yuzde-5920ye-cikti-1091608",
+      "https://cephesapla.com/rehberler/mevduat-faizi-ve-stopaj-rehberi"
     ]
   },
   "renk_dengesi": {
     "baskin": 61.3,
-    "ikincil": 28.5,
+    "ikincil": 28.4,
     "vurgu": 6.9,
     "yazi": 3.4
   },
@@ -76,20 +75,17 @@
     "puanlar": {
       "hook_gucu": 22,
       "deger": 18,
-      "rakam_dogrulugu": 5,
+      "rakam_dogrulugu": 20,
       "akis_ve_tutma": 9,
       "ozgunluk": 9,
       "platform_metinleri": 5,
       "gorsel_okunurluk": 9
     },
-    "toplam": 77,
-    "karar": "REVIZYON",
-    "tutar_mi": "Ev sahibi mi kiracı mı tartışmasını ezbere sloganlarla değil, güncel Kasım 2026 faiz, kira ve endeks rakamlarıyla kalem kalem ortaya koyduğu için yüksek etkileşim alır ve kaydedilir. İzleyicinin en çok merak ettiği ikileme somut verilerle net yanıt veriyor.",
-    "rakam_hatalari": [
-      "Kaynakta yok: Ev sahibi / Kredi faizi (1. yıl)",
-      "Kaynakta yok: Ev sahibi / Peşinatın kaçan faizi"
-    ],
-    "geri_bildirim": "Rakam hataları: Kaynakta yok: Ev sahibi / Kredi faizi (1. yıl); Kaynakta yok: Ev sahibi / Peşinatın kaçan faizi\n"
+    "toplam": 92,
+    "karar": "ONAY",
+    "tutar_mi": "Konut kredisi ve kira ikilemini somut TCMB ve banka verileriyle, ezberleri bozarak ele alıyor. Anaparanın maliyet sayılmaması ve kaçan mevduat faizi gibi detaylar finans meraklılarının kaydetmesini ve tartışmasını sağlayacaktır.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
   },
   "sanat_yonetmeni": {
     "puan": 100,
@@ -98,15 +94,10 @@
     "yazim_hatalari": []
   },
   "bas_mudur": {
-    "puan": 49,
-    "karar": "RED",
-    "gerekce": "Otomatik RED: 2 kalem kaynakta yok (Ev sahibi / Kredi faizi (1. yıl); Ev sahibi / Peşinatın kaçan faizi). İçerik potansiyel olarak çok güçlü ve hedef kitleye doğrudan hitap ediyor, ancak kontrol raporunda tespit edilen bazı kalemlerin (kredi faizi ve peşinatın kaçan faizi) kaynak metinlerle tam desteklenmemesi marka kurallarına aykırıdır. Rakamların doğruluğu kesinleştirilmeden yayınlanamaz.",
-    "duzeltmeler": [
-      "Kaynak göster ya da 'tahmini' işaretle: Ev sahibi / Kredi faizi (1. yıl)",
-      "Kaynak göster ya da 'tahmini' işaretle: Ev sahibi / Peşinatın kaçan faizi",
-      "Kredi faizi (1. yıl) için kullanılan oran ve tutarın doğrulanmış resmi kaynak gösterimi eklenmeli veya güncellenmeli.",
-      "Peşinatın kaçan faizi için kullanılan net %34,34 oranının kaynağı net olarak belirtilmeli ya da varsayım olduğu açıkça ifade edilmeli."
-    ],
+    "puan": 92,
+    "karar": "YAYINLA",
+    "gerekce": "Konut kredisi ve kira ikilemini güncel TCMB ve piyasa verileriyle eksiksiz ele alıyor. Anaparanın maliyet sayılmaması ve kaçan mevduat faizi gibi detaylar hedef kitlenin finansal okuryazarlığına hitap ediyor ve etkileşimi garantiliyor.",
+    "duzeltmeler": [],
     "seri_uyumu": true
   }
 }
