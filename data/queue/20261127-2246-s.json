@@ -217,5 +217,7 @@
   ],
   "durum": "kuyrukta",
   "planlanan_zaman": "2026-11-27T22:55:23+03:00",
-  "onaylayan": "kullanici"
+  "onaylayan": "kullanici",
+  "hata_sayisi": 1,
+  "son_hata": "Yayın öncesi kontrol: Sahne 6 çok uzun (4.5 sn > 4.3 sn): seslendirmesini kısalt (rakamları yuvarla, dolguyu at)"
 }
