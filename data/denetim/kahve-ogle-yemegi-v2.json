@@ -1,0 +1,94 @@
+{
+  "dosya": "data/senaryolar/kahve-ogle-yemegi-v2.json",
+  "tarih": "2026-11-27T20:53:38.615861+03:00",
+  "format_grafik_denetimi": [],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Dışarıda",
+          "kalem": "Zincir kahve (grande latte)",
+          "durum": "kaynakta_var",
+          "alinti": "Starbucks'ta orta boy (Grande) latte, 2 Ocak 2026 liste fiyatıyla 185 TL.",
+          "aciklama": "185 TL x 250 is gunu = 46,250 TL oldugundan kaynaklardaki 185 TL birim fiyattan dogrudan hesaplanmaktadir."
+        },
+        {
+          "secenek": "Dışarıda",
+          "kalem": "Öğle yemeği",
+          "durum": "kaynakta_var",
+          "alinti": "2026 vergilendirme dönemi için belirlenen günlük yemek bedeli istisnası KDV hariç 300,00 TL, KDV dahil 330,00 TL'dir.",
+          "aciklama": "330 TL x 250 is gunu = 82,500 TL hesaplamasini dogrulayan gunluk KDV dahil 330 TL kaynaklarda mevcuttur."
+        },
+        {
+          "secenek": "Dışarıda",
+          "kalem": "Kaçan mevduat faizi",
+          "durum": "hesaplanan",
+          "alinti": "146,742.00 - (46,250.00 + 82,500.00) = 17,992.00 TL",
+          "aciklama": "Disarida toplam maliyetinden kahve ve yemek kalemleri cikarilarak matematiksel olarak hesaplanmistir."
+        },
+        {
+          "secenek": "Evden getirme",
+          "kalem": "Evde yemek + termos kahve",
+          "durum": "tahmini_isaretli",
+          "alinti": "Evde yemek + termos kahve: 25,000.00 TL (tahmini) — Tahmini (market fiyatlarıyla porsiyon maliyeti)",
+          "aciklama": "Tabloda acikca tahmini oldugu belirtilmistir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Maliyet tablosundaki kahve ve yemek birim fiyatlari 2026 kaynak verileriyle dogrulanmis, toplam maliyetler araseklemlere uygun olarak hesaplanmistir."
+    },
+    "sorunlar": [],
+    "bulunan_sayfa": [
+      "https://www.instagram.com/reel/DfOuZhODICV",
+      "https://www.tiktok.com/discover/starbucks-kahve-fiyatlar%C4%B1-zam?lang=en",
+      "https://fastkalori.com/starbucks",
+      "https://tavily.com/knowledge/company/9MLvTfmtZdS4",
+      "https://faturaport.com/blog/vergi/personel-yemek-karti-ve-yol-yardimi-vergi-avantaji-2026",
+      "https://kolayik.com/blog/2026-gunluk-yemek-ve-yol-istisna-tutarlari",
+      "https://uzmanpara.milliyet.com.tr/uzmanpara/gunluk-yemek-ucreti-2027-yeniden-degerlendirme-oranina-gore-2027-yemek-karti-gunluk-bedeli-ne-kadar-oldu-7693363",
+      "https://pkf.com.tr/2026-yili-sgk-istisnalar-primler",
+      "https://celikelcpa.com/tr/blog/personel-yemek-karti-ve-ulasim-istisnasi-2026",
+      "https://www.referandom.com/kanunlar/degisen/5510-sayili-sosyal-sigortalar-ve-genel-saglik-sigortasi-kanunu",
+      "https://www.instagram.com/p/DfyrrqOswMn",
+      "https://x.com/Ekoturktv/status/2126199340431458704",
+      "https://www.ekoturk.com/ekoturk-ozel/yeni-tl-mevduatta-ortalama-faiz-yilin-en-dusuk-seviyesinde",
+      "https://www.ekoturk.com/ekonomi-verileri/tcmb-tl-mevduatin-zorunlu-karsiliklarina-yapilan-odemeyi-artirdi",
+      "https://tr.investing.com/analysis/enflasyon-ackland-kira-ve-maaslar-ne-olacak-faiz-indirimi-surecek-mi-200506915"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 60.6,
+    "ikincil": 28.9,
+    "vurgu": 6.8,
+    "yazi": 3.6
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 19,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 93,
+    "karar": "ONAY",
+    "tutar_mi": "Günlük alışkanlıkların yıllık toplamını ve kaçan faiz gibi gizli maliyetleri somut 2026 rakamlarıyla göz önüne serdiği için yüksek etkileşim ve kaydetme potansiyeli taşıyor. Hedef kitlenin gündelik hayatında doğrudan karşılığı var.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 93,
+    "karar": "YAYINLA",
+    "gerekce": "Video, 2026 güncel fiyat verileri ve resmi kaynaklarla desteklenen sağlam bir maliyet karşılaştırması sunuyor. Kaçan mevduat faizi gibi gizli maliyetleri hesaba katarak nişin ruhuna tam uygun bir katma değer yaratıyor.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  }
+}
