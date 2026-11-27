@@ -261,7 +261,8 @@ def review_script(spec_path: str) -> dict:
     # 2) Kaynak Doğrulayıcı: senaryodaki rakamları web kaynaklarıyla karşılaştırır
     queries = spec.get("denetim_sorgulari") or [f"{i.kalem} fiyatı {sheet.fiyat_tarihi}"
                                                for o in sheet.secenekler for i in o.kalemler]
-    pages = search.gather(queries) if search.enabled() else []
+    # doğrulayıcı en fazla 14 sayfa okur: her sorgunun kaynağı listeye girsin diye sayfaları sorgulara eşit böl
+    pages = search.gather(queries, per_query=max(1, 14 // max(1, len(queries))), max_chars=60000) if search.enabled() else []
     fc = fact_checker.run(sheet, pages)
     rep["kaynak_dogrulama"] = {"rapor": fc.model_dump(), "sorunlar": fact_checker.problems(fc),
                                "bulunan_sayfa": [p.get("url", "") for p in pages][:20]}
