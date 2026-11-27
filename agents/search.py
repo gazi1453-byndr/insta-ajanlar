@@ -34,6 +34,8 @@ def search(query: str, max_results: int = 5, days: int | None = None) -> list[di
     }
     if days:
         body.update(topic="news", days=days)
+    else:
+        body["time_range"] = "month"  # fiyatlar için sadece son bir ayın sayfaları
     r = requests.post("https://api.tavily.com/search",
                       headers={"Authorization": f"Bearer {os.environ['TAVILY_API_KEY']}"},
                       json=body, timeout=60)

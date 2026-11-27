@@ -29,7 +29,7 @@ from typing import Any, TypeVar
 import requests
 from pydantic import BaseModel, ValidationError
 
-from .common import ROOT, config, log
+from .common import ROOT, config, log, now
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -360,7 +360,9 @@ def research(agent: str, system: str, prompt: str, max_searches: int = 8, recent
     if web.enabled():
         n = max(1, min(6, (max_searches + 1) // 2))
         q = ask(agent, "Sen bir araştırma asistanısın. Türkiye odaklı, güncel ve kısa web arama sorguları yazarsın.",
-                f"Şu araştırma için en fazla {n} farklı, kısa arama sorgusu yaz (Türkçe; gerekirse 1 İngilizce):\n\n{prompt}",
+                f"Bugün {now():%d.%m.%Y}. Şu araştırma için en fazla {n} farklı, kısa arama sorgusu yaz "
+                "(Türkçe; gerekirse 1 İngilizce). Fiyat/rakam sorgularına mutlaka güncel ayı ve yılı Türkçe "
+                f"olarak ekle (ör. 'benzin fiyatı Kasım 2026'):\n\n{prompt}",
                 _Queries)
         pages = web.gather(q.sorgular[:n], per_query=4, days=recent_days)
         if pages:
