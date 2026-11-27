@@ -1,0 +1,97 @@
+{
+  "konu": "1,5 milyon TL ile küçük kafe açmak mı, maaşlı çalışmak mı? (1 yıl, Kasım 2026)",
+  "aci": "Kafenin gizli giderleri (stopaj, Bağ-Kur, amortisman, gelir vergisi) ve ince güvenlik marjı",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "1,5 milyon TL: kafe mi, maaş mı?",
+  "stil": {
+    "vurgu": "#00E676", "uyari": "#FF3D00", "hiz": "+8%",
+    "renkler": {"Kafe sahibi": "#FF3D00", "Maaşlı": "#00E676"},
+    "fark_etiketi": "Kafe önde",
+    "kaynak": "Kaynak: TCMB, SGK, GİB tarifesi, DİSK-AR, Emlakjet (2026)"
+  },
+  "denetim_sorgulari": [
+    "2026 asgari ücret işverene maliyeti 40.214,03 TL hazine indirimi",
+    "Bağ-Kur primi 2026 indirimli 10.156,73 TL",
+    "2026 gelir vergisi dilimleri ücret dışı 1.000.000 TL 232.500 TL yüzde 35",
+    "DİSK-AR ortalama net ücret 48 bin 740 TL Haziran 2026",
+    "TL Mevduat Faizi yüzde 41,62'ye geriledi",
+    "mevduat stopaj oranı 6 aya kadar vadede yüzde 17,5 2026",
+    "İstanbul kiralık dükkan ticari m2 fiyatı 482 TL Temmuz 2026 emlakjet",
+    "işyeri kira stopajı yüzde 20 GVK 94",
+    "restaurant food cost percentage 28 35 percent"
+  ],
+  "veri": {
+    "baslik": "Kafe sahibi mi, maaşlı mı? 1,5 milyon TL (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {"ad": "Kafe sahibi", "toplam_tl": 1225133, "kalemler": [
+        {"kalem": "Yıllık ciro", "tutar_tl": 4500000,
+         "aciklama": "Varsayım: günde 12.500 TL satış × 360 gün (Gemini senaryosundaki ciro)", "kaynak": "Varsayım", "tahmini": true},
+        {"kalem": "Hammadde", "tutar_tl": -1350000,
+         "aciklama": "Cironun %30'u (sektörde ideal gıda maliyeti %28-35)", "kaynak": "Toast / restaurant365 food cost karşılaştırmaları", "tahmini": true},
+        {"kalem": "Garson (1 asgari ücretli)", "tutar_tl": -482568,
+         "aciklama": "2026 asgari ücretin işverene maliyeti 40.214,03 TL (2 puan hazine indirimli) × 12",
+         "kaynak": "SGK 2026 oranları — hesapkurdu.com, kolayik.com", "tahmini": false},
+        {"kalem": "Kira + stopaj", "tutar_tl": -361500,
+         "aciklama": "50 m² × 482 TL/m² = 24.100 TL net kira; %20 stopajla brüt 30.125 TL × 12 (stopajı kiracı öder, GVK 94)",
+         "kaynak": "Emlakjet İstanbul ticari kira Temmuz 2026 (482 TL/m²); GVK 94/5-a", "tahmini": false},
+        {"kalem": "Bağ-Kur + faturalar + amortisman", "tutar_tl": -601881,
+         "aciklama": "Bağ-Kur 10.156,73 × 12 = 121.881; elektrik, su, muhasebe, POS ~15.000/ay = 180.000 (tahmini); 1,5 milyon kurulumun 5 yılda amortismanı 300.000",
+         "kaynak": "SGK 2026 Bağ-Kur primi; VUK amortisman; faturalar tahmini", "tahmini": true},
+        {"kalem": "Gelir vergisi", "tutar_tl": -478918,
+         "aciklama": "Vergi öncesi kâr 1.704.051 TL; ücret dışı tarife: 232.500 + (1.704.051 − 1.000.000) × %35",
+         "kaynak": "GİB 2026 gelir vergisi tarifesi (ücret dışı gelirler)", "tahmini": false}
+      ]},
+      {"ad": "Maaşlı", "toplam_tl": 1099927, "kalemler": [
+        {"kalem": "Net maaş", "tutar_tl": 584880,
+         "aciklama": "Ortalama net ücret 48.740 TL × 12", "kaynak": "DİSK-AR, Haziran 2026 ortalama net ücret", "tahmini": false},
+        {"kalem": "Sermayenin mevduat faizi", "tutar_tl": 515047,
+         "aciklama": "1.500.000 TL × net %34,34 (brüt %41,62, stopaj %17,5)",
+         "kaynak": "EKOTÜRK / Hibya: TL mevduat faizi %41,62 (TCMB, 20.11.2026 haftası)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": [
+      "Kafe şahıs işletmesi; ciro KDV hariç 4,5 milyon TL (günde 12.500 TL, 360 gün)",
+      "Kafe sahibi kendisi de tam gün çalışır; 1 asgari ücretli garson",
+      "1,5 milyon TL sermaye kafede kuruluma gider, maaşlı senaryoda mevduatta durur",
+      "Başa baş: kafe ciroyu yaklaşık 4,22 milyona düşürürse (−%6,1) maaşlı öne geçer"
+    ],
+    "kaynaklar": [
+      "Asgari ücret işveren maliyeti 2026 https://www.hesapkurdu.com/ticari/rehber/asgari-ucret-isveren-maliyeti",
+      "Bağ-Kur 2026 https://isletmerotasi.com.tr/blog/esnaf-bagkur-primi-2026-ne-kadar/",
+      "Gelir vergisi dilimleri 2026 https://www.muhasebele.com/pratik-bilgiler/2026/gelir-vergisi-dilimleri/",
+      "DİSK-AR ortalama ücret https://www.evrensel.net/haber/5997235/isgucu-girdi-endeksleri-aciklandi-brut-ucretler-yuzde-36-artti-calisanlar-fakirlesti",
+      "Hibya TL mevduat faizi %41,62 https://hibya.com/tl-mevduat-faizi-yuzde-4162ye-geriledi-1107822",
+      "Emlakjet İstanbul kiralık dükkan https://www.emlakjet.com/emlak-piyasasi/kiralik-dukkan/istanbul",
+      "Food cost yüzdesi https://pos.toasttab.com/blog/on-the-line/restaurant-food-cost-percentage"
+    ],
+    "sonuc": "4,5 milyon ciroyla kafe sahibi yılda 1.225.133 TL, maaşlı 1.099.927 TL kazanır: kafe 125.206 TL önde; ciro %6,1 düşerse maaşlı öne geçer.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "1,5 milyon TL: kafe mi, maaş mı?", "metin": "1 yılın gerçek hesabı · Kasım 2026 verileri",
+     "seslendirme": "Bir buçuk milyonla kafe açmak mı, maaşlı çalışmak mı?", "gorsel": "dukkan", "efekt": "subbass"},
+    {"tur": "metin", "baslik": "Maaşlı: 1.099.927 TL", "metin": "Ort. net maaş 48.740 × 12 + 1,5 milyonun net faizi",
+     "seslendirme": "Maaşlı kalırsan maaş ve faizle yılda 1 milyon 100 bin.", "efekt": "onay", "ton": "yesil"},
+    {"tur": "metin", "baslik": "Garson: 482.568 TL", "metin": "1 asgari ücretlinin işverene maliyeti (2026)",
+     "seslendirme": "Kafede tek garsonun yıllık maliyeti 482 bin.", "efekt": "tik", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Kira + stopaj: 361.500 TL", "metin": "50 m² · İstanbul ort. 482/m² · %20 stopaj senden",
+     "seslendirme": "50 metrekare dükkan, stopajıyla 361 bin.", "efekt": "tik", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Bağ-Kur, fatura, amortisman: 601.881 TL", "metin": "Kurduğun düzen 5 yılda eriyor · faturalar tahmini",
+     "seslendirme": "Bağ-Kur, faturalar ve eriyen kurulum 601 bin.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Hammadde: 1.350.000 TL", "metin": "4,5 milyon cironun %30'u",
+     "seslendirme": "Hammadde, cironun yüzde 30'u.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Gelir vergisi: 478.918 TL", "metin": "Kâr 1 milyonu geçince dilim %35",
+     "seslendirme": "Üstüne yüzde 35'lik vergi dilimi: 478 bin.", "efekt": "darbe", "ton": "kirmizi"},
+    {"tur": "grafik", "baslik": "Kafe mi, maaş mı?", "metin": "",
+     "seslendirme": "Hepsi çıkınca kafe 1 milyon 225 bin bırakıyor.", "ton": "yesil"},
+    {"tur": "reveal", "baslik": "GERÇEK MALİYET", "metin": "", "etiket": "KAFE ÖNDE · AMA İNCE",
+     "seslendirme": "Kafe 125 bin önde, ama ciro yüzde 6 düşerse maaşlı kazanır.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "Risk alıp kafe mi açarsın, maaşlı mı kalırsın?", "metin": "Tarafını yorumda seç",
+     "seslendirme": "Sen hangisini seçerdin?", "efekt": "kart", "sure": 3.0}
+  ],
+  "caption": "1,5 milyon TL ile küçük kafe mi, maaşlı çalışmak mı? Kasım 2026 verileriyle 1 yılın gerçek hesabı:\n\n☕ Kafe (4,5 milyon ciro varsayımı): hammadde 1.350.000 · garson 482.568 · kira+stopaj 361.500 · Bağ-Kur+fatura+amortisman 601.881 · gelir vergisi 478.918 → sana kalan 1.225.133 TL\n💼 Maaşlı: ort. net maaş 584.880 + 1,5 milyonun net faizi 515.047 = 1.099.927 TL\n\nKafe 125.206 TL önde, ama ciro %6,1 düşerse (≈4,22 milyon) maaşlı öne geçiyor. Üstelik kafe sahibi de tam gün çalışıyor.\n\nKaynaklar: SGK 2026 oranları, GİB 2026 gelir vergisi tarifesi, DİSK-AR ortalama net ücret, TCMB mevduat faizi (%41,62), Emlakjet İstanbul dükkan kiraları. Ciro, hammadde oranı ve faturalar varsayımdır.",
+  "hashtagler": ["gercekmaliyet", "girisimcilik", "kafe", "kendiisim", "maas", "kisiselfinans", "esnaf", "vergi"],
+  "yorum_sorusu": "Risk alıp kafe mi açarsın, maaşlı mı kalırsın?"
+}
