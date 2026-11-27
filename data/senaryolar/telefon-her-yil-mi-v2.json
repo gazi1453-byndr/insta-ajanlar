@@ -47,7 +47,7 @@
           {
             "kalem": "Kaçan faiz",
             "tutar_tl": 19640,
-            "aciklama": "Yenilemenin ek maliyeti: (137.999 − 75.000) − 5.799 batarya = 57.200 TL. Net faiz = brüt %41,62 × (1 − 0,175 stopaj) = %34,3365. 1 yıllık faiz = 57.200 × 0,343365 = 19.640 TL",
+            "aciklama": "Yenilemenin ek maliyeti: (137.999 - 75.000) - 5.799 batarya = 57.200 TL. Net faiz = brüt %41,62 × (1 - 0,175 stopaj) = %34,3365. 1 yıllık faiz = 57.200 × 0,343365 = 19.640 TL",
             "kaynak": "EKOTÜRK / Hibya: TL mevduat faizi %41,62 (TCMB, 20.11.2026 haftası); stopaj %17,5",
             "tahmini": false
           }
@@ -111,8 +111,8 @@
     },
     {
       "tur": "metin",
-      "baslik": "Cebinden çıkan: 62.999 TL",
-      "metin": "137.999 − 75.000",
+      "baslik": "Her yıl cebinden: 62.999",
+      "metin": "Yeni 137.999 - eski 75.000",
       "seslendirme": "Yani her yıl cebinden 63 bin çıkıyor.",
       "efekt": "tik",
       "ton": "kirmizi"
@@ -129,7 +129,7 @@
       "tur": "metin",
       "baslik": "Kaçan faiz: 19.640 TL",
       "metin": "Aradaki 57.200'ü 1 yıl net %34,3 mevduatta tutsan",
-      "seslendirme": "Aradaki parayı bir yıl mevduatta tutsan, 19 bin 640 lira faiz.",
+      "seslendirme": "Aradaki parayı bir yıl mevduatta tutsan, 19.640 lira faiz.",
       "efekt": "darbe",
       "ton": "kirmizi"
     },
@@ -145,7 +145,7 @@
       "baslik": "GERÇEK MALİYET",
       "metin": "",
       "etiket": "ESKİSİYLE CEBİNDE KALAN",
-      "seslendirme": "Eski telefonla devam edersen, bir yılda 76 bin 840 lira cebinde kalıyor.",
+      "seslendirme": "Eski telefonla devam edersen, bir yılda 76.840 lira cebinde kalıyor.",
       "ton": "yesil"
     },
     {
@@ -157,7 +157,7 @@
       "sure": 3.0
     }
   ],
-  "caption": "Telefonu her yıl yenilemek mi, eskisiyle 1 yıl daha devam mı? Kasım 2026 fiyatlarıyla:\n\nHer yıl yenile: yeni 18 Pro 137.999 − eski 17 Pro satışı 75.000 = 62.999 TL + aradaki paranın kaçan faizi 19.640 = 82.639 TL\nEskisiyle devam: yetkili serviste batarya 5.799 TL\n\nEskisiyle devam edersen 1 yılda 76.840 TL cebinde kalıyor. İkinci el fiyatı ilanların alt sınırıdır; telefonun durumuna göre değişir.\n\nKaynaklar: Apple Türkiye fiyat listesi (Habertürk, CNBC-e), ikinci el ilan fiyatları (tamindir, Temmuz 2026), yetkili servis pil ücreti (DonanımHaber), TCMB mevduat faizi (%41,62, stopaj %17,5).",
+  "caption": "Telefonu her yıl yenilemek mi, eskisiyle 1 yıl daha devam mı? Kasım 2026 fiyatlarıyla:\n\nHer yıl yenile: yeni 18 Pro 137.999 - eski 17 Pro satışı 75.000 = 62.999 TL + aradaki paranın kaçan faizi 19.640 = 82.639 TL\nEskisiyle devam: yetkili serviste batarya 5.799 TL\n\nEskisiyle devam edersen 1 yılda 76.840 TL cebinde kalıyor. İkinci el fiyatı ilanların alt sınırıdır; telefonun durumuna göre değişir.\n\nKaynaklar: Apple Türkiye fiyat listesi (Habertürk, CNBC-e), ikinci el ilan fiyatları (tamindir, Temmuz 2026), yetkili servis pil ücreti (DonanımHaber), TCMB mevduat faizi (%41,62, stopaj %17,5).",
   "hashtagler": [
     "gercekmaliyet",
     "telefon",
