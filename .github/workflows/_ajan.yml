@@ -101,7 +101,8 @@ jobs:
         run: |
           git config user.name "insta-ajan"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data media hesap index.html 2>/dev/null || git add data media
+          python pipeline.py plan || echo "program sayfası üretilemedi"
+          git add data media hesap index.html plan.html 2>/dev/null || git add data media
           if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
 
           HUMAN=$(python -c "import yaml;print(str(yaml.safe_load(open('config.yaml',encoding='utf-8'))['uretim'].get('insan_onayi',False)).lower())")

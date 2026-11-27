@@ -133,9 +133,10 @@ def main() -> None:
         if not (_D / "trends" / f"{_now():%Y-%m-%d}.json").exists():
             researcher.run()                 # önce günün gündemini tara (güncel fikir için)
         producer.run(preview=True)
-    elif cmd == "site":
-        from agents import site
+    elif cmd in ("site", "plan"):
+        from agents import plan, site
         site.build()
+        plan.build()
     elif cmd == "gundem":
         from agents import producer, trend_scanner
         trend_scanner.run(light=True)            # gün içi hızlı tarama
