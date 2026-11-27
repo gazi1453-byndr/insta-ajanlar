@@ -66,6 +66,8 @@ def kontrol() -> None:
         cevap: str
 
     print("Yapay zeka sırası:", llm.backend())
+    from agents import search as _web
+    print("Web arama:", "Tavily" if _web.enabled() else "YOK (TAVILY_API_KEY) → modelin kendi araması denenecek")
     import os as _os
     for prov in llm.providers():  # her sağlayıcıyı tek tek dene
         _os.environ["LLM_SIRA"] = prov

@@ -42,6 +42,7 @@ animasyonlu grafikleri ve tartışma başlatan soruları görür.
 | Süresiz sistem kullanıcısı tokeni → `IG_ACCESS_TOKEN` | ✅ |
 | `GEMINI_API_KEY` (ücretsiz) | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
 | `GROQ_API_KEY` (ücretsiz, yedek) | [console.groq.com/keys](https://console.groq.com/keys) |
+| `TAVILY_API_KEY` (ücretsiz web arama, ayda 1000) | [app.tavily.com](https://app.tavily.com) |
 | Instagram kullanıcı adını `gercekmaliyet` yapmak | Senin yapman gerekiyor (Instagram → Profili düzenle) |
 | Ses klonu (isteğe bağlı) | Aşağıya bak |
 

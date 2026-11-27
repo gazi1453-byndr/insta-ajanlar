@@ -151,7 +151,8 @@ def weekly_hook_bank() -> list[dict]:
             "gündemdeki fiyat/zam haberleri. 'X kaça mal olur', 'A mı B mi', 'X ile ne yapılır' tipi "
             "soruları öne çıkar. Her soru için nerede gördüğünü yaz. 25 madde."
         ),
-        max_searches=15,
+        max_searches=12,
+        recent_days=7,
     )
     hb = ask(
         AGENT,

@@ -35,7 +35,7 @@ T = TypeVar("T", bound=BaseModel)
 
 DEFAULTS = {
     "sira": ["gemini", "groq"],
-    "gemini_model": ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite", "gemini-flash-lite-latest"],
+    "gemini_model": ["gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"],
     "groq_model": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile"],
     "groq_gorsel_model": ["meta-llama/llama-4-scout-17b-16e-instruct"],
     "groq_arastirma_model": ["groq/compound", "groq/compound-mini"],
@@ -52,6 +52,7 @@ class QuotaExhausted(LLMError):
 
 _down: set[str] = set()          # limiti dolan sağlayıcılar
 _down_models: set[str] = set()   # limiti dolan tek tek modeller (limitler model başına)
+_busy_until: dict[str, float] = {}  # geçici yoğun modeller: bu zamana kadar atlanır
 _last_call: dict[str, float] = {}
 
 
@@ -136,6 +137,8 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
         mkey = f"gemini:{model}:{'arama' if search else 'normal'}"
         if mkey in _down_models:  # bu modelin limiti bu çalışmada dolmuştu
             continue
+        if _busy_until.get(model, 0) > time.time():  # az önce yoğundu, şimdilik atla
+            continue
         for attempt in range(3):
             _throttle("gemini", 6.5)
             r = requests.post(
@@ -171,6 +174,8 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
                 break
             if r.status_code == 404 or "not found" in msg.lower():
                 last_err = f"{model} bulunamadı"
+                _down_models.add(mkey)
+                log("gemini", f"{model} bulunamadı (kapatılmış olabilir) → sıradaki Gemini modeli")
                 break  # sıradaki modeli dene
             if r.status_code >= 500 or "high demand" in msg.lower() or "overloaded" in msg.lower():
                 # Geçici yoğunluk: artan aralıklarla bekle, olmazsa sıradaki Gemini modeline geç
@@ -180,7 +185,8 @@ def _gemini_call(prompt: str, system: str, images: list[Path], *, json_mode: boo
                     time.sleep(wait)
                     continue
                 last_err = f"{model} yoğun ({r.status_code})"
-                log("gemini", f"{model} yanıt vermiyor → sıradaki Gemini modeli")
+                _busy_until[model] = time.time() + 600
+                log("gemini", f"{model} yanıt vermiyor → sıradaki Gemini modeli (10 dk atlanacak)")
                 break
             raise LLMError(f"Gemini hata {r.status_code}: {msg[:300]}")
     if all(f"gemini:{m}:{'arama' if search else 'normal'}" in _down_models for m in models):
@@ -333,7 +339,41 @@ def ask(agent: str, system: str, content: str | list[dict], schema: type[T], eff
     return _run_chain(agent, "Yapay zeka", attempt)
 
 
-def research(agent: str, system: str, prompt: str, max_searches: int = 8) -> str:
+class _Queries(BaseModel):
+    sorgular: list[str]
+
+
+def _text_chain(agent: str, system: str, prompt: str, label: str) -> str:
+    def attempt(prov: str) -> str:
+        out = _CALLS[prov](prompt, system, [], json_mode=False, search=False)
+        if len(out.strip()) < 40:
+            raise LLMError("yanıt boş")
+        return out
+    return _run_chain(agent, label, attempt)
+
+
+def research(agent: str, system: str, prompt: str, max_searches: int = 8, recent_days: int | None = None) -> str:
+    """Web araştırması. TAVILY_API_KEY varsa: model sorgu yazar → Tavily arar → model SADECE bulunan
+    sayfalardan kaynaklı not çıkarır. Yoksa sağlayıcının kendi web araması kullanılır."""
+    from . import search as web
+
+    if web.enabled():
+        n = max(1, min(6, (max_searches + 1) // 2))
+        q = ask(agent, "Sen bir araştırma asistanısın. Türkiye odaklı, güncel ve kısa web arama sorguları yazarsın.",
+                f"Şu araştırma için en fazla {n} farklı, kısa arama sorgusu yaz (Türkçe; gerekirse 1 İngilizce):\n\n{prompt}",
+                _Queries)
+        pages = web.gather(q.sorgular[:n], per_query=4, days=recent_days)
+        if pages:
+            ctx = "\n\n".join(f"[{i + 1}] {p['title']} — {p['url']}\n{p['content']}" for i, p in enumerate(pages))
+            notes = _text_chain(agent, system,
+                                f"{prompt}\n\n## Bulunan kaynak sayfalar (SADECE bunları kullan)\n{ctx}\n\n"
+                                "Bulgularını madde madde yaz; her rakamın/bilginin yanına köşeli parantezle kaynak "
+                                "numarasını ve linkini koy, ör. [3] https://... . Kaynaklarda olmayan bilgiyi yazma; "
+                                "bulamadığın şey için 'bulunamadı' de.", "Web araştırması (Tavily)")
+            return notes + "\n\nKaynak listesi:\n" + "\n".join(
+                f"[{i + 1}] {p['title']}: {p['url']}" for i, p in enumerate(pages))
+        log(agent, "Tavily sonuç vermedi → modelin kendi araması deneniyor")
+
     prompt = (prompt + f"\n\nGüncel bilgi için web'de ara (en fazla {max_searches} arama). Her bulgunun yanına "
               "kaynak site adını ve linkini yaz. Bulamadığın bilgiyi uydurma.")
 
