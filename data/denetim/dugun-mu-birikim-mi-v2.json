@@ -1,0 +1,106 @@
+{
+  "dosya": "data/senaryolar/dugun-mu-birikim-mi-v2.json",
+  "tarih": "2026-11-27T22:04:18.617169+03:00",
+  "format_grafik_denetimi": [],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "Düğün — TOPLAM 638,098.00 TL",
+          "kalem": "Düğün salonu (yemekli)",
+          "durum": "hesaplanan",
+          "alinti": "250 kişi × 900 TL",
+          "aciklama": "250 kişi ile 900 TL çarpılarak 225.000 TL elde edilmiştir."
+        },
+        {
+          "secenek": "Düğün — TOPLAM 638,098.00 TL",
+          "kalem": "Kına + nişan",
+          "durum": "tahmini_isaretli",
+          "alinti": "(tahmini)",
+          "aciklama": "Kalem metninde tahmini olduğu belirtilmiştir."
+        },
+        {
+          "secenek": "Düğün — TOPLAM 638,098.00 TL",
+          "kalem": "Gelinlik + damatlık",
+          "durum": "tahmini_isaretli",
+          "alinti": "(tahmini)",
+          "aciklama": "Kalem metninde tahmini olduğu belirtilmiştir."
+        },
+        {
+          "secenek": "Düğün — TOPLAM 638,098.00 TL",
+          "kalem": "Fotoğraf, DJ ve diğer",
+          "durum": "tahmini_isaretli",
+          "alinti": "(tahmini)",
+          "aciklama": "Kalem metninde tahmini olduğu belirtilmiştir."
+        },
+        {
+          "secenek": "Düğün — TOPLAM 638,098.00 TL",
+          "kalem": "Kaçan faiz",
+          "durum": "hesaplanan",
+          "alinti": "475.000 TL düğün harcaması mevduatta dursa: × net %34,34 (brüt %41,62, stopaj %17,5)",
+          "aciklama": "Belirtilen oranlar ve ana paraya göre hesaplanmıştır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tablodaki düğün salonu ve kaçan faiz kalemleri hesaplamalarla doğrulanırken, kına+nişan, gelinlik+damatlık ve fotoğraf, DJ ve diğer kalemleri tahmini olarak işaretlenmiştir."
+    },
+    "sorunlar": [],
+    "bulunan_sayfa": [
+      "https://www.instagram.com/reel6/reel/DgHeEO9gkqr",
+      "https://dugun.com/kir-dugunu/istanbul/valentine-country",
+      "https://xn--dnrotas-n2aa36azg.com/ara/istanbul-300-kisilik-dugun-salonlari.html",
+      "https://dugunmaster.com/blog/2027-dugun-fiyatlari",
+      "https://www.facebook.com/senol.denkci/videos/haz%C4%B1r-s%C4%B1f%C4%B1r-ni%C5%9Fanl%C4%B1klar-gelinlikler-sadece-40000-tl-0530-241-44-46/2993389687689648",
+      "https://www.instagram.com/p/Dfrmyktt8ml",
+      "https://www.instagram.com/reel/Df2obOWtrth",
+      "https://www.instagram.com/reel/DfNMSqhRk3t",
+      "https://armut.com/fiyatlari/izmir-dugun-video-cekimi_1242_35",
+      "https://www.instagram.com/p/DfheYiPNmVU",
+      "https://www.instagram.com/p/Df4FEkXCKDb",
+      "https://armut.com/beylikduzu-dugun-fotografcisi",
+      "https://www.gigbi.com/fiyatlar/dj-kiralama",
+      "https://www.instagram.com/reel/DgM0qqGxnek",
+      "https://www.instagram.com/reel/DgFw-HOt1V1",
+      "https://www.hepsiburada.com/mixer-c-411247",
+      "https://www.mynet.com/amp/bugun-ceyrek-altin-kac-tl-27-kasim-cuma-2026-gram-tam-cumhuriyet-kapalicarsi-anlik-fiyatlar-finans-585280",
+      "https://finans.mynet.com/haber/detay/altin/bugun-ceyrek-altin-kac-tl-01-kasim-pazar-2026-gram-tam-cumhuriyet-kapalicarsi-anlik-fiyatlar/582647",
+      "https://finans.mynet.com/haber/detay/altin/bugun-ceyrek-altin-kac-tl-02-kasim-pazartesi-2026-gram-tam-cumhuriyet-kapalicarsi-anlik-fiyatlar/582727",
+      "https://finans.mynet.com/haber/detay/altin/bugun-ceyrek-altin-kac-tl-24-kasim-sali-2026-gram-tam-cumhuriyet-kapalicarsi-anlik-fiyatlar/585010"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 58.9,
+    "ikincil": 30.4,
+    "vurgu": 7.0,
+    "yazi": 3.7
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 18,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 92,
+    "karar": "ONAY",
+    "tutar_mi": "Düğün gibi yüksek maliyetli ve duygusal bir konuyu 'kaçan faiz' ve 'gerekli çeyrek altın' gibi somut finansal gerçeklerle ele alması hedef kitlede yüksek oranda kaydetme ve paylaşma tetikleyecektir. Rakamlar güncel, şeffaf ve kaynaklı.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 92,
+    "karar": "YAYINLA",
+    "gerekce": "Müdür onayından başarıyla geçen içerik, yüksek niş uyumu ve şeffaf veri setleriyle markanın standartlarını eksiksiz karşılıyor. Kasım 2026 güncel verileri, kaçan faiz hesabı ve çeyrek altın analizi hedef kitlede yüksek etkileşim potansiyeli taşıyor.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  }
+}
