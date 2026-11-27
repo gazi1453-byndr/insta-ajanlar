@@ -4,8 +4,8 @@
 # ============================================================
 
 hesap:
-  kullanici_adi: "gercekmaliyet"         # @ olmadan. Alınmışsa: gercek.maliyet / maliyet.tablosu
-  gorunen_ad: "Gerçek Maliyet | Rakamlarla"
+  kullanici_adi: "gercek.maliyet"        # @ olmadan
+  gorunen_ad: "Gerçek maliyet | Rakamlarla"
   biyografi: "Ne kadara mal oluyor? 💸 Gerçek rakamlar, kaynaklı tablolar 📊 Araba, ev, iş kurmak, abonelikler… A vs B karşılaştırmaları"
   nis: "gerçek maliyet ve karşılaştırma analizleri: bir şeyin cebe gerçekte kaça mal olduğunu güncel Türkiye fiyatlarıyla, kalem kalem ve kaynaklı gösteren içerikler (araba sahibi olmanın yıllık maliyeti, X TL ile iş kurmak, kira vs kredi, abonelik ve teknoloji karşılaştırmaları, şehirlerde yaşam maliyeti)"
   hedef_kitle: "22-40 yaş, Türkiye'de yaşayan, karar vermeden önce rakam görmek isteyen çalışanlar, yeni iş kurmak isteyenler, araba/ev almayı düşünenler"

@@ -1,0 +1,10 @@
+name: "6 · Görselleri yeniden çiz"
+on:
+  workflow_dispatch:
+permissions: { contents: write, pull-requests: write, issues: write }
+jobs:
+  ajan:
+    uses: ./.github/workflows/_ajan.yml
+    with:
+      komut: yeniden_ciz
+    secrets: inherit

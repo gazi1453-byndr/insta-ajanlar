@@ -31,6 +31,29 @@ def durum() -> None:
             print(f"  [{r['durum']}] {r['puan']}/100  {r['konu']}")
 
 
+def yeniden_ciz() -> None:
+    """Kuyruktaki içeriklerin görsel/videolarını Claude'u çağırmadan yeniden çizer
+    (ör. kullanıcı adı, renk ya da tasarım değiştiğinde)."""
+    from agents import designer, video
+    from agents.common import ROOT, write_json
+    from agents.creator import Draft
+    from agents.data_researcher import DataSheet
+    for f in sorted(QUEUE.glob("*.json")):
+        p = read_json(f)
+        draft, sheet = Draft(**p["taslak"]), DataSheet(**p["veri"])
+        rel = lambda x: str(x.relative_to(ROOT)).replace("\\", "/")
+        if p.get("video"):
+            stills = designer.stills_vertical(draft, sheet, p["id"])
+            p["video"] = rel(video.render(draft, sheet, p["id"]))
+            p["gorseller"] = [rel(stills[0])]
+            for s in stills[1:]:
+                s.unlink(missing_ok=True)
+        else:
+            p["gorseller"] = [rel(x) for x in designer.carousel(draft, sheet, p["id"])]
+        write_json(f, p)
+        print("Yeniden çizildi:", p["fikir"]["konu"])
+
+
 def kontrol() -> None:
     """Claude kullanmadan bağlantıları ve izinleri test eder."""
     import os
@@ -92,6 +115,8 @@ def main() -> None:
         analyst.run()
     elif cmd == "durum":
         durum()
+    elif cmd == "yeniden_ciz":
+        yeniden_ciz()
     elif cmd == "kontrol":
         kontrol()
     else:
