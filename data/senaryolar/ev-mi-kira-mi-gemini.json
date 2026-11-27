@@ -1,0 +1,50 @@
+{
+  "konu": "4,5 milyon TL'lik ev: krediyle almak mı, kirada oturup peşinatı faizde tutmak mı? (1 yıl)",
+  "aci": "Kredi taksidi + kaçan peşinat getirisi − evin değer artışı vs kira",
+  "alt_seri": "A MI B Mİ?",
+  "hook": "EV ALMAK MI, KİRADA OTURMAK MI?",
+  "not": "Gemini senaryosu BİREBİR (rakamlar ve kaynak adları değiştirilmedi); ajan denetimi için.",
+  "denetim_sorgulari": [
+    "konut kredisi faiz oranı Kasım 2026",
+    "TCMB konut fiyat endeksi yıllık artış 2026",
+    "mevduat faizi Kasım 2026 1 yıl",
+    "İstanbul ortalama kira 2026 Ekim Kasım",
+    "BDDK konut kredisi kredi değer oranı 2026",
+    "TÜİK kira endeksi 2026"
+  ],
+  "veri": {
+    "baslik": "Ev almak mı, kirada oturmak mı? 4,5 milyon TL (1 yıl)",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {"ad": "Ev sahibi", "toplam_tl": 613800, "kalemler": [
+        {"kalem": "Kredi taksidi + masraf", "tutar_tl": 1000800, "aciklama": "2,7 milyon TL kredi, yıllık taksit + masraf", "kaynak": "BDDK, TCMB (Kasım 2026)", "tahmini": false},
+        {"kalem": "Peşinatın kaçan mevduat getirisi", "tutar_tl": 693000, "aciklama": "1,8 milyon TL peşinat", "kaynak": "TCMB (Kasım 2026)", "tahmini": false},
+        {"kalem": "Evin değer artışı", "tutar_tl": -1080000, "aciklama": "1 yıllık değer artışı", "kaynak": "TCMB KFE, BETAM (Kasım 2026)", "tahmini": false}
+      ]},
+      {"ad": "Kiracı", "toplam_tl": -381000, "kalemler": [
+        {"kalem": "Yıllık kira", "tutar_tl": 312000, "aciklama": "Aylık 26.000 TL", "kaynak": "TÜİK Kira Endeksi (Kasım 2026)", "tahmini": false},
+        {"kalem": "Peşinat getirisi", "tutar_tl": -693000, "aciklama": "1,8 milyon TL mevduatta", "kaynak": "TCMB (Kasım 2026)", "tahmini": false}
+      ]}
+    ],
+    "varsayimlar": ["4,5 milyon TL ev, 1,8 milyon TL peşinat, 2,7 milyon TL kredi"],
+    "kaynaklar": ["TCMB", "BDDK", "TÜİK", "BETAM"],
+    "sonuc": "Ev almak yılda 78.200 TL öne geçiyor.",
+    "guven": "orta"
+  },
+  "slaytlar": [
+    {"tur": "metin", "baslik": "EV ALMAK MI, KİRADA OTURMAK MI?", "metin": "4.5 milyon TL'lik evin 1 yıllık gerçek hesabı",
+     "seslendirme": "Dört buçuk milyon liralık bir evi krediyle almak mı, yoksa kirada oturup peşinatı yatırımda tutmak mı daha kârlı?", "gorsel": "ev", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Yıllık kredi taksidi + masraf: 1.000.800 TL", "metin": "Peşinatın kaçan mevduat getirisi: 693.000 TL",
+     "seslendirme": "Ev aldığında yıllık kredi ödemen ve kaçan mevduat getirin toplam bir milyon altı yüz doksan bin lirayı buluyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Ev sahibi net yıllık maliyet: 613.800 TL", "metin": "Evin 1 yıllık değer artışı: -1.080.000 TL",
+     "seslendirme": "Evin bir yıllık değer artışını düştüğümüzde net maliyet altı yüz on üç bin liraya iniyor.", "ton": "kirmizi"},
+    {"tur": "metin", "baslik": "Ev almanın 1 yıllık net servet farkı: +78.200 TL", "metin": "Yıllık kira (312.000 TL) - peşinat getirisi: +381.000 TL",
+     "seslendirme": "Kiracı senaryosuyla kıyasladığımızda ev almak yılda yetmiş sekiz bin lira öne geçiyor.", "ton": "yesil"},
+    {"tur": "sonuc", "baslik": "Krediye girip ev mi alırsın, peşinatı faizde mi tutarsın?", "metin": "Tarafını yorumda seç 👇",
+     "seslendirme": "Sen hangisini seçerdin?", "sure": 3.0}
+  ],
+  "caption": "Ev almak mı, kirada oturmak mı? 4,5 milyon TL'lik evin 1 yıllık gerçek hesabı.",
+  "hashtagler": ["gercekmaliyet", "konut", "kira", "konutkredisi", "kisiselfinans"],
+  "yorum_sorusu": "Krediye girip ev mi alırsın, peşinatı faizde mi tutarsın?"
+}
