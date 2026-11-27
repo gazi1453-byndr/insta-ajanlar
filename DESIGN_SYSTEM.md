@@ -96,7 +96,8 @@ Kurallar:
 | Ses | ElevenLabs (`eleven_multilingual_v2`, stability 0.45, similarity 0.80) varsa o kullanılır; yoksa Edge `tr-TR-AhmetNeural +%18` |
 | Sessizlik | Her sahnenin baş ve son sessizliği kelime zamanlarına göre kırpılır |
 | Müzik | `assets/music`, yaklaşık %9 seste, sonda 1,5 sn kararma |
-| Efekt | Her geçişte `whoosh` (%35), rakam damgasında `pop` (%30) |
+| Efekt | **Bağlama göre, her geçişe değil.** Hook'ta konu sesi (araba → `korna`, market/para → `kasa`, ev/telefon → `pop`). Rakam sayacı oturunca `cink`. GERÇEK MALİYET'te `darbe` + `kasa`. `whoosh` yalnızca grafiğe ve reveal'e geçişte. Senaryodaki `efekt` alanı her zaman önceliklidir. |
+| Konu görseli | Hook'ta ve ilk büyük ifade sahnesinde hareketli vektör görsel: `araba` (yolda giden, tekerlekler dönen), `benzin` (litre sayan pompa), `ev`, `telefon`, `market`, `para`. Senaryodaki `gorsel` alanı önceliklidir; `yok` yazılırsa görsel gösterilmez. |
 | Süre | 35–42 sn. Ara sahneler en fazla 4 sn. Ses yüksekliği −14 LUFS. |
 
 ## 7. Yapılmayacaklar

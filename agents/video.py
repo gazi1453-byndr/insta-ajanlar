@@ -84,7 +84,9 @@ def _scene_seconds(draft: Draft, audio: list[Path | None]) -> list[float]:
     durs = []
     for s, a in zip(draft.slaytlar, audio):
         if a:
-            durs.append(media_duration(a) + GAP)
+            d = media_duration(a) + GAP
+            # animasyonlu sahneler: barlar/sayaç bitmeden sahne kapanmasın
+            durs.append(max(d, 3.6) if s.tur == "grafik" else max(d, 3.4) if s.tur == "reveal" else d)
         else:
             words = len((s.baslik + " " + s.metin).split())
             durs.append(max(1.6, min(3.4, words / 2.6)))
@@ -208,6 +210,63 @@ def scene_props(s, sheet: DataSheet, i: int, n: int) -> dict:
     return {**d, "kind": "card" if i % 2 else "statement"}
 
 
+# ------------------------------------------------------------------ konu görseli + bağlama göre ses efekti
+TOPICS = [  # (görsel, anahtar kelimeler) — ilk eşleşen kazanır
+    ("benzin", ["benzin", "motorin", "akaryakıt", "mazot", "lpg", "depo", "litre", "pompa"]),
+    ("araba", ["araba", "otomobil", "araç", "kasko", "muayene", "lastik", "trafik sigortası", "mtv", "otv", "ötv",
+               "sedan", "suv", "corolla", "clio", "egea", "togg", "fiat", "renault", "toyota", "hyundai", "elektrikli araç"]),
+    ("ev", ["kira", "ev ", "evin", "konut", "daire", "aidat", "tapu", "emlak", "metrekare", "mortgage"]),
+    ("telefon", ["telefon", "iphone", "samsung", "abonelik", "internet", "netflix", "spotify", "youtube premium", "tarife"]),
+    ("market", ["market", "gıda", "sepet", "mutfak", "ekmek", "süt", "et ", "yumurta", "alışveriş"]),
+]
+SFX_FOR = {"araba": "korna", "benzin": "cink", "ev": "pop", "telefon": "pop", "market": "kasa", "para": "kasa"}
+SFX_GAIN = {"korna": 0.32, "kasa": 0.42, "cink": 0.36, "darbe": 0.5, "whoosh": 0.28, "pop": 0.3}
+
+
+def topic_of(draft: Draft, sheet: DataSheet) -> str:
+    text = " ".join([sheet.baslik, *(o.ad for o in sheet.secenekler),
+                     *(i.kalem for o in sheet.secenekler for i in o.kalemler),
+                     *(s.baslik + " " + s.seslendirme for s in draft.slaytlar[:3])]).lower()
+    for key, words in TOPICS:
+        if any(w in text for w in words):
+            return key
+    return "para"
+
+
+def plan_sfx(draft: Draft, scenes: list[dict], starts: list[int], topic: str) -> list[tuple]:
+    """Bağlama göre efekt: hook'ta konu sesi (araba → korna), rakam oturunca 'çınk', GERÇEK MALİYET'te
+    darbe + kasa. Whoosh yalnızca grafik ve reveal'e geçişte (her geçişte değil). Senaryodaki 'efekt' alanı önceliklidir."""
+    d = ROOT / "assets" / "sfx"
+    out = []
+
+    def add(t, name):
+        if name and name != "yok":
+            out.append((max(0.0, t), d / f"{name}.wav", SFX_GAIN.get(name, 0.3)))
+
+    for i, (s, p) in enumerate(zip(draft.slaytlar, scenes)):
+        t0 = starts[i] / FPS
+        manual = (getattr(s, "efekt", "") or "").strip().lower()
+        if manual:
+            add(t0 + 0.12, manual)
+            continue
+        kind = p["kind"]
+        if kind == "hook":
+            add(t0 + 0.2, SFX_FOR.get(topic, "pop"))
+        elif kind == "spot":
+            add(t0 + 0.86, "cink")
+        elif kind == "grafik":
+            if i:
+                add(t0 - 4 / FPS, "whoosh")
+            add(t0 + (10 + 6 * len(p.get("rows") or [])) / FPS + 0.8, "cink")
+        elif kind == "reveal":
+            add(t0 - 4 / FPS, "whoosh")
+            add(t0 + 0.8, "darbe")
+            add(t0 + 0.84, "kasa")
+        elif kind == "sonuc":
+            add(t0 + (10 + 5 * len(p.get("rows") or [])) / FPS, "pop")
+    return out
+
+
 def phrases_for(tokens: list[dict], offset: float) -> list[dict]:
     """Altyazı öbekleri: en çok 3 kelime / 20 karakter, noktalamada kır."""
     out, cur = [], []
@@ -315,10 +374,22 @@ def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, lab
     voice_durs = [round(media_duration(a), 3) if a else 0.0 for a in audio]
 
     # 3) müzik + efektler + ses
-    sfx_dir = ROOT / "assets" / "sfx"
-    sfx = [((starts[i] - 4) / FPS, sfx_dir / "whoosh.wav", 0.35) for i in range(1, len(frames))]
-    sfx += [(starts[i] / FPS + 0.8, sfx_dir / "pop.wav", 0.3)
-            for i, s in enumerate(draft.slaytlar) if s.tur == "reveal"]
+    topic = topic_of(draft, sheet)
+    scenes_p = []
+    statement_seen = False
+    for i, s in enumerate(draft.slaytlar):
+        sp_ = {**scene_props(s, sheet, i, len(frames)), "from": starts[i], "frames": frames[i]}
+        vis = (getattr(s, "gorsel", "") or "").strip().lower()
+        if vis in ("yok", "-"):
+            vis = ""
+        elif not vis and (sp_["kind"] == "hook" or (sp_["kind"] == "statement" and not statement_seen)):
+            vis = topic  # otomatik: hook + ilk büyük ifade sahnesi
+        statement_seen = statement_seen or sp_["kind"] == "statement"
+        if vis:
+            sp_["visual"] = vis
+        scenes_p.append(sp_)
+    sfx = plan_sfx(draft, scenes_p, starts, topic)
+    log(AGENT, f"Konu görseli: {topic} · efektler: " + ", ".join(f"{t:.1f}s {Path(p).stem}" for t, p, _ in sfx))
     track = _build_audio(audio, frames, folder / "mix.wav", sfx)
 
     # 4) görüntü (sessiz) → 5) ses ile birleştir
@@ -334,8 +405,7 @@ def render(draft: Draft, sheet: DataSheet, post_id: str, series_no: int = 0, lab
                       "handle": config()["hesap"]["kullanici_adi"]},
             "period": f"{_short(sheet.hesap_donemi, 30)} · {sheet.fiyat_tarihi} fiyatları",
             "sources": _sources(sheet),
-            "scenes": [{**scene_props(s, sheet, i, len(frames)), "from": starts[i], "frames": frames[i]}
-                       for i, s in enumerate(draft.slaytlar)],
+            "scenes": scenes_p,
             "phrases": [p for i, t in enumerate(tokens) for p in phrases_for(t, starts[i] / FPS)],
         }
         try:

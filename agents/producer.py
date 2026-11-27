@@ -15,6 +15,7 @@ Fikir Ajanı
 from __future__ import annotations
 
 import shutil
+from pathlib import Path
 from datetime import datetime, timedelta
 
 from . import (art_director, chief, creator, data_researcher, designer, hook_writer, manager, qa,
@@ -177,6 +178,44 @@ def produce_one(idea: strategist.Idea, idx: int, preview: bool = False, when: st
 
     return _reject(post | {"taslak": draft.model_dump() if draft else None},
                    f"{rounds} denemede tüm kontrollerden geçemedi", folder)
+
+
+def produce_script(spec_path: str) -> dict:
+    """SENARYO MODU: kullanıcının yazdığı senaryoyu BİREBİR videoya çevirir (fikir/hook/yazar ajanları devre dışı).
+    spec (JSON): {konu, alt_seri, veri: DataSheet, slaytlar: [{tur, baslik, metin, seslendirme, gorsel?, efekt?}],
+                  caption?, hashtagler?, ...}. Sonuç önizlemeye düşer; '8 · Önizlemeyi onayla' ile kuyruğa girer.
+    Ölçüm denetimleri (senkron, rakam, format) çalışır ve rapor edilir; senaryo değiştirilmez."""
+    from .creator import Draft, Slide
+    from .data_researcher import DataSheet
+    spec = read_json(Path(spec_path))
+    post_id = f"{now():%Y%m%d-%H%M}-s"
+    series = _series_no()
+    label = (spec.get("alt_seri") or "").strip().upper()
+    sheet = DataSheet(**spec["veri"])
+    slides = [Slide(**s) for s in spec["slaytlar"]]
+    texts = {k: spec.get(k, "") for k in ("caption", "tiktok_aciklama", "youtube_baslik", "youtube_aciklama",
+                                           "yorum_sorusu", "alt_text")}
+    texts["caption"] = texts["caption"] or sheet.sonuc
+    texts["yorum_sorusu"] = texts["yorum_sorusu"] or slides[-1].baslik
+    texts["alt_text"] = texts["alt_text"] or sheet.baslik
+    draft = Draft.model_construct(slaytlar=slides, hook=spec.get("hook", slides[0].baslik), hashtagler=spec.get("hashtagler", []),
+                                  youtube_etiketler=spec.get("youtube_etiketler", []), tiktok_hashtagler=spec.get("tiktok_hashtagler", []),
+                                  **texts)
+    log(AGENT, f"Senaryo modu: {spec.get('konu', sheet.baslik)} ({len(slides)} sahne)")
+    report = {"format": qa.structure_check(draft), "rakam": qa.money_check(draft, sheet)}
+    stills = designer.stills_vertical(draft, sheet, post_id, series, label)
+    vid = video.render(draft, sheet, post_id, series, label)
+    report["senkron"] = qa.av_sync(vid)
+    for p in stills[1:]:
+        p.unlink(missing_ok=True)
+    post = {"id": post_id, "olusturma": now().isoformat(), "kaynak": "senaryo",
+            "fikir": {"konu": spec.get("konu", sheet.baslik), "alt_seri": label},
+            "veri": sheet.model_dump(), "taslak": draft.model_dump(), "seri_no": series, "alt_seri": label,
+            "senaryo_denetimi": report, "video": _rel(vid), "gorseller": [_rel(stills[0])], "durum": "onizleme"}
+    write_json(DATA / "onizleme" / f"{post_id}.json", post)
+    notes = [f"{k}: {v}" for k, v in report.items() if v]
+    log(AGENT, f"✓ Senaryo videosu hazır (önizleme): {post['video']}" + (f" · notlar: {notes}" if notes else ""))
+    return post
 
 
 def run_breaking(item: dict) -> dict | None:

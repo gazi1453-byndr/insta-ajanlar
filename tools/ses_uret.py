@@ -138,6 +138,56 @@ def pop() -> np.ndarray:
     return s / np.max(np.abs(s)) * 0.8
 
 
+def horn() -> np.ndarray:
+    """Araba kornası: iki tonlu (≈415 + 523 Hz), doygun, 'bip-biiip'."""
+    def tone(dur):
+        n = int(dur * SR)
+        t = np.arange(n) / SR
+        s = sum(np.sign(np.sin(2 * np.pi * f * t)) * a for f, a in ((415, 1.0), (523, 0.8), (830, 0.25)))
+        s = np.tanh(lowpass(s, 3200) * 1.6)
+        a = np.minimum(1, t / 0.008) * np.minimum(1, (dur - t) / 0.02)
+        return s * a
+    out = np.concatenate([tone(0.13), np.zeros(int(0.07 * SR)), tone(0.42)])
+    return out / np.max(np.abs(out)) * 0.8
+
+
+def kaching() -> np.ndarray:
+    """Yazar kasa: mekanik 'ka' + parlak 'ching' zil."""
+    n = int(1.0 * SR)
+    t = np.arange(n) / SR
+    click = np.zeros(n)
+    k = int(0.05 * SR)
+    click[:k] = lowpass(rng.standard_normal(k), 2500) * np.exp(-np.arange(k) / SR * 90) * 0.9
+    d = int(0.09 * SR)  # zil 'ka'dan 90 ms sonra
+    tb = t[: n - d]
+    bell = sum(a * np.sin(2 * np.pi * f * tb) * np.exp(-tb * dec)
+               for f, a, dec in ((2093, 1.0, 4.5), (2637, 0.7, 5.5), (3136, 0.6, 6.5), (4186, 0.35, 9), (5274, 0.2, 12)))
+    out = click.copy()
+    out[d:] += bell * 0.55
+    return out / np.max(np.abs(out)) * 0.85
+
+
+def coin() -> np.ndarray:
+    """Kısa metalik 'çınk' (madeni para)."""
+    n = int(0.45 * SR)
+    t = np.arange(n) / SR
+    s = sum(a * np.sin(2 * np.pi * f * t) * np.exp(-t * dec)
+            for f, a, dec in ((2960, 1.0, 9), (4150, 0.7, 12), (5620, 0.45, 16), (7080, 0.3, 22)))
+    s[: int(0.003 * SR)] += rng.standard_normal(int(0.003 * SR)) * 0.4
+    return s / np.max(np.abs(s)) * 0.8
+
+
+def impact() -> np.ndarray:
+    """Büyük rakam 'damga' darbesi: alçak bum + kısa gövde."""
+    n = int(0.9 * SR)
+    t = np.arange(n) / SR
+    freq = 38 + 90 * np.exp(-t * 14)
+    boom = np.sin(2 * np.pi * np.cumsum(freq) / SR) * np.exp(-t * 4.5)
+    body = lowpass(rng.standard_normal(n), 900) * np.exp(-t * 30) * 0.5
+    s = np.tanh((boom + body) * 1.4)
+    return s / np.max(np.abs(s)) * 0.9
+
+
 def save_wav(x: np.ndarray, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     pcm = (np.clip(x, -1, 1) * 32767).astype("<i2")
@@ -151,6 +201,12 @@ def save_wav(x: np.ndarray, path: Path) -> None:
 
 if __name__ == "__main__":
     import imageio_ffmpeg
+    import sys
+    for name, fn in (("korna", horn), ("kasa", kaching), ("cink", coin), ("darbe", impact)):
+        save_wav(fn(), ROOT / "assets" / "sfx" / f"{name}.wav")
+    if "--efekt" in sys.argv:  # sadece efektleri üret
+        print("ok efektler")
+        raise SystemExit
     tmp = ROOT / "assets" / "music" / "_tmp.wav"
     save_wav(music(), tmp)
     mp3 = ROOT / "assets" / "music" / "finans_ritim.mp3"

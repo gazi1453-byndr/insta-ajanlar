@@ -3,6 +3,7 @@ import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {fitSize, sp, SOFT, tl} from './motion';
 import {Bar, CountText, glass, Kinetic, Num, PAD, ZONE_BOTTOM, ZONE_TOP} from './parts';
 import {Palette, Row, Scene} from './types';
+import {Visual} from './Visuals';
 
 type P = {s: Scene; p: Palette; period: string};
 const W = 1080 - 2 * PAD;
@@ -32,13 +33,18 @@ const Body: React.FC<{text: string; p: Palette; delay: number; size?: number; ce
 
 // ---------------------------------------------------------------- hook: tam ekran kinetik başlık
 export const Hook: React.FC<P> = ({s, p}) => {
-  const size = fitSize(s.baslik, W, 132, 80, 4, 0.56);
+  const size = fitSize(s.baslik, W, s.visual ? 116 : 132, 76, s.visual ? 3 : 4, 0.56);
   return (
     <Zone>
       <AccentRule p={p} />
       <Kinetic text={s.baslik} accent={p.accent} stagger={3}
         style={{fontFamily: 'InterDisplay', fontWeight: 900, fontSize: size, lineHeight: 1.04, letterSpacing: -2, color: p.text}} />
       <Body text={s.metin} p={p} delay={14} />
+      {s.visual && (
+        <div style={{marginTop: 44}}>
+          <Visual kind={s.visual} accent={p.accent} text={p.text} panel={p.panel} height={340} />
+        </div>
+      )}
     </Zone>
   );
 };
@@ -69,6 +75,11 @@ export const Statement: React.FC<P> = ({s, p}) => {
       <Kinetic text={s.baslik} accent={p.accent} stagger={4}
         style={{fontFamily: 'InterDisplay', fontWeight: 900, fontSize: size, lineHeight: 1.06, letterSpacing: -1.5, color: p.text, justifyContent: 'center', textAlign: 'center'}} />
       <Body text={s.metin} p={p} delay={14} size={42} center />
+      {s.visual && (
+        <div style={{marginTop: 40}}>
+          <Visual kind={s.visual} accent={p.accent} text={p.text} panel={p.panel} height={280} />
+        </div>
+      )}
     </Zone>
   );
 };

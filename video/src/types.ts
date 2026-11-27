@@ -11,6 +11,7 @@ export type Scene = {
   metin: string;
   from: number; // kare
   frames: number; // kare
+  visual?: string; // konu görseli: araba, benzin, ev, telefon, market, para
   // grafik
   mode?: 'breakdown' | 'compare';
   rows?: Row[];

@@ -127,6 +127,9 @@ def main() -> None:
         analyst.run()
     elif cmd == "durum":
         durum()
+    elif cmd == "senaryo":  # python pipeline.py senaryo data/senaryolar/<dosya>.json
+        from agents import producer
+        producer.produce_script(sys.argv[2])
     elif cmd == "onizleme":
         from agents import producer, researcher
         from agents.common import DATA as _D, now as _now

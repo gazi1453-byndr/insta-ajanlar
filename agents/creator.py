@@ -33,6 +33,10 @@ class Slide(BaseModel):
     baslik: str = Field(description="Ekrandaki büyük yazı, en fazla 8 kelime")
     metin: str = Field(description="Ekrandaki küçük yazı, en fazla 22 kelime; boş olabilir")
     seslendirme: str = Field(description="Bu sahnede söylenecek doğal, enerjik konuşma metni, 5-11 kelime; dolgu yok")
+    gorsel: str = Field(default="", description="İsteğe bağlı konu görseli: araba, benzin, ev, telefon, para, market, "
+                                                "elektrik, dogalgaz, ucak, okul ya da boş (sistem konudan seçer)")
+    efekt: str = Field(default="", description="İsteğe bağlı ses efekti: korna, kasa, cink, darbe, whoosh, pop, yok "
+                                               "ya da boş (sistem bağlama göre seçer)")
 
 
 class Draft(BaseModel):
