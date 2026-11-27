@@ -529,7 +529,76 @@ const Rings: React.FC<V> = ({accent, text, height = 300}) => {
   );
 };
 
+// ---------------------------------------------------------------- gökdelen silüeti vs sahil evi
+const City: React.FC<V> = ({text, panel, height = 300}) => {
+  const {f, fps, t} = useT();
+  const RED = '#FF3D00';
+  const GREEN = '#00E676';
+  const rise = sp(f, fps, 0, {damping: 16, stiffness: 120, mass: 1});
+  const home = sp(f, fps, 12, {damping: 13, stiffness: 150, mass: 1});
+  const towers = [
+    {x: 40, w: 54, h: 170}, {x: 100, w: 70, h: 236}, {x: 176, w: 48, h: 196}, {x: 230, w: 62, h: 150},
+  ];
+  return (
+    <svg viewBox="0 0 700 300" width="100%" height={height} style={{overflow: 'visible'}}>
+      <defs>
+        <clipPath id="ct-rise"><rect x={0} y={276 - 260 * rise} width={330} height={260 * rise} /></clipPath>
+        <filter id="ct-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" /></filter>
+        <radialGradient id="ct-sun" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#FDE68A" /><stop offset="1" stopColor="#FDE68A" stopOpacity={0} />
+        </radialGradient>
+      </defs>
+      <line x1={20} y1={276} x2={680} y2={276} stroke="#ffffff22" strokeWidth={3} />
+      {/* sol: kalabalık gökdelenler, kırmızı tepe çizgileri */}
+      <g clipPath="url(#ct-rise)">
+        {towers.map((b, i) => (
+          <g key={i}>
+            <rect x={b.x} y={276 - b.h} width={b.w} height={b.h} fill={panel} stroke={text} strokeOpacity={0.2} strokeWidth={2} />
+            <line x1={b.x} y1={276 - b.h} x2={b.x + b.w} y2={276 - b.h} stroke={RED} strokeWidth={4} />
+            <line x1={b.x} y1={276 - b.h} x2={b.x + b.w} y2={276 - b.h} stroke={RED} strokeWidth={8} opacity={0.4} filter="url(#ct-glow)" />
+            {Array.from({length: Math.floor(b.h / 22)}, (_, r) => (
+              <rect key={r} x={b.x + 10} y={276 - b.h + 14 + r * 22} width={b.w - 20} height={6} rx={2}
+                fill={(r + i) % 4 === 0 ? RED : text} opacity={(r + i) % 4 === 0 ? 0.8 : 0.12} />
+            ))}
+          </g>
+        ))}
+        {/* trafik: akan kırmızı ışıklar */}
+        {[0, 1, 2].map((k) => (
+          <rect key={k} x={20 + ((t * 160 + k * 110) % 300)} y={268} width={18} height={4} rx={2} fill={RED} opacity={0.7} />
+        ))}
+      </g>
+      {/* ayraç */}
+      <line x1={350} y1={60} x2={350} y2={270} stroke={text} strokeOpacity={0.15} strokeWidth={2} strokeDasharray="6 8" />
+      {/* sağ: güneş, deniz, küçük ev, palmiye — yeşil vurgu */}
+      <circle cx={600} cy={96} r={70} fill="url(#ct-sun)" opacity={0.5 * home} />
+      <circle cx={600} cy={96} r={26} fill="#FDE68A" opacity={home} />
+      <g transform={`translate(0 ${(1 - home) * 60})`} opacity={Math.min(1, home * 1.5)}>
+        <path d="M430 214 L480 176 L530 214 L530 262 L430 262 Z" fill={panel} stroke={GREEN} strokeWidth={4} strokeLinejoin="round" />
+        <path d="M420 218 L480 170 L540 218" fill="none" stroke={GREEN} strokeWidth={6} strokeLinejoin="round" strokeLinecap="round" />
+        <rect x={468} y={232} width={24} height={30} rx={3} fill={GREEN} opacity={0.85} />
+        <rect x={442} y={224} width={18} height={16} rx={2} fill="#FDE68A" opacity={0.8} />
+        {/* palmiye */}
+        <path d="M600 262 Q596 220 606 180" fill="none" stroke="#A16207" strokeWidth={8} strokeLinecap="round" />
+        {[-60, -20, 20, 60, 100].map((a, i) => (
+          <path key={i} d="M606 180 q 28 -14 52 6" fill="none" stroke={GREEN} strokeWidth={7} strokeLinecap="round"
+            transform={`rotate(${a + Math.sin(t * 2 + i) * 4} 606 180)`} />
+        ))}
+      </g>
+      {/* dalgalar (yalnız sahil tarafında) */}
+      <clipPath id="ct-sea"><rect x={364} y={260} width={340} height={50} /></clipPath>
+      <g clipPath="url(#ct-sea)">
+      {[0, 1].map((k) => (
+        <path key={k} d={`M370 ${282 + k * 10} q 20 -8 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0`}
+          fill="none" stroke={GREEN} strokeOpacity={0.6 - k * 0.25} strokeWidth={4}
+          transform={`translate(${-((t * 30 + k * 20) % 80)} 0)`} />
+      ))}
+      </g>
+    </svg>
+  );
+};
+
 export const VISUALS: Record<string, React.FC<V>> = {
+  sehir: City,
   yuzuk: Rings,
   dukkan: Shop,
   konut: Apartment,
