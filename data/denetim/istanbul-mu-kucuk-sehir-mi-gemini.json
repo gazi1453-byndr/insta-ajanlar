@@ -1,0 +1,111 @@
+{
+  "dosya": "data/senaryolar/istanbul-mu-kucuk-sehir-mi-gemini.json",
+  "tarih": "2026-11-27T22:15:55.848858+03:00",
+  "format_grafik_denetimi": [
+    "Tam olarak 1 'grafik' sahnesi olmalı (şu an 0)",
+    "Tam olarak 1 'reveal' (GERÇEK MALİYET) sahnesi olmalı (şu an 0)",
+    "Sahne sayısı 7-11 arası olmalı (şu an 5)",
+    "Sahne 1 (ekran): '350.520 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 3 (ekran): '96.000 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 4 (ekran): '350.520 TL' tablodaki hiçbir rakamla eşleşmiyor",
+    "Sahne 5 (ekran): '350.520 TL' tablodaki hiçbir rakamla eşleşmiyor"
+  ],
+  "kaynak_dogrulama": {
+    "rapor": {
+      "kalemler": [
+        {
+          "secenek": "İstanbul",
+          "kalem": "Kira + aidat",
+          "durum": "hesaplanan",
+          "alinti": "31.000 TL x 12 = 372.000.00 TL. Kaynak [1]: Listede Edremit için ortalama 3+1 daire kirası 31 bin TL olarak belirtildi.",
+          "aciklama": "Aylık 31.000 TL kira bedelinin 12 ile çarpımı sonucu 372.000,00 TL elde edilmektedir, ancak kaynak metindeki 31.000 TL'lik kira bedeli İstanbul'a değil Balıkesir Edremit'e aittir."
+        },
+        {
+          "secenek": "İstanbul",
+          "kalem": "Ulaşım + sosyal hayat + market",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "312.000,00 TL tutarı ve hesaplama detayları kaynak metinlerde geçmemektedir."
+        },
+        {
+          "secenek": "Sahil şehri",
+          "kalem": "Yıllık toplam yaşam gideri",
+          "durum": "desteksiz",
+          "alinti": "",
+          "aciklama": "390.000,00 TL tutarı kaynak metinlerde yer almamaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan kira kalemi için kullanılan 31.000 TL rakamı kaynaklarda geçmektedir ancak İstanbul için değil Balıkesir Edremit için belirtilmiştir. Diğer kalemler ve toplam tutarlar kaynak metinlerdeki verilerle desteklenmemektedir."
+    },
+    "sorunlar": [
+      "İstanbul / Ulaşım + sosyal hayat + market: kaynakta yok (312.000,00 TL tutarı ve hesaplama detayları kaynak metinlerde geçmemektedir.)",
+      "Sahil şehri / Yıllık toplam yaşam gideri: kaynakta yok (390.000,00 TL tutarı kaynak metinlerde yer almamaktadır.)"
+    ],
+    "bulunan_sayfa": [
+      "https://www.instagram.com/reel/Dfz-c8Au3M1",
+      "https://image5.sahibinden.com/staticContent/d6e5fc39/baa3/4a73/9d3f/79e55cb26b8d/1795157168.pdf",
+      "https://bigpara.hurriyet.com.tr/haberler/konut-haberleri/son-dakika-kasim-ayi-kira-artis-orani-belli-oldu_ID102281157",
+      "https://www.facebook.com/HaberturkTV/videos/kas%C4%B1m-ay%C4%B1-kira-art%C4%B1%C5%9F-oran%C4%B1-belli-oldu-kira-art%C4%B1%C5%9F%C4%B1nda-anla%C5%9Famayanlar-ne-yapacak/2575440226269461",
+      "https://www.reddit.com/r/istanbul/comments/1xxuzjn/2026_istanbulda_ev_arkada%C5%9F%C4%B1yla_ya%C5%9Faman%C4%B1n_ayl%C4%B1k",
+      "https://wise.com/tr/cost-of-living/turkey/manisa",
+      "https://www.facebook.com/groups/568959261843741/posts/1481339700605688",
+      "https://www.instagram.com/reel/DgPacTrlSsE",
+      "https://www.kirsehirhaberturk.com/turkiyenin-en-ekonomik-sehirleri-aciklandi-kirsehir-ilk-5te-4341180",
+      "https://www.instagram.com/p/DfnKXKbM_99",
+      "https://www.izatolye.com.tr/yasam-becerileri-atolyesi-kurulum-maliyeti",
+      "https://www.sozcu.com.tr/turkiye-nin-yasam-maliyetinin-en-ucuz-oldugu-sehri-belli-oldu-p375140",
+      "https://veriportali.tuik.gov.tr/en/press/58337",
+      "https://veriportali.tuik.gov.tr/en/press/58301",
+      "https://veriportali.tuik.gov.tr/tr/press/57963",
+      "https://www.instagram.com/p/DfpP7-3m_fq",
+      "https://www.posta.com.tr/galeri/kasim-2026-mevduat-faiz-oranlari-guncellendi-32-gunluk-en-yuksek-faizi-hangi-banka-veriyor-100-bin-tl-ve-1-milyon-tlnin-net-getirisi-3063259",
+      "https://www.takvim.com.tr/ekonomi/2026/11/04/kasim-2026-mevduat-faiz-oranlari-belli-oldu"
+    ]
+  },
+  "renk_dengesi": {
+    "baskin": 61.4,
+    "ikincil": 27.1,
+    "vurgu": 6.5,
+    "yazi": 5.0
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 20,
+      "deger": 15,
+      "rakam_dogrulugu": 5,
+      "akis_ve_tutma": 8,
+      "ozgunluk": 8,
+      "platform_metinleri": 4,
+      "gorsel_okunurluk": 8
+    },
+    "toplam": 68,
+    "karar": "RED",
+    "tutar_mi": "Büyükşehir vs küçük şehir kıyaslaması her zaman yüksek etkileşim alır çünkü büyük şehirde yaşayanların en büyük hayali oradan kaçmaktır. Ancak raporda belirtildiği gibi ulaşım, sosyal hayat, market ve sahil şehri yaşam gideri kalemleri için TÜİK kaynaklı net veri olmayıp tahmini/desteksiz bırakıldığı için güvenilirlik kuralını ihlal ediyor.",
+    "rakam_hatalari": [
+      "Kaynakta yok: İstanbul / Ulaşım + sosyal hayat + market",
+      "Kaynakta yok: Sahil şehri / Yıllık toplam yaşam gideri",
+      "İstanbul / Ulaşım + sosyal hayat + market (312.000 TL) kalemi desteksizdir",
+      "Sahil şehri / Yıllık toplam yaşam gideri (390.000 TL) kalemi desteksizdir"
+    ],
+    "geri_bildirim": "Kaynak Doğrulayıcı raporunda belirtilen desteksiz kalemler için resmi ve doğrulanabilir kaynaklar eklenmeli, aksi takdirde bu içerik yayınlanmamalıdır."
+  },
+  "sanat_yonetmeni": {
+    "puan": 100,
+    "gecti": true,
+    "sorunlar": [],
+    "yazim_hatalari": []
+  },
+  "bas_mudur": {
+    "puan": 49,
+    "karar": "RED",
+    "gerekce": "Otomatik RED: 2 kalem kaynakta yok (İstanbul / Ulaşım + sosyal hayat + market; Sahil şehri / Yıllık toplam yaşam gideri). Müdür onayında ve kaynak doğrulama raporunda belirtildiği üzere, İstanbul dışındaki kalemler ile ulaşım ve sosyal hayat giderleri için TÜİK kaynaklı net ve doğrulanabilir veriler bulunmamaktadır. Desteksiz kalan rakamlar ve tabloda eşleşmeyen tutarlar marka güvenilirliğini zedelemektedir.",
+    "duzeltmeler": [
+      "Kaynak göster ya da 'tahmini' işaretle: İstanbul / Ulaşım + sosyal hayat + market",
+      "Kaynak göster ya da 'tahmini' işaretle: Sahil şehri / Yıllık toplam yaşam gideri",
+      "Tüm gider kalemleri için TÜİK veya TCMB kaynaklı doğrulanabilir veriler eklenmeli",
+      "Tablodaki ara toplamlar ile sahne metinlerindeki rakamlar tutarlı hale getirilmeli"
+    ],
+    "seri_uyumu": true
+  }
+}
