@@ -1,0 +1,411 @@
+{
+  "id": "20261128-1241-1",
+  "olusturma": "2026-11-28T12:41:54.871334+03:00",
+  "fikir": {
+    "konu": "Netflix Türkiye %36 Zam ve Yıllık Abonelik Maliyeti",
+    "aci": "Aboneliklere gelen zamların 1 yıllık toplam cüzdan faturası",
+    "format": "reel",
+    "veri_ihtiyaci": "Temel, standart, premium paketlerin eski/yeni fiyatları ve yıllık toplam farkı (Kasım 2026 fiyatları)",
+    "hedef_duygu": "merak",
+    "neden_simdi": "Netflix Türkiye'nin paket fiyatlarını %36 artırması",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": 10,
+    "alt_seri": "",
+    "izleyici": "",
+    "puan": 95
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.1,
+        "ikincil": 30.3,
+        "vurgu": 7.0,
+        "yazi": 2.7
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 10
+        },
+        "toplam": 93,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel bir zammın yıllık toplam cüzdan faturasını net rakamlarla ortaya koyduğu ve hedef kitlenin cebine doğrudan dokunduğu için yüksek etkileşim ve kaydetme alır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [
+        "Sahne 4 çok uzun (4.3 sn > 4.3 sn): seslendirmesini kısalt (rakamları yuvarla, dolguyu at)"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.1,
+        "ikincil": 30.0,
+        "vurgu": 7.0,
+        "yazi": 2.8
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 23,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 93,
+        "karar": "ONAY",
+        "tutar_mi": "Abonelik zamları herkesin cebini doğrudan etkilediği için yüksek etkileşim alır. Aylık etiket fiyatı yerine 1 yıllık toplam faturayı göstermek tasarruf algısı yaratarak kaydetme ve yorum oranını patlatır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 100,
+        "gecti": true,
+        "sorunlar": [],
+        "yazim_hatalari": []
+      },
+      "bas_mudur": {
+        "puan": 93,
+        "karar": "YAYINLA",
+        "gerekce": "Netflix zamlarının yıllık maliyet hesabı güncel verilere dayanıyor ve hesaplamalar kusursuz. İçerik, hedef kitlenin bütçe hassasiyetine tam olarak hitap ediyor ve marka kurallarımıza eksiksiz uyuyor.",
+        "duzeltmeler": [],
+        "seri_uyumu": true
+      }
+    }
+  ],
+  "veri": {
+    "baslik": "Netflix Türkiye Paketlerinin Yıllık Abonelik Maliyeti",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 yıl",
+    "secenekler": [
+      {
+        "ad": "Temel Paket",
+        "kalemler": [
+          {
+            "kalem": "Aylık Üyelik Ücreti (12 Ay)",
+            "tutar_tl": 3119.88,
+            "aciklama": "259,99 TL güncel aylık fiyatın 12 katı",
+            "kaynak": "ShiftDelete.Net, https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+            "tahmini": false
+          },
+          {
+            "kalem": "Komisyon / Kur Farkı (Tahmini)",
+            "tutar_tl": 0.0,
+            "aciklama": "Doğrudan resmi ödeme yöntemi baz alınmıştır, ek komisyon varsayılmamıştır",
+            "kaynak": "ShiftDelete.Net, https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 3119.88
+      },
+      {
+        "ad": "Standart Paket",
+        "kalemler": [
+          {
+            "kalem": "Aylık Üyelik Ücreti (12 Ay)",
+            "tutar_tl": 4679.88,
+            "aciklama": "389,99 TL güncel aylık fiyatın 12 katı",
+            "kaynak": "ShiftDelete.Net, https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+            "tahmini": false
+          },
+          {
+            "kalem": "Komisyon / Kur Farkı (Tahmini)",
+            "tutar_tl": 0.0,
+            "aciklama": "Doğrudan resmi ödeme yöntemi baz alınmıştır, ek komisyon varsayılmamıştır",
+            "kaynak": "ShiftDelete.Net, https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 4679.88
+      },
+      {
+        "ad": "Premium Paket",
+        "kalemler": [
+          {
+            "kalem": "Aylık Üyelik Ücreti (12 Ay)",
+            "tutar_tl": 5999.88,
+            "aciklama": "499,99 TL güncel aylık fiyatın 12 katı",
+            "kaynak": "ShiftDelete.Net, https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+            "tahmini": false
+          },
+          {
+            "kalem": "Komisyon / Kur Farkı (Tahmini)",
+            "tutar_tl": 0.0,
+            "aciklama": "Doğrudan resmi ödeme yöntemi baz alınmıştır, ek komisyon varsayılmamıştır",
+            "kaynak": "ShiftDelete.Net, https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 5999.88
+      }
+    ],
+    "varsayimlar": [
+      "Türkiye'de yıllık peşin ödeme seçeneği bulunmadığı için hesaplama 12 aylık düzenli ödeme üzerinden yapılmıştır.",
+      "Üçüncü taraf aracı ödeme komisyonları veya kur farkları standart ödemeler için sıfır kabul edilmiştir."
+    ],
+    "kaynaklar": [
+      "ShiftDelete.Net - https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar",
+      "Milli Gazete - https://www.milligazete.com.tr/netflix-uyelik-ucretleri-2026-ne-kadar-en-ucuz-paket-kac-tl-fiyati-ne"
+    ],
+    "sonuc": "Kasım 2026 zamlarıyla birlikte Netflix Türkiye'nin yıllık cüzdan faturası Temel pakette 3.119,88 TL, Standart pakette 4.679,88 TL ve Premium pakette 5.999,88 TL olarak gerçekleşmektedir.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Temel Paket",
+          "kalem": "Temel Paket Yıllık Faturası",
+          "durum": "hesaplanan",
+          "alinti": "259,99 TL x 12 = 3.119,88 TL (Kaynak: Temel 259,99 TL)",
+          "aciklama": "Güncel aylık ücret 259,99 TL kaynaklarda doğrulanmıştır ve 12 ile çarpımı 3.119,88 TL yapmaktadır."
+        },
+        {
+          "secenek": "Standart Paket",
+          "kalem": "Standart Paket Yıllık Faturası",
+          "durum": "hesaplanan",
+          "alinti": "389,99 TL x 12 = 4.679,88 TL (Kaynak: Standart 389,99 TL)",
+          "aciklama": "Güncel aylık ücret 389,99 TL kaynaklarda doğrulanmıştır ve 12 ile çarpımı 4.679,88 TL yapmaktadır."
+        },
+        {
+          "secenek": "Premium Paket",
+          "kalem": "Premium Paket Yıllık Faturası",
+          "durum": "hesaplanan",
+          "alinti": "499,99 TL x 12 = 5.999,88 TL (Kaynak: Premium 499,99 TL)",
+          "aciklama": "Güncel aylık ücret 499,99 TL kaynaklarda doğrulanmıştır ve 12 ile çarpımı 5.999,88 TL yapmaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Netflix Türkiye Ekim/Kasım 2026 fiyatları kaynaklarla birebir uyuşmaktadır ve yıllık hesaplamalar doğru formüle edilmiştir."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "Kasım 2026 zamlarıyla Netflix'in yıllık faturası 5.999,88 TL'yi buluyor 💸",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Premium paketin yıllık net toplamını ve güncel Kasım 2026 fiyatını doğrudan vererek anında merak uyandırır."
+      },
+      {
+        "metin": "Kimsenin hesaba katmadığı Netflix zammının yıllık cüzdan faturası nedir?",
+        "teknik": "gizli maliyet",
+        "puan": 85,
+        "gerekce": "Aylık ücretlerin yıllık toplamda ne kadar büyük bir yekün tuttuğunu gizli maliyet vurgusuyla ele alır."
+      },
+      {
+        "metin": "Temel paket mi Premium mu? 1 yıllık Netflix faturası aradaki farkı açıyor 📊",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 80,
+        "gerekce": "Paketler arası ikilem yaratarak izleyicinin kendi tercihini sorgulamasını sağlar."
+      },
+      {
+        "metin": "Aylık ödüyorsun ama Netflix'in yıllık maliyetini hiç hesapladın mı?",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 88,
+        "gerekce": "Aylık küçük görünen ödemelerin yıllık büyük toplamına dikkat çekerek algıyı değiştirir."
+      },
+      {
+        "metin": "%36 zamlanan Netflix'in yıllık toplamı cebinden tam olarak ne götürüyor?",
+        "teknik": "doğrudan soru",
+        "puan": 92,
+        "gerekce": "Güncel %36 zam oranını ve doğrudan soruyu birleştirerek kaydırmayı durdurur."
+      },
+      {
+        "metin": "Maaşımdan artırdığımla Netflix'in yıllık 5.999,88 TL'lik paketini karşılayabilir miyim?",
+        "teknik": "kişisel hesap",
+        "puan": 78,
+        "gerekce": "Bireysel bütçe perspektifinden konuyu ele alarak hedef kitleyle bağ kurar."
+      },
+      {
+        "metin": "Netflix'in 3 farklı paketi: Kasım 2026 güncel yıllık masraf listesi",
+        "teknik": "liste vaadi",
+        "puan": 82,
+        "gerekce": "Tüm paketlerin net listesini sunarak kaydetme eğilimini tetikler."
+      },
+      {
+        "metin": "%36'lık son zamdan sonra Netflix'e yılda kaç para ödeyeceksin?",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 90,
+        "gerekce": "Güncel zam gündemini ve yakın tarihli veri referansını kullanarak aciliyet hissi yaratır."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 9,
+  "taslak": {
+    "hook": "Kasım 2026 zamlarıyla Netflix'in yıllık faturası 5.999,88 TL'yi buluyor 💸",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Netflix'e Yüzde 36 Zam",
+        "metin": "Bunun gerçek maliyetini hesapladık.",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık.",
+        "gorsel": "telefon",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Aylık Etiket Fiyatları",
+        "metin": "Paketler 259,99 TL ile 499,99 TL arasında.",
+        "seslendirme": "Aylık etiket fiyatları beş yüz liraya dayandı.",
+        "gorsel": "para",
+        "efekt": "whoosh",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Temel Paket",
+        "metin": "Yıllık toplam 3.119,88 TL.",
+        "seslendirme": "Temel paket yılda ~3.120 TL.",
+        "gorsel": "telefon",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Standart Paket",
+        "metin": "Yıllık toplam 4.679,88 TL.",
+        "seslendirme": "Standart paket yılda ~4.680 TL.",
+        "gorsel": "telefon",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Premium Paket",
+        "metin": "Yıllık toplam 5.999,88 TL.",
+        "seslendirme": "Premium paket ise tam 5.999,88 TL.",
+        "gorsel": "telefon",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Netflix Yıllık Maliyet Tablosu",
+        "metin": "Paketlerin 1 yıllık toplam gideri.",
+        "seslendirme": "Paketlerin yıllık toplam faturası netleşti.",
+        "gorsel": "para",
+        "efekt": "cink",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Asgari ücretle yaklaşık 3 gün çalışma.",
+        "seslendirme": "Yani asgari ücretle yaklaşık 3 gün çalışma.",
+        "gorsel": "para",
+        "efekt": "darbe",
+        "ton": "kirmizi",
+        "etiket": "Yıllık Fatura",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tasarruf İpucu",
+        "metin": "İhtiyacın olmayan üst paketlere fazla ödeme.",
+        "seslendirme": "Sadece ihtiyacın olan ekran sayısına göre paket seç.",
+        "gorsel": "telefon",
+        "efekt": "whoosh",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Hangi paketi kullanıyorsun?",
+        "metin": "Bu tabloyu kaydet, lazım olacak.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Hangi paketi kullanıyorsun? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım.",
+        "gorsel": "para",
+        "efekt": "cink",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      }
+    ],
+    "caption": "Kasım 2026 zamlarıyla birlikte Netflix Türkiye paketlerinin yıllık cüzdan faturası ortaya çıktı 💸📊\n\nTemel paket 3.119,88 TL, Standart paket 4.679,88 TL ve Premium paket tam 5.999,88 TL'ye ulaşıyor.\n\nSen hangi paketi kullanıyorsun, bu fiyatlara değer mi? Yorumlarda buluşalım 👇\n\nKaynaklar:\nShiftDelete.Net - https://shiftdelete.net/netflix-turkiye-guncel-abonelik-ucretleri-yeni-fiyatlar\nMilli Gazete - https://www.milligazete.com.tr/netflix-uyelik-ucretleri-2026-ne-kadar-en-ucuz-paket-kac-tl-fiyati-ne\n\nKasım 2026 fiyatlarıyla hazırlanmıştır.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "netflix",
+      "zam",
+      "abonelik",
+      "butce"
+    ],
+    "tiktok_aciklama": "Kasım 2026 zamlarıyla Netflix'in 1 yıllık gerçek maliyeti 5.999,88 TL'yi buluyor 💸 Hangi paketi kullanıyorsun?",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "netflix",
+      "zam",
+      "finans"
+    ],
+    "youtube_baslik": "Netflix Aboneliğinin 1 Yıllık Gerçek Maliyeti #9",
+    "youtube_aciklama": "Netflix Türkiye'nin %36 zammı sonrası paketlerin 1 yıllık toplam cüzdan faturasını hesapladık. Kasım 2026 fiyatlarıyla Temel, Standart ve Premium paketlerin yıllık abonelik maliyeti analizi. Gerçek Maliyet #9.\n\nKaynaklar: ShiftDelete.Net, Milli Gazete.",
+    "youtube_etiketler": [
+      "gerçek maliyet",
+      "netflix zam",
+      "netflix fiyatları 2026",
+      "netflix üyelik ücreti",
+      "abonelik maliyeti",
+      "bütçe yönetimi"
+    ],
+    "yorum_sorusu": "Sen hangi Netflix paketini kullanıyorsun? Bu fiyatlara değer mi?",
+    "alt_text": "Netflix Türkiye paketlerinin Kasım 2026 fiyatlarıyla 1 yıllık toplam maliyet tablosu."
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 23,
+      "deger": 18,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 93,
+    "karar": "ONAY",
+    "tutar_mi": "Abonelik zamları herkesin cebini doğrudan etkilediği için yüksek etkileşim alır. Aylık etiket fiyatı yerine 1 yıllık toplam faturayı göstermek tasarruf algısı yaratarak kaydetme ve yorum oranını patlatır.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "bas_mudur": {
+    "puan": 93,
+    "karar": "YAYINLA",
+    "gerekce": "Netflix zamlarının yıllık maliyet hesabı güncel verilere dayanıyor ve hesaplamalar kusursuz. İçerik, hedef kitlenin bütçe hassasiyetine tam olarak hitap ediyor ve marka kurallarımıza eksiksiz uyuyor.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  },
+  "video": "media/generated/20261128-1241-1/video.mp4",
+  "gorseller": [
+    "media/generated/20261128-1241-1/sahne1.jpg"
+  ],
+  "durum": "kuyrukta",
+  "planlanan_zaman": "2026-11-28T21:30:00+03:00",
+  "alt_seri": ""
+}

@@ -1,0 +1,357 @@
+{
+  "id": "20261128-1321-3",
+  "olusturma": "2026-11-28T13:21:58.338283+03:00",
+  "fikir": {
+    "konu": "Samsun Su Zammı ve 4 Kişilik Aile Faturası Maliyeti",
+    "aci": "Suya yapılan zammın hane bütçesine aylık net yansıması",
+    "format": "reel",
+    "veri_ihtiyaci": "Samsun eski ve yeni m3 su fiyatları, 4 kişilik ortalama hane tüketimi (Kasım 2026)",
+    "hedef_duygu": "merak",
+    "neden_simdi": "Samsun'da su tarifelerinin resmi olarak zamlanması",
+    "beklenen_etki": "kaydetme",
+    "hook_bankasi_index": 1,
+    "alt_seri": "",
+    "izleyici": "",
+    "puan": 89
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 59.4,
+        "ikincil": 30.0,
+        "vurgu": 7.2,
+        "yazi": 3.4
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 17,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 8,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 8
+        },
+        "toplam": 89,
+        "karar": "ONAY",
+        "tutar_mi": "Yerel zam haberlerini doğrudan net rakamlarla ve karşılaştırmalı sunması bölgesel kitlede yüksek etkileşim ve kaydetme getirir. Görsel tasarımlar net ve akış vaadini eksiksiz yerine getiriyor.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [
+        "Süre hedef dışında: 32.3 sn (hedef 35-42 sn)"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.0,
+        "ikincil": 29.7,
+        "vurgu": 7.1,
+        "yazi": 3.2
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 17,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 91,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel bir yerel zam haberini net rakamlar ve kaynaklarla doğrudan bütçe perspektifinden ele alıyor. Yerel kitlede yüksek etkileşim ve kaydetme potansiyeli taşıyor.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 95,
+        "gecti": true,
+        "sorunlar": [],
+        "yazim_hatalari": []
+      },
+      "bas_mudur": {
+        "puan": 91,
+        "karar": "YAYINLA",
+        "gerekce": "Video, Samsun'daki su zammını net rakamlar, güvenilir kaynaklar ve hane bütçesi perspektifiyle ele alıyor. Marka kurallarına tam uyum sağlarken hedef kitleye somut bir karşılaştırma sunuyor.",
+        "duzeltmeler": [],
+        "seri_uyumu": true
+      }
+    }
+  ],
+  "veri": {
+    "baslik": "Samsun'da Su Zammı ve 10 m³ Tüketim Maliyeti",
+    "fiyat_tarihi": "Aralık 2026",
+    "hesap_donemi": "1 ay",
+    "secenekler": [
+      {
+        "ad": "Eski Tarife (10 m³)",
+        "kalemler": [
+          {
+            "kalem": "1. Kademe Su Tüketimi (10 m³)",
+            "tutar_tl": 316.6,
+            "aciklama": "10 m³ tüketim x 31,66 TL eski birim fiyat",
+            "kaynak": "İhlas Haber Ajansı (İHA) — https://www.iha.com.tr/samsun-haberleri/samsunda-su-fiyat-tarifesi-guncellendi-522717427",
+            "tahmini": false
+          },
+          {
+            "kalem": "Ek Hizmet / Bakım Bedeli",
+            "tutar_tl": 0.0,
+            "aciklama": "Kaynaklarda yer almadığı için eklenmemiştir",
+            "kaynak": "İhlas Haber Ajansı (İHA) — https://www.iha.com.tr/samsun-haberleri/samsunda-su-fiyat-tarifesi-guncellendi-522717427",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 316.6
+      },
+      {
+        "ad": "Yeni Tarife (10 m³)",
+        "kalemler": [
+          {
+            "kalem": "1. Kademe Su Tüketimi (10 m³)",
+            "tutar_tl": 348.3,
+            "aciklama": "10 m³ tüketim x 34,83 TL yeni birim fiyat",
+            "kaynak": "İhlas Haber Ajansı (İHA) — https://www.iha.com.tr/samsun-haberleri/samsunda-su-fiyat-tarifesi-guncellendi-522717427",
+            "tahmini": false
+          },
+          {
+            "kalem": "Ek Hizmet / Bakım Bedeli",
+            "tutar_tl": 0.0,
+            "aciklama": "Kaynaklarda yer almadığı için eklenmemiştir",
+            "kaynak": "İhlas Haber Ajansı (İHA) — https://www.iha.com.tr/samsun-haberleri/samsunda-su-fiyat-tarifesi-guncellendi-522717427",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 348.3
+      }
+    ],
+    "varsayimlar": [
+      "Karşılaştırma adil olması için her iki tarifede de sabit 10 metreküp aylık tüketim baz alınmıştır.",
+      "Atık su, KDV ve ÇTV gibi ek kalemler resmi kaynak metinlerinde yer almadığı için hesap dışı bırakılmıştır."
+    ],
+    "kaynaklar": [
+      "Samsun Halk Gazetesi - https://www.instagram.com/p/DgQKc45CrjL",
+      "İhlas Haber Ajansı (İHA) - https://www.iha.com.tr/samsun-haberleri/samsunda-su-fiyat-tarifesi-guncellendi-522717427",
+      "Samsun Canlı Haber - https://www.instagram.com/reel/DgP3Jz_MUCi"
+    ],
+    "sonuc": "Samsun'da yapılan su zammıyla birlikte 10 metreküplük baz tüketimin aylık maliyeti 316,60 TL'den 348,30 TL'ye yükselmiştir.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Eski Tarife (10 m³) — TOPLAM 316.60 TL",
+          "kalem": "Su Tektim Bedeli (Eski): 316.60 TL",
+          "durum": "hesaplanan",
+          "alinti": "10 m³ * 31,66 TL = 316,60 TL. Kaynak metin: '31,66 TL olan mesken birinci kademe metreküp ücreti 34,83 TL olarak belirlendi.'",
+          "aciklama": "Eski tarife 1. kademe metreküp ücreti 31,66 TL olup 10 m³ tüketim ile çarpılarak 316,60 TL hesaplanmıştır."
+        },
+        {
+          "secenek": "Yeni Tarife (10 m³) — TOPLAM 348.30 TL",
+          "kalem": "Su Tüketim Bedeli (Yeni): 348.30 TL",
+          "durum": "hesaplanan",
+          "alinti": "10 m³ * 34,83 TL = 348,30 TL. Kaynak metin: '31,66 TL olan mesken birinci kademe metreküp ücreti 34,83 TL olarak belirlendi.'",
+          "aciklama": "Yeni tarife 1. kademe metreküp ücreti 34,83 TL olup 10 m³ tüketim ile çarpılarak 348,30 TL hesaplanmıştır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Samsun SASKİ su tarifesi güncellemeleri ve 10 metreküp tüketim maliyetleri kaynak metinlerle tam uyumludur."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "Samsun'da 10 metreküp su zammından sonra faturaya ne yansıdı? 📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 85,
+        "gerekce": "Yeni tarife toplamını net göstererek merak uyandırır."
+      },
+      {
+        "metin": "Aralık 2026 fiyatlarıyla Samsun'da su faturası kaça çıktı?",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 90,
+        "gerekce": "Güncel tarih ve zam vurgusuyla izleyicinin dikkatini çeker."
+      },
+      {
+        "metin": "Samsun'da eski ve yeni tarife: Su faturası aradaki fark ne?",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 82,
+        "gerekce": "İki tarife arasındaki farkı doğrudan sorgulatır."
+      },
+      {
+        "metin": "10 metreküp su tüketimi Samsun'da cebinden kaç TL alıyor?",
+        "teknik": "kişisel hesap",
+        "puan": 88,
+        "gerekce": "Bireysel tüketim üzerinden bütçe etkisi yaratır."
+      },
+      {
+        "metin": "Samsun'daki su zammı hane bütçesini gerçekten nasıl etkiledi?",
+        "teknik": "doğrudan soru",
+        "puan": 86,
+        "gerekce": "Hedef kitleyi soruyla yakalar."
+      }
+    ],
+    "secilen_index": 1
+  },
+  "seri_no": 10,
+  "taslak": {
+    "hook": "Aralık 2026 fiyatlarıyla Samsun'da su faturası kaça çıktı?",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Aralık 2026 Samsun Su Zammı",
+        "metin": "Bunun gerçek maliyetini hesapladık.",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Eski Tarife Su Bedeli",
+        "metin": "10 metreküp tüketim 316,60 TL idi.",
+        "seslendirme": "Eski tarifede 10 metreküp su 316 lira 60 kuruştu.",
+        "gorsel": "para",
+        "efekt": "whoosh",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Ek Hizmet Bedeli",
+        "metin": "Bakım bedeli 0,00 TL olarak yansıtıldı.",
+        "seslendirme": "Kaynaklarda ek hizmet bedeli yer almıyor.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Yeni Tarife Su Bedeli",
+        "metin": "10 metreküp tüketim 348,30 TL oldu.",
+        "seslendirme": "Yeni tarifeyle 10 metreküp su 348 lira 30 kuruş oldu.",
+        "gorsel": "para",
+        "efekt": "darbe",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Samsun Su Tüketimi Maliyet Değişimi",
+        "metin": "Eski ve yeni tarife karşılaştırması",
+        "seslendirme": "Tarife değişimi faturaya doğrudan yansıdı.",
+        "gorsel": "para",
+        "efekt": "",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Aylık baz tüketim bedeli, yani asgari ücretle yaklaşık 1 saat çalışma.",
+        "seslendirme": "Aylık baz tüketim bedeli, yani asgari ücretle yaklaşık 1 saat çalışma.",
+        "gorsel": "para",
+        "efekt": "cink",
+        "ton": "kirmizi",
+        "etiket": "Aralık 2026",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tasarruf İpucu",
+        "metin": "Su tüketimini gözden geçirebilirsin.",
+        "seslendirme": "Su tüketimini dikkatli şekilde gözden geçirebilirsin.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Samsun'daki bu su zammı bütçenizi ne kadar zorlar?",
+        "metin": "Bu tabloyu kaydet, lazım olacak.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Samsun'daki bu su zammı bütçenizi ne kadar zorlar? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      }
+    ],
+    "caption": "Samsun'da su tarifelerine gelen zammın hane bütçesine aylık net yansımasını hesapladık. Aralık 2026 fiyatlarıyla 10 metreküp baz su tüketimi 316,60 TL'den 348,30 TL'ye yükseldi.\n\nBu tabloyu kaydetmeyi unutma.\n\nSamsun'daki bu su zammı bütçenizi ne kadar zorlar?\n\nKaynaklar:\nSamsun Halk Gazetesi - https://www.instagram.com/p/DgQKc45CrjL\nİhlas Haber Ajansı (İHA) - https://www.iha.com.tr/samsun-haberleri/samsunda-su-fiyat-tarifesi-guncellendi-522717427\nSamsun Canlı Haber - https://www.instagram.com/reel/DgP3Jz_MUCi\nFiyat Tarihi: Aralık 2026",
+    "hashtagler": [
+      "gercekmaliyet",
+      "samsun",
+      "sufaturasi",
+      "zam",
+      "ekonomi"
+    ],
+    "tiktok_aciklama": "Samsun'da su zammı sonrası 10 metreküp suyun gerçek maliyeti ne kadar oldu? Aralık 2026 fiyatlarıyla hesapladık.",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "samsun",
+      "su",
+      "fatura",
+      "ekonomi"
+    ],
+    "youtube_baslik": "Samsun Su Zammı ve 10 m³ Fatura Maliyeti #10",
+    "youtube_aciklama": "Samsun'da güncellenen su tarifelerinin 4 kişilik hane bütçesine aylık yansımasını Aralık 2026 fiyatlarıyla hesapladık. Gerçek Maliyet serisinin 10. bölümü.\n\nKaynaklar: İHA, Samsun Halk Gazetesi, Samsun Canlı Haber.",
+    "youtube_etiketler": [
+      "gercek maliyet",
+      "samsun su zammı",
+      "su faturası",
+      "samsun su fiyatları",
+      "ekonomi",
+      "enflasyon"
+    ],
+    "yorum_sorusu": "Samsun'daki bu su zammı bütçenizi ne kadar zorlar?",
+    "alt_text": "Samsun su zammı maliyet tablosu ve detayları"
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 17,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 91,
+    "karar": "ONAY",
+    "tutar_mi": "Güncel bir yerel zam haberini net rakamlar ve kaynaklarla doğrudan bütçe perspektifinden ele alıyor. Yerel kitlede yüksek etkileşim ve kaydetme potansiyeli taşıyor.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "bas_mudur": {
+    "puan": 91,
+    "karar": "YAYINLA",
+    "gerekce": "Video, Samsun'daki su zammını net rakamlar, güvenilir kaynaklar ve hane bütçesi perspektifiyle ele alıyor. Marka kurallarına tam uyum sağlarken hedef kitleye somut bir karşılaştırma sunuyor.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  },
+  "video": "media/generated/20261128-1321-3/video.mp4",
+  "gorseller": [
+    "media/generated/20261128-1321-3/sahne1.jpg"
+  ],
+  "durum": "kuyrukta",
+  "planlanan_zaman": "2026-11-29T12:30:00+03:00",
+  "alt_seri": ""
+}

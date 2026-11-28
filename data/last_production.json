@@ -1,18 +1,34 @@
 [
   {
-    "id": "20261127-1756-0",
-    "konu": "1 milyon TL mevduat vs altın: 32 günde ne kazandırır?",
+    "id": "20261128-1235-0",
+    "konu": "2027 Yeniden Değerleme Oranı ile Pasaport ve IMEI Kayıt Ücreti",
+    "durum": "kuyrukta",
+    "puan": 95,
+    "zaman": "2026-11-28T18:30:00+03:00",
+    "neden": null
+  },
+  {
+    "id": "20261128-1241-1",
+    "konu": "Netflix Türkiye %36 Zam ve Yıllık Abonelik Maliyeti",
+    "durum": "kuyrukta",
+    "puan": 93,
+    "zaman": "2026-11-28T21:30:00+03:00",
+    "neden": null
+  },
+  {
+    "id": "20261128-1255-2",
+    "konu": "Asgari Ücret ve Türk-İş Eylül 2026 Açlık Sınırı Karşılaştırması",
     "durum": "reddedildi",
     "puan": 0,
     "zaman": null,
     "neden": "4 denemede tüm kontrollerden geçemedi"
   },
   {
-    "id": "20261127-1757-1",
-    "konu": "2027 ÖTV Muafiyetli Araç Limiti ve Modeller",
-    "durum": "onizleme",
-    "puan": 92,
-    "zaman": null,
+    "id": "20261128-1321-3",
+    "konu": "Samsun Su Zammı ve 4 Kişilik Aile Faturası Maliyeti",
+    "durum": "kuyrukta",
+    "puan": 91,
+    "zaman": "2026-11-29T12:30:00+03:00",
     "neden": null
   }
 ]

@@ -1,0 +1,433 @@
+{
+  "id": "20261128-1255-2",
+  "olusturma": "2026-11-28T12:55:13.302741+03:00",
+  "fikir": {
+    "konu": "Asgari Ücret ve Türk-İş Eylül 2026 Açlık Sınırı Karşılaştırması",
+    "aci": "Olası %30 zamlı asgari ücretin açlık sınırına oranı",
+    "format": "reel",
+    "veri_ihtiyaci": "Tahmini net asgari ücret 36.498 TL, açlık sınırı 37.801 TL (Eylül 2026 Türk-İş verisi), aradaki 1.303 TL fark",
+    "hedef_duygu": "gerçekçilik",
+    "neden_simdi": "Asgari ücret tartışmalarının yoğunlaşması",
+    "beklenen_etki": "yorum",
+    "hook_bankasi_index": 26,
+    "alt_seri": "",
+    "izleyici": "",
+    "puan": 92
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 59.5,
+        "ikincil": 30.0,
+        "vurgu": 7.0,
+        "yazi": 3.6
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel ve herkesin konuştuğu bir ekonomik gündem maddesini net rakamlar ve kaynaklarla ele alıyor. Açlık sınırı ile tahmini asgari ücret karşılaştırması yüksek etkileşim ve yorum alacaktır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 70,
+        "gecti": false,
+        "sorunlar": [
+          "Sahne 2: Ekrandaki ücret rakamı 36.498 Lira, tablo verisindeki 36,498.00 TL ile uyuşuyor ancak işveren maliyeti verileri ile toplam hesap karışmış.",
+          "Sahne 5: Tablo toplamı %30 zamlı asgari ücret başlığı altında 88,981 TL olarak verilmiş ancak Net Asgari Ücret (36.498) ve İşveren Maliyeti (52.483) toplamı bu rakamı veriyor. Ancak 'Asgari Ücret ve Açlık Sınırı Karşılaştırması' tablosunda net maaş ile açlık sınırı kıyaslanması gerekirken işveren maliyetinin asgari ücrete eklenerek toplam gösterilmesi mantıksal hata oluşturuyor.",
+          "Sahne 7: Sahne metninde 'Bütçe Planı' ve 'AL.' ibaresi geçiyor ancak kural gereği kesin yatırım/finans tavsiyesi verilmemesi ve 'şunu al' denmemesi gerekiyor, bu durum marka kurallarına aykırı."
+        ],
+        "yazim_hatalari": [
+          "Sahne 6: 'AÇLIK SINIRININ ALTINDA.' ibaresinde 'SINIRININ' kelimesinde Türkçe karakter eksikliği riski var (SINIRININ yerine SINIRININ yazılmış, görselde büyük harf İ sorunu olabilir)."
+        ]
+      }
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 59.5,
+        "ikincil": 29.9,
+        "vurgu": 6.9,
+        "yazi": 3.6
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 23,
+          "deger": 19,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 94,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel asgari ücret ve açlık sınırı tartışmalarını net rakamlar ve kaynaklarla ele aldığı için hedef kitlenin ilgisini çekecektir. Duygu sömürüsü yerine somut veri sunması güven yaratıyor ve yüksek etkileşim getirir.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 45,
+        "gecti": false,
+        "sorunlar": [
+          "Sahne 5: Görseldeki toplam '%30 Zamlı Asgari Ücret' değeri (88.981 TL) tablodaki toplanan veriyle (36.498 TL net + 52.483 TL işveren maliyeti = 88.981 TL) uyumlu görünse de, net maaş ile işveren maliyetinin toplanarak tek bir 'Asgari Ücret' kalemiymiş gibi gösterilmesi finansal ve mantıksal olarak hatalıdır.",
+          "Sahne 6: Ekrandaki 49.877,07 TL fark tutarı ile üstteki 'Fark 1.303,00 TL' çelişmektedir. Tabloya göre açlık sınırı (39.103,93 TL) ile net asgari ücret (36.498 TL) farkı 2.605,93 TL olmalıdır; 49.877,07 TL ise açlık sınırı ile toplam işveren maliyeti veya başka yanlış bir operasyon sonucu çıkmıştır.",
+          "Sahne 7: Metin alanında 'AL.' şeklinde eksik veya anlamsız bir ifade kalmıştır."
+        ],
+        "yazim_hatalari": []
+      }
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 59.9,
+        "ikincil": 29.6,
+        "vurgu": 7.0,
+        "yazi": 3.5
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel ve herkesin konuştuğu bir ekonomik gündem maddesini net kaynaklar ve karşılaştırmalı rakamlarla ele alıyor. Açlık sınırı ile tahmini asgari ücret arasındaki farkı somatik olarak ortaya koyduğu için yüksek etkileşim ve yorum alacaktır.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 45,
+        "gecti": false,
+        "sorunlar": [
+          "Sahne 2: Tabloda '%30 Zamlı Asgari Ücret' toplamı 88.981 TL olarak görünürken, görselde net asgari ücret 36.498 TL yazıyor ancak tablodaki kalemlerin toplamı ile sahnelerdeki gösterim çelişkili ve kafa karıştırıcı.",
+          "Sahne 5: Tabloda 88.981 TL olarak verilen toplam ile sahne içi net/maliyet ayrımları görselde birbirine girmiş, tablo bütünlüğü bozulmuş.",
+          "Sahne 6: Ekrandaki 'Fark 1.303,00 TL' ve '49.877,07 TL' rakamları tablodaki ara toplamlarla ve aradaki farkla uyuşmuyor (tabloda fark 1.303 TL iken devasa 49.877,07 TL yazılmış, matematiksel tutarsızlık var)."
+        ],
+        "yazim_hatalari": [
+          "Sahne 8: 'Sence asgari ücret açlık sınırını kapatabilecek mi?' cümlesinde 'kapatabilecek mi' yerine 'açığını kapatabilecek mi' veya 'geçebilecek mi' daha doğru bir ifade olur ancak en büyük hata tablodaki çelişkili matematiksel rakamlardır."
+        ]
+      }
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 59.8,
+        "ikincil": 29.7,
+        "vurgu": 7.0,
+        "yazi": 3.5
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "Güncel ve en çok merak edilen asgari ücret ile açlık sınırı karşılaştırmasını net rakamlar ve kaynaklarla sunduğu için yüksek etkileşim ve yorum alacaktır. İzleyicinin karar vermesine yardımcı olan somut veriler içeriyor.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 45,
+        "gecti": false,
+        "sorunlar": [
+          "Sahne 5: Görseldeki %30 Zamlı Asgari Ücret 88.981 TL yazıyor ancak tablo verilerine göre net (36.498 TL) ve işveren maliyeti (52.483 TL) toplamı bu tutarı veriyor; grafikte net maaş ile işveren maliyeti toplanarak hatalı bir 'toplam hane halkı geliri' algısı yaratılmış veya etiketleme yanıltıcı.",
+          "Sahne 6: Ekrandaki 'Fark 1.303,00 TL / 49.877,07 TL' ibaresi ile tablo ve diğer sahnelerdeki çelişkiler okunurluğu ve matematiğin tutarlılığını bozuyor."
+        ],
+        "yazim_hatalari": [
+          "Sahne 6: 'AÇLIK SINIRININ ALTINDA.' ifadesinde 'SINIRININ' kelimesi büyük harf kullanımında Türkçe karakter (İ) kuralına uygun yazılmış ancak tasarım genelinde rakam ve para birimi formatlarında (virgül/nokta kullanımı) görsel bazında tutarsızlıklar var."
+        ]
+      }
+    }
+  ],
+  "veri": {
+    "baslik": "Asgari Ücret ve Eylül 2026 Açlık Sınırı Karşılaştırması",
+    "fiyat_tarihi": "Eylül-Ekim 2026",
+    "hesap_donemi": "1 ay",
+    "secenekler": [
+      {
+        "ad": "%30 Zamlı Asgari Ücret",
+        "kalemler": [
+          {
+            "kalem": "Tahmini Net Asgari Ücret",
+            "tutar_tl": 36498.0,
+            "aciklama": "%30 zam senaryosuna göre tahmini net aylık tutar",
+            "kaynak": "https://www.haberturk.com/bilgi/foto/asgari-ucret-ne-kadar-olacak-2027-asgari-ucret-zammi-ne-zaman-aciklanacak-yeni-maas-kac-tl-olacak-iste-yuzde-25-30-ve-35-zam-senaryosu-3929700",
+            "tahmini": true
+          },
+          {
+            "kalem": "İşverene Aylık Maliyet",
+            "tutar_tl": 52483.0,
+            "aciklama": "OVP %28.4 enflasyon senaryosu kapsamındaki öngörülen maliyet",
+            "kaynak": "https://www.birgun.net/haber/asgari-ucret-icin-masadaki-5-rakam-ortaya-cikti-748564",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 88981.0
+      },
+      {
+        "ad": "Eylül 2026 Açlık Sınırı",
+        "kalemler": [
+          {
+            "kalem": "Türk-İş Açlık Sınırı",
+            "tutar_tl": 37800.93,
+            "aciklama": "Eylül 2026 dönemi dört kişilik ailenin sağlıklı beslenme maliyeti",
+            "kaynak": "https://www.hangisendika.com/calisma-hayati/aclik-yoksulluk-siniri",
+            "tahmini": false
+          },
+          {
+            "kalem": "Aradaki Fark (Açlık - Maaş)",
+            "tutar_tl": 1303.0,
+            "aciklama": "Açlık sınırı ile tahmini net asgari ücret arasındaki fark (yuvarlanmış)",
+            "kaynak": "https://www.hangisendika.com/calisma-hayati/aclik-yoksulluk-siniri",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 39103.93
+      }
+    ],
+    "varsayimlar": [
+      "Tahmini net asgari ücret tutarı %30 zam senaryosu üzerinden hesaplanmıştır.",
+      "İşverene maliyet verisi OVP %28.4 enflasyon beklentisi öngörüsüne dayanmaktadır."
+    ],
+    "kaynaklar": [
+      "TÜRK-İŞ ve BİSAM Açlık ve Yoksulluk Sınırı 2026 - https://www.hangisendika.com/calisma-hayati/aclik-yoksulluk-siniri",
+      "Habertürk Asgari Ücret Senaryoları - https://www.haberturk.com/bilgi/foto/asgari-ucret-ne-kadar-olacak-2027-asgari-ucret-zammi-ne-zaman-aciklanacak-yeni-maas-kac-tl-olacak-iste-yuzde-25-30-ve-35-zam-senaryosu-3929700",
+      "BirGün Asgari Ücret Maliyet Haberi - https://www.birgun.net/haber/asgari-ucret-icin-masadaki-5-rakam-ortaya-cikti-748564"
+    ],
+    "sonuc": "Eylül 2026 verilerine göre %30 zamlı tahmini asgari ücret, açlık sınırının 1.303 TL altında kalmaktadır.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Tahmini %30 Zamlı Maaş",
+          "kalem": "Tahmini Net Asgari Ücret",
+          "durum": "tahmini_isaretli",
+          "alinti": "Yüzde 30 zam senaryosuna göre öngörülen net asgari ücret.",
+          "aciklama": "Tabloda tahmini olarak işaretlenmiştir ve varsayımı makuldür."
+        },
+        {
+          "secenek": "Eylül 2026 Açlık Sınırı",
+          "kalem": "Türk-İş Açlık Sınırı",
+          "durum": "kaynakta_var",
+          "alinti": "Açlık Sınırı (4 Kişilik Ailenin Gıda Harcaması) 37.800,93",
+          "aciklama": "Eylül 2026 Türk-İş açlık sınırı kaynak metinde birebir geçmektedir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tablodaki veriler kaynak metinlerle ve Türk-İş Eylül 2026 raporuyla uyumludur."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "%30 zamlı 36.498 TL asgari ücret açlık sınırına yetiyor mu? 📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 85,
+        "gerekce": "Eylül 2026 tahmini rakamlarını doğrudan vererek dikkat çeker."
+      },
+      {
+        "metin": "Kimsenin hesapta görmediği o 1.303 TL'lik açlık farkı… 💸",
+        "teknik": "gizli maliyet",
+        "puan": 88,
+        "gerekce": "Maaş ve açlık sınırı arasındaki net farkı gizli maliyet vurgusuyla sunar."
+      },
+      {
+        "metin": "36.498 TL asgari ücret mi, 37.800 TL açlık sınırı mı? 📊",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 82,
+        "gerekce": "İki kritik Eylül 2026 verisini karşı karşıya getirir."
+      },
+      {
+        "metin": "Asgari ücrete %30 zam yetecek sananlar yanılıyor 📊",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 90,
+        "gerekce": "Yaygın bir beklentiyi güncel veriyle sorgulatır."
+      },
+      {
+        "metin": "%30 zamlı asgari ücret açlık sınırının ne kadar altında? 📊",
+        "teknik": "doğrudan soru",
+        "puan": 86,
+        "gerekce": "İzleyicide merak uyandıran net bir soru sorar."
+      },
+      {
+        "metin": "Eylül 2026 verileriyle: Maaşım açlık sınırına kaç ay dayanır? 💸",
+        "teknik": "kişisel hesap",
+        "puan": 89,
+        "gerekce": "İzleyicinin kendi bütçesiyle bağ kurmasını sağlar."
+      },
+      {
+        "metin": "Asgari ücret ve açlık sınırı: 2 rakam, 1.303 TL açık 📊",
+        "teknik": "liste vaadi",
+        "puan": 84,
+        "gerekce": "Verileri net bir kıyaslama vaadiyle sunar."
+      },
+      {
+        "metin": "Eylül 2026'da zam tartışmaları sürerken asgari ücret nereye gidiyor? 📊",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 92,
+        "gerekce": "Güncel zam gündemiyle doğrudan örtüşür ve en yüksek durdurma gücüne sahiptir."
+      }
+    ],
+    "secilen_index": 7
+  },
+  "seri_no": 10,
+  "taslak": {
+    "hook": "Eylül 2026'da zam tartışmaları sürerken asgari ücret nereye gidiyor?",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "Gerçek Maliyet #10",
+        "metin": "Eylül 2026'da zam tartışmaları sürerken asgari ücret nereye gidiyor?",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık.",
+        "gorsel": "para",
+        "efekt": "whoosh",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Net Asgari Ücret",
+        "metin": "%30 zam senaryosuyla tahmini net asgari ücret 36.498,00 TL",
+        "seslendirme": "Tahmini net asgari ücret 36.498,00 TL.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Açlık Sınırı",
+        "metin": "Eylül 2026 dönemi Türk-İş açlık sınırı 37.800,93 TL",
+        "seslendirme": "Türk-İş açlık sınırı 37.800,93 TL.",
+        "gorsel": "market",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "İşveren Maliyeti",
+        "metin": "OVP beklentisiyle işverene aylık maliyet 52.483,00 TL",
+        "seslendirme": "İşverene aylık maliyet 52.483,00 TL.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Asgari Ücret ve Açlık Sınırı",
+        "metin": "Eylül 2026 verileriyle net maaş ve sınır karşılaştırması",
+        "seslendirme": "Tablo bize net resmi gösteriyor.",
+        "gorsel": "para",
+        "efekt": "cink",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "yani asgari ücretle yaklaşık 53 gün çalışma",
+        "seslendirme": "Eylül 2026 verilerine göre asgari ücret açlık sınırının altında.",
+        "gorsel": "para",
+        "efekt": "kasa",
+        "ton": "kirmizi",
+        "etiket": "Fark 1.303,00 TL",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Bütçe Planı",
+        "metin": "Gelecek dönem harcamalarını bu oranlara göre inceleyebilirsin",
+        "seslendirme": "Gelecek planlarını yaparken bu rakamları dikkate al.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Sence asgari ücret açlık sınırını geçebilecek mi?",
+        "metin": "Eylül 2026 verileri ve tahminler",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Sence asgari ücret açlık sınırını geçebilecek mi? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım.",
+        "gorsel": "para",
+        "efekt": "darbe",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      }
+    ],
+    "caption": "Eylül 2026 verileriyle olası %30 zamlı asgari ücret ve açlık sınırı karşılaştırması. Gerçek maliyeti rakamlarla inceledik.\n\nSence asgari ücret açlık sınırını geçebilecek mi?\n\nKaynaklar:\n- TÜRK-İŞ ve BİSAM Açlık ve Yoksulluk Sınırı 2026 (hangisendika.com)\n- Habertürk Asgari Ücret Senaryoları (haberturk.com)\n- BirGün Asgari Ücret Maliyet Haberi (birgun.net)\n\nFiyat tarihi: Eylül-Ekim 2026. Enflasyon nedeniyle rakamlar değişebilir.",
+    "hashtagler": [
+      "gercekmaliyet",
+      "asgariücret",
+      "açlıksınırı",
+      "ekonomi",
+      "türkiş"
+    ],
+    "tiktok_aciklama": "Olası %30 zamlı asgari ücret açlık sınırının altında kalıyor. Sence bu fark kapanır mı?",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "asgariücret",
+      "ekonomi",
+      "türkiş"
+    ],
+    "youtube_baslik": "Asgari Ücret Açlık Sınırının Ne Kadar Altında? #10",
+    "youtube_aciklama": "Eylül 2026 verileriyle %30 zamlı tahmini asgari ücret ve Türk-İş açlık sınırı karşılaştırması. Gerçek Maliyet serisinin 10. bölümü.\n\nKaynaklar: Türk-İş, Habertürk, BirGün. Eylül-Ekim 2026 fiyatları.",
+    "youtube_etiketler": [
+      "asgari ücret",
+      "açlık sınırı",
+      "türk iş",
+      "ekonomi",
+      "gerçek maliyet",
+      "enflasyon"
+    ],
+    "yorum_sorusu": "Sence asgari ücret açlık sınırını geçebilecek mi?",
+    "alt_text": "Eylül 2026 asgari ücret ve açlık sınırı karşılaştırma tablosu"
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}

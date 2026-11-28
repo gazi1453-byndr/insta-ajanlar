@@ -20,7 +20,7 @@
       "platform_kaniti": "Samsun Halk Gazetesi - https://www.facebook.com/SamsunHedefHalkGazetesi/posts/samsunun-suyuna-zam-geldi-i%C5%9Fte-yeni-fiyat-listesihttpswwwhedefhalkcomsamsunda-su/1576069977876008",
       "veri_ihtiyaci": "Samsun'un eski ve yeni metreküp su fiyatları, ortalama 4 kişilik bir ailenin aylık tüketimi üzerinden fatura karşılaştırması.",
       "format": "reel",
-      "kullanildi": false,
+      "kullanildi": true,
       "kaynak": "gundem",
       "tarih": "2026-11-28T11:51:03.653544+03:00",
       "guncellik": 9,
@@ -124,7 +124,7 @@
       "platform_kaniti": "Paratic - https://paratic.com/vergi-harc-ve-cezalara-yuzde-27-83-zam-2027nin-yeni-ucretleri-belli-oldu",
       "veri_ihtiyaci": "2026 ve 2027 pasaport harçları, IMEI kayıt ücreti, ehliyet ve trafik cezası kıyaslaması",
       "format": "reel",
-      "kullanildi": false,
+      "kullanildi": true,
       "kaynak": "gundem",
       "tarih": "2026-11-28T05:45:02.576598+03:00",
       "guncellik": 10,
@@ -137,7 +137,7 @@
       "platform_kaniti": "Instagram - https://www.instagram.com/p/DgIRQX6qtL-",
       "veri_ihtiyaci": "Eski ve yeni Netflix paket fiyatları (Temel, Standart, Premium), yıllık toplam abonelik maliyeti",
       "format": "reel",
-      "kullanildi": false,
+      "kullanildi": true,
       "kaynak": "gundem",
       "tarih": "2026-11-28T05:45:02.576601+03:00",
       "guncellik": 9,
@@ -331,7 +331,7 @@
       "platform_kaniti": "Evrensel (Türk-İş Eylül 2026 verisi) + asgari ücret zam haberleri (Türkgün 25.11). Türk-İş'in Kasım raporu ay sonunda bekleniyor, yayımlanınca güncelle.",
       "veri_ihtiyaci": "Açlık sınırı 37.801 TL, yoksulluk sınırı 123.130 TL (Eylül 2026, Türk-İş; 4 kişilik aile için olduğu belirtilmeli). %30 zamlı tahmini net 36.498 TL ile kıyasla, fark 1.303 TL. Türk-İş'in Kasım verisi çıkarsa onu kullan. Ton tarafsız kalsın.",
       "format": "reel",
-      "kullanildi": false
+      "kullanildi": true
     },
     {
       "soru": "Asgari ücretli ve İstanbul'da kiracı biri için 2027 bütçesi nasıl olur?",
@@ -459,7 +459,7 @@
       "platform_kaniti": "CNN Türk Finans 18.11.2026 (yıllık %35-42, net getiri yaklaşık 25.300-27.500 TL), Ekonomim. Mevduat-altın karşılaştırması bulunamadı, içerik boşluğu.",
       "veri_ihtiyaci": "Bankaların güncel 32 günlük faiz oranları, stopaj oranı, net getirinin hesabı, aynı dönemde altının gram fiyat değişimi (geçmiş veri, gelecek tahmini değil). Tavsiye verme, geçmiş performansın gelecek getiriyi göstermediğini yaz.",
       "format": "reel",
-      "kullanildi": false
+      "kullanildi": true
     },
     {
       "soru": "Kafe açmak gerçekte kaça mal olur?",

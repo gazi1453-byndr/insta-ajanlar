@@ -1,0 +1,453 @@
+{
+  "id": "20261128-1235-0",
+  "olusturma": "2026-11-28T12:35:41.619683+03:00",
+  "fikir": {
+    "konu": "2027 Yeniden Değerleme Oranı ile Pasaport ve IMEI Kayıt Ücreti",
+    "aci": "%27,83 yeniden değerleme oranının cebe yansıyacak gerçek maliyeti",
+    "format": "reel",
+    "veri_ihtiyaci": "2026 ve 2027 pasaport harçları ile IMEI kayıt ücreti karşılaştırma tablosu, Resmi Gazete tebliği",
+    "hedef_duygu": "şaşkınlık",
+    "neden_simdi": "Resmi Gazete'de yayımlanan %27,83'lük yeni oran",
+    "beklenen_etki": "paylaşma",
+    "hook_bankasi_index": 9,
+    "alt_seri": "İZLEYİCİ SORUSU",
+    "izleyici": "veri_merakcisi",
+    "puan": 98
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [],
+      "renk_dengesi": {
+        "baskin": 60.7,
+        "ikincil": 29.3,
+        "vurgu": 6.9,
+        "yazi": 3.2
+      },
+      "mudur": {
+        "puanlar": {
+          "hook_gucu": 22,
+          "deger": 18,
+          "rakam_dogrulugu": 20,
+          "akis_ve_tutma": 9,
+          "ozgunluk": 9,
+          "platform_metinleri": 5,
+          "gorsel_okunurluk": 9
+        },
+        "toplam": 92,
+        "karar": "ONAY",
+        "tutar_mi": "2027 yılı yeniden değerleme oranı ve güncel harç zamları tam zamanında yakalanmış bir gündem konusu. Rakamların net ve kaynaklı olması izleyicide güven yaratırken yüksek etkileşim getirecektir.",
+        "rakam_hatalari": [],
+        "geri_bildirim": ""
+      },
+      "senkron_kontrolu": [],
+      "ses_denetimi": [],
+      "sanat_yonetmeni": {
+        "puan": 100,
+        "gecti": true,
+        "sorunlar": [],
+        "yazim_hatalari": []
+      },
+      "bas_mudur": {
+        "puan": 95,
+        "karar": "YAYINLA",
+        "gerekce": "İçerik, marka kurallarına, güncel veri gereksinimlerine ve şeffaflık ilkelerine tam olarak uymaktadır. Rakamların kaynakları belirtilmiş ve tahmini değerler açıkça işaretlenmiştir.",
+        "duzeltmeler": [],
+        "seri_uyumu": true
+      }
+    }
+  ],
+  "veri": {
+    "baslik": "2027 Yeniden Değerleme Oranı ile Pasaport ve IMEI Ücretleri",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "Tek Seferlik",
+    "secenekler": [
+      {
+        "ad": "2026 Mevcut Ücretler",
+        "kalemler": [
+          {
+            "kalem": "IMEI Kayıt Ücreti",
+            "tutar_tl": 54258.0,
+            "aciklama": "2026 yılı resmi IMEI kayıt harcı",
+            "kaynak": "Haberturk",
+            "tahmini": false
+          },
+          {
+            "kalem": "6 Aylık Pasaport Harcı",
+            "tutar_tl": 2806.0,
+            "aciklama": "2026 yılı 6 aylık pasaport harcı",
+            "kaynak": "Dünya Gazetesi",
+            "tahmini": false
+          },
+          {
+            "kalem": "1 Yıllık Pasaport Harcı",
+            "tutar_tl": 4103.0,
+            "aciklama": "2026 yılı 1 yıllık pasaport harcı",
+            "kaynak": "Dünya Gazetesi",
+            "tahmini": false
+          },
+          {
+            "kalem": "10 Yıllık Pasaport Harcı",
+            "tutar_tl": 13410.0,
+            "aciklama": "2026 yılı 10 yıllık pasaport harcı",
+            "kaynak": "Dünya Gazetesi",
+            "tahmini": false
+          },
+          {
+            "kalem": "Pasaport Defter Bedeli",
+            "tutar_tl": 1351.0,
+            "aciklama": "2026 yılı pasaport defter bedeli",
+            "kaynak": "Hürriyet",
+            "tahmini": false
+          }
+        ],
+        "toplam_tl": 75928.0
+      },
+      {
+        "ad": "2027 Beklenen Ücretler",
+        "kalemler": [
+          {
+            "kalem": "IMEI Kayıt Ücreti",
+            "tutar_tl": 69358.0,
+            "aciklama": "%27,83 yeniden değerleme oranı ile hesaplanan 2027 tutarı",
+            "kaynak": "Haberturk",
+            "tahmini": true
+          },
+          {
+            "kalem": "6 Aylık Pasaport Harcı",
+            "tutar_tl": 3586.0,
+            "aciklama": "%27,83 yeniden değerleme oranı ile hesaplanan 2027 tutarı",
+            "kaynak": "Dünya Gazetesi",
+            "tahmini": true
+          },
+          {
+            "kalem": "1 Yıllık Pasaport Harcı",
+            "tutar_tl": 5245.0,
+            "aciklama": "%27,83 yeniden değerleme oranı ile hesaplanan 2027 tutarı",
+            "kaynak": "Dünya Gazetesi",
+            "tahmini": true
+          },
+          {
+            "kalem": "10 Yıllık Pasaport Harcı",
+            "tutar_tl": 17142.0,
+            "aciklama": "%27,83 yeniden değerleme oranı ile hesaplanan 2027 tutarı",
+            "kaynak": "Dünya Gazetesi",
+            "tahmini": true
+          },
+          {
+            "kalem": "Pasaport Defter Bedeli",
+            "tutar_tl": 1727.0,
+            "aciklama": "%27,83 yeniden değerleme oranı ile hesaplanan 2027 tutarı",
+            "kaynak": "Hürriyet",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 97058.0
+      }
+    ],
+    "varsayimlar": [
+      "2027 yılı harç ve ücret artışları için %27,83 olan Resmi Gazete yeniden değerleme oranı baz alınmıştır.",
+      "Yurt dışına çıkış harcı 2026 verisi kaynaklarda doğrudan doğrulanamadığı için tabloya dahil edilmemiştir."
+    ],
+    "kaynaklar": [
+      "Haberturk - IMEI Kayıt Ücreti 2027 Belli Oldu (https://www.haberturk.com/bilgi/foto/imei-kayit-ucreti-2027-belli-oldu-yurt-disi-telefon-kayit-harci-zamlandi-2027-imei-kayit-ucreti-ne-kadar-oldu-kac-tl-zam-geldi-3929712)",
+      "Dünya Gazetesi - Yeniden Değerleme Oranı Resmi Gazete'de (https://www.dunya.com/foto-galeri/ekonomi/yeniden-degerleme-orani-resmi-gazetede-2027de-vergi-harc-ve-cezalar-ne-kadar-olacak-galeri-848647)",
+      "Hürriyet - Pasaport Ücretleri 2027 Belli Oldu (https://www.hurriyet.com.tr/bilgi/galeri/pasaport-ucretleri-2027-6-ay-1-2-3-yil-ve-10-yillik-pasaport-ucreti-ne-kadar-olacak-43389247)"
+    ],
+    "sonuc": "%27,83'lük yeniden değerleme oranıyla birlikte 2027'de pasaport ve IMEI kayıt maliyetlerinde yaklaşık %28 oranında artış beklenmektedir.",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "2026 Mevcut Ücretler — TOPLAM 75,928.00 TL",
+          "kalem": "IMEI Kayıt Ücreti: 54,258.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "2026 yılında 54 bin 258 TL olarak uygulanan yurt dışı telefon kayıt harcı",
+          "aciklama": "Kaynak metinde 2026 yılı IMEI kayıt ücreti 54.258,00 TL olarak geçmektedir."
+        },
+        {
+          "secenek": "2026 Mevcut Ücretler — TOPLAM 75,928.00 TL",
+          "kalem": "6 Aylık Pasaport Harcı: 2,806.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "2806 lira",
+          "aciklama": "Kaynak metinde 2026 yılı 6 aylık pasaport harcı 2.806,00 TL olarak belirtilmiştir."
+        },
+        {
+          "secenek": "2026 Mevcut Ücretler — TOPLAM 75,928.00 TL",
+          "kalem": "1 Yıllık Pasaport Harcı: 4,103.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "4 bin 103 liras",
+          "aciklama": "Kaynak metinde 2026 yılı 1 yıllık pasaport harcı 4.103,00 TL olarak belirtilmiştir."
+        },
+        {
+          "secenek": "2026 Mevcut Ücretler — TOPLAM 75,928.00 TL",
+          "kalem": "10 Yıllık Pasaport Harcı: 13,410.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "13 bin 410 lira",
+          "aciklama": "Kaynak metinde 2026 yılı 10 yıllık pasaport harcı 13.410,00 TL olarak belirtilmiştir."
+        },
+        {
+          "secenek": "2026 Mevcut Ücretler — TOPLAM 75,928.00 TL",
+          "kalem": "Pasaport Defter Bedeli: 1,351.00 TL",
+          "durum": "kaynakta_var",
+          "alinti": "Nüfus ve Vatandaşlık İşleri Başkanlığı verilerine göre 2026 yılında pasaport defter bedeli 1.351 TL olarak uygulanıyor.",
+          "aciklama": "Kaynak metinde 2026 yılı pasaport defter bedeli 1.351,00 TL olarak belirtilmiştir."
+        },
+        {
+          "secenek": "2027 Beklenen Ücretler — TOPLAM 97,058.00 TL",
+          "kalem": "IMEI Kayıt Ücreti: 69,358.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "2026 yılında 54 bin 258 TL olan IMEI kayıt ücretinin, 2027 yılında 69 bin 358 TL'ye yükselmesi bekleniyor.",
+          "aciklama": "Yeniden değerleme oranına göre tahmini olarak hesaplandığı belirtilmiş ve tahmini işareti konulmuştur."
+        },
+        {
+          "secenek": "2027 Beklenen Ücretler — TOPLAM 97,058.00 TL",
+          "kalem": "6 Aylık Pasaport Harcı: 3,586.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "6 aylık pasaport harcı: 2 bin 806 liradan 3 bin 586 liraya",
+          "aciklama": "Yeniden değerleme oranına göre beklenen tutar olduğu ve tahmini işareti taşıdığı belirtilmiştir."
+        },
+        {
+          "secenek": "2027 Beklenen Ücretler — TOPLAM 97,058.00 TL",
+          "kalem": "1 Yıllık Pasaport Harcı: 5,245.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "1 yıllık pasaport harcı: 4 bin 103 liradan 5 bin 245 liraya",
+          "aciklama": "Yeniden değerleme oranına göre beklenen tutar olduğu ve tahmini işareti taşıdığı belirtilmiştir."
+        },
+        {
+          "secenek": "2027 Beklenen Ücretler — TOPLAM 97,058.00 TL",
+          "kalem": "10 Yıllık Pasaport Harcı: 17,142.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "10 yıllık pasaport harcı: 13 bin 410 liradan 17 bin 142 liraya",
+          "aciklama": "Yeniden değerleme oranına göre beklenen tutar olduğu ve tahmini işareti taşıdığı belirtilmiştir."
+        },
+        {
+          "secenek": "2027 Beklenen Ücretler — TOPLAM 97,058.00 TL",
+          "kalem": "Pasaport Defter Bedeli: 1,727.00 TL (tahmini)",
+          "durum": "tahmini_isaretli",
+          "alinti": "Bu bedelin de aynı oranda artırılması halinde 2027’de yaklaşık 1.727 TL olması bekleniyor.",
+          "aciklama": "Yeniden değerleme oranına göre beklenen tutar olduğu ve tahmini işareti taşıdığı belirtilmiştir."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tabloda yer alan tüm 2026 mevcut ücretleri ve 2027 beklenen tahmini ücretleri kaynak metinlerle uyumludur, tahmini kalemler uygun şekilde işaretlenmiştir."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "2027'de IMEI ve pasaport 97.058 TL'ye ulaşıyor 📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Kasım 2026 fiyatlarına göre beklenen 2027 toplam maliyetini net bir şekilde vererek şaşırtıyor."
+      },
+      {
+        "metin": "Yeniden değerleme oranıyla gizlenen 97.058 TL'lik fatura…",
+        "teknik": "gizli maliyet",
+        "puan": 90,
+        "gerekce": "Beklenen zam oranının toplam cepten çıkacak rakama etkisine dikkat çekiyor."
+      },
+      {
+        "metin": "6 aylık mı, 10 yıllık pasaport mu? Fark devasa 💸",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 85,
+        "gerekce": "Pasaport süreleri arasındaki maliyet farkını merak uyandırarak soruyor."
+      },
+      {
+        "metin": "Pasaport ve IMEI zammı açıklandı sanıyorsan yanılıyorsun.",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 88,
+        "gerekce": "Tahmini 2027 rakamlarının büyüklüğüne ve bilinmeyen detayına odaklanıyor."
+      },
+      {
+        "metin": "2027'de telefonunu kaydettirmek ve pasaport almak kaça mal olacak?",
+        "teknik": "doğrudan soru",
+        "puan": 92,
+        "gerekce": "İzleyicinin güncel maliyet merakını doğrudan hedefliyor."
+      },
+      {
+        "metin": "Kasım 2026 fiyatlarıyla 75.928 TL olan harçlar 2027'de kaç TL?",
+        "teknik": "kişisel hesap",
+        "puan": 91,
+        "gerekce": "Mevcut ve gelecekteki resmi harç tutarlarını karşılaştırma temeline dayandırıyor."
+      },
+      {
+        "metin": "2027 pasaport ve IMEI ücretlerinde 5 kalem zam kalemi",
+        "teknik": "liste vaadi",
+        "puan": 87,
+        "gerekce": "Tablodaki tüm kalemlerin detayını vadettiği için izleme isteği uyandırıyor."
+      },
+      {
+        "metin": "%27,83'lük yeni oranla 2027 harçları cebini nasıl etkileyecek?",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 96,
+        "gerekce": "Resmi Gazete'deki güncel oran ve zam gündemiyle tam uyumlu ve merak uyandırıcı."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 8,
+  "taslak": {
+    "hook": "2027'de IMEI ve pasaport 97.058 TL'ye ulaşıyor",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "@veri_merakcisi sordu",
+        "metin": "Bunun gerçek maliyetini hesapladık.",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık. Bunu bir takipçimiz sordu.",
+        "gorsel": "telefon",
+        "efekt": "whoosh",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Mevcut 2026 Ücretleri",
+        "metin": "75,928.00 TL toplam harç ödeniyor.",
+        "seslendirme": "2026 yılında toplam 75.928 lira ödeniyordu.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "IMEI Kayıt Ücreti",
+        "metin": "69,358.00 TL (tahmini) oldu.",
+        "seslendirme": "2027'de IMEI kayıt ücreti 69.358 lira.",
+        "gorsel": "telefon",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "10 Yıllık Pasaport Harcı",
+        "metin": "17,142.00 TL (tahmini) seviyesinde.",
+        "seslendirme": "10 yıllık pasaport harcı 17.142 lira.",
+        "gorsel": "ucak",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Pasaport Defter Bedeli",
+        "metin": "1,727.00 TL (tahmini) olarak belirlendi.",
+        "seslendirme": "Defter bedeli ise 1.727 lira oldu.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "2027 Harç Maliyetleri",
+        "metin": "Kasım 2026 fiyatları ve %27,83 zam",
+        "seslendirme": "Kalem kalem tüm beklenen artışlar böyle.",
+        "gorsel": "para",
+        "efekt": "cink",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "Yani asgari ücretle yaklaşık 23 gün çalışma.",
+        "seslendirme": "Yani asgari ücretle yaklaşık 23 gün çalışma.",
+        "gorsel": "para",
+        "efekt": "darbe",
+        "ton": "kirmizi",
+        "etiket": "2027 Toplam Maliyet",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tasarruf İpucu",
+        "metin": "Süreleri kontrol edip erken başvurun.",
+        "seslendirme": "Süreleri kontrol edip erken başvurun.",
+        "gorsel": "telefon",
+        "efekt": "pop",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Yurt dışı telefon kaydı mantıklı mı?",
+        "metin": "Özet tablo: Kaydet, lazım olacak.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Yurt dışı telefon kaydı mantıklı mı? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım.",
+        "gorsel": "telefon",
+        "efekt": "kasa",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      }
+    ],
+    "caption": "2027'de IMEI ve pasaport masrafları ne kadar oluyor? %27,83'lük yeniden değerleme oranı cebe ne yansıtıyor? Hesap yaptık.\n\nBu konuyu sorması için @veri_merakcisi'ne teşekkürler.\n\nTablodaki tüm rakamlar Resmi Gazete ve güncel haber kaynaklarına dayanmaktadır. Kasım 2026 fiyatlarıyla hesaplanmıştır; enflasyonla değişiklik gösterebilir.\n\nKaynaklar:\n- Haberturk (IMEI Kayıt Ücreti 2027)\n- Dünya Gazetesi (Yeniden Değerleme Oranı)\n- Hürriyet (Pasaport Ücretleri 2027)",
+    "hashtagler": [
+      "gercekmaliyet",
+      "imeikayit",
+      "pasaport",
+      "ekonomi",
+      "2027zam"
+    ],
+    "tiktok_aciklama": "2027'de IMEI ve pasaport 97.058 TL'ye ulaşıyor! Yurt dışı telefon kaydı hâlâ mantıklı mı? 💸📊",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "imei",
+      "pasaport",
+      "zam"
+    ],
+    "youtube_baslik": "2027 Pasaport ve IMEI Kayıt Ücreti Gerçek Maliyeti #8",
+    "youtube_aciklama": "2027 yılı yeniden değerleme oranı ile pasaport harçları ve IMEI kayıt ücretinin gerçek maliyetini hesapladık. Kasım 2026 fiyatları ve resmi oranlarla yapılan bu karşılaştırma videoda. Kaynaklar: Haberturk, Dünya Gazetesi, Hürriyet.",
+    "youtube_etiketler": [
+      "gerçek maliyet",
+      "imei kayıt ücreti 2027",
+      "pasaport harcı 2027",
+      "yeniden değerleme oranı",
+      "telefon kayıt ücreti"
+    ],
+    "yorum_sorusu": "Sizce 2027'de IMEI kayıt ücreti bu rakama değer mi?",
+    "alt_text": "2027 yılı IMEI kayıt ve pasaport harçları toplam maliyet tablosu"
+  },
+  "mudur": {
+    "puanlar": {
+      "hook_gucu": 22,
+      "deger": 18,
+      "rakam_dogrulugu": 20,
+      "akis_ve_tutma": 9,
+      "ozgunluk": 9,
+      "platform_metinleri": 5,
+      "gorsel_okunurluk": 9
+    },
+    "toplam": 92,
+    "karar": "ONAY",
+    "tutar_mi": "2027 yılı yeniden değerleme oranı ve güncel harç zamları tam zamanında yakalanmış bir gündem konusu. Rakamların net ve kaynaklı olması izleyicide güven yaratırken yüksek etkileşim getirecektir.",
+    "rakam_hatalari": [],
+    "geri_bildirim": ""
+  },
+  "bas_mudur": {
+    "puan": 95,
+    "karar": "YAYINLA",
+    "gerekce": "İçerik, marka kurallarına, güncel veri gereksinimlerine ve şeffaflık ilkelerine tam olarak uymaktadır. Rakamların kaynakları belirtilmiş ve tahmini değerler açıkça işaretlenmiştir.",
+    "duzeltmeler": [],
+    "seri_uyumu": true
+  },
+  "video": "media/generated/20261128-1235-0/video.mp4",
+  "gorseller": [
+    "media/generated/20261128-1235-0/sahne1.jpg"
+  ],
+  "durum": "kuyrukta",
+  "planlanan_zaman": "2026-11-28T18:30:00+03:00",
+  "alt_seri": "İZLEYİCİ SORUSU"
+}
