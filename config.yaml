@@ -73,8 +73,8 @@ site:
   # ör. kasko: {metin: "Kasko tekliflerini karşılaştır", url: "https://..."}
 
 uretim:
-  gunluk_gonderi: 3            # Günde 3 video
-  paylasim_saatleri: ["12:30", "18:30", "21:30"]  # Türkiye saati (öğle, iş çıkışı, akşam)
+  gunluk_gonderi: 2            # Günde 2 video (sık paylaşım erişimi bölüyor: 28.11 analizi)
+  paylasim_saatleri: ["12:30", "20:30"]  # Türkiye saati; aralar en az 4-5 saat
   format_orani:                # Fikir ajanı bu dağılıma göre format seçer
     reel: 1.0                  # Hepsi video
     carousel: 0.0
