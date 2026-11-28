@@ -24,7 +24,9 @@ def durum() -> None:
           f"Reddedilen: {len(list(REJECTED.glob('*.json')))}")
     for f in q:
         p = read_json(f)
-        print(f"  {p['planlanan_zaman'][:16]}  {p['mudur']['toplam']:>3}/100  {p['fikir']['konu']}")
+        puan = (p.get("mudur") or {}).get("toplam", "—")  # senaryo gönderilerinde müdür/fikir olmayabilir
+        konu = (p.get("fikir") or {}).get("konu") or p.get("konu") or f.stem
+        print(f"  {p.get('planlanan_zaman', '')[:16]}  {puan:>3}/100  {konu}")
     last = read_json(DATA / "last_production.json", [])
     if last:
         print("Son üretim:")

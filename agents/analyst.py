@@ -35,7 +35,7 @@ def run() -> Analysis:
         write_json(f, p)
         posts.append({
             "konu": p["fikir"]["konu"], "format": p["fikir"]["format"], "hook": p["taslak"]["hook"],
-            "yayin": p["yayin_zamani"], "mudur_puani": p["mudur"]["toplam"], "metrikler": p["metrikler"],
+            "yayin": p["yayin_zamani"], "mudur_puani": (p.get("mudur") or {}).get("toplam"), "metrikler": p["metrikler"],
         })
 
     account = ig.account_info()
@@ -43,7 +43,7 @@ def run() -> Analysis:
     hist.append({"tarih": now().isoformat(), **account})
     write_json(DATA / "account_history.json", hist[-120:])
 
-    rejected = [{"konu": read_json(f)["fikir"]["konu"], "neden": read_json(f)["mudur"]["tutar_mi"]}
+    rejected = [{"konu": read_json(f)["fikir"]["konu"], "neden": (read_json(f).get("mudur") or {}).get("tutar_mi", "")}
                 for f in sorted(REJECTED.glob("*.json"))[-15:]]
 
     a = ask(
