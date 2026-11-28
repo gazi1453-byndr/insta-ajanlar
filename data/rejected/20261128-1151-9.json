@@ -1,0 +1,322 @@
+{
+  "id": "20261128-1151-9",
+  "olusturma": "2026-11-28T11:51:03.664550+03:00",
+  "fikir": {
+    "konu": "1 Aralık Akaryakıt ÖTV Zammı Maliyeti",
+    "aci": "Son dakika: Sektör kaynaklarına göre 1 Aralık 2026'da benzine 4.15 TL, motorine 3.60 TL ÖTV zammı bekleniyor.",
+    "format": "reel",
+    "veri_ihtiyaci": "Kasım 2026 sonu mevcut akaryakıt fiyatları, beklenen 4.15 TL ve 3.60 TL zam sonrası 50 litrelik deponun aylık maliyet farkı.",
+    "hedef_duygu": "şaşkınlık",
+    "neden_simdi": "Sektör kaynaklarına göre 1 Aralık 2026'da benzine 4.15 TL, motorine 3.60 TL ÖTV zammı bekleniyor.",
+    "beklenen_etki": "paylaşma",
+    "hook_bankasi_index": -1,
+    "alt_seri": "SON DAKİKA",
+    "izleyici": "",
+    "puan": 95
+  },
+  "kontroller": [
+    {
+      "deneme": 1,
+      "format_grafik_denetimi": [
+        "Sahne 5 (ekran): '60 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 2,
+      "format_grafik_denetimi": [
+        "Sahne 5 (ekran): '60 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 3,
+      "format_grafik_denetimi": [
+        "Sahne 5 (ekran): '60 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    },
+    {
+      "deneme": 4,
+      "format_grafik_denetimi": [
+        "Sahne 5 (ekran): '60 TL' tablodaki hiçbir rakamla eşleşmiyor"
+      ]
+    }
+  ],
+  "veri": {
+    "baslik": "1 Aralık Akaryakıt ÖTV Zammı Depo Maliyeti",
+    "fiyat_tarihi": "Kasım 2026",
+    "hesap_donemi": "1 depo (50 litre)",
+    "secenekler": [
+      {
+        "ad": "Benzin (50 Litre Depo)",
+        "kalemler": [
+          {
+            "kalem": "ÖTV Artış Farkı",
+            "tutar_tl": 207.5,
+            "aciklama": "50 litre x 4.15 TL ÖTV zam tutarı",
+            "kaynak": "Habertürk ve Instagram, https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+            "tahmini": false
+          },
+          {
+            "kalem": "KDV Etkisi",
+            "tutar_tl": 41.5,
+            "aciklama": "ÖTV artışı üzerine yansıyan tahmini KDV etkisi",
+            "kaynak": "Habertürk, https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 249.0
+      },
+      {
+        "ad": "Motorin (50 Litre Depo)",
+        "kalemler": [
+          {
+            "kalem": "ÖTV Artış Farkı",
+            "tutar_tl": 180.0,
+            "aciklama": "50 litre x 3.60 TL ÖTV zam tutarı",
+            "kaynak": "Habertürk ve Instagram, https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+            "tahmini": false
+          },
+          {
+            "kalem": "KDV Etkisi",
+            "tutar_tl": 36.0,
+            "aciklama": "ÖTV artışı üzerine yansıyan tahmini KDV etkisi",
+            "kaynak": "Habertürk, https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+            "tahmini": true
+          }
+        ],
+        "toplam_tl": 216.0
+      }
+    ],
+    "varsayimlar": [
+      "Hesaplamalar 50 litrelik standart bir araç deposu üzerinden yapılmıştır.",
+      "ÖTV artışlarının pompa fiyatına doğrudan yansıyacağı varsayılmıştır.",
+      "KDV etkisi mevcut oranlar üzerinden tahmini olarak eklenmiştir."
+    ],
+    "kaynaklar": [
+      "BirGün - 27 Kasım 2026 Akaryakıt Fiyatları https://www.birgun.net/haber/27-kasim-2026-benzin-motorin-lpg-fiyatlari-indirim-veya-zam-var-mi-guncel-akaryakit-fiyatlari-748749",
+      "Habertürk - 1 Aralık ÖTV Zammı Detayları https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695"
+    ],
+    "sonuc": "1 Aralık 2026 ÖTV zammıyla birlikte 50 litrelik bir deponun maliyeti benzinde 249 TL, motorinde ise 216 TL artıyor 💸📊",
+    "guven": "yuksek"
+  },
+  "kaynak_dogrulama": {
+    "kaynak_dogrulama": {
+      "kalemler": [
+        {
+          "secenek": "Benzin Deposu (50 L)",
+          "kalem": "Benzin ÖTV Zammı Farkı: 207.50 TL",
+          "durum": "hesaplanan",
+          "alinti": "50 * 4.15 = 207.50 — Tahminlere göre akaryakıt ürünlerinde beklenen artış miktarları şöyle: - Benzin: 4 TL 15 kuruş",
+          "aciklama": "50 litre depo için 4.15 TL ÖTV artışı ile hesaplanan tutar doğru çıkmaktadır."
+        },
+        {
+          "secenek": "Motorin Deposu (50 L)",
+          "kalem": "Motorin ÖTV Zammı Farkı: 180.00 TL",
+          "durum": "hesaplanan",
+          "alinti": "50 * 3.60 = 180.00 — Tahminlere göre akaryakıt ürünlerinde beklenen artış miktarları şöyle: - Motorin: 3 TL 60 kuruş",
+          "aciklama": "50 litre depo için 3.60 TL ÖTV artışı ile hesaplanan tutar doğru çıkmaktadır."
+        }
+      ],
+      "tarih_guncel_mi": true,
+      "ozet": "Tablodaki 1 Aralık 2026 ÖTV zammına ilişkin 50 litrelik depo maliyet farkı hesaplamaları kaynak metinlerdeki birim artış fiyatları ile birebir uyuşmaktadır."
+    },
+    "sorunlar": []
+  },
+  "hook_secenekleri": {
+    "hooklar": [
+      {
+        "metin": "1 Aralık ÖTV zammıyla 50 litrelik depo 249 TL daha pahalı 💸📊",
+        "teknik": "şaşırtıcı toplam rakam",
+        "puan": 95,
+        "gerekce": "Kasım 2026 fiyatlarına göre tam toplam maliyeti net şekilde vererek şaşırtır."
+      },
+      {
+        "metin": "ÖTV zammının ardından depoya yansıyan KDV hariç gizli maliyet ne?",
+        "teknik": "gizli maliyet",
+        "puan": 85,
+        "gerekce": "Deponun dolumundaki ekstra yükü merak uyandırarak sorar."
+      },
+      {
+        "metin": "Benzin mi motorin mi? 1 Aralık zammı farkı ne kadar?",
+        "teknik": "A mı B mi ikilemi",
+        "puan": 80,
+        "gerekce": "İki yakıt türü arasındaki farkı merak edenleri çeker."
+      },
+      {
+        "metin": "Zammı sadece pompa fiyatı sandın, yanılıyorsun.",
+        "teknik": "yaygın inanışa karşı çıkmak",
+        "puan": 82,
+        "gerekce": "Bilinen bir yanılgıyı doğrudan hedef alır."
+      },
+      {
+        "metin": "1 Aralık'ta 50 litrelik depo tam kaça dolacak? 📊",
+        "teknik": "doğrudan soru",
+        "puan": 90,
+        "gerekce": "Net bir soruyla izleyicinin anlık maliyeti hesaplamasını sağlar."
+      },
+      {
+        "metin": "Bu artışla tek depoda cebinden giden para tam 249 TL.",
+        "teknik": "kişisel hesap",
+        "puan": 88,
+        "gerekce": "Bireysel bütçeye doğrudan dokunur."
+      },
+      {
+        "metin": "1 Aralık ÖTV zammı: 2 kalem, 2 net rakam.",
+        "teknik": "liste vaadi",
+        "puan": 78,
+        "gerekce": "Hızlıca bilgi almayı vadeder."
+      },
+      {
+        "metin": "1 Aralık'a sayılı gün kala tabelalar değişiyor 📊",
+        "teknik": "zaman baskısı / zam gündemi",
+        "puan": 92,
+        "gerekce": "Yaklaşan tarihle birlikte aciliyet hissi yaratır."
+      }
+    ],
+    "secilen_index": 0
+  },
+  "seri_no": 8,
+  "taslak": {
+    "hook": "1 Aralık ÖTV zammıyla 50 litrelik depo 249 TL daha pahalı",
+    "slaytlar": [
+      {
+        "tur": "metin",
+        "baslik": "SON DAKİKA",
+        "metin": "1 Aralık ÖTV zammıyla 50 litrelik depo 249 TL daha pahalı",
+        "seslendirme": "Bunun gerçek maliyetini hesapladık. Bugün SON DAKİKA günü.",
+        "gorsel": "benzin",
+        "efekt": "whoosh",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Mevcut Durum",
+        "metin": "Kasım 2026 sonu akaryakıt fiyatları",
+        "seslendirme": "Önce Kasım 2026 sonu mevcut fiyatlara bakalım.",
+        "gorsel": "para",
+        "efekt": "",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Benzin ÖTV Farkı",
+        "metin": "50 litre x 4.15 TL ÖTV artışı",
+        "seslendirme": "Benzinde ÖTV artışı 50 litrede 207 lira 50 kuruş.",
+        "gorsel": "benzin",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Benzin KDV Etkisi",
+        "metin": "ÖTV artışı üzerine tahmini KDV etkisi",
+        "seslendirme": "Üzerine eklenen tahmini KDV etkisi 41 lira 50 kuruş.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Motorin ÖTV Farkı",
+        "metin": "50 litre x 3.60 TL ÖTV artışı",
+        "seslendirme": "Motorinde ise ÖTV farkı 180 lira tutuyor.",
+        "gorsel": "benzin",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Motorin KDV Etkisi",
+        "metin": "ÖTV artışı üzerine tahmini KDV etkisi",
+        "seslendirme": "Tahmini KDV etkisi ise 36 lira oluyor.",
+        "gorsel": "para",
+        "efekt": "pop",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "grafik",
+        "baslik": "Depo Başına ÖTV Zammı Maliyeti",
+        "metin": "Kasım 2026 fiyatlarıyla depo maliyet farkı",
+        "seslendirme": "Kalem kalem tablo net bir şekilde ortada.",
+        "gorsel": "",
+        "efekt": "",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "reveal",
+        "baslik": "GERÇEK MALİYET",
+        "metin": "1 Aralık 2026 zammıyla depo maliyeti benzinde 249 TL artıyor, yani asgari ücretle yaklaşık 1 saat çalışma.",
+        "seslendirme": "Yani asgari ücretle yaklaşık 1 saat çalışma.",
+        "gorsel": "para",
+        "efekt": "cink",
+        "ton": "kirmizi",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "metin",
+        "baslik": "Tasarruf İpucu",
+        "metin": "Zam öncesi depo durumunu gözden geçir",
+        "seslendirme": "Zammı kaçırmamak için rotanı şimdiden planla.",
+        "gorsel": "araba",
+        "efekt": "",
+        "ton": "yesil",
+        "etiket": "",
+        "sure": 0.0
+      },
+      {
+        "tur": "sonuc",
+        "baslik": "Sizce bu artış bütçeleri nasıl etkiler?",
+        "metin": "Bu tabloyu kaydet, lazım olacak.",
+        "seslendirme": "Bu tabloyu kaydet, lazım olacak. Sizce bu artış bütçeleri nasıl etkiler? Hangisini hesaplayalım? Yorumlara yaz, seçtiğini biz hesaplayalım.",
+        "gorsel": "",
+        "efekt": "kasa",
+        "ton": "",
+        "etiket": "",
+        "sure": 0.0
+      }
+    ],
+    "caption": "1 Aralık 2026'da beklenen ÖTV zammıyla akaryakıt depoları ne kadar dolacak? Kasım 2026 sonu verileriyle hazırladığımız gerçek maliyet analizi yayında 💸📊\n\nBenzinli 50 litrelik bir depo 249 TL, motorinli depo ise 216 TL daha pahalı hale geliyor. Peki bu artış aylık bütçenizi nasıl etkileyecek?\n\nSizce bu zamlar akaryakıt kullanımını nasıl değiştirecek?\n\nKaynaklar:\nBirGün - 27 Kasım 2026 Akaryakıt Fiyatları\nHabertürk - 1 Aralık ÖTV Zammı Detayları\nFiyat Tarihi: Kasım 2026",
+    "hashtagler": [
+      "gercekmaliyet",
+      "akaryakit",
+      "benzin",
+      "motorin",
+      "zam"
+    ],
+    "tiktok_aciklama": "1 Aralık ÖTV zammıyla akaryakıt deposu kaça dolacak? Gerçek maliyeti hesapladık 💸📊",
+    "tiktok_hashtagler": [
+      "gercekmaliyet",
+      "akaryakit",
+      "benzin",
+      "zam"
+    ],
+    "youtube_baslik": "1 Aralık Akaryakıt ÖTV Zammı: 1 Depo Kaç TL Oldu? Gerçek Maliyet #8",
+    "youtube_aciklama": "1 Aralık 2026 tarihinde beklenilen benzin ve motorin ÖTV zammının 50 litrelik depoya maliyetini hesapladık. Kasım 2026 verileriyle kalem kalem analiz ve detaylar bu videoda. Gerçek Maliyet serisinin 8. bölümü.\n\nKaynaklar: Habertürk, BirGün",
+    "youtube_etiketler": [
+      "akaryakıt zammı",
+      "benzin fiyatları",
+      "motorin fiyatları",
+      "ötv zammı",
+      "gerçek maliyet",
+      "akaryakıt maliyeti"
+    ],
+    "yorum_sorusu": "Sizce bu ÖTV zammı araç kullanım alışkanlıklarınızı nasıl etkileyecek?",
+    "alt_text": "1 Aralık ÖTV zammı akaryakıt maliyeti tablosu ve detayları"
+  },
+  "durum": "reddedildi",
+  "red_nedeni": "4 denemede tüm kontrollerden geçemedi"
+}

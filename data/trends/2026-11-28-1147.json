@@ -1,0 +1,236 @@
+{
+  "tarih": "2026-11-28T11:51:03.652537+03:00",
+  "gundem": {
+    "maddeler": [
+      {
+        "konu": "1 Aralık Akaryakıt ÖTV Zammı Maliyeti",
+        "neden_simdi": "Sektör kaynaklarına göre 1 Aralık 2026'da benzine 4.15 TL, motorine 3.60 TL ÖTV zammı bekleniyor.",
+        "kanit": "Habertürk - https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+        "hook": "1 Aralık'ta akaryakıta geliyor: Depo doldurmanın maliyeti ne kadar artacak?",
+        "veri_ihtiyaci": "Kasım 2026 sonu mevcut akaryakıt fiyatları, beklenen 4.15 TL ve 3.60 TL zam sonrası 50 litrelik deponun aylık maliyet farkı.",
+        "guncellik": 10,
+        "son_dakika": true
+      },
+      {
+        "konu": "Samsun Su Zammı ve Fatura Maliyeti",
+        "neden_simdi": "Samsun'da suya zam yapıldı ve yeni tarifeler Resmi olarak açıklandı.",
+        "kanit": "Samsun Halk Gazetesi - https://www.facebook.com/SamsunHedefHalkGazetesi/posts/samsunun-suyuna-zam-geldi-i%C5%9Fte-yeni-fiyat-listesihttpswwwhedefhalkcomsamsunda-su/1576069977876008",
+        "hook": "Samsun'da suya zam geldi: Aylık su faturası cebe ne kadar yazacak?",
+        "veri_ihtiyaci": "Samsun'un eski ve yeni metreküp su fiyatları, ortalama 4 kişilik bir ailenin aylık tüketimi üzerinden fatura karşılaştırması.",
+        "guncellik": 9,
+        "son_dakika": true
+      },
+      {
+        "konu": "Enerji Desteği ve Elektrik-Doğalgaz Tarifeleri",
+        "neden_simdi": "Bakan Bayraktar, 2026'da elektrik ve doğal gaz desteklerinin 1 trilyon lirayı aşacağını açıkladı.",
+        "kanit": "Sözcü - https://www.sozcu.com.tr/akaryakita-tarihi-zam-geliyor-p384924",
+        "hook": "Devlet desteği olmasa elektrik ve doğal gaz faturamız gerçekte kaç para gelecekti?",
+        "veri_ihtiyaci": "2026 yılı mesken elektrik ve doğal gaz birim fiyatları, devlet sübvansiyon oranı ve gerçek maliyet tutarları.",
+        "guncellik": 8,
+        "son_dakika": false
+      },
+      {
+        "konu": "Kamu Alacakları Tecil Faizi Düşüşü",
+        "neden_simdi": "Kamu alacaklarına uygulanan yıllık tecil faizi yüzde 39'dan yüzde 29'a düşürüldü.",
+        "kanit": "Şok Gazetesi - https://www.sokgazetesi.com.tr/ekonomi/emekli-zamminda-yeni-formul-yas-ve-prim-detayi-dikkat-cekti-211665",
+        "hook": "Vergi borcu olanlar dikkat: Tecil faizinin yüzde 29'a düşmesi borcu nasıl etkiler?",
+        "veri_ihtiyaci": "Yüzde 39 ve yüzde 29 faiz oranları üzerinden örnek bir vergi borcunun aylık ve yıllık maliyet tablosu.",
+        "guncellik": 7,
+        "son_dakika": true
+      },
+      {
+        "konu": "Marmarabirlik Zeytin Alım Fiyatları Maliyeti",
+        "neden_simdi": "2026/2027 zeytin alım fiyatları sofralık, yağlık ve ezmelik olarak açıklandı.",
+        "kanit": "Eşref Şekerli Blog - https://www.esrefsekerli.com/blog/icerik/marmarabirlik-2026-2027-zeytin-alim-fiyatlari",
+        "hook": "Sofralık zeytinin tarladan rafa maliyeti: 2026/2027 fiyatları ne söylüyor?",
+        "veri_ihtiyaci": "Marmarabirlik 55-160 TL arası sofralık, 40 TL yağlık zeytin fiyatları ve geçen yıla göre değişim oranları.",
+        "guncellik": 7,
+        "son_dakika": false
+      },
+      {
+        "konu": "Gelir Vergisi Dilimleri ve Maaş Erimesi",
+        "neden_simdi": "Sendikalar ve siyasiler, yıl içinde artan vergi kesintileri nedeniyle çalışan maaşlarının eridiğini gündeme taşıdı.",
+        "kanit": "Instagram - https://www.instagram.com/reel/DgPlXzOtkyl",
+        "hook": "Yıl sonuna doğru maaşlar neden eriyor? Vergi diliminin cebimize maliyeti nedir?",
+        "veri_ihtiyaci": "Asgari ücretli veya ortalama bir çalışanın yılın ilk ayı ile son ayı arasındaki net maaş farkı ve vergi kesintisi tablosu.",
+        "guncellik": 8,
+        "son_dakika": false
+      },
+      {
+        "konu": "Emekli Zammı Senaryoları ve Bütçe Maliyeti",
+        "neden_simdi": "Beştepe'de emekli zammı için 3 farklı formül ve bütçeye etkisi masaya yatırıldı.",
+        "kanit": "Cumhuriyet - https://www.cumhuriyet.com.tr/ekonomi/2027-emekli-zammi-icin-bestepe-de-kritik-toplanti-masada-3-secenek-var-2559882",
+        "hook": "Masadaki 3 emekli zammı formülü bütçeyi ve enflasyonu nasıl etkileyecek?",
+        "veri_ihtiyaci": "Olası zam oranlarının (refah payı dahil) 2027 yılı ilk yarısında emekli maaşlarına yansıma simülasyonu.",
+        "guncellik": 8,
+        "son_dakika": true
+      },
+      {
+        "konu": "GİB Personel Alımı ve İş Maliyeti",
+        "neden_simdi": "Gelir İdaresi Başkanlığı 138 sözleşmeli personel alımı yapacağını duyurdu.",
+        "kanit": "Haber siteleri / GİB duyurusu",
+        "hook": "Kamuda işe başlamanın bugünkü maliyeti ve getirdiği kariyer/maaş dengesi.",
+        "veri_ihtiyaci": "Kamu personeli taban maaşları, KPSS masrafları ve başvuru süreçlerinin ortalama bütçesi.",
+        "guncellik": 6,
+        "son_dakika": false
+      }
+    ],
+    "ozet": "28 Kasım 2026 itibarıyla Türkiye gündeminde 1 Aralık'ta yapılması beklenen dev akaryakıt zamları, Samsun'daki su zammı ve enerji bütçesi açıklamaları öne çıkıyor. Rakamla konuşulabilecek bu ekonomik gelişmeler, cebe yansıyacak maliyetleri kalem kalem hesaplamayı zorunlu kılıyor."
+  },
+  "google_trends": [
+    {
+      "arama": "ankara elektrik kesintisi",
+      "hacim": "100+",
+      "haberler": [
+        "Ankara’da 28 Kasım 2026 bugün Elektrik Kesintisi! 19 İlçede Elektrikler 8 Saate Kadar Kesilecek",
+        "Ankara’da 28 Kasım elektrik kesintisi: 7 ilçede saatlerce elektrik olmayacak!"
+      ]
+    },
+    {
+      "arama": "luka doncic",
+      "hacim": "100+",
+      "haberler": [
+        "Luka Doncic clashes with Spurs fan after Lakers’ narrow loss",
+        "Ugly Doncic courtside stoush emerges; Aussie's clutch act stuns: NBA Wrap"
+      ]
+    },
+    {
+      "arama": "28 kasım hangi burç",
+      "hacim": "100+",
+      "haberler": [
+        "Günlük Burç Yorumları: 27 Kasım 2026",
+        "Bugün Ay Aslan burcuna geçiyor, 5 burcun talihi dönecek"
+      ]
+    },
+    {
+      "arama": "bulgaristan",
+      "hacim": "200+",
+      "haberler": [
+        "Northern Arizona USC Basketball",
+        "Bengals Commanders Football"
+      ]
+    },
+    {
+      "arama": "asil gök kaç yaşında",
+      "hacim": "500+",
+      "haberler": [
+        "Derya Uluğ'un gelinliği çok konuşulmuştu: Fiyatı ortaya çıktı",
+        "Derya Uluğ ve Asil Gök 10 yıllık aşklarını evlilikle taçlandırdı"
+      ]
+    },
+    {
+      "arama": "kamu personeli",
+      "hacim": "200+",
+      "haberler": [
+        "Gelir İdaresi Başkanlığı 138 sözleşmeli personel alacak",
+        "GİB personel alımı ilanı ile başvuru tarihleri ve branş dağılımı açıklandı!"
+      ]
+    },
+    {
+      "arama": "derya uluğ kaç yaşında",
+      "hacim": "500+",
+      "haberler": [
+        "Derya Uluğ kaç yaşında?",
+        "Derya Uluğ kimdir? Kaç yaşında, nereli? Instagram hesabı var mı?"
+      ]
+    },
+    {
+      "arama": "cristhian mosquera",
+      "hacim": "200+",
+      "haberler": [
+        "Fenerbahçe'den Arsenal'in yıldızı için resmi teklif! İngiliz ekibinden transfere yeşil ışık",
+        "Belözoğlu çok istiyordu! Arsenal'in kulesi adım adım Fener'e"
+      ]
+    },
+    {
+      "arama": "kararname",
+      "hacim": "1000+",
+      "haberler": [
+        "Tolga Şardan | Büyüteç | Foncu valiler merkeze çekildi: WhatsApp grubu yenilendi!",
+        "41 ilin valisi değişti... Kararnamenin şifreleri"
+      ]
+    },
+    {
+      "arama": "oğuzhan hasipoğlu",
+      "hacim": "200+",
+      "haberler": [
+        "KADEMELİ EMEKLİLİK SON DAKİKA 2026 | Kademeli emeklilik ne zaman çıkacak, çıkacak mı? Kademeli (erken) emeklilik tablosu belli oldu mu, emeklilik prim ve gün şartları neler? İşte kademeli emeklilik son gelişmeler!",
+        "Kademeli emeklilik çıkıyor mu, ne zaman çıkacak? Kademeli emeklilikte son durum nedir?"
+      ]
+    }
+  ],
+  "kaynaklar": [
+    {
+      "tur": "haber",
+      "baslik": "Samsun Halk Gazetesi on Facebook: \"#Samsun'un suyuna zam geldi: İşte yeni fiyat listesi... https://www.hedefhalk.com/samsunda-suya-zam-…\"",
+      "url": "https://www.facebook.com/SamsunHedefHalkGazetesi/posts/samsunun-suyuna-zam-geldi-i%C5%9Fte-yeni-fiyat-listesihttpswwwhedefhalkcomsamsunda-su/1576069977876008",
+      "ozet": "Samsun Halk Gazetesi on Facebook: \"#Samsun'un suyuna zam geldi: İşte yeni fiyat listesi... \nSamsun'un suyuna zam geldi: İşte yeni fiyat listesi...\n\n[Image: May be an image of text]\nAuthor: Samsun Halk Gazetesi\nPosted: 2026-11-27T15:22:09+00:00\nShared link: \nLinks: , \nReactions: 7\nComment count: 10\nShares: 0\nPrivacy: Public\nComments\nMetin Aydin: Niye ki suyu nerden getiriyorlarmış yurt dışından alıyorlar suyu galiba allahım suyuna bari zam yapmayın\nArslan Arslan: Dünya da örneği varmı şu faturanı"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Benzin ve motorine zam var mı, mazot ve benzin ne kadar olacak? 28 Kasım 2026 İstanbul, İzmir, Ankara güncel akaryakıt fiyatları - Güncel Haberler - Habertürk",
+      "url": "https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+      "ozet": "Benzin ve motorine çifte zam geliyor, 1 Aralık'ta tabelalar değişiyor: Benzin ve mazota ne kadar zam gelecek?\nAkaryakıt fiyatlarında araç sahiplerini yakından ilgilendiren yeni bir zam beklentisi gündeme geldi. Sektör kaynaklarından edinilen bilgilere göre 1 Aralık 2026 tarihinde benzin ve motorine ÖTV artışı yapılması bekleniyor. Beklenen düzenlemeyle benzinin litre fiyatına 4 lira 15 kuruş, motorinin litre fiyatına ise 3 lira 60 kuruş zam yansıması öngörülüyor. Peki, 1 Aralık'ta benzin ve moto"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Benzin ve motorine dev zam yolda: Tabelalar 1 Aralık'ta değişecek - Son Dakika Ekonomi Haberleri | Cumhuriyet",
+      "url": "https://www.cumhuriyet.com.tr/ekonomi/benzin-ve-motorine-dev-zam-yolda-tabelalar-1-aralik-ta-degisecek-2559899",
+      "ozet": "Benzin ve motorine dev zam yolda: Tabelalar 1 Aralık'ta değişecek\nMilyonlarca araç sahibini ilgilendiren akaryakıt fiyatlarında yeni zam için gözler 1 Aralık Salı gününe çevrildi. Özel Tüketim Vergisi (ÖTV) düzenlemesi kapsamında benzinin litre fiyatına 4 lira 15 kuruş, motorinin litre fiyatına ise 3 lira 60 kuruş zam yapılması bekleniyor.\nBenzin ve motorine dev zam yolda: Tabelalar 1 Aralık'ta değişecek\nZamla birlikte motorinin litre fiyatının yeniden 90 lira seviyesine yaklaşacağı öngörülüyor."
+    },
+    {
+      "tur": "haber",
+      "baslik": "Akaryakıta tarihi zam geliyor! - Sözcü",
+      "url": "https://www.sozcu.com.tr/akaryakita-tarihi-zam-geliyor-p384924",
+      "ozet": "Enerji ve Tabii Kaynaklar Bakanı Alparslan Bayraktar, TBMM Plan ve Bütçe Komisyonu’nda bakanlığının 2027 yılı bütçesine ilişkin konuşmasında, yeni yılda elektrik ve doğal gaz tarifelerinde izlenecek politikaya ilişkin önemli mesajlar verdi.\nBayraktar, 2025 yılında tüm vatandaşlara 655 milyar lira elektrik ve doğal gaz desteği sağladıklarını belirterek, “2026 yılında bu tutarın 1 trilyon lirayı aşmasını öngörüyoruz. Halihazırda meskenlerde kullanılan elektriğin yaklaşık yüzde 55’i, doğal gazın yü"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Samsun Halk Gazetesi on Facebook: \"#Samsun'un suyuna zam geldi: İşte yeni fiyat listesi... https://www.hedefhalk.com/samsunda-suya-zam-…\"",
+      "url": "https://www.facebook.com/SamsunHedefHalkGazetesi/posts/samsunun-suyuna-zam-geldi-i%C5%9Fte-yeni-fiyat-listesihttpswwwhedefhalkcomsamsunda-su/1576069977876008",
+      "ozet": "Samsun Halk Gazetesi on Facebook: \"#Samsun'un suyuna zam geldi: İşte yeni fiyat listesi... \nSamsun'un suyuna zam geldi: İşte yeni fiyat listesi...\n\n[Image: May be an image of text]\nAuthor: Samsun Halk Gazetesi\nPosted: 2026-11-27T15:22:09+00:00\nShared link: \nLinks: , \nReactions: 7\nComment count: 10\nShares: 0\nPrivacy: Public\nComments\nMetin Aydin: Niye ki suyu nerden getiriyorlarmış yurt dışından alıyorlar suyu galiba allahım suyuna bari zam yapmayın\nArslan Arslan: Dünya da örneği varmı şu faturanı"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Marmarabirlik 2026/2027 Zeytin Alım Fiyatları Açıklandı",
+      "url": "https://www.esrefsekerli.com/blog/icerik/marmarabirlik-2026-2027-zeytin-alim-fiyatlari",
+      "ozet": "Marmarabirlik 2026/2027 zeytin alım fiyatları açıklandı. Sofralık 55-160 TL, yağlık 40 TL, ezmelik 50 TL. Ödeme tarihi ve alım detaylarını öğrenin."
+    },
+    {
+      "tur": "haber",
+      "baslik": "Sosyal Güvenlik Kurumu (SGK), Bedeli Ödenecek İlaçlar Listesi'ni güncelledi. 27 Kasım ...",
+      "url": "https://www.instagram.com/p/DgPZQ31uJWX",
+      "ozet": "KAMU İNDİRİM ORANLARI AÇIKLANDI İki ilaç için depocuya satış fiyatı aralıklarına göre yüzde 28, yüzde 18, yüzde 10 ve yüzde 0 olmak üzere farklı kamu indirim"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Ana Sayfa - ADANA TİCARET BORSASI",
+      "url": "https://adanatb.org.tr",
+      "ozet": "Yurtdışı Piyasa Kapanışları (26.11.2026)\n,,\nÜrünler,En Düşük($/Ton),En Yüksek($/Ton)\nNY Pamuk (Aralık 2026),1819,15,1829,16\nCBOT Mısır (Aralık 2026),168,08,173,07\nCBOT Buğday (Aralık 2026),202,20,207,73\nCBOT Soya Fasulyesi (Ocak 2027),451,40,457,05\nCBOT Soya Yağı (Aralık 2026),1270,75,1280,44\nMGEX Buğday (Aralık 2026),230,07,235,69"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Emekli zammında yeni formül! Yaş ve prim detayı dikkat çekti",
+      "url": "https://www.sokgazetesi.com.tr/ekonomi/emekli-zamminda-yeni-formul-yas-ve-prim-detayi-dikkat-cekti-211665",
+      "ozet": "Vergi borcu bulunan vatandaşları ilgilendiren yeni düzenleme Resmi Gazete'de yayımlandı. Kamu alacaklarına uygulanan yıllık tecil faizi yüzde 39'dan yüzde 29'a,"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Sayın Genel Başkanımız Mustafa Destici: 'Vergi dilimi' nedeniyle çalışanların yıl içinde maaşlarının düşmesini adaletli bulmuyoruz.",
+      "url": "https://www.instagram.com/reel/DgPlXzOtkyl",
+      "ozet": "Genel Başkanı Sayın Mustafa Destici, çalışanların maaşlarından yapılan vergi kesintilerine dikkat çekerek gelir vergisi dilimlerine yönelik eleştiride bulundu."
+    },
+    {
+      "tur": "haber",
+      "baslik": "2027 emekli zammı için Beştepe'de kritik toplantı: Masada 3 seçenek var - Son Dakika Ekonomi Haberleri | Cumhuriyet",
+      "url": "https://www.cumhuriyet.com.tr/ekonomi/2027-emekli-zammi-icin-bestepe-de-kritik-toplanti-masada-3-secenek-var-2559882",
+      "ozet": "Milyonlarca emeklinin beklediği maaş iyileştirmesine ilişkin çalışmalar sürerken gözler bugün Beştepe'de yapılacak toplantıya çevrildi. AKP'li Cumhurbaşkanı Recep Tayyip Erdoğan'ın talimatıyla başlatılan çalışmada, emekli aylıklarına yapılabilecek ilave artış seçenekleri ve bütçeye etkileri değerlendirilecek.\nCumhurbaşkanı Yardımcısı Cevdet Yılmaz başkanlığında yapılacak toplantıda ekonomi yönetimi ile AKP yöneticilerinin bir araya gelmesi bekleniyor. Hazine ve Maliye Bakanlığı ile Çalışma ve So"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Emeğimizin karşılığı, yıl ilerledikçe artan vergi kesintileriyle erimemeli! Kamu çalışanlarının alım gücünü korumak, vergi yükünü adil hâle getirmek zorundayız. Talebimiz aç",
+      "url": "https://www.facebook.com/egitimgucusen/videos/eme%C4%9Fimizin-kar%C5%9F%C4%B1l%C4%B1%C4%9F%C4%B1-y%C4%B1l-ilerledik%C3%A7e-artan-vergi-kesintileriyle-erimemeli-kamu-%C3%A7/1687427289447679",
+      "ozet": "Kamu çalışanlarının alım gücünü korumak, vergi yükünü adil hâle getirmek zorundayız. Talebimiz açık: Gelir vergisi oranı yıl boyunca %10 veya altında"
+    }
+  ]
+}
