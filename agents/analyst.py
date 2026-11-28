@@ -31,6 +31,10 @@ def run() -> Analysis:
         p = read_json(f)
         if datetime.fromisoformat(p["yayin_zamani"]) < cutoff:
             continue
+        if not p.get("ig_media_id") and p.get("permalink"):  # kayıt elle tamamlandıysa kimliği permalink'ten bul
+            p["ig_media_id"] = next((m["id"] for m in ig.recent_media(50) if m.get("permalink") == p["permalink"]), None)
+        if not p.get("ig_media_id"):
+            continue
         p["metrikler"] = ig.media_insights(p["ig_media_id"])
         write_json(f, p)
         posts.append({

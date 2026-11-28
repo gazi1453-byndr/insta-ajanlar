@@ -116,6 +116,15 @@ jobs:
               --body "Müdür ajanın onayladığı içerikler. Görselleri **Files changed** sekmesinde görebilirsin. **Merge** = yayın kuyruğuna al, **Close** = iptal."
           else
             git commit -m "ajan: ${{ inputs.komut }} ($(date +%d.%m.%Y\ %H:%M))"
-            git pull --rebase
-            git push
+            # Eşzamanlı çalışan ajanlar (ör. üretim + yayıncı) aynı anda commit atabilir.
+            # Kuyruk klasörü tek dosyayken taşınınca git "klasör yeniden adlandırıldı" sanıp
+            # yeni kuyruk dosyalarını da taşımaya çalışıyordu -> directoryRenames kapalı.
+            # index.html/plan.html üretilen dosyalar: çakışmada bu çalışmanın sürümü alınır.
+            git config merge.directoryRenames false
+            for i in 1 2 3 4 5; do
+              if git pull --rebase -X theirs && git push; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              echo "Push denemesi $i başarısız, tekrar deneniyor"; sleep $((i * 10))
+            done
+            exit 1
           fi
