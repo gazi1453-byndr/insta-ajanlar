@@ -51,6 +51,9 @@ def run(count: int) -> list[Idea]:
     istekler = [r for r in read_json(DATA / "izleyici_istekleri.json", {"istekler": []})["istekler"]
                 if not r.get("kullanildi")]
     istekler = sorted(istekler, key=lambda r: -r.get("sayi", 1))[:10]
+    gercek_kullanicilar = {r.get("kullanici", "").lstrip("@").lower() for r in istekler} - {""}
+    if tema and "İZLEYİCİ" in tema.upper() and not istekler:
+        tema = ""  # gerçek takipçi isteği yoksa izleyici sorusu videosu üretilmez (uydurma takipçi olmasın)
     result = ask(
         AGENT,
         system=(
@@ -67,7 +70,8 @@ def run(count: int) -> list[Idea]:
             f"'{tema}' yaz (haftalık sabit gün: izleyici bu günü bekler). Diğer fikirlerde alt_seri boş kalsın.\n\n"
             f"## Takipçi istekleri (yorumlardan; 'sayi' = kaç kişi istedi)\n{json.dumps(istekler, ensure_ascii=False)}\n"
             "Uygun bir istek varsa en az 1 fikri ondan üret ve izleyici alanına isteyen kullanıcının adını yaz "
-            "(İZLEYİCİ SORUSU gününde ilk fikir mutlaka bir takipçi isteği olsun).\n\n"
+            "(İZLEYİCİ SORUSU gününde ilk fikir mutlaka bir takipçi isteği olsun). Liste boşsa izleyici alanı "
+            "HER fikirde boş kalır; asla kullanıcı adı uydurma.\n\n"
             f"## Araştırma raporu\n{json.dumps(research, ensure_ascii=False)[:9000]}\n\n"
             f"## Geçmiş verilerden öğrenilenler\n{learnings()}\n\n"
             f"## Son paylaşılan/planlanan konular (TEKRARLAMA)\n{json.dumps(_recent_topics(), ensure_ascii=False)}\n\n"
@@ -84,6 +88,11 @@ def run(count: int) -> list[Idea]:
     for i in ranked[1:]:
         if i.alt_seri and i.alt_seri.strip().upper() == tema.upper() and i is not ranked[0]:
             i.alt_seri = ""  # günde tek tema videosu
+    for i in ranked:  # istek listesinde olmayan kullanıcı adı = uydurma takipçi -> temizle
+        if i.izleyici and i.izleyici.lstrip("@").lower() not in gercek_kullanicilar:
+            i.izleyici = ""
+            if "İZLEYİCİ" in i.alt_seri.upper():
+                i.alt_seri = ""
     ideas = ranked[:count]
     for idea in ideas:  # kullanılan hook'ları işaretle
         if 0 <= idea.hook_bankasi_index < len(bank.get("hooklar", [])):
