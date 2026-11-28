@@ -38,7 +38,7 @@ def run() -> Analysis:
         p["metrikler"] = ig.media_insights(p["ig_media_id"])
         write_json(f, p)
         posts.append({
-            "konu": p["fikir"]["konu"], "format": p["fikir"]["format"], "hook": p["taslak"]["hook"],
+            "konu": p["fikir"]["konu"], "format": p["fikir"].get("format", "reel"), "hook": p["taslak"].get("hook", ""),,
             "yayin": p["yayin_zamani"], "mudur_puani": (p.get("mudur") or {}).get("toplam"), "metrikler": p["metrikler"],
         })
 
