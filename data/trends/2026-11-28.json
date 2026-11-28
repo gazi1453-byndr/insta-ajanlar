@@ -1,0 +1,332 @@
+{
+  "tarih": "2026-11-28T05:45:02.575652+03:00",
+  "gundem": {
+    "maddeler": [
+      {
+        "konu": "Akaryakıta 1 Aralık'ta Gelecek ÖTV Zammı",
+        "neden_simdi": "1 Aralık 2026'da benzine 4,15 TL, motorine 3,60 TL ÖTV zammı bekleniyor.",
+        "kanit": "Habertürk - https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+        "hook": "1 Aralık'ta benzin ve motorine dev ÖTV zammı geliyor, cebe maliyeti ne?",
+        "veri_ihtiyaci": "Mevcut akaryakıt litre fiyatları, ÖTV zammı sonrası oluşacak yeni pompa fiyatı, aylık depo doldurma maliyeti",
+        "guncellik": 10,
+        "son_dakika": true
+      },
+      {
+        "konu": "2027 Yılı Yeniden Değerleme Oranı ve Yeni Harçlar",
+        "neden_simdi": "Resmi Gazete'de yayımlanan tebliğe göre 2027 yeniden değerleme oranı %27,83 oldu.",
+        "kanit": "Paratic - https://paratic.com/vergi-harc-ve-cezalara-yuzde-27-83-zam-2027nin-yeni-ucretleri-belli-oldu",
+        "hook": "%27,83 yeniden değerleme resmişti: Pasaport ve IMEI kayıt ücreti ne kadar oldu?",
+        "veri_ihtiyaci": "2026 ve 2027 pasaport harçları, IMEI kayıt ücreti, ehliyet ve trafik cezası kıyaslaması",
+        "guncellik": 10,
+        "son_dakika": true
+      },
+      {
+        "konu": "Netflix Türkiye Abonelik Fiyatlarına %36 Zam",
+        "neden_simdi": "Netflix Türkiye, temel, standart ve premium paket fiyatlarını %36 oranında artırdı.",
+        "kanit": "Instagram - https://www.instagram.com/p/DgIRQX6qtL-",
+        "hook": "Netflix %36 zam yaptı! Güncel paket fiyatları cebini nasıl etkileyecek?",
+        "veri_ihtiyaci": "Eski ve yeni Netflix paket fiyatları (Temel, Standart, Premium), yıllık toplam abonelik maliyeti",
+        "guncellik": 9,
+        "son_dakika": true
+      },
+      {
+        "konu": "Fiat Grizzly ve Fastback Türkiye Lansman Fiyatları",
+        "neden_simdi": "Fiat'ın yeni C SUV modeli Grizzly ve Fastback Türkiye'de satışa sunuldu.",
+        "kanit": "Ensonhaber - https://www.ensonhaber.com/fiat-grizzly-ve-fastback-turkiye-fiyatlari-aciklandi-iste-lansmana-ozel-fiyat-listesi-h1585154",
+        "hook": "Fiat'ın yeni SUV modeli Grizzly 1.499.000 TL'den başlayan fiyatlarla çıktı!",
+        "veri_ihtiyaci": "Grizzly ve Fastback donanım paketleri lansman fiyatları, motor seçenekleri (benzinli/hibrit)",
+        "guncellik": 8,
+        "son_dakika": false
+      },
+      {
+        "konu": "Altın Fiyatlarında Son Durum (Gram ve Çeyrek)",
+        "neden_simdi": "Ons altındaki toparlanmayla birlikte gram ve çeyrek altın fiyatları yeniden hareketlendi.",
+        "kanit": "Cumhuriyet - https://www.cumhuriyet.com.tr/ekonomi/altin-fiyatlarinda-surpriz-yukselis-gram-ceyrek-ve-cumhuriyet-altini-bugun-ne-kadar-oldu-guncel-altin-fiyatlari-27-kasim-2026-cuma-2559824",
+        "hook": "Gram altın 5.900 TL'yi aştı! Biriken paran erimesin diye hesap yap.",
+        "veri_ihtiyaci": "Güncel gram altın, çeyrek altın ve Cumhuriyet altını satış fiyatları, ons altın seviyesi",
+        "guncellik": 8,
+        "son_dakika": false
+      },
+      {
+        "konu": "Samsun Su Tarifesine Zam",
+        "neden_simdi": "Samsun'da içme suyu tarifelerine yeni bir zam yapıldı ve fiyat listesi güncellendi.",
+        "kanit": "Hedef Halk Gazetesi - https://www.facebook.com/SamsunHedefHalkGazetesi/posts/samsunun-suyuna-zam-geldi-i%C5%9Fte-yeni-fiyat-listesihttpswwwhedefhalkcomsamsunda-su/1576069977876008",
+        "hook": "Samsun'da suya zam geldi: Aylık su faturası bütçeyi nasıl etkileyecek?",
+        "veri_ihtiyaci": "Samsun'da metreküp başına düşen eski ve yeni su fiyatları, ortalama hane faturası",
+        "guncellik": 7,
+        "son_dakika": false
+      },
+      {
+        "konu": "Euro ve Döviz Kurundaki Güncel Seviyeler",
+        "neden_simdi": "Serbest piyasada Euro kuru 55,80 TL seviyelerinde işlem görmeye devam ediyor.",
+        "kanit": "Canlı Döviz - https://canlidoviz.com/doviz-kurlari/euro",
+        "hook": "Euro 55 TL'yi geçti: İthal ürünlerin gerçek maliyeti nasıl değişti?",
+        "veri_ihtiyaci": "Euro ve Dolar serbest piyasa alış/satış rakamları",
+        "guncellik": 7,
+        "son_dakika": false
+      },
+      {
+        "konu": "Bitcoin'de Sert Düşüş ve Kripto Piyasası",
+        "neden_simdi": "Bitcoin bir ayda %29 değer kaybederek 2026'nın dip seviyelerini test ediyor.",
+        "kanit": "YouTube - https://www.youtube.com/watch?v=jujSdA59ACY",
+        "hook": "Bitcoin %29 eridi: Düşüşün cebe maliyeti ve makro nedenleri neler?",
+        "veri_ihtiyaci": "Bitcoin'in aylık değişim yüzdesi, kritik destek seviyeleri (49k-55k dolar bandı)",
+        "guncellik": 6,
+        "son_dakika": false
+      }
+    ],
+    "ozet": "28 Kasım 2026 itibarıyla Türkiye gündemi, 1 Aralık'ta devreye girecek akaryakıt ÖTV zamları, yeniden değerleme oranının %27,83 olarak kesinleşmesi ve Netflix'in %36'lık abonelik artışıyla sarsılıyor. Enflasyon ve vergi güncellemeleri, araç sahipliğinden pasaport harçlarına kadar tüm bütçe hesaplarını baştan yazmayı zorunlu kılıyor."
+  },
+  "google_trends": [
+    {
+      "arama": "bronson reed",
+      "hacim": "100+",
+      "haberler": [
+        "Jermaine Haley, also known as Bronson Reed, passes away",
+        "Samoan Wrestler Bronson Reed Tragically Dies at Age 38"
+      ]
+    },
+    {
+      "arama": "columbus - inter miami",
+      "hacim": "500+",
+      "haberler": [
+        "Talking Tactics: Long balls, intricate passing and exploiting space - how Laurent Courtois' Columbus Crew dismantled Lionel Messi's Inter Miami",
+        "MLS: Inter Miami CF at Columbus Crew SC"
+      ]
+    },
+    {
+      "arama": "çağatay ulusoy",
+      "hacim": "100+",
+      "haberler": [
+        "Efsanevi Karakterin Geçmişine Yolculuk Başlıyor: Çağatay Ulusoy Başrollü \"Eşref Tek\"ten İlk Teaser Geldi!",
+        "Kumarhanede Çalışıyormuş: Eşref Tek'in Geçmişine Dair Detay Ortaya Çıktı"
+      ]
+    },
+    {
+      "arama": "epstein",
+      "hacim": "100+",
+      "haberler": [
+        "U.K. Releases Files on Peter Mandelson, Ambassador Tied to Jeffrey Epstein",
+        "Mandelson tried to set up meeting between Trump adviser and lobbying firm he held shares in"
+      ]
+    },
+    {
+      "arama": "cnn canlı",
+      "hacim": "200+",
+      "haberler": [
+        "Ekonomi ve siyaset gündemi- 27 Kasım 2026",
+        "27 Kasım 2026 Cuma gününün son dakika önemli gelişmeleri! (CNN TÜRK 16.30 bülteni)"
+      ]
+    },
+    {
+      "arama": "cnn türk",
+      "hacim": "10000+",
+      "haberler": [
+        "TAŞACAK BU DENİZ ADİL KOÇARİ ÖLDÜ MÜ? Ulaş Tuna Astepe Diziden Ayrılıyor Mu? TRT 1 Taşacak Bu Deniz 40. Bölüm Ne Zaman?",
+        "Taşacak Bu Deniz 28 Kasım 2026 - Saat Kaçta Başlıyor? - TV Rehberi"
+      ]
+    },
+    {
+      "arama": "john wick",
+      "hacim": "100+",
+      "haberler": [
+        "Giancarlo Esposito Gets His Own John Wick In Epic New Action Thriller, The Venetian",
+        "Forget John Wick, Amazon's New Near-Perfect Assassin Action Thriller Sets Streaming Date"
+      ]
+    },
+    {
+      "arama": "cnn türk canlı yayın",
+      "hacim": "1000+",
+      "haberler": [
+        "Trabzonspor'da Thomas Reis, 35 yıl sonra ilki başardı",
+        "Muhammed Salah, Trabzonspor'a hayat veriyor"
+      ]
+    },
+    {
+      "arama": "akaryakıt ötv zammı",
+      "hacim": "5000+",
+      "haberler": [
+        "Benzin ve motorine dev zam yolda: Tabelalar 1 Aralık'ta değişecek",
+        "MOTORİNE (MAZOTA) İNDİRİM 26 KASIM 2026 ⛽ || Akaryakıt tabelaları değişti! Mazota ne kadar indirim geldi? Benzine indirim ya da zam var mı?"
+      ]
+    },
+    {
+      "arama": "uyap",
+      "hacim": "1000+",
+      "haberler": [
+        "Ekrem İmamoğlu, Cumhuriyet’e konuştu: '28 aylık Demokrasi Seferberliği ilan edelim, gerisi kolay!'",
+        "İmamoğlu adaylık, İBB davası ve fon krizine dair neler söyledi?"
+      ]
+    }
+  ],
+  "kaynaklar": [
+    {
+      "tur": "haber",
+      "baslik": "#Samsun'un suyuna zam geldi: İşte yeni fiyat listesi...",
+      "url": "https://www.facebook.com/SamsunHedefHalkGazetesi/posts/samsunun-suyuna-zam-geldi-i%C5%9Fte-yeni-fiyat-listesihttpswwwhedefhalkcomsamsunda-su/1576069977876008",
+      "ozet": "Samsun'un suyuna zam geldi: İşte yeni fiyat listesi... https://www.hedefhalk.com/samsunda-suya-zam-geldi-iste-guncel-fiyatlar/1836604."
+    },
+    {
+      "tur": "haber",
+      "baslik": "Benzin ve motorine zam var mı, mazot ve benzin ne kadar olacak? 28 Kasım 2026 İstanbul, İzmir, Ankara güncel akaryakıt fiyatları - Güncel Haberler - Habertürk",
+      "url": "https://www.haberturk.com/bilgi/foto/benzin-ve-motorine-cifte-zam-geliyor-1-aralik-ta-tabelalar-degisiyor-benzin-ve-motorin-ne-kadar-olacak-3930695",
+      "ozet": "Benzin ve motorine çifte zam geliyor, 1 Aralık'ta tabelalar değişiyor: Benzin ve mazota ne kadar zam gelecek?\nAkaryakıt fiyatlarında araç sahiplerini yakından ilgilendiren yeni bir zam beklentisi gündeme geldi. Sektör kaynaklarından edinilen bilgilere göre 1 Aralık 2026 tarihinde benzin ve motorine ÖTV artışı yapılması bekleniyor. Beklenen düzenlemeyle benzinin litre fiyatına 4 lira 15 kuruş, motorinin litre fiyatına ise 3 lira 60 kuruş zam yansıması öngörülüyor. Peki, 1 Aralık'ta benzin ve moto"
+    },
+    {
+      "tur": "haber",
+      "baslik": "İndirimden sonra zam kapıda Akaryakıt fiyatlarında araç sahiplerini ilgilendiren yeni bir değişiklik gündemde. Uluslararası piyasalardaki düşüş nedeniyle perşembe günü benz",
+      "url": "https://www.instagram.com/p/DgJ7pH2HO0U",
+      "ozet": "Kulislerdeki hesaplamalara göre, 1 Aralık'ta benzinin litre fiyatına yaklaşık 4,15 TL, motorinin litre fiyatına ise 3,60 TL zam yansıması bekleniyor. Nihai zam"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Akaryakıtta önce indirim sonra zam yolda: Benzin ve motorin fiyatları yeniden değişiyor - Son Dakika Ekonomi Haberleri | Cumhuriyet",
+      "url": "https://www.cumhuriyet.com.tr/ekonomi/akaryakitta-once-indirim-sonra-zam-yolda-benzin-ve-motorin-fiyatlari-yeniden-degisiyor-2558996",
+      "ozet": "Akaryakıt piyasasında küresel ürün fiyatlarındaki hareketlilik ve vergi düzenlemesi, benzin ve motorin fiyatlarını yeniden gündeme taşıdı. Uluslararası piyasalarda benzin ve motorinin ton fiyatlarında yaşanan gerilemenin perşembe günü pompa fiyatlarına indirim olarak yansıması bekleniyor. Ancak 1 Aralık'ta yürürlüğe girecek Özel Tüketim Vergisi (ÖTV) güncellemesiyle birlikte akaryakıt fiyatlarında yeniden artış yaşanacağı öngörülüyor.\nSektör kaynakları ve gazeteci Olcay Aydilek'in paylaştığı kul"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Fiat Grizzly ve Fastback Türkiye fiyatları açıklandı!: İşte lansmana özel fiyat listesi - Ensonhaber",
+      "url": "https://www.ensonhaber.com/fiat-grizzly-ve-fastback-turkiye-fiyatlari-aciklandi-iste-lansmana-ozel-fiyat-listesi-h1585154",
+      "ozet": "Fiat Grizzly ve Fastback Türkiye fiyatları açıklandı!: İşte lansmana özel fiyat listesi\nFiat'ın Türkiye'de merakla beklenen yeni modelleri Grizzly ve Fastback, 1 milyon 499 bin TL'den başlayan lansmana özel fiyatlarla satışa sunuldu.\nFiat Grizzly ve Fastback Türkiye fiyatları açıklandı!: İşte lansmana özel fiyat listesi\nFiat, yeni Grizzly ve Fastback modellerinin Türkiye fiyatlarını 23 Kasım'da resmen duyurdu. Lansmana özel fiyatlar Fastback için 1 milyon 499 bin TL'den, Grizzly için ise 1 milyo"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Fiat Grizzly ve Grizzly Fastback Türkiye fiyat listesi belli oldu! - Otomobil Haberleri",
+      "url": "https://www.milliyet.com.tr/otomobil/fiat-grizzly-ve-grizzly-fastback-turkiye-fiyat-listesi-belli-oldu-7706204",
+      "ozet": "23.11.2026 - 15:45 | Son Güncellenme:\nHABER MERKEZİ\nFiat'ın yeni modeli Grizzly ve Grizzly Fastback modellerinin Türkiye fiyatları açıklandı. 24 Kasım'da Fiat Shoowroomları'nda satışa sunulacak Grizzly modeli ile C SUV segmentine iddialı bir giriş yapan modelin 1.2 Turbo 100 HP Icon donanıma sahip aracın lansman fiyatı 1.499.000 TL, La Prima donanıma sahip aracın lansman fiyatı ise 1.599 TL olacak.\n1.2 MHEC eDCT 145 HP Icon donanıma sahip aracın lansman fiyatı 1.819.000 TL, La Prima donanıma sah"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Yeni Fiat Grizzly ve Fastback'in Türkiye Fiyatları Açıklandı - Webtekno – Güncel Teknoloji Haberleri ve Video İncelemeleri",
+      "url": "https://www.webtekno.com/yeni-fiat-grizzly-ve-fastback-turkiye-fiyatlari-h229315.html",
+      "ozet": "Fiat'ın Türkiye pazarında merakla beklenen yeni Grizzly ve Fastback modellerinin teknik özellikleri ile lansmana özel satış fiyatları açıklandı.\nHem içten yanmalı hem de hibrit motor seçenekleriyle satışa sunulan modellerin, 2027 yılının ikinci yarısında tamamen elektrikli versiyonunun da yollara çıkacağı duyuruldu.\nMotor seçenekleri ve teknik özellikler\nPaylaşılan teknik verilere göre modeller ilk etapta iki farklı motor alternatifiyle kullanıcıların karşısına çıkıyor:\n1.2L Turbo Benzinli Manue"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Vergi, harç ve cezalara yüzde 27,83 zam resmileşti: İşte 2027'nin yeni ücretleri | Paratic",
+      "url": "https://paratic.com/vergi-harc-ve-cezalara-yuzde-27-83-zam-2027nin-yeni-ucretleri-belli-oldu",
+      "ozet": "Vergi, harç ve cezalara yüzde 27,83 zam resmileşti: İşte 2027’nin yeni ücretleri Google Haberler Logo\n2027 yılında uygulanacak vergi, harç ve bazı idari para cezalarının hesaplanmasında esas alınacak yeniden değerleme oranı kesinleşti. Hazine ve Maliye Bakanlığı Gelir İdaresi Başkanlığı tarafından hazırlanan Vergi Usul Kanunu Genel Tebliği, 24 Kasım 2026 tarihli Resmî Gazete’de yayımlandı.\nEkonomi Haberleri fiyatlar üzerinde direkt etkili. Fiyat Beklentini Değerlendir. Ücretsiz (FOREX) Deneme He"
+    },
+    {
+      "tur": "haber",
+      "baslik": "2027 vergi ve harç tarifesi güncellendi: İşte kalem kalem yeni rakamlar - Haber 7 EKONOMİ",
+      "url": "https://m.haber7.com/ekonomi/haber/3679458-2027-vergi-ve-harc-tarifesi-guncellendi-iste-kalem-kalem-yeni-rakamlar",
+      "ozet": "2027 vergi ve harç tarifesi güncellendi: İşte kalem kalem yeni rakamlar\nResmi Gazete'de yayımlanan Vergi Usul Kanunu Genel Tebliği ile 2027 yeniden değerleme oranı yüzde 27,83 olarak kesinleşti. Yeni yılda 10 yıllık pasaport harcı 17 bin 142 TL'ye, IMEI kayıt ücreti ise 69 bin 358 TL'ye çıkıyor.\nBizi Takip Edin 2027 vergi ve harç tarifesi güncellendi: İşte kalem kalem yeni rakamlar\nHazine ve Maliye Bakanlığı tarafından hazırlanan Vergi Usul Kanunu Genel Tebliği, Resmi Gazete'de yayımlanarak yürü"
+    },
+    {
+      "tur": "haber",
+      "baslik": "2027 zamları belli oldu! İşte yeni vergi, harç ve cezalar - Samsun Haber - Samsun Gazetesi",
+      "url": "https://www.samsungazetesi.com/milyonlari-ilgilendiriyor-tum-hesaplar-bir-gecede-sil-bastan-degisti",
+      "ozet": "Milyonlarca vatandaşı doğrudan ilgilendiren 2027 yılı yeniden değerleme oranı yüzde 27,83 olarak açıklandı. Hazine ve Maliye Bakanlığı Gelir İdaresi Başkanlığı tarafından hazırlanan Vergi Usul Kanunu Genel Tebliği, Resmi Gazete'de yayımlandı. Yeni yılda pasaport harçlarından trafik cezalarına, IMEI kayıt ücretinden yurt dışına çıkış harcına kadar birçok kalemde artış yaşanacak.\nYENİDEN DEĞERLEME ORANI YÜZDE 27,83 OLDU\n2027 yılında uygulanacak vergi, harç ve cezaları belirleyen yeniden değerleme "
+    },
+    {
+      "tur": "haber",
+      "baslik": "Yeniden Değerleme Oranı %27,83; 2027’de Hangi Vergi ve Harçlar Artacak? | Investing.com",
+      "url": "https://tr.investing.com/analysis/yeniden-degerleme-oran-2783-2027de-hangi-vergi-ve-harclar-artacak-200507257",
+      "ozet": "On yıllık pasaport harcı bugün 13.410,40 lira. 2027’de yüzde 27,83’lük yeniden değerleme oranı aynen uygulanırsa bu tutar yaklaşık 17.143 liraya çıkacak. Pasaportun defter bedeli ayrı hesaplanacak. Araç sahipleri içinse geçen yıl farklı bir artış oranı belirlendiği için gözler yeni motorlu taşıtlar vergisi tarifesinde.  \n24 Kasım’da Resmî Gazete’de yayımlanan 599 sıra numaralı tebliğ, 2026 yeniden değerleme oranını yüzde 27,83 olarak ilan etti. Bu oran, 2027’de ödenecek birçok vergi, harç ve cez"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Baktılar bizim millet alışık Netflix de dayamaya başladı",
+      "url": "https://www.instagram.com/p/DgIRQX6qtL-",
+      "ozet": "Netflix Türkiye'de aylık abonelik fiyatlarına yüzde 36 zam yaptı. Temel paket 259,99 TL, Standart 389,99 TL ve Premium 499,99 TL oldu. https://dinamikgundem.com"
+    },
+    {
+      "tur": "haber",
+      "baslik": "[Geliştirici Paylaşımı] ABONEXA: Abonelik ve fatura takibi, zamları yakalar (ücretsiz, reklamsız)",
+      "url": "https://forum.donanimhaber.com/gelistirici-paylasimi-abonexa-abonelik-ve-fatura-takibi-zamlari-yakalar-ucretsiz-reklamsiz--164396890",
+      "ozet": "- Ödendi dediğinizde tutar soruluyor; fiyat değiştiyse zam yüzdesiyle gösteriliyor. - 12 aylık ödeme takvimi (yıllık ödemeler ortalamaya bölünmüyor). - Kredi"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Gözler 1 Aralık'ta: Elektrik ve doğalgazda yeni tarife, akaryakıta rekor zam!",
+      "url": "https://www.birgun.net/haber/gozler-1-aralik-ta-elektrik-ve-dogalgazda-yeni-tarife-akaryakita-rekor-zam-748736",
+      "ozet": "Motorin fiyatı, yeni haftada yapılacak zamla yeniden 90 TL'ye dayanacak. doğalgaz tarifelerinde ise yıl sonuna kadar zam yapılması beklenmiyor, abonelerine yö"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Milyonlarca abone ile araç sahibinin bütçesini etkileyecek yeni elektrik ve doğal gaz ...",
+      "url": "https://www.yenimesaj.com.tr/milyonlarca-abone-ile-arac-sahibinin-butcesini-etkileyecek-yeni-elektrik-ve-dogal-gaz-tarifeleri-ile-akaryakit-fiyatlari-icin-gozler-1-aralik-sali-gunune-cevrildi-otv-duzenlemesi-nedeniyle-benzinin-litresine-4-tl-15-kurus-motorinin-de-3-tl--H1622662.htm",
+      "ozet": "ÖTV düzenlemesi nedeniyle benzinin litresine 4 TL 15 kuruş, motorinin de 3 TL 60 kuruş ÖTV zam yapılacak. Kaynaklar, kasım ayında motorinin litresinin tüm"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Gram Altın Fiyatı - Canlı Gram Altın Alış ve Satış Fiyatları Bugün Ne Kadar?",
+      "url": "https://www.haberturk.com/ekonomi/altin/610-gram-altin",
+      "ozet": "Section Name\nG\nXGLD\nGRAM ALTIN TL/GR\n5.811,42 %-0,22\nALIŞ5.810,44 ₺\nSATIŞ5.811,42 ₺\nFARK-12,73 ₺\nÖNCEKİ KAPANIŞ5.824,15 ₺\nEN YÜKSEK5.877,76 ₺\nEN DÜŞÜK5.786,65 ₺\nGüncelleme: 26/11/2026 11:04:36\nGüncelleme 26/11/2026 11:04:36\nALTIN FİYATLARI\n,,,\nALTIN CİNSİ,ALIŞ,SATIŞ,FARK\nGRAM ALTIN FİYATI GRAM ALTIN FİYATI,5.810,44,5.811,42,-0.22 %\nALTIN/ONS FİYATI ALTIN/ONS FİYATI,3.567,58,3.568,39,-0.60 %\nÇEYREK ALTIN FİYATI ÇEYREK ALTIN FİYATI,9.296,10,9.500,90,-0.23 %\nCUMHURİYET ALTINI FİYATI CUMHURİYET ALTI"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Euro Kuru - Bugün ne kadar?",
+      "url": "https://canlidoviz.com/doviz-kurlari/euro",
+      "ozet": "EUR \nEuro Kuru\nEUR\n55,8181 ₺\nFARK\n%0,11 0,06\nPİYASA\nAÇIK 06:49:43\nALIŞ FİYATI 55,7891\nSATIŞ FİYATI 55,8181\nEN YÜKSEK 56,3504\nEN DÜŞÜK 55,7242\nD. KAPANIŞ 55,7545\nHATA OLUŞTU, LÜTFEN YENİDEN DENEYİN!\nEuro kurunun Serbest Piyasa anlık alış fiyatı 55,7891 TL, satış fiyatı ise 55,8181 TL seviyesindedir.\nEuro Diğer Piyasalar\nPiyasa,Alış Fiyatı,Satış Fiyatı,MAKAS\nKapalı Çarşı,55,5800,55,7960,%0,39\nSerbest Piyasa,55,7891,55,8181,%0,05\nAkbank,54,1220,57,0912,%5,49\nAlbaraka,55,1710,56,1940,%1,85\nDenizbank"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Altın fiyatlarında sürpriz yükseliş: Gram, çeyrek ve Cumhuriyet altını bugün ne kadar oldu? Güncel altın fiyatları 27 Kasım 2026 Cuma... - Son Dakika Ekonomi Haberleri | Cumhuriyet",
+      "url": "https://www.cumhuriyet.com.tr/ekonomi/altin-fiyatlarinda-surpriz-yukselis-gram-ceyrek-ve-cumhuriyet-altini-bugun-ne-kadar-oldu-guncel-altin-fiyatlari-27-kasim-2026-cuma-2559824",
+      "ozet": "Spot altın, cuma günü TSİ 07.17 itibarıyla yüzde 1,9 yükselerek ons başına 3 bin 633,91 dolara çıktı. ABD'den gelen yüksek enflasyon verileri ve faiz artışı beklentileri nedeniyle baskı altında kalan altın, hafta başında Eylül 2025'ten bu yana en düşük seviyesine gerilemişti. Son yükselişle birlikte fiyatlar kayıplarının bir bölümünü telafi etti.\n,\nAltın Türü,Altın Fiyatı\nGram altın,5.925 TL\nÇeyrek altın,10.213 TL\nCumhuriyet altını,40.518 TL\nOns altın,3.629 Dolar\nYarım altın,20.413 TL\nTam altın,"
+    },
+    {
+      "tur": "haber",
+      "baslik": "Cumhuriyet Altını Altın Fiyatı Canlı 2026 - Bugün Cumhuriyet Altını Altın Ne Kadar Oldu? Güncel Alış Satış Fiyatları",
+      "url": "https://www.apara.com.tr/altin/cumhuriyet-altini-fiyati",
+      "ozet": "ALTIN CİNSİ,ALIŞ (TL),SATIŞ (TL),FARK (%),GÜNCELLEME\nGRAM ALTIN,5.963,87,5.964,82,2,58%,23:59\nÇEYREK ALTIN,9.734,40,9.957,63,1,11%,17:02\nYARIM ALTIN,19.407,96,19.915,27,1,11%,17:02\nTAM ALTIN,38.937,60,39.708,73,1,11%,17:02\nCUMHURİYET ALTINI,40.348,00,40.959,00,1,16%,16:49\nATA ALTIN,40.154,40,41.170,40,1,11%,17:02\nONS ALTIN,3.653,86,3.654,44,2,44%,22:45\nHAS ALTIN,6.084,00,6.090,30,1,11%,17:02\n22 AYAR BİLEZİK,5.548,61,5.554,35,1,11%,17:02\n18 AYAR ALTIN,4.441,32,4.445,92,1,11%,17:02\n14 AYAR ALTIN,3"
+    },
+    {
+      "tur": "reddit.com",
+      "baslik": "Türkiye'ye Dönmek Mantıklı Mı? : r/CodingTR",
+      "url": "https://www.reddit.com/r/CodingTR/comments/1y28wti/t%C3%BCrkiyeye_d%C3%B6nmek_mant%C4%B1kl%C4%B1_m%C4%B1",
+      "ozet": "Yıllık 100k Euro brüt aldığını düşünelim aylık net 6000 yapar, %30 bittiyse 4500'e düşer. O aylık 1500 Euro netlik farkı verecek zam yok, başka firma bulması"
+    },
+    {
+      "tur": "eksisozluk.com",
+      "baslik": "2026 ekonomik krizi - sayfa 255",
+      "url": "https://eksisozluk.com/2026-ekonomik-krizi--4749220?p=255",
+      "ozet": "ocakta %30 civarı zam alsan bile kira, ulaşım, elektrik ve gıda zamları o artışı birkaç ayda eritecek eline geçen lira artarken alabildiğin ürün azalacak."
+    },
+    {
+      "tur": "eksisozluk.com",
+      "baslik": "hosting.com.tr - sayfa 2 - ekşi sözlük",
+      "url": "https://eksisozluk.com/hosting-com-tr--3541045?p=2",
+      "ozet": "Title: hosting.com.tr - sayfa 2 - ekşi sözlük\n# hosting.com.tr. ekonomik ve kaliteli hizmet verirken bugüne ulaştığımızda;. saçmasapan serverları parçalayıp bölüp “hosting” hizmeti verdiği iddiasında olan ve bu kağnılarla ilgili yaşadığınız sıkıntılarda teknik destek açarsanız iki tane gerizekalının laf sokma çabasıyla hazır aksayan işle ilgili gerilen sinirinizi daha da geren bir marka olmuş durumda gün itibariyle. bu arkadaşların en üst hosting paketi;. emsal olarak güzel hosting en üst hostin"
+    },
+    {
+      "tur": "eksisozluk.com",
+      "baslik": "koluman - ekşi sözlük",
+      "url": "https://eksisozluk.com/koluman--273476",
+      "ozet": "Title: koluman - ekşi sözlük\n# koluman. - ankara'da ki bir mercedes bayii, dev ekran, iki beleş bira, bir suru formula sever. bu birleşimler sayesinde geçen sene çoğu formula 1 yarışını izlediğim mekan. - aynı zamanda mercedes-benz turk a.s.'nin 9% ortağıdır. ama bununla yetinmemiştir gidip bi de mercedes-benz turk'ün 67%sini elinde bulunduran daimlerchrysler'in de hisselerini almıştır. çok mümtaz bi abidir kendisi. bugün bağdat caddesindeki yeni şubesine gittim. olağanüstü zevkli tasarlanmış bi"
+    },
+    {
+      "tur": "eksisozluk.com",
+      "baslik": "bmw 3 serisi - sayfa 14 - ekşi sözlük",
+      "url": "https://eksisozluk.com/bmw-3-serisi--197848?p=14",
+      "ozet": "Title: bmw 3 serisi - sayfa 14 - ekşi sözlük\n# bmw 3 serisi. bmw buymuş işte ne yapacaksın. makyajlı versiyonla birlikte, çok değişiklik olmamış gibi görünüyor ise de, karoserin içinde çok önemli değişiklikler var. bu arada dışarıdan da hiçbirşey yapılmamış değil, daha modern görünen ön farlar ve tamponlarda yeni algısını yükselten rötuşlar var. eskiden giriş seviyesi modeli olarak 316i, 1,6 lt. 136 ps'lik motor ile satılmaktaydı malum. makyajlı kasa ile; mini cooper, bmw 2 serisi coupe - active"
+    },
+    {
+      "tur": "youtube.com",
+      "baslik": "4+1 SINGLE-STORY DETACHED HOUSE ROUGH CONSTRUCTION COST. CURRENT PRICES & ANNUAL INCREASE RATE?",
+      "url": "https://www.youtube.com/watch?v=6dj5F0EKJdo",
+      "ozet": "4+1 SINGLE-STORY DETACHED HOUSE ROUGH CONSTRUCTION COST. CURRENT PRICES & ANNUAL INCREASE RATE?\nHello, in this video we recalculated the rough construction cost of a 4+1 single-story detached house, which we calculated last year, using current prices. We tried to determine how much construction costs have increased in the last year. Our project has a closed area of ​​179 m2 and a construction area of ​​198 m2 including the terrace. The foundation was designed as a continuous foundation, with a o"
+    },
+    {
+      "tur": "youtube.com",
+      "baslik": "Siyasette vurgun listesi polemiği... 21 Kasım 2026 Çalar Saat Hafta Sonu",
+      "url": "https://www.youtube.com/watch?v=U606-5g8dag",
+      "ozet": "Siyasette vurgun listesi polemiği... 21 Kasım 2026 Çalar Saat Hafta Sonu\nKimler fon vurgununa karıştı? 21 Kasım 2026 Çalar Saat Hafta Sonu bülteni yayında hemen izle!\nNOW Haber Youtube Kanalına Abone Ol\n\nÇalar Saat Hafta Sonu, samimi ve dürüst habercilik anlayışıyla Türkiye'nin dört bir yanından derlediği haberleri izleyicilerle buluşturup ülkenin nabzını tutmaya devam ediyor. Türkiye'nin lider sabah haber programı Çalar Saat Hafta Sonu NOW'da! \nBizi sosyal medyadan takip edin: \nFacebook:   / no"
+    },
+    {
+      "tur": "youtube.com",
+      "baslik": "Bitcoin Neden Düştü? 49.000$ mı, 75.000$ mı? | BTC Teknik Analiz",
+      "url": "https://www.youtube.com/watch?v=jujSdA59ACY",
+      "ozet": "Bitcoin Neden Düştü? 49.000$ mı, 75.000$ mı? | BTC Teknik Analiz\nBitcoin bir ayda %29 değer kaybetti ve 2026'nın dibini kırdı. Bu videoda düşüşün 4 makro nedenini ve günlük grafikte izlediğim kritik seviyeleri anlatıyorum. 📉\n⏱️ Bölümler\n0:00 Bitcoin neden düştü?\n0:12 Makro nedenler: Fed, dolar, ETF çıkışları, likidasyonlar\n0:47 Günlük grafik: alçalan tepeler ve dipler\n1:12 HTF destek (49–55 bin) ve likidite\n1:28 Tepki gelirse: 60–62,5 bin ve 68,5–75 bin\n1:46 Ana senaryo ve senaryonun bozulduğu s"
+    },
+    {
+      "tur": "youtube.com",
+      "baslik": "Not an Organization, but a Financial Cartel! | SONER GÖKTEN - SAİT ÜRÜNLÜ",
+      "url": "https://www.youtube.com/watch?v=FwglGSTTK0E",
+      "ozet": "Not an Organization, but a Financial Cartel! | SONER GÖKTEN - SAİT ÜRÜNLÜ\nChannel: Soner Gökten\n111K subscribers\nDescription\n13,418 views\nSait ÜRÜNLÜ and Prof. Dr. Soner GÖKTEN are discussing current developments. #sonergökten #saitürünlü\n💬 Share your opinions and questions in the comments.\n🔔 Don't forget to subscribe to our channel and turn on notifications to stay updated on important developments in the financial world.\nInvestmentFunds #FundMarket #Finance #InvestorRights #SaitÜrünlü #SonerGö"
+    }
+  ]
+}
